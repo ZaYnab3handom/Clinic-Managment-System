@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../generalView.css">
+    <title>Presciption Form</title>
+</head>
+
+<body>
+    <div class="navBar">
+        <a href="patient.html">
+            <h1>HMS</h1>
+        </a>
+        <div>
+            <nav>
+                <a href="patient.html">Patient</a>
+                <a href="doctor.html">Doctor</a>
+                <a href="appoinment.html">Appoinment</a>
+                <a href="prescriptionListView.html">Prescription</a>
+            </nav>
+        </div>
+        <div>
+            <img src="" alt="">
+            <span>User</span>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="controlPanel">
+            <div class="topControlPanel">
+                <span>Prescription</span>
+            </div>
+            <div class="bottomControlPanel">
+               <div class="bcpLeftSide">
+                <!-- <a href="prescriptionForm.html" class="button">Create</a> -->
+                <button>Save</button>
+                <button>Discard</button>
+            </div>
+                
+            </div>
+        </div>
+        <div class="formContainer">
+            <form action="">
+                <div class="patientInfo">
+                    <div class="leftgroup">
+                        <label for="patientname">Patient Name</label>
+                        <input type="text" id="patientname" name="patientname"><br> 
+                        <label for="patientage">Patient Age</label>
+                        <input type="text" id="patientage" name="patientage"><br>
+                        <label for="PrescriptionDate">Prescription Date</label>
+                        <input type="datetime-local" id="PrescriptionDate" name="PrescriptionDate"><br>          
+                    </div>
+                    <div class="rightGroup">
+                        <label for="Department">Department</label>
+                        <input type="text" id="Department" name="Department"><br> 
+                        <label for="Doctor">Doctor</label>
+                        <input type="text" id="Doctor" name="Doctor"><br>
+                    </div>
+                </div>
+                <div class="diagnosis">
+                    <label for="Disease">Disease</label>
+                        <input type="text" id="Disease" name="Disease"><br> 
+                        <label for="MedicalTest">MedicalTest</label>
+                        <input type="text" id="MedicalTest" name="MedicalTest"><br>
+                </div> 
+                
+                <div class="medicinetable">
+                    <table>
+                        <thead>
+                          <tr>
+                            <th>Medicine Name</th>
+                            <th>Active Component</th>
+                            <th>Allow Substitution"</th>
+                            <th>Qty</th>
+                            <th>Unit Of Measure</th>
+                            <th>Dosage</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Medicine Name</th>
+                                <th>Active Component</th>
+                                <th>Allow Substitution"</th>
+                                <th>Qty</th>
+                                <th>Unit Of Measure</th>
+                                <th>Dosage</th>
+                              </tr>
+                        </tbody>
+                      </table>
+                </div>
+                <footer>
+                    <label for="follwdate">Follw-up Datae</label>
+                    <input type="datetime-local" id="follwdate" name="follwdate"><br> 
+                    <label for="notes">Notes</label>
+                    <input type="text" id="notes" name="notes"><br>
+                </footer>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
