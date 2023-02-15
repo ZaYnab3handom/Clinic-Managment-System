@@ -1,0 +1,12 @@
+.navBar{
+    display: flex;
+    align-items: center;
+}
+.bottomControlPanel{
+        display: flex;
+
+}
+.bcpRightSide{
+            display: flex;
+
+}
