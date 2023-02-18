@@ -1,12 +1,157 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    
+}
+
+html {
+    font-family: 'Poppins', sans-serif;
+    background-color: rgb(243, 244, 248);
+    /* background:url(download.jpg); */
+
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+
+/* navBar */
 .navBar{
     display: flex;
     align-items: center;
+    justify-content: space-around;
+    height: 45px;
+    background-color: #7270af;
+    color: white;
+    
+}
+.navRedirect{
+    display: flex;
+    height: 100%;
+}
+.navRedirect >span{
+    width: 100px;
+    padding: 15px 10px 10px 10px;
+    text-align: center;
+}
+.navRedirect >span:hover{
+   background-color: #4c17ad;
+}
+.usrInfo{
+    width: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* controlPanel */
+
+.controlPanel{
+    background-color: white;
+    height:85px
+}
+.topControlPanel{
+    color: #4c17ad;
+    height: 30px;
+    padding: 10px 10px 10px 20px;
 }
 .bottomControlPanel{
         display: flex;
+        height: 40px;
+        width: 150px;
+        padding: 15px 10px 10px 20px;
+
+}
+.coloredbtn{
+    width: 50px;
+    height: 30px;
+    border-radius: 5px;
+    border: none;
+    background-color: #7270af;
+    color: white;
+}
+.whitebtn{
+    width: 65px;
+    height: 30px;
+    border-radius: 5px;
+    border-color: rgb(243, 239, 250);
+    background-color: white;
+    color: black;
 
 }
 .bcpRightSide{
-            display: flex;
+        display: flex;
+        width: 120px;
+        
 
 }
+
+/* //tomove */
+.formContainer{
+    width: 1150px;
+    height:1100px;
+    margin-top:10px ;
+    padding: 40px 10px 10px 10px;
+    background-color: white;
+    margin-left: 100px;
+    border: 1px solid rgb(165, 171, 190);    
+}
+.fieldGroup{
+    width: 520px;
+}
+
+.labelInput{
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ width:500px;
+ height:25px;
+ padding: 15px;
+ 
+}
+.labelInput>input{
+    width: 360px;
+    height:25px;
+    border-color: rgb(235, 239, 250);
+    border-radius: 5px;
+    padding: 1px 1px 1px 5px;
+}
+.labelInput>label{
+    display: block;
+    width: 130px;
+    height:25px;
+
+}
+
+
+.patientInfo{
+    display: flex;
+    justify-content: space-between;
+    width: 1000px;
+    padding: 10px 10px 10px 10px;
+}
+.diagnosis{
+    margin-top: 10px;
+    padding: 10px 10px 10px 10px;
+}
+.medicinetable{
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+.medicinetable th {
+    
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+    width: fit-content;
+    height: 10px;
+    background-color: #cfd1df;
+    color: black;
+  }
+  footer{
+    margin-top: 10px;
+    padding: 10px 10px 10px 20px;
+  }
