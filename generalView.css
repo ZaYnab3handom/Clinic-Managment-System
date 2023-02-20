@@ -99,6 +99,20 @@ a{
     margin-left: 100px;
     border: 1px solid rgb(165, 171, 190);    
 }
+.filterCount{
+    border: 1px solid rgb(204, 192, 192);
+    width: 100px;
+    color: black;
+    /* text-align: left; */
+
+}
+.abb{
+    margin-top: -10px;
+    position:absolute;
+    right: 150px;
+
+}
+
 .fieldGroup{
     width: 520px;
 }
@@ -140,7 +154,18 @@ a{
 .medicinetable{
     margin-top: 10px;
     padding-left: 20px;
+
 }
+table{
+     width: 980px;
+    border-radius: 5px;
+    background-color: #cfd1df;
+
+
+}
+
+
+
 
 .medicinetable th {
     
@@ -148,8 +173,19 @@ a{
     text-align: left;
     width: fit-content;
     height: 10px;
-    background-color: #cfd1df;
     color: black;
+      border: 1px solid #ddd;
+
+  }
+  .medicinetable td {
+    
+    padding: 10px 10px 10px 10px;
+    text-align: left;
+    width: fit-content;
+    height: 5px;
+    color: black;
+      border: 1px solid #ddd;
+
   }
   footer{
     margin-top: 10px;

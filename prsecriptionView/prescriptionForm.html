@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../generalView.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" />
+
     <title>Presciption Form</title>
 </head>
 
@@ -44,6 +46,12 @@
         </div>
         <div class="formContainer">
             <form action="">
+                <div class="abb">
+                    <a  class="filterCount" href="prescriptionListView.html">
+                        <i class="fa-solid fa-file-waveform"></i>
+                           count 
+                    </a>
+                </div>
                 <div class="patientInfo ">
                     <div class="leftgroup fieldGroup ">
                         <span class="labelInput">
@@ -104,16 +112,28 @@
                         </thead>
                         <tbody>
                             <tr>
-                                
+                                <td>Medicine Name</td>
+                                <td>Active Component</td>
+                                <td>Allow Substitution</td>
+                                <td>Qty</td>
+                                <td>Unit Of Measure</td>
+                                <td>Dosage</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <footer>
-                    <label for="follwdate">Follw-up Datae</label>
+                <footer >
+                    <div class="labelInput">
+                        <label for="follwdate">Follw-up Date</label>
                     <input type="datetime-local" id="follwdate" name="follwdate"><br>
+                    </div>
+                    
+                    <div class="labelInput">
+                        
                     <label for="notes">Notes</label>
                     <input type="text" id="notes" name="notes"><br>
+                    </div>
+
                 </footer>
 
             </form>
