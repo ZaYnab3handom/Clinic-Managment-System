@@ -38,7 +38,9 @@
             <div class="bottomControlPanel">
                 <div class="bcpLeftSide">
                     <!-- <a href="prescriptionForm.html" class="button">Create</a> -->
-                    <button class="coloredbtn">Save</button>
+                    <!-- <button class="coloredbtn" name="savebtn">Save</button>
+                    <input type="text"> -->
+                    <!-- <input type="submit" value="Save" name="savebtn"  class="coloredbtn"/>  -->
                     <button class="whitebtn">
                         <a href="prescriptionListView.html" style="text-decoration: inherit;
                         color: inherit;">Discard</a>
@@ -48,7 +50,8 @@
 
         </div>
         <div class="formContainer">
-            <form action="">
+            <form action="" method="post">
+                <input type="submit" value="Save" name="savebtn"  class="coloredbtn"/> 
                 <div class="abb">
                     <a  class="filterCount" href="prescriptionListView.html">
                         <i class="fa-solid fa-file-waveform"></i>
@@ -68,7 +71,7 @@
                         </span>
                         <span class="labelInput">
                             <label for="PrescriptionDate">Prescription Date</label>
-                            <input type="datetime-local" id="PrescriptionDate" name="PrescriptionDate">
+                            <input type="datetime" id="PrescriptionDate" name="PrescriptionDate">
                         </span>
 
 
@@ -87,11 +90,11 @@
                 <div class="diagnosis" >
                     <span class="labelInput" style="width: 1000px;">
                         <label for="Disease">Disease</label>
-                        <input type="text" id="Disease" name="Disease" style="width: 830px;">
+                        <input type="text" id="Disease" name="disease" style="width: 830px;">
                     </span>
                     <span class="labelInput" style="width: 1000px;">
                         <label for="MedicalTest">MedicalTest</label>
-                        <input type="text" id="MedicalTest" name="MedicalTest" style="width: 830px;">
+                        <input type="text" id="MedicalTest" name="medicalTest" style="width: 830px;">
                     </span>
                     <span class="labelInput" style="width: 1000px;">
                         <label for="xrays">X-Rays</label>
@@ -106,29 +109,48 @@
                         <thead>
                             <tr>
                                 <th>Medicine Name</th>
-                                <th>Active Component</th>
-                                <th>Allow Substitution</th>
-                                <th>Qty</th>
-                                <th>Unit Of Measure</th>
                                 <th>Dosage</th>
+                                <th>Allow Substitution</th>
+                                <th>comment</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Medicine Name</td>
-                                <td>Active Component</td>
-                                <td>Allow Substitution</td>
-                                <td>Qty</td>
-                                <td>Unit Of Measure</td>
-                                <td>Dosage</td>
+                                <td ><input type="text"name="medicineName"></td>
+                                <td ><input type="text" name="dosage"></td>
+                                <td ><input type="checkbox" name ="allowSubsistuation" ></td>
+                                <td><input type="text" name ="comment" ></td>
                             </tr>
+                            <tr>
+                                <td ><input type="text"name="medicineName"></td>
+                                <td ><input type="text" name="dosage"></td>
+                                <td ><input type="checkbox" name ="allowSubsistuation" ></td>
+                                <td><input type="text" name ="comment" ></td>
+                            </tr>
+                            <tr>
+                                <td ><input type="text"name="medicineName"></td>
+                                <td ><input type="text" name="dosage"></td>
+                                <td ><input type="checkbox" name ="allowSubsistuation" ></td>
+                                <td><input type="text" name ="comment" ></td>
+                            </tr>
+                            <tr>
+                                <td ><input type="text"name="medicineName"></td>
+                                <td ><input type="text" name="dosage"></td>
+                                <td ><input type="checkbox" name ="allowSubsistuation" ></td>
+                                <td><input type="text" name ="comment" ></td>
+                            </tr>
+                            <tr > 
+                               <td colspan="4"> addNewLine</td>
+                            </tr> 
                         </tbody>
+                      
+
                     </table>
                 </div>
                 <footer >
                     <div class="labelInput">
                         <label for="follwdate">Follw-up Date</label>
-                    <input type="datetime-local" id="follwdate" name="follwdate"><br>
+                    <input type="date" id="follwdate" name="follwdate"><br>
                     </div>
                     
                     <div class="labelInput">
@@ -142,7 +164,10 @@
             </form>
         </div>
     </div>
-
+   
 </body>
 
 </html>
+<?php 
+   include("prescWrite.php");
+?>
