@@ -27,16 +27,13 @@
         $comment=$_POST["comment"];
 
 
-        //  connectio to database 
-        // query 
-            $sql = "insert into prescription 
-            (appoimtment_id, prescription_time, disease
-            ,medical_test, x_rays, followup_date, notes)
-             values ( '$appoitmentId', '$prescription_time', '$disease'
-             ,'$medicalTest','$xray', '$followUpDate','$notes' )";
-        // excute query 
+       //insert new Prescription to prescription table
+        $sql = "insert into prescription 
+        (appoimtment_id, prescription_time, disease,medical_test, x_rays, followup_date, notes)
+        values ('$appoitmentId','$prescription_time','$disease','$medicalTest','$xray','$followUpDate','$notes' )";
         $result = mysqli_query($connection, $sql);
 
+        //insert prescription lines to prescription line table 
         for($i=0;$i<count($medicineName);$i++){
             // if($allowSubsistuation[$i]=="on"){
             //     $allowSubsistuation[$i]=1;
@@ -60,21 +57,29 @@
         }
     }
 
-        //Read Prescription Table
+        //Read From Prescription Table
     
         $readSql = "select * from prescription"; 
         $readResult = mysqli_query($connection, $readSql);
+        while($data = mysqli_fetch_array($readResult)) {
+            echo "<tr>";    
+                echo"<td>checkBox</td>";
+                echo "<td>".$data["id"]."</td>";
+                echo"<td>Patient</td>";
+                echo" <td>Department</td>";
+                echo" <td>Doctor</td>";
+                echo "<td>".$data["prescription_time"]."</td>";
+                echo "<td>".$data["followup_date"]."</td>";
+                echo "<td> <a href='delete.php?user=$data[id]'> Delete </a> </td>";
+                echo "<td> <a href='edit.php?user=$data[id]'> Edit </a> </td>";
+            echo "</tr>";   }
       
-        // while($data = mysqli_fetch_array($readResult)) {
-                    
-        //             $data["id"];
-        //             $data["prescription_time"];
-        //             $data["followup_date"];
-        //             // echo "<td> <a href='delete.php?user=$data[id]'> Delete </a> </td>";
-        //             // echo "<td> <a href='edit.php?user=$data[id]'> Edit </a> </td>";
-    
-        //         }
-    
+       
+    //Delete 
+    // $id = $_GET["user"];
+    //  $sql = "delete from users where id = $id"; 
+    //  $result = mysqli_query($connection, $sql);
+    //  header("Location:list.php");
     
            
 
