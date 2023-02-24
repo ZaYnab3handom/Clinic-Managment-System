@@ -1,4 +1,5 @@
 <?php 
+     include_once("../dbConnection.php");
     if(isset($_POST["savebtn"])){
         //record to set in prescrition table
         print_r($_POST);
@@ -25,10 +26,8 @@
         $allowSubsistuation=$_POST["allowSubsistuation"];
         $comment=$_POST["comment"];
 
-        // id	prescription_id	medicine_name	dosage_detail	allow_subsistuation	comment	
 
         //  connectio to database 
-            include_once("../dbConnection.php");
         // query 
             $sql = "insert into prescription 
             (appoimtment_id, prescription_time, disease
@@ -46,10 +45,8 @@
             //     $allowSubsistuation[$i]=0;
             // }
             $sql2 = "insert into prescription_line 
-            (prescription_id, medicine_name, dosage_detail
-           , comment)
-             values ( '$appoitmentId', '$medicineName[$i]', '$dosage[$i]'
-             ,'$comment[$i]' )";
+            (prescription_id, medicine_name, dosage_detail, comment)
+             values ( '$appoitmentId', '$medicineName[$i]', '$dosage[$i]','$comment[$i]' )";
              $result = mysqli_query($connection, $sql2);
 
             //  $sql2 = "insert into prescription_line 
@@ -61,10 +58,25 @@
 
 
         }
-       
-
-
-        echo "User Added Successfully";
-
     }
+
+        //Read Prescription Table
+    
+        $readSql = "select * from prescription"; 
+        $readResult = mysqli_query($connection, $readSql);
+      
+        // while($data = mysqli_fetch_array($readResult)) {
+                    
+        //             $data["id"];
+        //             $data["prescription_time"];
+        //             $data["followup_date"];
+        //             // echo "<td> <a href='delete.php?user=$data[id]'> Delete </a> </td>";
+        //             // echo "<td> <a href='edit.php?user=$data[id]'> Edit </a> </td>";
+    
+        //         }
+    
+    
+           
+
+
 ?>
