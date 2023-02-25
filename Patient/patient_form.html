@@ -37,9 +37,7 @@
             <div class="bottomControlPanel">
                 <div class="bcpLeftSide">
                     <!-- <a href="prescriptionForm.html" class="button">Create</a> -->
-                    <button class="coloredbtn">Save</button>
-                    <button class="whitebtn">
-                        <a href="prescriptionListView.html" style="text-decoration: inherit;
+                        <a href="patient.html" style="text-decoration: inherit;
                         color: inherit;">Discard</a>
                     </button>
                 </div>
@@ -47,13 +45,14 @@
 
          </div>
 
-         <div class="formContainer" style="height: 520px;">
-            <form action="">
+         <div class="formContainer">
+            <form action="" method="post">
+                <input type="submit" value="Save" name="savebtn"  class="coloredbtn"/>
                 <div class="patientInfo ">
                     <div class="leftgroup fieldGroup ">
                         <span class="labelInput">
                             <label for="patientname">Patient Name</label>
-                            <input type="text" id="patientname" name="patientname">
+                            <input type="text" id="patientname" name="patientName">
                         </span>
 
                         <span class="labelInput">
@@ -66,22 +65,18 @@
                         </span>
                         <span class="labelInput">
                             <label for="employeeId">Blood Type</label>
-                            <select style=" width: 360px;" >
-                                <option >A</option>
-                                <option >B</option>
-                                <option >AB</option>
-                                <option >O</option>
+                            <select name="Blood" style=" width: 360px;" >
+                                <option value="A" >A</option>
+                                <option value="B">B</option>
+                                <option value="AB">AB</option>
+                                <option value="O">O</option>
                              </select>
                         </span>
                         <span class="gender">
-                            <label for="Address">Gender</label>
-
-                            <input type="radio" id="male" name="fav_language" value="HTML">
-                            <label for="">Male</label>
-                            <input type="radio" id="female" name="fav_language" value="CSS">
-                            <label for="">Female</label>
+                            <label for="gender">Gender: </label>  
+                                <input type="radio" name="gender" id="gender" value="M">Male
+                                <input type="radio" name="gender" id="gender"value="F" >Female
                         </span>
-                        
                     </div>
 
                     <div class="rightGroup fieldGroup">
@@ -95,25 +90,18 @@
                         </span>
                         <span class="labelInput">
                             <label for="employeeId">Company</label>
-                            <select style=" width: 360px;" >
-                                <option >Sugar Canel</option>
-                                <option >Department2</option>
-                                <option >Department3</option>
+                            <select name="company" style=" width: 360px;" >
+                                <option value="a" >Sugar Canel</option>
+                                <option value="b">Department2</option>
+                                <option value="c">Department3</option>
                              </select>
                         </span>
                         
                     </div>
                     
                 </div>
-                
-                    
-                    
-                     
-                   
-                    
-                   
-                <div class="diseases" >
-                
+
+                <div class="diseases" >          
                     <span class="labelInput" style="width: 1000px;">
                         <label for="ChronicDisease">Chronic Disease</label>
                         <input type="text" id="ChronicDisease" name="ChronicDisease" style="width: 830px;">
@@ -124,9 +112,9 @@
                     </span>
                     <span class="labelInput" style="width: 1000px;">
                         <label for="Address">Address</label>
-                        <input type="text" id="Address" name="Address" placeholder="street">
-                        <input type="text" id="Address" name="Address" placeholder="city">
-                        <input type="text" id="Address" name="Address" placeholder="Governorate">
+                        <input type="text" id="Address" name="street" placeholder="street">
+                        <input type="text" id="Address" name="city" placeholder="city">
+                        <input type="text" id="Address" name="Governorate" placeholder="Governorate">
                     </span>
                 </div>
 
@@ -137,3 +125,6 @@
     </div>
 </body>
 </html>
+<?php
+                      include("PatientWrite.php");
+                    ?>
