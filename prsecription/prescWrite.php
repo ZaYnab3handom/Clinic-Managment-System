@@ -70,16 +70,13 @@
                 echo" <td>Doctor</td>";
                 echo "<td>".$data["prescription_time"]."</td>";
                 echo "<td>".$data["followup_date"]."</td>";
-                echo "<td> <a href='delete.php?user=$data[id]'> Delete </a> </td>";
-                echo "<td> <a href='edit.php?user=$data[id]'> Edit </a> </td>";
+                echo "<td> <a href='prescDelete.php?user=$data[id]'> Delete </a> </td>";
+                echo "<td> <a href='prescEdit.php?user=$data[id]'> Edit </a> </td>";
+                echo "<td> <a href='prescriptionForm.php?user=$data[id]'> Edit </a> </td>";
             echo "</tr>";   }
       
        
-    //Delete 
-    // $id = $_GET["user"];
-    //  $sql = "delete from users where id = $id"; 
-    //  $result = mysqli_query($connection, $sql);
-    //  header("Location:list.php");
+   
     
            
 
