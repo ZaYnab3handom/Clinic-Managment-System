@@ -53,7 +53,7 @@
             <div class="bottomControlPanel row col-lg-12">
                <div class="bcpLeftSide col-lg-6">
                 <button class="btn btn-primary">
-                    <a style="color: white; text-decoration: none;" href="prescriptionForm.html">Add Patient</a>
+                    <a style="color: white; text-decoration: none;" href="patient_form.html">Add Patient</a>
                 </button>
             </div>
             <div class="bcpRightSide col-lg-6">
@@ -75,28 +75,20 @@
                     <th>Name</th>
                     <th>Gender</th>
                     <th>Mobile</th>
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Dr</th>
+                    <th>Age</th>
+                    <th>Blood Type</th>
+                    <th>Delete</th>
+                    <th>Edit</th>
                   </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th>12345678912345</th>
-                        <th>Mario</th>
-                        <th>Male</th>
-                        <th>01228099487</th>
-                        <th>25/2/2022</th>
-                        <th>8:15</th>
-                        <th>Mohamed Ahmed</th>
-                      </tr>
+                    <?php
+                      include("PatientRead.php");
+                    ?>
                 </tbody>
                 
               </table>
         </div>
-    </div>
-    <div>
-       
     </div>
 
 </body>

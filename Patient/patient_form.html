@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>patient</title>
+    <link rel="stylesheet" href="../generalView.css">
+    <link rel="stylesheet" href="patient_form_style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" />
+
+</head>
+<body>
+    <div class="navBar">
+        <a href="patient.html">
+            <h1>HMS</h1>
+        </a>
+        <div style="height: 100%;">
+            <nav class="navRedirect">
+                <span> <a href="patient.html">Patient</a></span>
+                <span> <a href="doctor.html">Doctor</a></span>
+                <span> <a href="appoinment.html">Appoinment</a></span>
+                <span> <a href="prescriptionListView.html">Prescription</a></span>
+            </nav>
+        </div>
+        <div class="usrInfo">
+            <img src="usr.png" style="width: 35px; height:35px;" alt="">
+            <span style="padding:0 10px 0 10px ;">Recepationist</span>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="controlPanel">
+            <div class="topControlPanel">
+                <h3>Patient</h3>
+            </div>
+            <div class="bottomControlPanel">
+                <div class="bcpLeftSide">
+                    <!-- <a href="prescriptionForm.html" class="button">Create</a> -->
+                        <a href="patient.html" style="text-decoration: inherit;
+                        color: inherit;">Discard</a>
+                    </button>
+                </div>
+            </div>
+
+         </div>
+
+         <div class="formContainer">
+            <form action="" method="post">
+                <input type="submit" value="Save" name="savebtn"  class="coloredbtn"/>
+                <div class="patientInfo ">
+                    <div class="leftgroup fieldGroup ">
+                        <span class="labelInput">
+                            <label for="patientname">Patient Name</label>
+                            <input type="text" id="patientname" name="patientName">
+                        </span>
+
+                        <span class="labelInput">
+                            <label for="nationalId">National Id</label>
+                            <input type="text" id="nationalId" name="nationalId">
+                        </span>
+                        <span class="labelInput">
+                            <label for="Birthdate">Birthdate</label>
+                            <input type="date" id="Birthdate" name="Birthdate">
+                        </span>
+                        <span class="labelInput">
+                            <label for="employeeId">Blood Type</label>
+                            <select name="Blood" style=" width: 360px;" >
+                                <option value="A" >A</option>
+                                <option value="B">B</option>
+                                <option value="AB">AB</option>
+                                <option value="O">O</option>
+                             </select>
+                        </span>
+                        <span class="gender">
+                            <label for="gender">Gender: </label>  
+                                <input type="radio" name="gender" id="gender" value="M">Male
+                                <input type="radio" name="gender" id="gender"value="F" >Female
+                        </span>
+                    </div>
+
+                    <div class="rightGroup fieldGroup">
+                        <span class="labelInput">
+                            <label for="mobile">Mobile</label>
+                            <input type="text" id="mobile" name="mobile">
+                        </span>
+                        <span class="labelInput">
+                            <label for="employeeId">Employee Id</label>
+                            <input type="text" id="employeeId" name="employeeId">
+                        </span>
+                        <span class="labelInput">
+                            <label for="employeeId">Company</label>
+                            <select name="company" style=" width: 360px;" >
+                                <option value="a" >Sugar Canel</option>
+                                <option value="b">Department2</option>
+                                <option value="c">Department3</option>
+                             </select>
+                        </span>
+                        
+                    </div>
+                    
+                </div>
+
+                <div class="diseases" >          
+                    <span class="labelInput" style="width: 1000px;">
+                        <label for="ChronicDisease">Chronic Disease</label>
+                        <input type="text" id="ChronicDisease" name="ChronicDisease" style="width: 830px;">
+                    </span>
+                    <span class="labelInput" style="width: 1000px;">
+                        <label for="PastSurgery">Past Surgery</label>
+                    <input type="text" id="PastSurger" name="PastSurger" style="width: 830px;">
+                    </span>
+                    <span class="labelInput" style="width: 1000px;">
+                        <label for="Address">Address</label>
+                        <input type="text" id="Address" name="street" placeholder="street">
+                        <input type="text" id="Address" name="city" placeholder="city">
+                        <input type="text" id="Address" name="Governorate" placeholder="Governorate">
+                    </span>
+                </div>
+
+                
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<?php
+                      include("PatientWrite.php");
+                    ?>
