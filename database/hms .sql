@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 25, 2023 at 01:04 PM
+-- Generation Time: Feb 26, 2023 at 01:22 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -31,7 +31,8 @@ CREATE TABLE `adress` (
   `id` int(11) NOT NULL,
   `apartment` int(100) NOT NULL,
   `street` varchar(100) NOT NULL,
-  `city_id` int(11) NOT NULL
+  `city` varchar(20) NOT NULL,
+  `country` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -49,29 +50,6 @@ CREATE TABLE `appointment` (
   `consultation_type` varchar(10) NOT NULL,
   `booked_online` tinyint(1) NOT NULL,
   `state` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `city`
---
-
-CREATE TABLE `city` (
-  `id` int(11) NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `country_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `country`
---
-
-CREATE TABLE `country` (
-  `id` int(11) NOT NULL,
-  `name` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -183,8 +161,7 @@ CREATE TABLE `users` (
 -- Indexes for table `adress`
 --
 ALTER TABLE `adress`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `city_id` (`city_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `appointment`
@@ -193,19 +170,6 @@ ALTER TABLE `appointment`
   ADD PRIMARY KEY (`id`),
   ADD KEY `FK_appointmenDoctor` (`doctor_id`),
   ADD KEY `FK_appointmenPatient` (`patient_Id`);
-
---
--- Indexes for table `city`
---
-ALTER TABLE `city`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `country_id` (`country_id`);
-
---
--- Indexes for table `country`
---
-ALTER TABLE `country`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `department`
@@ -270,18 +234,6 @@ ALTER TABLE `appointment`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `city`
---
-ALTER TABLE `city`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT for table `country`
---
-ALTER TABLE `country`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
@@ -298,23 +250,11 @@ ALTER TABLE `prescription_line`
 --
 
 --
--- Constraints for table `adress`
---
-ALTER TABLE `adress`
-  ADD CONSTRAINT `adress_ibfk_1` FOREIGN KEY (`city_id`) REFERENCES `city` (`id`);
-
---
 -- Constraints for table `appointment`
 --
 ALTER TABLE `appointment`
   ADD CONSTRAINT `FK_appointmenDoctor` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`user_id`),
   ADD CONSTRAINT `FK_appointmenPatient` FOREIGN KEY (`patient_Id`) REFERENCES `patient` (`user_id`);
-
---
--- Constraints for table `city`
---
-ALTER TABLE `city`
-  ADD CONSTRAINT `city_ibfk_1` FOREIGN KEY (`country_id`) REFERENCES `country` (`id`);
 
 --
 -- Constraints for table `doctor`
