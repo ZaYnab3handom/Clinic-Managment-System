@@ -55,11 +55,11 @@
             //Opern database
             include_once("../dbConnection.php");
             //insert new user as a patient
-            $sql = "insert into users (national_id, name, birthdate, gender, type, mobile, email, password)
-            values ('$nationalId','$patientName','$Birthdate',$gender','$type','$mobile','$Email','$Password')";
+            $sql = "insert into users (national_id, name, birthDate, gender, type, mobile, email, password)
+            values ('$nationalId','$patientName','$Birthdate','$gender','$type','$mobile','$Email','$Password')";
             $result = mysqli_query($connection, $sql);
             //insert patient data
-            $sql1 = "insert into patient (company, employee id, blood type, chronic disease, past surgery)
+            $sql1 = "insert into patient (company, employee_id, blood_type, chronic_disease	, past_surgery)
             values ('$company','$employeeId','$Blood','$ChronicDisease','$PastSurger')";
             $result = mysqli_query($connection, $sql1);
             //insert patient adress
