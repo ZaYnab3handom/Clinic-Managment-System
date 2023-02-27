@@ -5,7 +5,7 @@
         print_r($_POST);
         //get appointment id from appointment page
         // $appoitmentId = $_GET["user"];
-        $appoitmentId = 2;
+        $appoitmentId = 1;
 
         //get current time 
         date_default_timezone_set('Africa/Cairo');
@@ -28,8 +28,9 @@
 
 
        //insert new Prescription to prescription table
+       
         $sql = "insert into prescription 
-        (appoimtment_id, prescription_time, disease,medical_test, x_rays, followup_date, notes)
+        (appointment_id	, prescription_time, disease,medical_test, x_rays, followup_date, notes)
         values ('$appoitmentId','$prescription_time','$disease','$medicalTest','$xray','$followUpDate','$notes' )";
         $result = mysqli_query($connection, $sql);
 
@@ -41,10 +42,11 @@
             // else{
             //     $allowSubsistuation[$i]=0;
             // }
+            if($medicineName[$i]){
             $sql2 = "insert into prescription_line 
             (prescription_id, medicine_name, dosage_detail, comment)
              values ( '$appoitmentId', '$medicineName[$i]', '$dosage[$i]','$comment[$i]' )";
-             $result = mysqli_query($connection, $sql2);
+             $result = mysqli_query($connection, $sql2);}
 
             //  $sql2 = "insert into prescription_line 
             // (prescription_id, medicine_name, dosage_detail
@@ -56,12 +58,5 @@
 
         }
     }
-
-    
-    
-   
-    
-           
-
 
 ?>

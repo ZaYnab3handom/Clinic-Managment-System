@@ -1,3 +1,7 @@
+<?php 
+   include("prescUpdate.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,10 +41,6 @@
             </div>
             <div class="bottomControlPanel">
                 <div class="bcpLeftSide">
-                    <!-- <a href="prescriptionForm.html" class="button">Create</a> -->
-                    <!-- <button class="coloredbtn" name="savebtn">Save</button>
-                    <input type="text"> -->
-                    <!-- <input type="submit" value="Save" name="savebtn"  class="coloredbtn"/>  -->
                     <button class="whitebtn">
                         <a href="prescriptionList.html" style="text-decoration: inherit;
                         color: inherit;">Discard</a>
@@ -52,7 +52,7 @@
         <div class="formContainer">
             <form action="" method="post">
                 
-                <input type="submit" value="Save" name="savebtn"  class="coloredbtn"/> 
+                <input type="submit" value="Update" name="savebtn"  class="coloredbtn"/> 
                 <div class="abb">
                     <a  class="filterCount" href="prescriptionList.html">
                         <i class="fa-solid fa-file-waveform"></i>
@@ -91,15 +91,15 @@
                 <div class="diagnosis" >
                     <span class="labelInput" style="width: 1000px;">
                         <label for="Disease">Disease</label>
-                        <input type="text" id="Disease" name="disease" style="width: 830px;">
+                        <input type="text" id="Disease" name="disease"  value="<?php echo $data["disease"] ?>" style="width: 830px;">
                     </span>
                     <span class="labelInput" style="width: 1000px;">
                         <label for="MedicalTest">MedicalTest</label>
-                        <input type="text" id="MedicalTest" name="medicalTest" style="width: 830px;">
+                        <input type="text" id="MedicalTest" name="medicalTest" value="<?php echo $data["medical_test"] ?>" style="width: 830px;">
                     </span>
                     <span class="labelInput" style="width: 1000px;">
                         <label for="xrays">X-Rays</label>
-                    <input type="text" id="xrays" name="xrays" style="width: 830px;">
+                    <input type="text" id="xrays" name="xrays" value="<?php echo $data["x_rays"] ?>" style="width: 830px;">
                     </span>
                    
                     
@@ -116,31 +116,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td ><input type="text"name="medicineName[]"></td>
+                       <?php
+                        drawPrescriptionLine();
+    ?>
+
+
+                            <!-- <tr>
+                                <td ><input type="text"name="medicineName[]" ></td>
                                 <td ><input type="text" name="dosage[]"></td>
                                 <td ><input type="checkbox" name ="allowSubsistuation[]"value="1" ></td>
                                 <td><input type="text" name ="comment[]" ></td>
                             </tr>
-                            <tr>
-                                <td ><input type="text"name="medicineName[]"></td>
-                                <td ><input type="text" name="dosage[]"></td>
-                                <td ><input type="checkbox" name ="allowSubsistuation[]"value="1" ></td>
-                                <td><input type="text" name ="comment[]" ></td>
-                            </tr>
-                            <tr>
-                                <td ><input type="text"name="medicineName[]"></td>
-                                <td ><input type="text" name="dosage[]"></td>
-                                <td ><input type="checkbox" name ="allowSubsistuation[]"value="1" ></td>
-                                <td><input type="text" name ="comment[]" ></td>
-                            </tr>
-                            <tr>
-                                <td ><input type="text"name="medicineName[]"></td>
-                                <td ><input type="text" name="dosage[]"></td>
-                                <td ><input type="checkbox" name ="allowSubsistuation[]"value="1"></td>
-                                <td><input type="text" name ="comment[]"></td>
-                            </tr>
-                            <tr > 
+                          -->
                                <td colspan="4"> addNewLine</td>
                             </tr> 
                         </tbody>
@@ -151,13 +138,13 @@
                 <footer >
                     <div class="labelInput">
                         <label for="follwdate">Follw-up Date</label>
-                    <input type="date" id="follwdate" name="follwdate"><br>
+                    <input type="date" id="follwdate" name="follwdate" value="<?php echo $data["followup_date"] ?>"><br>
                     </div>
                     
                     <div class="labelInput">
                         
                     <label for="notes">Notes</label>
-                    <input type="text" id="notes" name="notes"><br>
+                    <input type="text" id="notes" name="notes" value="<?php echo $data["notes"] ?>"><br>
                     </div>
 
                 </footer>
@@ -169,6 +156,4 @@
 </body>
 
 </html>
-<?php 
-   include("prescWrite.php");
-?>
+
