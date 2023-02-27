@@ -4,52 +4,92 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>patient</title>
+    <title>patient form</title>
+          <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="../generalView.css">
     <link rel="stylesheet" href="patient_form_style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" />
 
 </head>
 <body>
-    <div class="navBar">
-        <a href="patient.html">
-            <h1>HMS</h1>
+
+    <!-- navbar -->
+  <div class="container-fluid sticky-top bg-white shadow-sm">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+        <a href="index.html" class="navbar-brand">
+          <h1 class="m-0 text-uppercase text-info"><i class="fa fa-clinic-medical me-2"></i>Medinova</h1>
         </a>
-        <div style="height: 100%;">
-            <nav class="navRedirect">
-                <span> <a href="patient.html">Patient</a></span>
-                <span> <a href="doctor.html">Doctor</a></span>
-                <span> <a href="appoinment.html">Appoinment</a></span>
-                <span> <a href="prescriptionListView.html">Prescription</a></span>
-            </nav>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+          <div class="navbar-nav ms-auto py-0">
+            <a href="../home/index.html" class="nav-item nav-link">Home</a>
+            <a href="patient.html" class="nav-item nav-link active">Patient</a>
+            <a href="appointmentform.html" class="nav-item nav-link">Appoinment</a>
+            <a href="prsecription.html" class="nav-item nav-link">Presciption</a>
+            <a href="../Doctor/Doctor.html" class="nav-item nav-link ">Doctor</a>
+          </div>
         </div>
-        <div class="usrInfo">
+      </nav>
+    </div>
+  </div>
+
+<!--         <div class="usrInfo">
             <img src="usr.png" style="width: 35px; height:35px;" alt="">
             <span style="padding:0 10px 0 10px ;">Recepationist</span>
         </div>
-    </div>
+ -->    
 
     <div class="page">
-        <div class="controlPanel">
+        <!-- <div class="controlPanel">
             <div class="topControlPanel">
                 <h3>Patient</h3>
             </div>
             <div class="bottomControlPanel">
                 <div class="bcpLeftSide">
-                    <!-- <a href="prescriptionForm.html" class="button">Create</a> -->
+                    <a href="prescriptionForm.html" class="button">Create</a>
                         <a href="patient.html" style="text-decoration: inherit;
                         color: inherit;">Discard</a>
                     </button>
                 </div>
             </div>
-
          </div>
+ -->
+         
+ <!-- patient form -->
+
+ <div class="container">
+    <div class="row w-100 h-100">
+      <div class="col-4 bg-info">
+        <img src="resp.jpg" class="w-50">
+      </div>
+      <div class="col-7 bg-gradient">
+        <form action="" method="post">
+            <div class="form-input">
+                <label for="patientname" class="fs-4">Patient Name</label>
+                <input type="text" id="patientname" name="patientName"
+                 class="rounded-pill border-info border-2">
+                 <label for="nationalId" class="fs-4">National Id</label>
+                 <input type="text" id="nationalId" name="nationalId"
+                  class="rounded-pill border-info border-2">
+
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
 
          <div class="formContainer">
             <form action="" method="post">
                 <input type="submit" value="Save" name="savebtn"  class="coloredbtn"/>
                 <div class="patientInfo ">
-                    <div class="leftgroup fieldGroup ">
+                    <div class="leftgroup fieldGroup">
                         <span class="labelInput">
                             <label for="patientname">Patient Name</label>
                             <input type="text" id="patientname" name="patientName">
@@ -123,6 +163,7 @@
             </form>
         </div>
     </div>
+    <script src="../Doctor/bootstrap.bundle.min.js"></script>
 </body>
 </html>
 <?php
