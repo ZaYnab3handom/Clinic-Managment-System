@@ -7,48 +7,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../generalView.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" />
-
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"> -->
-  <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" -->
-    <!-- integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous"> -->
-
   <title>ِAppointment</title>
+   <!-- Icon Font Stylesheet -->
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+       integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+   <link rel="stylesheet" href="../Doctor/Doctor.css">
+   <link rel="stylesheet" href="../Patient/patient_form_style.css">
 </head>
 
 <body>
-  <div class="navBar">
-    <a href="patient.html" >
-      <h1>HMS</h1>
-    </a>
-    <div style="height: 100%;">
-      <nav class="navRedirect">
-        <span> <a href="patient.html" >Patient</a></span>
-        <span> <a href="doctor.html" >Doctor</a></span>
-        <span> <a href="appoinment.html" >Appoinment</a></span>
-        <span> <a href="prescriptionList.html" >Prescription</a></span>
-      </nav>
-    </div>
-    <div class="usrInfo">
-      <img src="../usr.png" style="width: 35px; height:35px;" alt="">
-      <span style="padding:0 10px 0 10px ;">User</span>
-    </div>
+
+    <!-- navbar -->
+    <div class="container-fluid sticky-top bg-white shadow-sm">
+      <div class="container">
+          <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+              <a href="index.html" class="navbar-brand">
+                  <h1 class="m-0 text-uppercase text-info"><i class="fa fa-clinic-medical me-2"></i>Medinova</h1>
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                  <div class="navbar-nav ms-auto py-0">
+                      <a href="../home/index.html" class="nav-item nav-link">Home</a>
+                      <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>
+                      <a href="appointmentform.html" class="nav-item nav-link active">Appoinment</a>
+                      <a href="../prsecription/prescriptionList.html" class="nav-item nav-link ">Presciption</a>
+                      <a href="../Doctor/Doctor.html" class="nav-item nav-link">Doctor</a>
+                  </div>
+              </div>
+          </nav>
+      </div>
   </div>
 
-  <div class="page">
-    <div class="controlPanel">
-      <div class="topControlPanel">
-        <h3>ِAppointment</h3>
-      </div>
-      <div class="bottomControlPanel">
-        <div class="bcpLeftSide">
-          <button class="coloredbtn">Save</button>
-          <button class="whitebtn">
-            <a href="prescriptionListView.html" style="text-decoration: inherit;
-                    color: inherit;">Discard</a>
-          </button>
-        </div>
-      </div>
-    </div>
+      <!-- prescription form -->
 
     <div class="formContainer">
       <form method="post">
@@ -60,14 +54,14 @@
             <h3>New</h3>
             <div class="input--file">
               <span>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+              <!--   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                   <circle cx="12" cy="12" r="3.2" />
                   <path
                     d="M9 2l-1.83 2h-3.17c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-12c0-1.1-.9-2-2-2h-3.17l-1.83-2h-6zm3 15c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5z" />
                   <path d="M0 0h24v24h-24z" fill="none" />
-                </svg>
+                </svg> -->
               </span>
-              <input name="Select File" type="file" />
+
             </div>
           </span>
           <br><br>
