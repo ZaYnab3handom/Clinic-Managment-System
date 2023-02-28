@@ -245,3 +245,24 @@
     height: 150px;
 }
 
+/* sign */
+
+.sign
+{
+    color: #1D2A4D;
+}
+
+.input
+{
+    border: 1px solid;
+    border-radius: 4px;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 10px;
+    width: 70%;
+}
+
+.form-input
+{
+    color: #1D2A4D;
+}

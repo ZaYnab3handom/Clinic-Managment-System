@@ -17,22 +17,22 @@
 <body>
 
   <!-- navbar -->
-  <div class="container-fluid sticky-top bg-white shadow-sm">
+  <div class="container-fluid sticky-top  shadow-sm nav">
     <div class="container">
-      <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+      <nav class="navbar navbar-expand-lg  navbar-light py-3 py-lg-0">
         <a href="index.html" class="navbar-brand">
-          <h1 class="m-0 text-uppercase text-info"><i class="fa fa-clinic-medical me-2"></i>Medinova</h1>
+          <h1 class="m-0 text-uppercase text-light"><i class="fa fa-clinic-medical me-2"></i>Medinova</h1>
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav ms-auto py-0">
-            <a href="../home/index.html" class="nav-item nav-link">Home</a>
-            <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>
-            <a href="appointmentform.html" class="nav-item nav-link">Appoinment</a>
-            <a href="../prsecription/prescriptionForm.html" class="nav-item nav-link">Presciption</a>
-            <a href="Doctor.html" class="nav-item nav-link active">Doctor</a>
+            <a href="../dashbord/index.html" class="nav-item nav-link text-light">Home</a>
+            <a href="../Patient/Patient.html" class="nav-item nav-link text-light">Patient</a>
+            <a href="../appointment/appointmentList.html" class="nav-item nav-link text-light">Appoinment</a>
+            <a href="../prsecription/prescriptionList.html" class="nav-item nav-link text-light">Presciption</a>
+            <a href="Doctor.html" class="nav-item nav-link text-light active">Doctor</a>
           </div>
         </div>
       </nav>
@@ -41,26 +41,26 @@
 
 
   <!-- search input -->
-  <div class="col w-100 h-100">
+  <div class="col w-100 h-25">
     <img src="hos.jpg" class="w-100 h-100">
   </div>
-    
-    
-  <div class="col-12 col-sm-6 mt-5 ">
-    <input type="search" class="form-control bg-light border-1 datetimepicker-input" placeholder="Doctor's username"
-      data-target="#date" data-toggle="datetimepicker" name="searchbar" id="searchbar" style="height: 55px;">
-      
-      <button class="btn btn-info w-25 py-3 ms-3 mt-3 rounded-pill">Filters</button>
-      <button class="btn btn-info w-25 py-3 ms-3 mt-3 rounded-pill">GroupBy</button>
-      <button class="btn btn-info w-25 py-3 ms-3 mt-3 rounded-pill">Favorites</button>
 
-      <button class="btn btn-info w-25 py-3 mt-5 rounded-pill " type="submit">
-      <a style="color: white;" class="text-decoration-none" href="doctor_form.html">Add Doctor</a></button>
+
+  <div class="col-12 col-sm-6 mt-5 ">
+    <input type="search" class="form-control ms-3 bg-gray border-1 border-info datetimepicker-input" placeholder="Doctor's username"
+      data-target="#date" data-toggle="datetimepicker" name="searchbar" id="searchbar" style="height: 55px;">
+
+    <button class="btn btn-light w-25 py-3 ms-3 mt-3 rounded-pill button">Filters</button>
+    <button class="btn btn-light w-25 py-3 ms-3 mt-3 rounded-pill button">GroupBy</button>
+    <button class="btn btn-light w-25 py-3 ms-3 mt-3 rounded-pill button">Favorites</button>
+
+    <button class="btn w-25 py-3 mt-5 rounded-pill ms-3 button" type="submit">
+      <a class="text-decoration-none text-light" href="doctor_form.html">Add Doctor</a></button>
   </div>
 
   <!-- table -->
 
-  <div class="col-lg-12 bg-info w-100 ">
+  <div class="col-lg-12 w-100">
     <table class="table table-hover  text-center ms-5 mt-4">
       <thead>
         <tr>
@@ -89,7 +89,7 @@
   </div>
 
 
-<script src="bootstrap.bundle.min.js"></script>
+  <script src="bootstrap.bundle.min.js"></script>
 
 </body>
 
