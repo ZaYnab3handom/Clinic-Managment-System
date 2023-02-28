@@ -3,17 +3,18 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    scroll-behavior: smooth;    
+    scroll-behavior: smooth;
 }
 
-:root {
-    --primary: #13C5DD;
-    --secondary: #354F8E;
-    --light: #EFF5F9;
-    --dark: #1D2A4D;
+body {
+    background-color: #29202021;
+    color: #FFF1DC;
 }
 
 /* navbar */
+.nav {
+    background-color: #3A98B9;
+}
 
 .navbar-light .navbar-nav .nav-link {
     font-family: 'Jost', sans-serif;
@@ -52,7 +53,7 @@
 }
 
 @media (max-width: 991.98px) {
-    .navbar-light .navbar-nav .nav-link  {
+    .navbar-light .navbar-nav .nav-link {
         margin-left: 0;
         padding: 10px 0;
     }
@@ -63,13 +64,43 @@
 .btn {
     font-weight: 700;
     transition: .5s;
-    color:#EFF5F9;
+}
+
+.button
+{
+    color: #EFF5F9;
+    background-color:  #3A98B9;
+}
+
+.discard-button
+{
+    color: #555555;
+    margin-top: 110px;
+}
+
+.discard-button:hover
+{
+    background-color: #3A98B9;
+    color: #EFF5F9;
+    -webkit-box-shadow: 0 8px 6px -6px #EFF5F9;
+    -moz-box-shadow: 0 8px 6px -6px #EFF5F9;
+    box-shadow: 0 8px 6px -6px #EFF5F9;
+}
+
+.btn a:hover
+{
+    -webkit-box-shadow: 0 8px 6px -6px #555555;
+    -moz-box-shadow: 0 8px 6px -6px #555555;
+    box-shadow: 0 8px 6px -6px #555555;
+    color: #555555;
+    text-decoration: none;
 }
 
 .btn:hover {
     -webkit-box-shadow: 0 8px 6px -6px #555555;
     -moz-box-shadow: 0 8px 6px -6px #555555;
     box-shadow: 0 8px 6px -6px #555555;
+    color: #555555;
 }
 
 .btn-primary {
@@ -78,58 +109,41 @@
 
 /* table */
 
-.table
-{
+.table {
     width: 80%;
     color: #1D2A4D;
+    background-color: #3A98B9;
 }
 
 
-@media (max-width:650px){
-    .table
-    {
-    display: none;
+@media (max-width:650px) {
+    .table {
+        display: none;
     }
 }
 
+/* form */
 
-
-/* footer */
-.foot
+.form
 {
-    background-color: #1D2A4D;
-    color: #EFF5F9;
+    border: 2px teal groove;
+    background-color: #EEEEEE;
 }
 
-.text-decoration-none
+
+
+.form-input
 {
-    color: #EFF5F9;
+    color: #1D2A4D;
 }
 
-.secondery
+.input
 {
-    color: #354F8E;
+    border: 1px solid;
+    border-radius: 4px;
+    height: 38px;
+    line-height: 38px;
+    padding-left: 10px;
+    width: 40%;
 }
 
-.btn-square {
-    width: 36px;
-    height: 36px;
-}
-
-.btn-sm-square {
-    width: 28px;
-    height: 28px;
-}
-
-.btn-lg-square {
-    width: 46px;
-    height: 46px;
-}
-
-.btn-square,
-.btn-sm-square,
-.btn-lg-square {
-    padding-left: 0;
-    padding-right: 0;
-    text-align: center;
-}

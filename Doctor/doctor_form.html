@@ -13,29 +13,30 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="Doctor.css">
-    <link rel="stylesheet" href="../Patient/patient_form_style.css">
 
 </head>
 
 <body>
 
     <!-- navbar -->
-    <div class="container-fluid sticky-top bg-white shadow-sm">
+    <div class="container-fluid sticky-top  shadow-sm nav">
         <div class="container">
-            <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+            <nav class="navbar navbar-expand-lg  navbar-light py-3 py-lg-0">
                 <a href="index.html" class="navbar-brand">
-                    <h1 class="m-0 text-uppercase text-info"><i class="fa fa-clinic-medical me-2"></i>Medinova</h1>
+                    <h1 class="m-0 text-uppercase text-light"><i class="fa fa-clinic-medical me-2"></i>Medinova</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="patient.html" class="nav-item nav-link">Patient</a>
-                        <a href="appointmentform.html" class="nav-item nav-link">Appoinment</a>
-                        <a href="prsecription.html" class="nav-item nav-link">Presciption</a>
-                        <a href="Doctor.html" class="nav-item nav-link active">Doctor</a>
+                    <div class="navbar-nav ms-auto py-0 ">
+                        <a href="../dashbord/index.html" class="nav-item nav-link text-light">Home</a>
+                        <a href="../Patient/Patient.html" class="nav-item nav-link text-light">Patient</a>
+                        <a href="../appointment/appointmentList.html"
+                            class="nav-item nav-link text-light">Appoinment</a>
+                        <a href="../prsecription/prescriptionList.html"
+                            class="nav-item nav-link text-light">Presciption</a>
+                        <a href="Doctor.html" class="nav-item nav-link active text-light">Doctor</a>
                     </div>
                 </div>
             </nav>
@@ -46,69 +47,70 @@
 
     <div class="container mt-5 mb-5">
         <div class="row form">
-            <div class="col-4 bg-info position-relative">
-                <p class="fs-1 text-center text-light mt-5">
-                    We Are Here For Help You
-                </p>
-                <img src="doc.jpg" class="w-100 position-absolute bottom-0 start-0">
-            </div>
-            <div class="col-7 bg-gradient">
+            <div class="col-6 bg-gradient">
                 <form action="" method="post">
                     <div class="form-input">
 
-                        <label for="patientname" class="fs-4 mt-2 d-block">Doctor Name</label>
+                        <label for="patientname" class="fs-4 mt-2 ms-2 d-block">Doctor Name</label>
                         <input type="text" id="patientname" name="patientname" placeholder="Doctor name"
                             class="rounded-pill border-info input">
 
-                        <label for="nationalId" class="fs-4 mt-2 d-block">National Id</label>
+                        <label for="nationalId" class="fs-4 mt-2 ms-2 d-block ">National Id</label>
                         <input type="text" id="nationalId" name="nationalId" placeholder="National Id"
                             class="rounded-pill border-info input">
 
-                        <label for="Birthdate" class="fs-4 mt-2 d-block">Birthdate</label>
+                        <label for="Birthdate" class="fs-4 mt-2 ms-2 d-block">Birthdate</label>
                         <input type="date" id="Birthdate" name="Birthdate" placeholder="Birthdate"
                             class="rounded-pill border-info input">
 
-                        <label for="Address" class="fs-4 mt-2 d-block">Gender</label>
+                        <label for="Address" class="fs-4 mt-2 ms-2 d-block">Gender</label>
                         <input type="radio" id="male" name="fav_language" value="HTML"
                             class="rounded-pill border-info me-2">
                         <label for="">Male</label>
                         <input type="radio" id="female" name="fav_language" value="CSS"
                             class="rounded-pill border-info me-2">
                         <label for="">Female</label>
+                    </div>
+                </form>
 
+                <button type="button" class="btn btn-light float-start w-25 discard-button
+                text-center rounded-pill fs-5 border-1 border border-info">
+                <a href="Doctor.html" class="text-decoration-none discard-button ">Discard</a></button>
+
+            </div>
+
+            <div class="col-6 bg-gradient">
+                <form action="" method="post">
+                    <div class="form-input">
                         <label for="mobile" class="fs-4 mt-2 d-block">Mobile</label>
                         <input type="text" id="mobile" name="mobile" placeholder="mobile"
                             class="rounded-pill border-info input">
 
                         <label for="employeeId" class="fs-4 mt-2 d-block">Department</label>
-                        <select  class="rounded-pill border-info input">
+                        <select class="rounded-pill border-info input">
                             <option>Department1</option>
                             <option>Department2</option>
                             <option>Department3</option>
                         </select>
 
                         <label for="employeeId" class="fs-4 mt-2 d-block">Blood Type</label>
-                        <select  class="rounded-pill border-info input">
+                        <select class="rounded-pill border-info input">
                             <option>A</option>
                             <option>B</option>
                             <option>AB</option>
                             <option>O</option>
                         </select>
-                            <label for="Address" class="fs-4 mt-2 d-block">Address</label>
-                            <input type="text" id="Address" name="Address" placeholder="street"
+                        <label for="Address" class="fs-4 mt-2 d-block">Address</label>
+                        <input type="text" id="Address" name="Address" placeholder="street"
                             class="rounded-pill border-info input">
-                            <input type="text" id="Address" name="Address" placeholder="city"
+                        <input type="text" id="Address" name="Address" placeholder="city"
                             class="rounded-pill border-info input me-3">
-                            <input type="text" id="Address" name="Address" placeholder="Governorate"
+                        <input type="text" id="Address" name="Address" placeholder="Governorate"
                             class="rounded-pill border-info input mt-3">
                     </div>
-                    <button type="button" class="btn btn-light float-start w-25 mt-5
-                text-center rounded-pill mb-3 fs-5 border-1 border border-secondary">
-                <a href="Doctor.html" class="text-decoration-none  text-info">Discard</a></button>
-
-                    <button type="button" class="btn btn-info float-end w-25 mt-5
-                text-center text-white rounded-pill mb-3 fs-5 border-1 border border-secondary">Save</button>
                 </form>
+                <button type="button" class="btn btn-info float-end w-25 mt-5 button
+                text-center text-white rounded-pill mb-3 fs-5 border-1 border border-secondary">Save</button>
             </div>
         </div>
     </div>

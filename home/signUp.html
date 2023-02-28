@@ -32,43 +32,6 @@
 </head>
 
 <body>
-    <!-- Topbar Start -->
-    <div class="container-fluid py-2 border-bottom d-none d-lg-block">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
-                    <div class="d-inline-flex align-items-center">
-                        <a class="text-decoration-none text-body pe-3" href=""><i class="bi bi-telephone me-2"></i>+012
-                            345 6789</a>
-                        <span class="text-body">|</span>
-                        <a class="text-decoration-none text-body px-3" href=""><i
-                                class="bi bi-envelope me-2"></i>info@example.com</a>
-                    </div>
-                </div>
-                <div class="col-md-6 text-center text-lg-end">
-                    <div class="d-inline-flex align-items-center">
-                        <a class="text-body px-2" href="">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a class="text-body px-2" href="">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a class="text-body px-2" href="">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a class="text-body px-2" href="">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a class="text-body ps-2" href="">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
-
 
     <!-- Navbar Start -->
     <div class="container-fluid sticky-top bg-white shadow-sm">
@@ -84,7 +47,6 @@
                     <div class="navbar-nav ms-auto py-0">
                         <a href="index.html" class="nav-item nav-link ">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="signUp.html" class="nav-item nav-link active">SignUp</a>
                         <a href="appointment.html" class="nav-item nav-link">Appointment</a>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
@@ -95,6 +57,172 @@
     <!-- Navbar End -->
 
     <!-- sign up -->
+
+    <div class="container mt-5 border border-2 border-dark">
+        <div class="row form">
+            <div class="col-3 bg-info position-relative">
+                <p class="fs-1 text-center text-light mt-5">
+                    We Are Here For Help You
+                </p>
+                <img src="../Patient/download.jpg" class="w-100 position-absolute bottom-0 start-0">
+            </div>
+            <div class="col-4 bg-gradient">
+                <form action="" method="post">
+                    <div class="form-input">
+                        <label for="patientname" class="fs-4 mt-2 ps-2 d-block">Name</label>
+                        <input type="text" id="patientname" placeholder="your name" name="patientName"
+                            class="rounded-pill border-info input">
+
+                        <label for="nationalId" class="fs-4 mt-2 d-block ps-2">National Id</label>
+                        <input type="text" id="nationalId" name="nationalId" placeholder="National Id"
+                            class="rounded-pill border-info input">
+
+                        <label for="Birthdate" class="fs-4 d-block mt-2 ps-2">Birth date</label>
+                        <input type="date" id="Birthdate" name="Birthdate" placeholder="birth"
+                            class="rounded-pill border-info input">
+
+                        <label for="employeeId" class="fs-4 d-block mt-2 ps-2">Blood Type</label>
+                        <select name="Blood" class="rounded-pill border-info input">
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="AB">AB</option>
+                            <option value="O">O</option>
+                        </select>
+
+                        <label for="gender" class="fs-4 d-block mt-2 ps-2">Gender: </label>
+                        <input type="radio" name="gender" id="gender" class="rounded-pill border-info me-2"
+                            value="M">Male
+                        <input type="radio" name="gender" id="gender" class="rounded-pill border-info me-2"
+                            value="F">Female
+
+                        <label for="ChronicDisease" class="fs-4 d-block mt-2 ps-2">Chronic Disease</label>
+                        <input type="text" id="ChronicDisease" name="ChronicDisease" placeholder="ChronicDisease"
+                            class="rounded-pill border-info input">
+
+                        <label for="PastSurgery" class="fs-4 d-block mt-2 ps-2">Past Surgery</label>
+                        <input type="text" id="PastSurger" name="PastSurger" placeholder="PastSurger"
+                            class="rounded-pill border-info input">
+                    </div>
+                </form>
+
+            </div>
+            <div class="col-4 bg-gradient">
+                <form action="" method="post">
+                    <div class="form-input">
+                        <label for="mobile" class="fs-4 d-block mt-2 ps-2">Mobile</label>
+                        <input type="text" id="mobile" name="mobile" placeholder="mobile"
+                            class="rounded-pill border-info input">
+
+                        <label for="Birthdate" class="fs-4 d-block mt-2 ps-2">Email</label>
+                        <input type="email" id="Birthdate" name="Birthdate" placeholder="email"
+                            class="rounded-pill border-info input">
+
+                        <label for="Birthdate" class="fs-4 d-block mt-2 ps-2">Password</label>
+                        <input type="password" id="Birthdate" name="Birthdate" placeholder="Password"
+                            class="rounded-pill border-info input">
+
+                        <label for="employeeId" class="fs-4 d-block mt-2 ps-2">Employee Id</label>
+                        <input type="text" id="employeeId" name="employeeId" placeholder="EmployeeId"
+                            class="rounded-pill border-info input">
+
+                        <label for="employeeId" class="fs-4 d-block mt-2 ps-2">Company</label>
+                        <select name="company" class="rounded-pill border-info input">
+                            <option value="a">Sugar Canel</option>
+                            <option value="b">Department2</option>
+                            <option value="c">Department3</option>
+                        </select>
+
+                        <label for="Address" class="fs-4 d-block mt-2 ps-2">Address</label>
+
+                        <input type="text" id="Address" name="street" placeholder="street"
+                            class="rounded-pill border-info input">
+                        <input type="text" id="Address" name="city" placeholder="city"
+                            class="rounded-pill border-info input mt-3">
+                        <input type="text" id="Address" name="Governorate" placeholder="Governorate"
+                            class="rounded-pill border-info input mt-3">
+
+                        <button type="button" class="btn btn-info float-end w-50 mt-5 d-block 
+                        text-center text-white rounded-pill mb-3 fs-5">Sign Up</button>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light mt-5 py-5">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                        Get In Touch</h4>
+                    <p class="mb-4">No dolore ipsum accusam no lorem. Invidunt sed clita kasd clita et et dolor sed
+                        dolor</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt text-primary me-3"></i>123 Street, New York, USA</p>
+                    <p class="mb-2"><i class="fa fa-envelope text-primary me-3"></i>info@example.com</p>
+                    <p class="mb-0"><i class="fa fa-phone-alt text-primary me-3"></i>+012 345 67890</p>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                        Quick Links</h4>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>About Us</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Our Services</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Meet The Team</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Latest Blog</a>
+                        <a class="text-light" href="#"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                        Popular Links</h4>
+                    <div class="d-flex flex-column justify-content-start">
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Home</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>About Us</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Our Services</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Meet The Team</a>
+                        <a class="text-light mb-2" href="#"><i class="fa fa-angle-right me-2"></i>Latest Blog</a>
+                        <a class="text-light" href="#"><i class="fa fa-angle-right me-2"></i>Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">
+                        Newsletter</h4>
+                    <form action="">
+                        <div class="input-group">
+                            <input type="text" class="form-control p-3 border-0" placeholder="Your Email Address">
+                            <button class="btn btn-primary">Sign Up</button>
+                        </div>
+                    </form>
+                    <h6 class="text-primary text-uppercase mt-4 mb-3">Follow Us</h6>
+                    <div class="d-flex">
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i
+                                class="fab fa-twitter"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i
+                                class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i
+                                class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i
+                                class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid bg-dark text-light border-top border-secondary py-4">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-md-0">&copy; <a class="text-primary" href="#">Your Site Name</a>. All Rights Reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <p class="mb-0">Designed by <a class="text-primary" href="https://htmlcodex.com">HTML Codex</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer End -->
 
     <script src="js/main.js"></script>
 </body>
