@@ -1,7 +1,6 @@
 <?php 
     if(isset($_POST["savebtn"])){
         //record to set in prescrition table
-        print_r($_POST);
         //check if the patient male or female
         if ( isset($_POST['gender']) ){
             $gender = $_POST['gender'];
@@ -44,18 +43,36 @@
         $ChronicDisease=$_POST["ChronicDisease"];
         $PastSurger=$_POST["PastSurger"];
         $street=$_POST["street"];
+        $apartment=$_POST["apartment"];
         $city=$_POST["city"];
-        $Governorate=$_POST["Governorate"];
+        $country=$_POST["country"];
         $PastSurger=$_POST["PastSurger"];
+        $Email=$_POST["Email"];
+        $Password=$_POST["Password"];
+        $RepeatPassword=$_POST["RepeatPassword"];
+        $type="patient";
+        if ($Password==$RepeatPassword){
+            //Opern database
+            include_once("../dbConnection.php");
+            //insert new user as a patient
+            $sql = "insert into users (national_id, name, birthDate, gender, type, mobile, email, password)
+            values ('$nationalId','$patientName','$Birthdate','$gender','$type','$mobile','$Email','$Password')";
+            $result = mysqli_query($connection, $sql);
+            //insert patient data
+            $sql1 = "insert into patient (company, employee_id, blood_type, chronic_disease	, past_surgery, user_id)
+            values ('$company','$employeeId','$Blood','$ChronicDisease','$PastSurger','$nationalId')";
+            $result = mysqli_query($connection, $sql1);
+            //insert patient adress
+            $sql2 ="insert into adress (apartment, street, city, country)
+            values('$apartment' ,'$street', '$city', '$country')";
+            $result = mysqli_query($connection, $sql2);
+            echo "User added";
+        }else
+        echo "error";
 
 
-       //insert new patient
-       include_once("../dbConnection.php");
-        $sql = "insert into patient (national-id, name, birthdate, gender, mobile, company, employee id, blood type, chronic disease, past surgery, adress)
-        values ('$nationalId','$patientName','$Birthdate',$gender','$mobile','$company','$employeeId','$Blood','$ChronicDisease','$PastSurger','$city')";
-        $result = mysqli_query($connection, $sql);
-        //insert adress
-        echo "User added";
+
+       
     } 
 
 ?>
