@@ -63,8 +63,8 @@
             values ('$company','$employeeId','$Blood','$ChronicDisease','$PastSurger','$nationalId')";
             $result = mysqli_query($connection, $sql1);
             //insert patient adress
-            $sql2 ="insert into adress (apartment, street, city, country)
-            values('$apartment' ,'$street', '$city', '$country')";
+            $sql2 ="insert into adress (id, apartment, street, city, country)
+            values('$nationalId', '$apartment' ,'$street', '$city', '$country')";
             $result = mysqli_query($connection, $sql2);
             echo "User added";
         }else
