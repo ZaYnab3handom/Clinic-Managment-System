@@ -25,10 +25,7 @@ function drawPatientTable(){
         $patientName = $_POST["patientName"];
         $mobile = $_POST["mobile"];
         $nationalId = $_POST["nationalId"];
-        $BirthDate = $_POST["BirthDate"];
-        $employeeId=$_POST["employeeId"];
-        $ChronicDisease=$_POST["ChronicDisease"];
-        $PastSurger=$_POST["PastSurger"];
+        $Birthdate = $_POST["Birthdate"];
         $street=$_POST["street"];
         $apartment=$_POST["apartment"];
         $city=$_POST["city"];
@@ -38,7 +35,8 @@ function drawPatientTable(){
         $RepeatPassword=$_POST["RepeatPassword"];
         $type="patient";
         $gender=$_POST["gender"];
-        $Blood=$_POST["Blood"];
+        $department=$_POST["department"];
+
 
 
        //update  Prescription 
@@ -49,8 +47,7 @@ function drawPatientTable(){
         $updateAdressSql= "update adress set apartment='$apartment', city='$city', country='$country', street='$street' where id=$nationalId";
         $adressResult = mysqli_query($connection, $updateAdressSql);
 
-        $updatePatientSql= "update department set ChronicDisease='$ChronicDisease',PastSurger='$$PastSurger',
-        employeeId='$employeeId', Blood='$Blood' where id=$nationalId";
+        $updatePatientSql= "update department set name='$department' where id=$nationalId";
         $adressResult = mysqli_query($connection, $updateAdressSql);
         
     }

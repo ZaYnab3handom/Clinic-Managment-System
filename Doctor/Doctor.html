@@ -64,25 +64,20 @@
     <table class="table table-hover  text-center ms-5 mt-4">
       <thead>
         <tr>
-          <th>ID</th>
           <th>Name</th>
-          <th>Gender</th>
           <th>Department</th>
           <th>Day</th>
           <th>Start-Time</th>
           <th>End-Time</th>
+          <th>Room number</th>
+          <th>Edit</th>
+          <th>Add schedule</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th>12345678912345</th>
-          <td>Mario</td>
-          <td>Male</td>
-          <td>Bone</td>
-          <td>Monday</td>
-          <td>7</td>
-          <td>10</td>
-        </tr>
+        <?php
+          include("DoctorRead.php");
+        ?>
       </tbody>
     </table>
 
