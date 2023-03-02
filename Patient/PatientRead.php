@@ -15,7 +15,8 @@
             $age = date_diff(date_create($data["birthDate"]), date_create($currentDate));
             echo "<td>".$age->format("%y")."</td>";
             echo "<td>".$data["blood_type"]."</td>";
-            echo "<td> <a href='edit'></a> </td>";
+            echo "<td> <a href='patientUpdateForm.html?user=$data[nationalId]'></a> </td>";
+            echo "<td> <a href='../appointment/appointmentForm.html?user=$data[user_id]'> Create Appointment </a> </td>";
             echo "</tr>";
         
         }
