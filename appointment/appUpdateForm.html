@@ -1,5 +1,5 @@
 <?php 
-   include("appWrite.php");
+   include("appUpdate.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -52,49 +52,43 @@
         <a class="coloredbtn" href="../prsecription/prescriptionForm.html">Create Prescription</a>
 
         <div class="patientInfo ">
-          <div class="leftgroup fieldGroup ">
+          <div class="leftgroup fieldGroup">
             <span class="labelInput">
               <label for="patientname">Patient Name: </label>
-             <?php getPatientName(); ?>
-              <!-- <input type="text" id="patientname" name="patientname"  > -->
+              <input type="text" readonly id="patientname" name="patientname"  value="<?php echo $data["patienName"] ?>" >
             </span>
 
             <span class="labelInput">
               <label for="patientage">Patient Age:</label>
-              <?php getPatientAge(); ?>
-              <!-- <input type="text" id="patientage" name="patientage"> -->
+              <input type="text" id="patientage" name="patientage" value="<?php echo $age ?>" readonly>
             </span>
             <span class="labelInput">
               <label for="PrescriptionDate">Doctor:</label>
-              <input type="text" id="Doctor" name="doctorName">
+              <input type="text" id="Doctor" name="doctorName" value="<?php echo $data["doctorName"] ?>">
             </span>
-            <!-- <span class="labelInput">
-              <label for="Department">Department</label>
-              <input type="text" id="Department" name="Department">
-            </span>
-          </div> -->
+          
 
           <div class="rightGroup fieldGroup">
             <span class="labelInput">
               <label for="Date">Date</label>
-              <input type="date" id="Date" name="date">
+              <input type="date" id="Date" name="date" value="<?php echo $data["date"] ?>">
             </span>
             <span class="labelInput">
               <label for="time">Time</label>
-              <input type="time" id="time" name="time">
+              <input type="time" id="time" name="time" value="<?php echo $data["time"] ?>">
             </span>
             <span class="labelInput">
               <label for="consultationt">Cons. Type:</label>
-              <input type="text " id="ConsultationT" name="consultationt">
+              <input type="text " id="ConsultationT" name="consultationt" value="<?php echo $data["consultation_type"] ?>">
             </span>
            
             <span class="labelInput">
               <label for="BookedOnline">Booked Online</label>
-              <input type="checkbox" id="BookedOnline" name="BookedOnline" value="Booked Online" />
+              <input type="checkbox" id="BookedOnline" name="BookedOnline" value="<?php echo $data["booked_online"] ?>">
             </span>
             <span class="labelInput">
               <label for="BookedOnline">Status</label>
-              <input type="text" id="stat" name="status" value="status" /> <!--to change to be select-->
+              <input type="text" id="stat" name="status" value="<?php echo $data["state"] ?> "> <!--to change to be select-->
             </span>
           </div>
         </div>

@@ -97,10 +97,12 @@
 }
 
 .hero-header {
-    background: url(../img/hero.jpg) top right no-repeat;
+    background: url(../img/hero6.jpg) top right no-repeat;
     background-size: cover;
 }
-
+.about_p{
+    font-size: larger;
+}
 .service-item {
     position: relative;
     height: 350px;
@@ -244,4 +246,25 @@
     width: 150px;
     height: 150px;
 }
-
+.bg-primary{
+    border-radius: 8px !important;
+}
+@media (min-width: 992px){
+.col-lg-8 {
+    flex: 0 0 auto;
+    width:88%;
+}
+}
+#gender{
+    text-align: justify;
+  
+}
+#gender2{
+    color: #707a8b;
+    height: 55px;
+    padding-top: 15px;
+  
+}
+#male{
+    margin-right: 17px;
+}

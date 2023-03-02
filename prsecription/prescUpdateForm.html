@@ -63,16 +63,16 @@
                     <div class="leftgroup fieldGroup ">
                         <span class="labelInput">
                             <label for="patientname">Patient Name</label>
-                            <input type="text" id="patientname" name="patientname">
+                            <input type="text" id="patientname" name="patientname" value="<?php echo $RAdata['patienName'] ?>" readonly>
                         </span>
 
                         <span class="labelInput">
                             <label for="patientage">Patient Age</label>
-                            <input type="text" id="patientage" name="patientage">
+                            <input type="text" id="patientage" name="patientage" value="<?php echo $age ?>" readonly>
                         </span>
                         <span class="labelInput">
-                            <label for="PrescriptionDate">Prescription Date</label>
-                            <input type="datetime" id="PrescriptionDate" name="PrescriptionDate">
+                            <label for="PrescriptionDate">Prescription Time</label>
+                            <input type="time" id="PrescriptionDate" name="PrescriptionDate"  value="<?php echo $data['prescription_time'] ?>" >
                         </span>
 
 
@@ -80,26 +80,26 @@
                     <div class="rightGroup fieldGroup">
                         <span class="labelInput">
                             <label for="Department">Department</label>
-                            <input type="text" id="Department" name="Department">
+                            <input type="text" id="Department" name="Department"  value="<?php echo $RAdata['departmentName'] ?>" readonly>
                         </span>
                         <span class="labelInput">
                             <label for="Doctor">Doctor</label>
-                            <input type="text" id="Doctor" name="Doctor">
+                            <input type="text" id="Doctor" name="Doctor" value="<?php echo $RAdata['doctorName'] ?>" readonly >
                         </span>
                     </div>
                 </div>
                 <div class="diagnosis" >
                     <span class="labelInput" style="width: 1000px;">
                         <label for="Disease">Disease</label>
-                        <input type="text" id="Disease" name="disease"  value="<?php echo $data["disease"] ?>" style="width: 830px;">
+                        <input type="text" id="Disease" name="disease"  value="<?php echo $data['disease'] ?>" style="width: 830px;">
                     </span>
                     <span class="labelInput" style="width: 1000px;">
                         <label for="MedicalTest">MedicalTest</label>
-                        <input type="text" id="MedicalTest" name="medicalTest" value="<?php echo $data["medical_test"] ?>" style="width: 830px;">
+                        <input type="text" id="MedicalTest" name="medicalTest" value="<?php echo $data['medical_test'] ?>" style="width: 830px;">
                     </span>
                     <span class="labelInput" style="width: 1000px;">
                         <label for="xrays">X-Rays</label>
-                    <input type="text" id="xrays" name="xrays" value="<?php echo $data["x_rays"] ?>" style="width: 830px;">
+                    <input type="text" id="xrays" name="xrays" value="<?php echo $data['x_rays'] ?>" style="width: 830px;">
                     </span>
                    
                     
@@ -138,13 +138,13 @@
                 <footer >
                     <div class="labelInput">
                         <label for="follwdate">Follw-up Date</label>
-                    <input type="date" id="follwdate" name="follwdate" value="<?php echo $data["followup_date"] ?>"><br>
+                    <input type="date" id="follwdate" name="follwdate" value="<?php echo $data['followup_date'] ?>"><br>
                     </div>
                     
                     <div class="labelInput">
                         
                     <label for="notes">Notes</label>
-                    <input type="text" id="notes" name="notes" value="<?php echo $data["notes"] ?>"><br>
+                    <input type="text" id="notes" name="notes" value="<?php echo $data['notes'] ?>"><br>
                     </div>
 
                 </footer>

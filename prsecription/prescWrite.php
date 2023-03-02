@@ -1,11 +1,20 @@
 <?php 
      include_once("../dbConnection.php");
+     //get app id which created  this presc
+     $appoitmentId = $_GET["appId"];
+     //read related appointment data to set in prescription
+     $relatedAppsql = "select * from appointmentusers where id = $appoitmentId";
+     $RAresult = mysqli_query($connection, $relatedAppsql);
+     $data = mysqli_fetch_array($RAresult);
+     $currentDate = date("d-m-Y");
+     $getage = date_diff(date_create($data["birthDate"]), date_create($currentDate));
+     $age=$getage->format("%y");
+
+
     if(isset($_POST["savebtn"])){
         //record to set in prescrition table
         print_r($_POST);
         //get appointment id from appointment page
-        // $appoitmentId = $_GET["user"];
-        $appoitmentId = 1;
 
         //get current time 
         date_default_timezone_set('Africa/Cairo');
@@ -57,6 +66,8 @@
 
 
         }
+        header("Location:prescriptionList.html");
+
     }
 
 ?>

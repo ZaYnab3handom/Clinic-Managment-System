@@ -32,42 +32,7 @@
 </head>
 
 <body>
-    <!-- Topbar Start -->
-    <div class="container-fluid py-2 border-bottom d-none d-lg-block">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-lg-start mb-2 mb-lg-0">
-                    <div class="d-inline-flex align-items-center">
-                        <a class="text-decoration-none text-body pe-3" href=""><i class="bi bi-telephone me-2"></i>+012
-                            345 6789</a>
-                        <span class="text-body">|</span>
-                        <a class="text-decoration-none text-body px-3" href=""><i
-                                class="bi bi-envelope me-2"></i>info@example.com</a>
-                    </div>
-                </div>
-                <div class="col-md-6 text-center text-lg-end">
-                    <div class="d-inline-flex align-items-center">
-                        <a class="text-body px-2" href="">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a class="text-body px-2" href="">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a class="text-body px-2" href="">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a class="text-body px-2" href="">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a class="text-body ps-2" href="">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Topbar End -->
+
 
 
     <!-- Navbar Start -->
@@ -75,27 +40,85 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
                 <a href="index.html" class="navbar-brand">
-                    <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>Medinova</h1>
+                    <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>YouHeal</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link ">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="signUp.html" class="nav-item nav-link active">SignUp</a>
-                        <a href="appointment.html" class="nav-item nav-link">Appointment</a>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="#about" class="nav-item nav-link">About</a>
+                       <!-- <a href="signUp.html" class="nav-item nav-link">SignUp</a>-->
+                        <a href="appointment.html" class="nav-item nav-link">Appointment</a>    
+                        <!--<a href="#footer" class="nav-item nav-link">Contact</a>-->
                     </div>
                 </div>
             </nav>
         </div>
     </div>
-    <!-- Navbar End -->
+   <!-- Navbar End -->
 
     <!-- sign up -->
+   
+    <div class="container bg-primary my-5 py-5" id="appointment">
+        <div class="container py-5">
+            <div class="row gx-5 justify-content-center">
+               <div class="col-lg-8 ">
+                    <div class="bg-white text-center rounded p-5">
+                        <h1 class="mb-4">SignUp</h1>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-12 col-sm-6">
+                                    <input type="number" class="form-control bg-light border-0" placeholder="National Id" style="height: 55px;" name="">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;" name="">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="email" class="form-control bg-light border-0" placeholder="Your email" style="height: 55px;" name="">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="password" class="form-control bg-light border-0" placeholder="Your password" style="height: 55px;" name="">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="text" class="form-control bg-light border-0" placeholder="type " style="height: 55px;" name="">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="date" class="form-control bg-light border-0" placeholder="Your Birthdate" style="height: 55px;" name="">
+                                </div>
+                                <div class="col-12 col-sm-6">
+                                    <input type="number" class="form-control bg-light border-0" placeholder="Your phone" style="height: 55px;" name="">
+                                </div>
+                                
+                                <div class="col-12 col-sm-3">
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="street" style="height: 55px;" name="">
+                                </div>
+                                <div class="col-12 col-sm-3">
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="city" style="height: 55px;" name="">
+                                </div>
+                                <div class="col-12 col-sm-6" id="gender">
+                                    <label class="form-control bg-light border-0 col-6" id="gender2" >
+                                       Gender: <input class="form-check-input"  type="radio" name="" ><label id="male" >Male</label> 
+                                                <input class="form-check-input" type="radio" name=""  ><label>Female </label>
+                                      </label>
+  </div>
+<div></div>
+                                <div class="col-6">
+                                     <a class="btn btn-primary w-100 py-3" href="appointment_form.html" type="submit"> SignUp </a>
+                                </div>
+                                <div class="col-6">
+                                    <a class="btn btn-primary w-100 py-3" href="login.html" type="submit"> Are you already patient? </a>
+                               </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>                             
 
+            
     <script src="js/main.js"></script>
 </body>
 

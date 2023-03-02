@@ -1,4 +1,4 @@
-?php 
+<?php 
   
        include_once("../dbConnection.php");
         //Read From Patient
@@ -16,6 +16,8 @@
             echo "<td>".$age->format("%y")."</td>";
             echo "<td>".$data["blood_type"]."</td>";
             echo "<td> <a href='edit'></a> </td>";
+            echo "<td> <a href='edit'></a> </td>";
+
             echo "</tr>";
         
         }

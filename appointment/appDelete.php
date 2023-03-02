@@ -2,12 +2,12 @@
      include_once("../dbConnection.php");
     $id = $_GET["user"];
     //delet the prescription
-     $sql = "delete from prescription where appointment_id = $id"; 
+     $sql = "delete from appointment where id = $id"; 
      $result = mysqli_query($connection, $sql);
 
      //delete the related prescription line
      //done By cascading Delete
-     header("Location:prescriptionList.html");
+     header("Location:appointmentList.html");
 
 
     ?>

@@ -3,8 +3,9 @@
 //Read From Prescription Table
         include_once("../dbConnection.php");
 
-        $readSql = "select * from prescription"; 
+        $readSql = "select * from prescription order by prescription_time desc "; 
         $readResult = mysqli_query($connection, $readSql);
+        
         while($data = mysqli_fetch_array($readResult)) {
             echo "<tr>";    
                 echo"<td>checkBox</td>";

@@ -1,10 +1,19 @@
 <?php
 include_once("../dbConnection.php");
-//read prescription form data
 $prescid = $_GET["user"];
+
+ //read related appointment data to set in prescription
+ $relatedAppsql = "select * from appointmentusers where id = $prescid";
+ $RAresult = mysqli_query($connection, $relatedAppsql);
+ $RAdata = mysqli_fetch_array($RAresult);
+ $currentDate = date("d-m-Y");
+ $getage = date_diff(date_create($RAdata["birthDate"]), date_create($currentDate));
+ $age=$getage->format("%y");
+//read prescription form data
 $prescsql = "select * from prescription where appointment_id = $prescid";
 $prescresult = mysqli_query($connection, $prescsql);
 $data = mysqli_fetch_array($prescresult);
+
 
 //read related prescription line
 $prescLinesql = "select medicine_name,dosage_detail,comment from prescription_line
@@ -27,7 +36,7 @@ function drawPrescriptionLine(){
         // print_r($_POST);
         //get appointment id from appointment page
         // $appoitmentId = $_GET["user"];
-        $appoitmentId = 1;
+        // $appoitmentId = 1;
 
         //get current time 
         date_default_timezone_set('Africa/Cairo');
@@ -52,7 +61,7 @@ function drawPrescriptionLine(){
        //update  Prescription 
        $updatePrescsql = "update prescription set prescription_time='$prescription_time',
         disease='$disease', medical_test='$medicalTest',x_rays='$xray', followup_date='$followUpDate',
-        notes='$notes' where appointment_id=$appoitmentId";
+        notes='$notes' where appointment_id=$prescid";
         $prescResult = mysqli_query($connection, $updatePrescsql);
 
         //Update prescription lines 
@@ -60,7 +69,7 @@ function drawPrescriptionLine(){
          
             if($medicineName[$i]){
             $updatePrescLinesql = "update prescription_line set medicine_name='$medicineName[$i]'
-            ,dosage_detail='$dosage[$i]', comment='$comment[$i]' where prescription_id=$appoitmentId";
+            ,dosage_detail='$dosage[$i]', comment='$comment[$i]' where prescription_id=$prescid";
              $updatePrescLineResult = mysqli_query($connection, $updatePrescLinesql);}
              header("Location:prescriptionList.html");
 

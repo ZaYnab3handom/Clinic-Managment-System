@@ -1,3 +1,6 @@
+<?php 
+   include("prescWrite.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +53,7 @@
 
         </div>
         <div class="formContainer">
-            <form action="" method="post">
+            <form  method="post">
                 
                 <input type="submit" value="Save" name="savebtn"  class="coloredbtn"/> 
                 <div class="abb">
@@ -63,16 +66,16 @@
                     <div class="leftgroup fieldGroup ">
                         <span class="labelInput">
                             <label for="patientname">Patient Name</label>
-                            <input type="text" id="patientname" name="patientname">
+                            <input type="text" id="patientname" name="patientname" value="<?php echo $data['patienName'] ?>" readonly>
                         </span>
 
                         <span class="labelInput">
                             <label for="patientage">Patient Age</label>
-                            <input type="text" id="patientage" name="patientage">
+                            <input type="text" id="patientage" name="patientage" value="<?php echo $age ?>" readonly>
                         </span>
                         <span class="labelInput">
-                            <label for="PrescriptionDate">Prescription Date</label>
-                            <input type="datetime" id="PrescriptionDate" name="PrescriptionDate">
+                            <label for="PrescriptionDate">Prescription Time</label>
+                            <input type="time" id="PrescriptionDate" name="PrescriptionDate" >
                         </span>
 
 
@@ -80,11 +83,11 @@
                     <div class="rightGroup fieldGroup">
                         <span class="labelInput">
                             <label for="Department">Department</label>
-                            <input type="text" id="Department" name="Department">
+                            <input type="text" id="Department" name="Department" value="<?php echo $data['departmentName'] ?>" readonly>
                         </span>
                         <span class="labelInput">
                             <label for="Doctor">Doctor</label>
-                            <input type="text" id="Doctor" name="Doctor">
+                            <input type="text" id="Doctor" name="Doctor" value="<?php echo $data['doctorName'] ?>" readonly >
                         </span>
                     </div>
                 </div>
@@ -169,6 +172,4 @@
 </body>
 
 </html>
-<?php 
-   include("prescWrite.php");
-?>
+
