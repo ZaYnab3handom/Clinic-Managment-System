@@ -1,3 +1,7 @@
+<?php
+                      include("PatientWrite.php");
+                    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +57,7 @@
                     <img src="resp.jpg" class="w-100 position-absolute bottom-0 start-0">
                 </div>
                 <div class="col-7 bg-gradient">
-                    <form action="" method="post">
+                    <form method="post">
                         <div class="form-input">
                             <label for="patientname" class="fs-4 mt-2 d-block">Name</label>
                             <input type="text" id="patientname" placeholder="your name" name="patientName"
@@ -106,20 +110,33 @@
 
 
                             <label for="Address" class="fs-4 d-block mt-2">Address</label>
-
+                            
+                            <input type="text" id="Address" name="apartment" placeholder="apartment"
+                            class="rounded-pill border-info input ms-3">
                             <input type="text" id="Address" name="street" placeholder="street"
                                 class="rounded-pill border-info input">
                             <input type="text" id="Address" name="city" placeholder="city"
                                 class="rounded-pill border-info input ms-3">
-                            <input type="text" id="Address" name="Governorate" placeholder="Governorate"
+                            <input type="text" id="Address" name="country" placeholder="country"
                                 class="rounded-pill border-info input mt-3">
+
+                            <label for="Email" class="fs-4 d-block mt-2">Email</label>
+                            <input type="Email" id="Email" name="Email" placeholder="name@gmail.com"
+                                    class="rounded-pill border-info input">
+                            <label for="Password" class="fs-4 d-block mt-2">Password</label>
+                            <input type="Password" id="Password" name="Password" placeholder=""
+                                    class="rounded-pill border-info input">
+                            <label for="RepeatPassword" class="fs-4 d-block mt-2">Repeat Password</label>
+                            <input type="Password" id="RepeatPassword" name="RepeatPassword" placeholder=""
+                                    class="rounded-pill border-info input">
+    
                         </div>
                         <button type="button" class="btn btn-light float-start w-25 mt-5
                         text-center rounded-pill mb-3 fs-5 border-1 border border-secondary">
                         <a href="Patient.html" class="text-decoration-none  text-info">Discard</a></button>
         
-                        <button type="button" class="btn btn-info float-end w-25 mt-3 
-                        text-center text-white rounded-pill mb-3 fs-5">Save</button>
+                        <input type="submit" value="Save" name="savebtn" class="btn btn-info float-end w-25 mt-3 
+                        text-center text-white rounded-pill mb-3 fs-5"></button>
                     </form>
                 </div>
             </div>
@@ -199,6 +216,3 @@
 </body>
 
 </html>
-<?php
-                      include("PatientWrite.php");
-                    ?>

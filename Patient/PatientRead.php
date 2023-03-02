@@ -2,7 +2,8 @@
   
        include_once("../dbConnection.php");
         //Read From Patient
-        $readSql = "SELECT * FROM users JOIN patient WHERE users.national_id=patient.user_id"; 
+        $readSql = "SELECT * FROM users JOIN patient ON users.national_id=patient.user_id 
+                    INNER JOIN adress ON users.national_id=adress.user_id"; 
         $readResult1 = mysqli_query($connection, $readSql);
         $currentDate = date("d-m-Y");
 
@@ -15,8 +16,8 @@
             $age = date_diff(date_create($data["birthDate"]), date_create($currentDate));
             echo "<td>".$age->format("%y")."</td>";
             echo "<td>".$data["blood_type"]."</td>";
-            echo "<td> <a href='patientUpdateForm.html?user=$data[nationalId]'></a> </td>";
-            echo "<td> <a href='../appointment/appointmentForm.html?user=$data[user_id]'> Create Appointment </a> </td>";
+            echo "<td> <a href='patientUpdate.php?user=$data[national_id]'> edit</a></td>";
+            echo "<td> <a href='../appointment/appointmentForm.html?user=$data[user_id]'> Create Appointment</a></td>";
             echo "</tr>";
         
         }
