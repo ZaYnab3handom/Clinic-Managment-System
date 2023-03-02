@@ -1,7 +1,6 @@
 <?php 
     if(isset($_POST["savebtn"])){
-        //record to set in prescrition table
-        //check if the patient male or female
+        //check if the patient is male or female
         if ( isset($_POST['gender']) ){
             $gender = $_POST['gender'];
             if ( $gender == 'M' ){
@@ -38,7 +37,7 @@
         $patientName = $_POST["patientName"];
         $mobile = $_POST["mobile"];
         $nationalId = $_POST["nationalId"];
-        $Birthdate = $_POST["Birthdate"];
+        $birthDate = $_POST["birthDate"];
         $employeeId=$_POST["employeeId"];
         $ChronicDisease=$_POST["ChronicDisease"];
         $PastSurger=$_POST["PastSurger"];
@@ -46,13 +45,12 @@
         $apartment=$_POST["apartment"];
         $city=$_POST["city"];
         $country=$_POST["country"];
-        $PastSurger=$_POST["PastSurger"];
         $Email=$_POST["Email"];
         $Password=$_POST["Password"];
         $RepeatPassword=$_POST["RepeatPassword"];
         $type="patient";
         if ($Password==$RepeatPassword){
-            //Opern database
+            //Open database
             include_once("../dbConnection.php");
             //insert new user as a patient
             $sql = "insert into users (national_id, name, birthDate, gender, type, mobile, email, password)
@@ -63,8 +61,8 @@
             values ('$company','$employeeId','$Blood','$ChronicDisease','$PastSurger','$nationalId')";
             $result = mysqli_query($connection, $sql1);
             //insert patient adress
-            $sql2 ="insert into adress (apartment, street, city, country)
-            values('$apartment' ,'$street', '$city', '$country')";
+            $sql2 ="insert into adress (id, apartment, street, city, country)
+            values('$nationalId', '$apartment' ,'$street', '$city', '$country')";
             $result = mysqli_query($connection, $sql2);
             echo "User added";
         }else
