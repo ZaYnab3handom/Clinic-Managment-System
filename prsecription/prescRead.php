@@ -3,16 +3,15 @@
 //Read From Prescription Table
         include_once("../dbConnection.php");
 
-        $readSql = "select * from prescription order by prescription_time desc "; 
+        $readSql = "select * from presusers order by prescription_time desc "; 
         $readResult = mysqli_query($connection, $readSql);
         
         while($data = mysqli_fetch_array($readResult)) {
             echo "<tr>";    
-                echo"<td>checkBox</td>";
                 echo "<td>".$data['appointment_id']."</td>";
-                echo"<td>Patient</td>";
-                echo" <td>Department</td>";
-                echo" <td>Doctor</td>";
+                echo"<td>".$data['patienName']."</td>";
+                echo" <td>".$data['departmentName']."</td>";
+                echo" <td>".$data['doctorName']."</td>";
                 echo "<td>".$data["prescription_time"]."</td>";
                 echo "<td>".$data["followup_date"]."</td>";
                 echo "<td> <a href='prescDelete.php?user=$data[appointment_id]'> Delete </a> </td>";

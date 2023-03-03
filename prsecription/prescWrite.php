@@ -13,13 +13,8 @@
 
     if(isset($_POST["savebtn"])){
         //record to set in prescrition table
-        print_r($_POST);
-        //get appointment id from appointment page
-
-        //get current time 
-        date_default_timezone_set('Africa/Cairo');
-        $t=time();
-        $prescription_time=date("h:i:s",$t);
+        // print_r($_POST);       
+        $prescription_time=$_POST["datetime"];
 
         $disease = $_POST["disease"];
         $medicalTest = $_POST["medicalTest"];
@@ -28,14 +23,12 @@
         $notes=$_POST["notes"];
 
         //record to set in precription line
-        // $prescrptionId = $_GET["user"];
-        //$prescrptionId =1;
         $medicineName = $_POST["medicineName"];
         $dosage = $_POST["dosage"];
-        $allowSubsistuation=$_POST["allowSubsistuation"];
         $comment=$_POST["comment"];
-
-
+        // print_r($_POST["allowSubsistuation"]);
+        //allowSubsistuation checkBox handle 
+        
        //insert new Prescription to prescription table
        
         $sql = "insert into prescription 
@@ -45,16 +38,14 @@
 
         //insert prescription lines to prescription line table 
         for($i=0;$i<count($medicineName);$i++){
-            // if($allowSubsistuation[$i]=="on"){
-            //     $allowSubsistuation[$i]=1;
-            // }
-            // else{
-            //     $allowSubsistuation[$i]=0;
-            // }
+            if (!isset($_POST["allowSubsistuation"][$i])){
+                $allowSubsistuation[$i] = 0; }
+            else{$allowSubsistuation[$i] = $_POST["allowSubsistuation"][$i];} 
+    
             if($medicineName[$i]){
             $sql2 = "insert into prescription_line 
-            (prescription_id, medicine_name, dosage_detail, comment)
-             values ( '$appoitmentId', '$medicineName[$i]', '$dosage[$i]','$comment[$i]' )";
+            (prescription_id, medicine_name, dosage_detail,allow_subsistuation, comment)
+             values ( '$appoitmentId', '$medicineName[$i]', '$dosage[$i]','$allowSubsistuation[$i]','$comment[$i]' )";
              $result = mysqli_query($connection, $sql2);}
 
             //  $sql2 = "insert into prescription_line 

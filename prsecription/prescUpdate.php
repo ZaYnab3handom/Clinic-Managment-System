@@ -39,9 +39,8 @@ function drawPrescriptionLine(){
         // $appoitmentId = 1;
 
         //get current time 
-        date_default_timezone_set('Africa/Cairo');
-        $t=time();
-        $prescription_time=date("h:i:s",$t);
+       
+        $prescription_time=$_POST["PrescriptionDate"];
 
         $disease = $_POST["disease"];
         $medicalTest = $_POST["medicalTest"];
@@ -68,8 +67,11 @@ function drawPrescriptionLine(){
         for($i=0;$i<count($medicineName);$i++){
          
             if($medicineName[$i]){
+                if (!isset($_POST["allowSubsistuation"][$i])){
+                    $allowSubsistuation[$i] = 0; }
+                else{$allowSubsistuation[$i] = $_POST["allowSubsistuation"][$i];} 
             $updatePrescLinesql = "update prescription_line set medicine_name='$medicineName[$i]'
-            ,dosage_detail='$dosage[$i]', comment='$comment[$i]' where prescription_id=$prescid";
+            ,dosage_detail='$dosage[$i]',allow_subsistuation=$allowSubsistuation[$i], comment='$comment[$i]' where prescription_id=$prescid";
              $updatePrescLineResult = mysqli_query($connection, $updatePrescLinesql);}
              header("Location:prescriptionList.html");
 

@@ -3,7 +3,7 @@
 //Read From appointmet Table
         include_once("../dbConnection.php");
 
-        $readSql = "select * from appointmentusers"; 
+        $readSql = "select * from appointmentusers order by datetime desc"; 
         $readResult = mysqli_query($connection, $readSql);
         while($data = mysqli_fetch_array($readResult)) {
             echo "<tr>";    

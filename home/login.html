@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -60,16 +61,23 @@
                 <div class="col-lg-8 ">
                     <div class="bg-white text-center rounded p-5">
                         <h1 class="mb-4">SignUp</h1>
-                        <form>
+                        <form method="post">
                             <div class="row g-3">
                               <div class="col-12 ">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;" name="">
+                                    <input type="text" class="form-control bg-light border-0" placeholder="Please Enter Your National ID" style="height: 55px;" name="national_id">
                                 </div>
-                                <div class="col-12 ">
+                                <!-- <div class="col-12 ">
                                     <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;" name="">
-                                </div>
+                                </div> -->
                             <div class="col-12">
-                                    <a class="btn btn-primary w-100 py-3" href="appointment_form.html" type="submit"> Submit </a>
+                                <input type="submit" class="btn btn-primary w-100 py-3" name="savebtn" value="Book">   
+                                           <br>
+                                        <?php 
+                                                 include("php/patientCheck.php");
+                                             ?>
+
+
+                                    <!-- <a class="btn btn-primary w-100 py-3" href="appointment_form.html" type="submit"> Submit </a> -->
                                </div>
                             </div>
                         </form>

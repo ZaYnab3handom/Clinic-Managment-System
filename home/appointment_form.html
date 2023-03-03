@@ -1,3 +1,7 @@
+<?php 
+   include("php/onlineappointment.php");
+?>
+
 <html lang="en">
 
 <head>
@@ -67,54 +71,72 @@
                 <div class="col-lg-8 ">
                     <div class="bg-white text-center rounded p-5">
                         <h1 class="mb-4">Appointment</h1>
-                        <form >
+                        <form method="post">
                             <div class="row g-3">
                                 
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;" name="">
+                                   <?php setPatientName(); ?> 
+                                    <!-- <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;" name="patientName"> -->
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input type="number" class="form-control bg-light border-0" placeholder="Your Id" style="height: 55px;" name="">
+                                    <?php setPatientId();?>
+                                    <!-- <input type="number" class="form-control bg-light border-0" placeholder="Your Id" style="height: 55px;" name="national_id"> -->
                                 </div>
-                                <div class="col-12 col-sm-6">
+                                <!-- <div class="col-12 col-sm-6">
                                     <input type="email" class="form-control bg-light border-0" placeholder="Your email" style="height: 55px;" name="">
-                                </div>
+                                </div> -->
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Consultation type" style="height: 55px;" name="">
-                                </div>
+                                    <select name="department" class="form-select bg-light border-0"  style="height: 55px;" id="">
+                                     <option>Select Department</option>
+                                     <?php  if (mysqli_num_rows($depresult) > 0) {
+                                         // output data of each row
+                                         while($row = mysqli_fetch_assoc($depresult)) {?>
+                                       <option value=<?php echo $row['id'] ;?>>
+                                         <?php echo $row["name"] ;?>
+                                       </option>;
+                                       <?php }
+                                       } ?>
+                                    </select> 
+                             </div>
+
                                 <div class="col-12 col-sm-6">
-                                    <select class="form-select bg-light border-0" style="height: 55px;" name="">
-                                        <option selected>Select Doctor</option>
-                                        <option value="1">Doctor 1</option>
-                                        <option value="2">Doctor 2</option>
-                                        <option value="3">Doctor 3</option>
-                                    </select>
+                                    <select name="doctorName" class="form-select bg-light border-0" style="height: 55px;" placeholder="Doctor">
+                                    <option>Select Doctor</option>
+                                    <?php  if (mysqli_num_rows($docresult) > 0) {
+                                      // output data of each row
+                                      while($row = mysqli_fetch_assoc($docresult)) {?>
+                                    <option value=<?php echo $row['national_id'] ;?>>
+                                      <?php echo $row["name"] ;?>
+                                    </option>;
+                                    <?php }
+                                    } ?>
+                                </select>
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <select class="form-select bg-light border-0" style="height: 55px;" name="">
-                                        <option selected>Choose Department</option>
-                                        <option value="1">Department 1</option>
-                                        <option value="2">Department 2</option>
-                                        <option value="3">Department 3</option>
-                                    </select>
-                                </div>
+
+                              
+                             <div class="col-12 col-sm-6">
+                                <select name="consultationt" class="form-select bg-light border-0"  style="height: 55px;" id="">
+                                 <option value="examination">Examination</option>
+                                 <option value="re-examination">Re-examination</option>                                               
+                                </select> 
+                         </div>
                                 
 
                                 <div class="col-12 col-sm-6">
                                     <div class="date" id="date" data-target-input="nearest">
-                                        <input type="text"
+                                        <input type="datetime-local"
                                             class="form-control bg-light border-0 datetimepicker-input"
-                                            placeholder="Date" data-target="#date" data-toggle="datetimepicker" style="height: 55px;" name="">
+                                            placeholder="Date" data-target="#date" data-toggle="datetimepicker" style="height: 55px;" name="datetime">
                                     </div>
                                 </div>
-                                <div class="col-12 col-sm-6">
+                                <!-- <div class="col-12 col-sm-6">
                                     <div class="time" id="time" data-target-input="nearest">
                                         <input type="text"
                                             class="form-control bg-light border-0 datetimepicker-input"
                                             placeholder="Time" data-target="#time" data-toggle="datetimepicker" style="height: 55px;" name="">
                                     </div>
-                                </div>
-                                <div class="col-12 col-sm-6">
+                                </div> -->
+                                <!-- <div class="col-12 col-sm-6">
                                     <label class="form-check-label form-control" for="flexCheckDefault" style="height: 55px; text-align: justify; color: #707a8b;
                                     height: 55px;
                                     padding-top: 15px; background-color:#ebf3fa; border: 0;">
@@ -123,8 +145,8 @@
                                         Booked online
                                     </label> 
                                                                        
-                                </div>
-                                <div class="col-12 col-sm-6">
+                                </div> -->
+                                <!-- <div class="col-12 col-sm-6">
                                     <label class="form-check-label form-control" for="flexCheckDefault" style="height: 55px; text-align: justify; color: #707a8b;
                                     height: 55px;
                                     padding-top: 15px; background-color:#ebf3fa; border: 0;">
@@ -132,9 +154,9 @@
 
                                       State
                                     </label>                                    
-                                </div>
+                                </div> -->
                                 <div class="col-6 justify-content-center">
-                                    <a class="btn btn-primary w-100 py-3" href="index.html" type="submit"> Create </a>
+                                    <input type="submit" class="btn btn-primary w-100 py-3" name="savebtn" value="Book">   
                                </div>
                             </div>
                         </form>
