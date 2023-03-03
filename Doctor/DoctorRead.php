@@ -9,7 +9,7 @@
 
         while($data = mysqli_fetch_array($readResult1)) {
             echo "<tr>";
-            echo "<td>".$data["users.name"]."</td>";
+            echo "<td>".$data["name"]."</td>";
             echo "<td>".$data["department.name"]."</td>";
             echo "<td>".$data["schedule.dayDate"]."</td>";
             echo "<td>".$data["schedule.start"]."</td>";
