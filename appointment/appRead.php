@@ -11,7 +11,7 @@
                 echo" <td>".$data['patienName']."</td>";
                 echo "<td>".$data['doctorName']."</td>";
                 echo "<td>".$data["departmentName"]."</td>";
-                echo "<td>".$data["time"]."</td>";
+                echo "<td>".$data["datetime"]."</td>";
                 echo "<td>".$data["consultation_type"]."</td>";
                 echo "<td>".$data["booked_online"]."</td>";
                 echo "<td>".$data["state"]."</td>";

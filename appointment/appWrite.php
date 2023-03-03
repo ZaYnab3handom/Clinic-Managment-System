@@ -25,38 +25,46 @@
     
     }
     function getPatientName(){
-        echo  "<input type='text' id='patientname' name='patientname' value=  '$GLOBALS[patientName]' >";
+        echo  "<input type='text' id='patientname' name='patientname' class='form-control bg-white border-0' readonly value=  '$GLOBALS[patientName]' >";
     }
     function getPatientAge(){
-        echo "<input type='text' id='patientage' name='patientage' value=  '$GLOBALS[age]' >"; 
+        echo "<input type='text' id='patientage' name='patientage' class='form-control bg-white border-0'  readonly value=  '$GLOBALS[age]' >"; 
 
     }
+   $doctorData="select national_id,name from users WHERE type ='doctor'";
+   $docresult=mysqli_query($connection, $doctorData);
+//    $docdata = mysqli_fetch_array($docresult);
    
+//     if (mysqli_num_rows($docresult) > 0) {
+//     // output data of each row
+//     while($row = mysqli_fetch_assoc($docresult)) {
+//       echo "id: " . $row["national_id"]. " - Name: " . $row["name"]. "<br>";
+//     }
+//   }
+    
+
+
+
     if(isset($_POST["savebtn"])){
         //record to set in prescrition table
         // print_r($_POST);
         $patientId = $_GET["user"];
-        
-        // $patientName = 29608030400141;
-        //$doctorName = $_POST["doctorName"]; get patient id from name by search
-        $doctorId = 29608030400141;
-
-        //get current time 
-        date_default_timezone_set('Africa/Cairo');
-        $t=time();
-        $appdate=date("Y-m-d",$t);
-        $apptime=date("h:i:s",$t);
-
-       
+        $doctorId = $_POST["doctorName"]; //get doctor name 
+        $appdatetime = $_POST["datetime"];
         $consType = $_POST["consultationt"];
-        $BookedOnline = $_POST["BookedOnline"];
+
+        //booked online checkBox handle 
+        if (!isset($_POST["BookedOnline"])){
+            $BookedOnline = 0; }
+        else{$BookedOnline = $_POST["BookedOnline"];} 
+
         $status=$_POST["status"];
 
 
        //insert new appontment to app table
         $sql = "insert into appointment 
-        (patient_Id	, doctor_id, date,time, consultation_type, booked_online, state)
-        values ('$patientId','$doctorId','$appdate','$apptime','$consType','$BookedOnline','$status' )";
+        (patient_Id	, doctor_id, datetime, consultation_type, booked_online, state)
+        values ('$patientId','$doctorId','$appdatetime','$consType','$BookedOnline','$status' )";
         $result = mysqli_query($connection, $sql);
 
     
