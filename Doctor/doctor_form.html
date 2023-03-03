@@ -14,6 +14,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="Doctor.css">
     <link rel="stylesheet" href="../Patient/patient_form_style.css">
+  <link rel="stylesheet" href="../generalView.css">
 
 </head>
 
@@ -24,7 +25,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
                 <a href="index.html" class="navbar-brand">
-                    <h1 class="m-0 text-uppercase text-info"><i class="fa fa-clinic-medical me-2"></i>Medinova</h1>
+                    <img src="logo.png" alt="">              </a>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
@@ -43,77 +44,112 @@
     </div>
 
     <!-- doctor form -->
+    <div class="container mt-5">
+        <div class="row form bg-light  rounded p-5">
+          <h1 class="mb-4 text-center">Doctor</h1>
+          <div class="row g-3">
+            <form action="" method="post">
+              <div class="row g-3">
+                <div class="col-12 col-sm-6">
 
-    <div class="container mt-5 mb-5">
-        <div class="row form">
-            <div class="col-4 bg-info position-relative">
-                <p class="fs-1 text-center text-light mt-5">
-                    We Are Here For Help You
-                </p>
-                <img src="doc.jpg" class="w-100 position-absolute bottom-0 start-0">
-            </div>
-            <div class="col-7 bg-gradient">
-                <form action="" method="post">
-                    <div class="form-input">
-
-                        <label for="patientname" class="fs-4 mt-2 d-block">Doctor Name</label>
-                        <input type="text" id="patientname" name="patientname" placeholder="Doctor name"
-                            class="rounded-pill border-info input">
-
-                        <label for="nationalId" class="fs-4 mt-2 d-block">National Id</label>
-                        <input type="text" id="nationalId" name="nationalId" placeholder="National Id"
-                            class="rounded-pill border-info input">
-
-                        <label for="Birthdate" class="fs-4 mt-2 d-block">Birthdate</label>
-                        <input type="date" id="Birthdate" name="Birthdate" placeholder="Birthdate"
-                            class="rounded-pill border-info input">
-
-                        <label for="Address" class="fs-4 mt-2 d-block">Gender</label>
-                        <input type="radio" id="male" name="fav_language" value="HTML"
-                            class="rounded-pill border-info me-2">
-                        <label for="">Male</label>
-                        <input type="radio" id="female" name="fav_language" value="CSS"
-                            class="rounded-pill border-info me-2">
-                        <label for="">Female</label>
-
-                        <label for="mobile" class="fs-4 mt-2 d-block">Mobile</label>
-                        <input type="text" id="mobile" name="mobile" placeholder="mobile"
-                            class="rounded-pill border-info input">
-
-                        <label for="employeeId" class="fs-4 mt-2 d-block">Department</label>
-                        <select  class="rounded-pill border-info input">
-                            <option>Department1</option>
-                            <option>Department2</option>
-                            <option>Department3</option>
-                        </select>
-
-                        <label for="employeeId" class="fs-4 mt-2 d-block">Blood Type</label>
-                        <select  class="rounded-pill border-info input">
-                            <option>A</option>
-                            <option>B</option>
-                            <option>AB</option>
-                            <option>O</option>
-                        </select>
-                            <label for="Address" class="fs-4 mt-2 d-block">Address</label>
-                            <input type="text" id="Address" name="Address" placeholder="street"
-                            class="rounded-pill border-info input">
-                            <input type="text" id="Address" name="Address" placeholder="city"
-                            class="rounded-pill border-info input me-3">
-                            <input type="text" id="Address" name="Address" placeholder="Governorate"
-                            class="rounded-pill border-info input mt-3">
-                    </div>
-                    <button type="button" class="btn btn-light float-start w-25 mt-5
-                text-center rounded-pill mb-3 fs-5 border-1 border border-secondary">
-                <a href="Doctor.html" class="text-decoration-none  text-info">Discard</a></button>
-
-                    <button type="button" class="btn btn-info float-end w-25 mt-5
-                text-center text-white rounded-pill mb-3 fs-5 border-1 border border-secondary">Save</button>
-                </form>
-            </div>
+                  <input type="text" id="doctorname" name="doctorName" class="form-control bg-white border-0" placeholder="Doctor's Name" style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                  <input type="text" id="Mobile" name="mobile" class="form-control bg-white border-0"
+                    placeholder="Phone Number" style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                  <input type="text" id="NationalId" name="nationalId" class="form-control bg-white border-0" placeholder="National Id"
+                    style="height: 55px;">
+                  
+                </div>
+                
+                <div class="col-12 col-sm-6">
+                  <input type="date" id="Birthdate" name="Birthdate" class="form-control bg-white border-0"
+                  placeholder="Birthdate" style="height: 55px;">
+                </div>
+                <div class="form-check col-12 col-sm-6 d-flex justify-content-center">
+                  <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1">
+                  <label class="form-check-label" value="F" for="flexRadioDefault1">
+                    &nbsp;&nbsp;&nbsp;Female
+                  </label>
+                </div>
+              
+                <div class="form-check col-12 col-sm-6 d-flex justify-content-center ">
+                  <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" checked>
+                  <label class="form-check-label" value="M" for="flexRadioDefault2">
+                    &nbsp;&nbsp;&nbsp;Male
+                  </label>
+                </div>
+                <div class="col-12 col-sm-6">
+                  <input type="text" id="Department" name="department" class="form-control bg-white border-0"
+                    placeholder="Department" style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                  <input type="email" id="Email" name="email" class="form-control bg-white border-0"
+                    placeholder="Email" style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                    <input type="password" id="Password" name="password" class="form-control bg-white border-0"
+                      placeholder="Password" style="height: 55px;">
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <input type="password" id="RepeatPassword" name="repeatpassword" class="form-control bg-white border-0"
+                      placeholder="Repeat Password" style="height: 55px;">
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <input type="text" id="Apartment" name="apartment" class="form-control bg-white border-0"
+                      placeholder="Apartment" style="height: 55px;">
+                  </div>
+                <div class="col-12 col-sm-6">
+                  <input type="text" id="Street" name="street" class="form-control bg-white border-0"
+                    placeholder="1234 Main St" style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                  <input type="text" id="Country" name="country" class="form-control bg-white border-0"
+                    placeholder="Country" style="height: 55px;">
+                </div>
+                <div class="col-12 col-sm-6">
+                    <!-- <select id="City" name="city" class="form-control bg-white border-0" placeholder="city" style="height: 55px;">
+                        <option selected>City</option>
+                        <option>Cairo</option>
+                        <option>Alexandria</option>
+                        <option>Gizeh</option>
+                        <option>Suez</option>
+                        <option>Asyut</option>
+                        <option>Fayyum</option>
+                        <option>al-Minya</option>
+                        <option>Beni Suef</option>
+                        <option>Qena</option>
+                        <option>Sohag</option>
+                        <option>Banha</option>
+                        <option>Ismailia</option>
+                        <option>Aswan</option>
+                        <option>Damietta</option>
+                      </select> -->
+                    <input type="text" id="City" name="city" class="form-control bg-white border-0"
+                      placeholder="city" style="height: 55px;">
+                  </div>
+                <br><br>
+                <div class="col-12 col-sm-6 text-center">
+                    <br>
+                  <button class="discard btn-light border-1 border border-secondary btn w-50 py-3">
+                    <a href="../prsecription/prescriptionList.html" class="text-decoration-none" style="color: #6c757d;">Discard</a>
+                  </button>
+                </div>
+                <div class="col-12 col-sm-6 text-center">
+                    <br>
+                  <input type="submit" class="btn w-50 py-3" name="savebtn" id="savebtn" value="Save" style="background-color: #42b3e5; color: white;">
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
-    </div>
-
-
+      </div>
+      <script src="../Doctor/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
+<?php
+  include("DoctorWrite.php");
+?>
