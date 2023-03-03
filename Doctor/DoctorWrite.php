@@ -35,13 +35,13 @@
             values ('$nationalId')";
             $result = mysqli_query($connection, $sql1);
             //insert Department data
-            $sql1 = "insert into department (name)
+            $sql2 = "insert into department (name)
             values ('$department')";
-            $result = mysqli_query($connection, $sql1);
-            //insert Doctor adress
-            $sql2 ="insert into adress (user_id, apartment, street, city, country)
-            values('$nationalId', '$apartment' ,'$street', '$city', '$country')";
             $result = mysqli_query($connection, $sql2);
+            //insert Doctor adress
+            $sql3 ="insert into adress (user_id, apartment, street, city, country)
+            values('$nationalId', '$apartment' ,'$street', '$city', '$country')";
+            $result = mysqli_query($connection, $sql3);
         }
 
         function addSchedule(){
@@ -51,9 +51,9 @@
             $room_no=$_POST["room_no"];
             $doctor_id=$_GET["user"];
             
-            $sql3 = "insert into schedule (dayDate, start, end, room_no, doctor_id)
+            $sql4 = "insert into schedule (dayDate, start, end, room_no, doctor_id)
             values ('$dayDate','$start','$end','$room_no','$doctor_id')";
-            $result = mysqli_query($connection, $sql3);
+            $result = mysqli_query($connection, $sql4);
         }
 
 
