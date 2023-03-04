@@ -25,10 +25,10 @@
     
     }
     function getPatientName(){
-        echo  "<input type='text' id='patientname' name='patientname' class='form-control bg-white border-0' readonly value=  '$GLOBALS[patientName]' >";
+        echo  "<input type='text' id='patientname' name='patientname' class='form-control bg-light border-0'style='height: 55px;' readonly value=  '$GLOBALS[patientName]' >";
     }
     function getPatientAge(){
-        echo "<input type='text' id='patientage' name='patientage' class='form-control bg-white border-0'  readonly value=  '$GLOBALS[age]' >"; 
+        echo "<input type='text' id='patientage' name='patientage' class='form-control bg-light border-0' style='height: 55px;' readonly value=  '$GLOBALS[age]' >"; 
 
     }
    $doctorData="select national_id,name from users WHERE type ='doctor'";

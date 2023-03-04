@@ -51,16 +51,16 @@
         <form action="" method="post">
           <div class="row g-3">
             <div class="col-12 col-sm-6">
-              <span>
-                <label for="patientName">Patient Name: </label>
+              <span class="labelInput">
+                <label for="patientName">Patient Name</label>
                 <?php getPatientName(); ?>
                 <!-- <input type="text" id="patientname" name="patientname" class="form-control bg-white border-0" placeholder="Patient's Name" style="height: 55px;"> -->
               </span>
-            </div>
+              </div>
 
             <div class="col-12 col-sm-6">
-              <span>
-                <label for="patientAge">Patient Age:</label>
+              <span class="labelInput">
+                <label for="patientAge">Patient Age</label>
                 <?php getPatientAge(); ?>
                 <!-- <input type="text" id="patientage" name="patientage" class="form-control bg-white border-0"
                 placeholder="Patient's Age" style="height: 55px;"> -->
@@ -68,7 +68,8 @@
             </div>
 
             <div class="col-12 col-sm-6">
-              <span>
+              <span class="labelInput">
+              <label for="doctorName">Doctor Name</label>
                 <select name="doctorName" class="form-control bg-white border-0" placeholder="Doctor"
                   style="height: 55px;">
                   <option>Select Doctor</option>
@@ -84,26 +85,39 @@
               </span>
             </div>
 
-
             <div class="col-12 col-sm-6">
-              <span>
-                <input type="datetime-local" id="Date" name="datetime" value="<?= date('Y-m-d h:i:s', time()); ?>"
+              <span class="labelInput">
+              <label for="datetime">Date & Time</label>
+                <input type="datetime-local" id="Date" name="datetime" value="<?php
+                date_default_timezone_set('Africa/Cairo');
+                echo date('Y-m-d h:i:s', time()); ?>"
                   class="form-control bg-white border-0" placeholder="Date & Time" style="height: 55px;">
-              </span>
-            </div>
+                </span>
+                </div>
 
-            <div class="col-12 col-sm-6">
-              <span>
+            <!-- <div class="col-12 col-sm-6">
+              <span class="labelInput"> 
+              <label for="ConsultationT">Consultation Type</label>
                 <input type="text " id="ConsultationT" name="consultationt" class="form-control bg-white border-0"
-                  placeholder="Consultations Type" style="height: 55px;">
-              </span>
-            </div>
-
+                  placeholder="Cons.T" style="height: 55px;">
+                  </span>
+            </div> -->
             <div class="col-12 col-sm-6">
-              <span>
+              <span class="labelInput"> 
+               <label for="ConsultationT">Consultation Type</label>
+               
+              <select name="consultationt" class="form-select bg-white border-0"  style="height: 55px;" id="ConsultationT">
+               <option value="examination">Examination</option>
+               <option value="re-examination">Re-examination</option>                                               
+              </select> 
+              </span>
+       </div>
+            <div class="col-12 col-sm-6">
+              <span class="labelInput">
+              <label for="stat">Status</label>
                 <input type="text" id="stat" name="status" class="form-control bg-white border-0" placeholder="Status"
                   style="height: 55px;">
-              </span>
+                  </span>
             </div>
 
             <div class="col-12 col-sm-6">

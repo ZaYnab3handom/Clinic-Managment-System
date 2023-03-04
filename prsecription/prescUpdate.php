@@ -22,7 +22,9 @@ $prescLineresult = mysqli_query($connection, $prescLinesql);
 function drawPrescriptionLine(){
     if( $GLOBALS['prescLineresult']) {
         while($row =  mysqli_fetch_assoc($GLOBALS['prescLineresult'])){
-            echo "<tr>";    
+        
+            echo "<tr class='case'>"; 
+            // echo "<td><span id='snum'>".$row['id']."</span></td>" ;  
             echo "<td> <input type='text' name='medicineName[]' value='$row[medicine_name]'> </td>";
             echo "<td ><input type='text' name='dosage[]' value=$row[dosage_detail]></td>";
             echo"<td ><input type='checkbox' name ='allowSubsistuation[]'value='1' ></td>";

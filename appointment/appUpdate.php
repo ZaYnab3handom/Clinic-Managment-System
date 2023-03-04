@@ -20,8 +20,17 @@ if(isset($_POST["savebtn"])){
     $t=time();
     $appdate=$_POST["date"];
     $consType = $_POST["consultationt"];
-    $BookedOnline = $_POST["BookedOnline"];
+    
+    if(!isset($_POST["BookedOnline"])){
+        $BookedOnline=0;
+    }
+    else{
+        $BookedOnline=$_POST["BookedOnline"];
+    }
+
     $status=$_POST["status"];
+    
+   
 
 
    //udate  appointment 

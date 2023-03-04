@@ -64,45 +64,68 @@
                     <form action="" method="post">
                         <div class="row g-3">
                             <div class="col-12 col-sm-6">
-
+                                <span class="labelInput">
+                                <label for="patientname">Patient Name</label>
                                 <input type="text" id="patientname" name="patientname"
                                     value="<?php echo $data['patienName'] ?>" readonly
-                                    class="form-control bg-white border-0" placeholder="Patient's Name"
+                                    class="form-control bg-lwhite border-0" placeholder="Patient's Name"
                                     style="height: 55px;">
+                                </span>
                             </div>
                             <div class="col-12 col-sm-6">
+                                <span class="labelInput">
+                                <label for="patientage">Patient Age</label>
                                 <input type="text" id="patientage" name="patientage" value="<?php echo $age ?>" readonly
-                                    class="form-control bg-white border-0" placeholder="Patient's Age"
+                                    class="form-control bg-lwhite border-0" placeholder="Patient's Age"
                                     style="height: 55px;">
+                                </span>
                             </div>
 
                             <div class="col-12 col-sm-6">
+                                <span class="labelInput">
+                                <label for="Department">Department</label>
                                 <input type="text" id="Department" name="Department"
                                     value="<?php echo $data['departmentName'] ?>" readonly
-                                    class="form-control bg-white border-0" placeholder="Date" style="height: 55px;">
-                            </div>
+                                    class="form-control bg-lwhite border-0" placeholder="Date" style="height: 55px;">
+                                </span>
+                                </div>
                             <div class="col-12 col-sm-6">
+                                <span class="labelInput">
+                                <label for="Doctor">Doctor</label>
                                 <input type="text" id="Doctor" name="Doctor" value="<?php echo $data['doctorName'] ?>"
-                                    readonly class="form-control bg-white border-0" placeholder="Doctor Name"
+                                    readonly class="form-control bg-lwhite border-0" placeholder="Doctor Name"
                                     style="height: 55px;">
+                                </span>
                             </div>
                             <div class="col-12 col-sm-6">
+                                <span class="labelInput">
+                                <label for="PrescriptionDate">Prescription Date</label>
                                 <input type="datetime-local" id="PrescriptionDate" name="datetime"
-                                    value="<?= date('Y-m-d h:i:s', time()); ?>" class="form-control bg-white border-0"
+                                value="<?php date_default_timezone_set('Africa/Cairo'); echo date('Y-m-d h:i:s', time()); ?>" class="form-control bg-white border-0"
                                     placeholder="Prescription Time" style="height: 55px;">
+                                </span>
                             </div>
                             <div class="col-12 col-sm-6">
+                                <span class="labelInput">
+                                <label for="Disease">Disease</label>
                                 <input type="text" id="Disease" name="disease" class="form-control bg-white border-0"
-                                    placeholder="Disease" style="height: 55px;">
+                                    placeholder="Diabetes" style="height: 55px;">
+                                </span>
                             </div>
                             <div class="col-12 col-sm-6">
+                                <span class="labelInput">
+                                <label for="MedicalTest">Medical Test</label>
                                 <input type="text" id="MedicalTest" name="medicalTest"
                                     class="form-control bg-white border-0" placeholder="Medical Test"
                                     style="height: 55px;">
+                                </span>
                             </div>
                             <div class="col-12 col-sm-6">
+                                <span class="labelInput">
+                                <label for="xrays">x-rays</label>
                                 <input type="text" id="xrays" name="xrays" class="form-control bg-white border-0"
                                     placeholder="x-rays" style="height: 55px;">
+                                </span>
                             </div>
 
                             <!-- fiiififiifif -->
@@ -242,10 +265,10 @@
                                             style="background-color: #42b3e5;">add new </button>
                                     </div>
                                 </div>
-                        
+                            </form>
                             <footer class="row g-3">
                                 <div class="col-12 col-sm-6">
-                                    <label for="follwdate">Follw-up Date</label>
+                                    <label for="follwdate">Follw-up Date:</label>
                                     <input type="datetime-local" id="follwdate" name="follwdate"
                                         value="<?= date('Y-m-d h:i:s', time()); ?>"
                                         class="form-control bg-white border-0" placeholder="Date Time"
@@ -253,7 +276,7 @@
                                 </div>
 
                                 <div class="col-12 col-sm-6">
-                                    <br>
+                                    <label for="notes">Notes:</label>
                                     <input type="text" id="notes" name="notes" class="form-control bg-white border-0"
                                         placeholder="Notes" style="height: 55px;">
                                 </div>
@@ -271,7 +294,7 @@
                                     style="background-color: #42b3e5; color: white;">
                             </div>
                         </div>
-                    </form>
+                 
                 </div>
             </div>
         </div>
