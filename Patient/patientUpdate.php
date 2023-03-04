@@ -1,7 +1,8 @@
 <?php
 include("../dbConnection.php");
 //read patient data
-$patientId = $_GET["national_id"];
+$patientId = $_GET["id"];
+echo $patientId;
 $usersql = "SELECT * FROM users WHERE national_id=$patientId";
 $userresult = mysqli_query($connection, $usersql);
 $Udata = mysqli_fetch_array($userresult);
@@ -66,14 +67,14 @@ if(isset($_POST["savebtn"])){
     if ($Password==$RepeatPassword){
         //update  Prescription 
         $updateUsersSql = "update users set name='$$patientName', mobile='$mobile', 
-        nationalId='$nationalId',birthDate='$Birthdate', Email='$Email',gender='$gender'";
+        nationalId='$nationalId',birthDate='$Birthdate', Email='$Email',gender='$gender'where national_id =$patientId";
         $usersResult = mysqli_query($connection, $updateUsersSql);
     
-        $updateAdressSql= "update adress set user_id='$nationalId' apartment='$apartment', city='$city', country='$country', street='$street'";
+        $updateAdressSql= "update adress set user_id='$nationalId' apartment='$apartment', city='$city', country='$country', street='$street' where users_id='$patientId'";
         $adressResult = mysqli_query($connection, $updateAdressSql);
 
         $updatePatientSql= "update patient set  ChronicDisease='$ChronicDisease',PastSurger='$$PastSurger',user_id='$nationalId', 
-        employeeId='$employeeId', Blood='$Blood', company='$company'";
+        employeeId='$employeeId', Blood='$Blood', company='$company' where user_id=$patientId";
         $adressResult = mysqli_query($connection, $updatePatientSql);
         
     }
