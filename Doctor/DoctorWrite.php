@@ -1,4 +1,7 @@
 <?php 
+    function getDepartmentName(){
+    echo  "<input type='text' id='patientname' name='patientname' value=  '$GLOBALS[patientName]' >";
+    }
     if(isset($_POST["savebtn"])){
         //check if the Doctoris  male or female
         if ( isset($_POST['gender']) ){
@@ -22,6 +25,7 @@
         $email=$_POST["email"];
         $Password=$_POST["password"];
         $RepeatPassword=$_POST["repeatpassword"];
+        $department=$_POST["department"]
         $type="Doctor";
         if ($Password==$RepeatPassword){
             //Open database
@@ -31,20 +35,20 @@
             values ('$nationalId','$doctorName','$Birthdate','$gender','$type','$mobile','$email','$Password')";
             $result = mysqli_query($connection, $sql);
             //insert doctor
-            $sql1 = "insert into doctor (user_id)
-            values ('$nationalId')";
+            $sql1 = "insert into doctor (user_id,department_id)
+            values ('$nationalId',)";
             $result = mysqli_query($connection, $sql1);
             //insert Department data
-            $sql2 = "insert into department (name)
+            /*$sql2 = "insert into department (name)
             values ('$department')";
-            $result = mysqli_query($connection, $sql2);
+            $result = mysqli_query($connection, $sql2);*/
             //insert Doctor adress
             $sql3 ="insert into adress (user_id, apartment, street, city, country)
             values('$nationalId', '$apartment' ,'$street', '$city', '$country')";
             $result = mysqli_query($connection, $sql3);
         }
 
-        function addSchedule(){
+        /*function addSchedule(){
             $dayDate=$_POST["dayDate"];
             $start=$_POST["start"];
             $end=$_POST["end"];
@@ -54,11 +58,7 @@
             $sql4 = "insert into schedule (dayDate, start, end, room_no, doctor_id)
             values ('$dayDate','$start','$end','$room_no','$doctor_id')";
             $result = mysqli_query($connection, $sql4);
-        }
-
-
-
-       
+        }*/
     } 
 
 ?>
