@@ -87,7 +87,7 @@
                   $readSql = "SELECT * FROM department"; 
                   $readResult1 = mysqli_query($connection, $readSql);
                   while($data = mysqli_fetch_array($readResult1)) {
-                      echo "<option >".$data["name"]."</option>";}
+                      echo "<option value='$data[id]'>".$data["name"]."</option>";}
                     ?>
               </select>
             </div>

@@ -1,5 +1,5 @@
 <?php 
-
+include_once("../dbConnection.php");
     if(isset($_POST["savebtn"])){
         //check if the Doctoris  male or female
         if ( isset($_POST['gender']) ){
@@ -10,6 +10,10 @@
                 $gender="F";
             }
         }
+        if ( isset($_POST['department']) )
+            $department = $_POST['department'];
+            else echo "error";
+        
         //save data added from the Doctor
         $doctorName = $_POST["doctorName"];
         $mobile = $_POST["mobile"];
@@ -22,7 +26,7 @@
         $email=$_POST["email"];
         $Password=$_POST["password"];
         $RepeatPassword=$_POST["repeatpassword"];
-        //$department=$_GET["department.id"];
+        $department=$_POST["department"];
         $type="Doctor";
         if ($Password==$RepeatPassword){
             
@@ -32,7 +36,7 @@
             $result = mysqli_query($connection, $sql);
             //insert doctor
             $sql1 = "insert into doctor (user_id,department_id)
-            values ('$nationalId','1')";
+            values ('$nationalId','$department')";
             $result = mysqli_query($connection, $sql1);
             //insert Department data
             /*$sql2 = "insert into department (name)
