@@ -2,7 +2,7 @@
 include("../dbConnection.php");
 //read patient data
 $patientId = $_GET["national_id"];
-echo $patientId;
+//echo $patientId;
 $usersql = "SELECT * FROM users WHERE national_id=$patientId";
 $userresult = mysqli_query($connection, $usersql);
 $Udata = mysqli_fetch_array($userresult);
@@ -24,6 +24,7 @@ if(isset($_POST["savebtn"])){
         }else if ( $gender == 'F' ){
             $gender="F";
             }
+        else $gender=$Udata['gender'];
         }
     //know the blood type of the patient
     if ( isset($_POST['Blood']) ){
@@ -37,6 +38,7 @@ if(isset($_POST["savebtn"])){
             }else if ( $Blood == 'O' ){
                 $Blood="O";
             }
+            else $Blood=$Pdata['blood_type'];
         }
     if ( isset($_POST['company']) ){
         $company = $_POST['company'];
@@ -51,7 +53,7 @@ if(isset($_POST["savebtn"])){
     $patientName = $_POST["patientName"];
     $mobile = $_POST["mobile"];
     $nationalId = $_POST["nationalId"];
-    $BirthDate = $_POST["Birthdate"];
+    $BirthDate = $_POST["BirthDate"];
     $eployeeId=$_POST["employeeId"];
     $ChronicDisease=$_POST["ChronicDisease"];
     $PastSurger=$_POST["PastSurger"];
@@ -66,16 +68,16 @@ if(isset($_POST["savebtn"])){
 
     if ($Password==$RepeatPassword){
         //update  Prescription 
-        $updateUsersSql = "update users set name='$patientName', mobile='$mobile', 
-        national_id='$nationalId',birthDate='$BirthDate', Email='$Email',gender='$gender' where national_id =$patientId ";
+        $updateUsersSql = "update users set name='$$patientName', mobile='$mobile', 
+        nationalId='$nationalId',birthDate='$Birthdate', Email='$Email',gender='$gender'where national_id =$patientId";
         $usersResult = mysqli_query($connection, $updateUsersSql);
     
-        // $updateAdressSql= "update adress set user_id='$nationalId' apartment='$apartment', city='$city', country='$country', street='$street' where user_id =$nationalId";
-        // $adressResult = mysqli_query($connection, $updateAdressSql);
+        $updateAdressSql= "update adress set user_id='$nationalId' apartment='$apartment', city='$city', country='$country', street='$street' where users_id='$patientId'";
+        $adressResult = mysqli_query($connection, $updateAdressSql);
 
-        // $updatePatientSql= "update patient set  ChronicDisease='$ChronicDisease',PastSurger='$$PastSurger',user_id='$nationalId', 
-        // employeeId='$employeeId', Blood='$Blood', company='$company' where user_id=$nationalId";
-        // $adressResult = mysqli_query($connection, $updatePatientSql);
+        $updatePatientSql= "update patient set  ChronicDisease='$ChronicDisease',PastSurger='$$PastSurger',user_id='$nationalId', 
+        employeeId='$employeeId', Blood='$Blood', company='$company' where user_id=$patientId";
+        $adressResult = mysqli_query($connection, $updatePatientSql);
         
     }
 }
