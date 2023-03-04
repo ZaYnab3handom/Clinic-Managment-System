@@ -1,3 +1,6 @@
+<?php
+        include("patientUpdate.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,8 +22,8 @@
        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" />
 
        <!-- Libraries Stylesheet -->
-       <link rel="stylesheet" href="./css/bootstrap.min.css">
-       <link rel="stylesheet" href="./css/style.css">
+       <link rel="stylesheet" href="../css/bootstrap.min.css">
+       <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
 </head>
 <body>
@@ -63,15 +66,15 @@
                             
                             <div class="col-12 col-sm-6">
                                 
-                                <input type="text" class="form-control bg-light border-0" placeholder="Name" style="height: 55px;" name="patientName">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['name'] ?>" style="height: 55px;" name="patientName">
                             </div>
                             <div class="col-12 col-sm-6">
                                
-                                <input type="number" class="form-control bg-light border-0" placeholder="Phone" style="height: 55px;" name="mobile">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['mobile'] ?>" style="height: 55px;" name="mobile">
                             </div>
                             <div class="col-12 col-sm-6">
                                
-                                <input type="number" class="form-control bg-light border-0" placeholder="Id" style="height: 55px;" name="nationalId">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['national_id'] ?>" style="height: 55px;" name="nationalId">
                             </div>
                             <div class="col-12 col-sm-6">
                                 
@@ -82,42 +85,46 @@
                             </div>
                             <div class="col-12 col-sm-6">
                                
-                                <input type="number" class="form-control bg-light border-0" placeholder="Employee Id" style="height: 55px;" name="employeeId">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Pdata['employee_id'] ?>" style="height: 55px;" name="employeeId">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="ChronicDisease"style="height: 55px;" name="ChronicDisease" >
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Pdata['chronic_disease'] ?>" style="height: 55px;" name="ChronicDisease" >
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="PastSurger" style="height: 55px;" id="Doctor" name="PastSurger">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Pdata['past_surgery'] ?>" style="height: 55px;" id="Doctor" name="PastSurger">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Street" style="height: 55px;" name="street">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Adata['street'] ?>" style="height: 55px;" name="street">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="number" class="form-control bg-light border-0" placeholder="Apartment" style="height: 55px;"  name="apartment">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Adata['apartment'] ?>" style="height: 55px;"  name="apartment">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="City" style="height: 55px;"  name="city">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Adata['city'] ?>" style="height: 55px;"  name="city">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Country" style="height: 55px;"  name="country">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Adata['country'] ?>" style="height: 55px;"  name="country">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="email" class="form-control bg-light border-0" placeholder="Email" style="height: 55px;"  name="Email">
+                                <input type="email" class="form-control bg-light border-0" value="<?php echo $Udata['email'] ?>" style="height: 55px;"  name="Email">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="password" class="form-control bg-light border-0" placeholder="password" style="height: 55px;" name="Password">
+                                <input type="password" class="form-control bg-light border-0" placeholder="Password" style="height: 55px;" name="Password">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="password" class="form-control bg-light border-0" placeholder="confirm password" style="height: 55px;" name="RepeatPassword">
+                                <input type="password" class="form-control bg-light border-0" placeholder="Repeat Password" style="height: 55px;" name="RepeatPassword">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="type" style="height: 55px;" name="patient">
-                            </div>
+                                <select class="form-select bg-light border-0" style="height: 55px;" name="Company" value="<?php echo $Udata['Company'] ?>">                 
+                                    <option value="a">Sugar Canel</option>
+                                    <option value="b">Department2</option>
+                                    <option value="c">Department3</option>
+                                  </select>
+                                </div>                          
                             <div class="col-12 col-sm-6" id="gender">
                                 <label class="form-control bg-light border-0 col-6" id="gender2">
-                                   Gender: <input class="form-check-input" type="radio" name="gender"><label id="male">Male</label> 
-                                            <input class="form-check-input" type="radio" name="gender"><label>Female </label>
+                                   Gender: <input class="form-check-input" type="radio" value="M" name="gender"><label id="male">Male</label> 
+                                            <input class="form-check-input" type="radio" value="F" name="gender"><label>Female </label>
                                   </label>
                             </div>
                             <!--<div class="col-12 col-sm-6">
@@ -126,10 +133,10 @@
                             
                                  <div class="col-12 col-sm-6">
                                 <select class="form-select bg-light border-0" style="height: 55px;" name="Blood">
-                                    <option selected>A</option>
-                                    <option value="1">AB</option>
-                                    <option value="2">B</option>
-                                    <option value="3">O</option>
+                                    <option value="A" selected>A</option>
+                                    <option value="AB">AB</option>
+                                    <option value="B">B</option>
+                                    <option value="O">O</option>
                                 </select>
                             </div> 
                             
@@ -163,7 +170,7 @@
                                 <input class="btn btn-primary w-100 py-3" type="submit" name="savebtn" id="savebtn" value="Save">
                            </div>
                            <div class="col-12 col-sm-6">
-                            <a class="btn btn-primary w-100 py-3" href="../prsecription/prescriptionList.html">Discard</a>
+                            <a class="btn btn-primary w-100 py-3" href="Patient.html">Discard</a>
                            </div>
                         </div>
                     </form>

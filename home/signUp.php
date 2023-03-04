@@ -34,7 +34,7 @@
             }
         }
         //save data added from the Patient
-        $patientname = $_POST["patientname"];
+        $patientName = $_POST["patientName"];
         $mobile = $_POST["mobile"];
         $nationalId = $_POST["nationalId"];
         $birthDate = $_POST["birthDate"];
@@ -48,13 +48,13 @@
         $Email=$_POST["Email"];
         $Password=$_POST["Password"];
         $RepeatPassword=$_POST["RepeatPassword"];
-        $type="Patient";
+        $type="patient";
         if ($Password==$RepeatPassword){
             //Open database
             include_once("../dbConnection.php");
             //insert new user as a patient
             $sql = "insert into users (national_id, name, birthDate, gender, type, mobile, email, password)
-            values ('$nationalId','$patientname','$birthDate','$gender','$type','$mobile','$Email','$Password')";
+            values ('$nationalId','$patientName','$birthDate','$gender','$type','$mobile','$Email','$Password')";
             $result = mysqli_query($connection, $sql);
             //insert patient data
             $sql1 = "insert into patient (company, employee_id, blood_type, chronic_disease	, past_surgery, user_id)
