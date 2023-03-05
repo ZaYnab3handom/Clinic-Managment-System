@@ -1,12 +1,15 @@
 <?php 
        include_once("../dbConnection.php");
         //Read From Doctor
-        $readSql = "SELECT * FROM users WHERE type='Doctor'"; 
+        $readSql = "SELECT *, users.name AS doc_name FROM users 
+        INNER JOIN adress ON users.national_id=adress.user_id 
+        INNER JOIN doctor ON doctor.user_id=users.national_id 
+        INNER JOIN department on doctor.department_id=department.id WHERE type='Doctor'"; 
         $readResult1 = mysqli_query($connection, $readSql);
 
         while($data = mysqli_fetch_array($readResult1)) {
             echo "<tr>";
-            echo "<td>".$data["name"]."</td>";
+            echo "<td>".$data["doc_name"]."</td>";
             echo "<td>".$data["name"]."</td>";
             /*echo "<td>".$data["schedule.dayDate"]."</td>";
             echo "<td>".$data["schedule.start"]."</td>";
