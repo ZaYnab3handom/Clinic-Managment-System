@@ -2,7 +2,7 @@
 include("../dbConnection.php");
 //read Doctor data
 $doctortId = $_GET["national_id"];
-//echo $doctortId;
+echo $doctortId;
 $usersql = "SELECT * FROM users INNER JOIN adress ON users.national_id=adress.user_id WHERE national_id = $doctortId";
 $userresult = mysqli_query($connection, $usersql);
 $Udata = mysqli_fetch_array($userresult);
