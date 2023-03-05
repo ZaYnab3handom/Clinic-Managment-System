@@ -1,8 +1,11 @@
+<?php
+include("../home/php/PatientWrite.php");
+?>
 <html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <title>MEDSTAR -Hospital System</title>
+    <title>SignUp</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -37,18 +40,16 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
                 <a href="index.html" class="navbar-brand">
-                    <h1 class="m-0 text-uppercase text-primary"><i class="fa-solid fa-stethoscope"></i>MEDSTAR</h1>
+                    <h1 class="m-0 text-uppercase text-primary"><i class="fa-solid fa-stethoscope"></i>HMS</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="index.html" class="nav-item nav-link ">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
-                       <!-- <a href="signUp.html" class="nav-item nav-link">SignUp</a>-->
-                        <a href="appointment.html" class="nav-item nav-link">Appointment</a>    
-                        <!--<a href="#footer" class="nav-item nav-link">Contact</a>-->
+                        <a href="appointment.html" class="nav-item nav-link active">Appointment</a>    
                     </div>
                 </div>
             </nav>
@@ -64,43 +65,110 @@
                <div class="col-lg-8 ">
                     <div class="bg-white text-center rounded p-5">
                         <h1 class="mb-4">SignUp</h1>
-                        <form>
+                        <form method="post">
                             <div class="row g-3">
-                                <div class="col-12 col-sm-6">
-                                    <input type="number" class="form-control bg-light border-0" placeholder="National Id" style="height: 55px;" name="">
+                                <div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientid" style="text-align: left; height: 55px; padding-top: 14px;" >Patient Id: </label>
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Name" style="height: 55px;" name="">
+                                <div class="col-12 col-sm-9">
+                                    <input type="text" class="form-control bg-light border-0" id="patientid" style="height: 55px;" name="nationalId"  >
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control bg-light border-0" placeholder="Your email" style="height: 55px;" name="">
+                                <div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Patient Name: </label>
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="password" class="form-control bg-light border-0" placeholder="Your password" style="height: 55px;" name="">
+                                <div class="col-12 col-sm-9">
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="patientname">
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="type " style="height: 55px;" name="">
+                                <div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Email: </label>
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="date" class="form-control bg-light border-0" placeholder="Your Birthdate" style="height: 55px;" name="">
+                                <div class="col-12 col-sm-9">
+                                    <input type="email" class="form-control bg-light border-0"  style="height: 55px;" name="Email">
                                 </div>
-                                <div class="col-12 col-sm-6">
-                                    <input type="number" class="form-control bg-light border-0" placeholder="Your phone" style="height: 55px;" name="">
+                                <div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" > Password </label>
                                 </div>
-                                
+                                <div class="col-12 col-sm-9">
+                                    <input type="password" class="form-control bg-light border-0" style="height: 55px;" name="Password">
+                                </div>
+                                <div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Repeat Password: </label>
+                                </div>
+                                <div class="col-12 col-sm-9">
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="RepeatPassword">
+                                </div>
+                                <div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Birthdate: </label>
+                                </div>
+                                <div class="col-12 col-sm-9">
+                                    <input type="date" class="form-control bg-light border-0"  style="height: 55px;" name="birthDate">
+                                </div>
+                                <div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Mobile: </label>
+                                </div>
+                                <div class="col-12 col-sm-9">
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="mobile">
+                                </div>
+                                <div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Employee Code: </label>
+                                </div>
+                                <div class="col-12 col-sm-9">
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="employeeId">
+                                </div>
+
+                                <div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Company: </label>
+                                </div>
+                                <div class="col-12 col-sm-9">
+                                    <select class="form-control form-select bg-light border-0" style="height: 55px;" name="company" aria-label="Default select example">
+                                        
+                                        <option value="a">Sugar Canel</option>
+                                        <option value="b">Department2</option>
+                                        <option value="c">Department3</option>
+                                      </select>
+                                </div>
+
+                                <div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Chronic Disease: </label>
+                                </div>
+
+                                <div class="col-12 col-sm-9">
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="ChronicDisease">
+                                </div>
+
+                                <div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Past Surgery: </label>
+                                </div>
+                                <div class="col-12 col-sm-9">
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="PastSurger">
+                                </div>
+
+                                <div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Address: </label>
+                                </div>
+                                <div class="col-12 col-sm-2">
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="apartment" style="height: 55px;" name="apartment">
+                                </div>
+                                <div class="col-12 col-sm-2">
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="Street" style="height: 55px;" name="street">
+                                </div>
+                                <div class="col-12 col-sm-2">
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="City" style="height: 55px;" name="city">
+                                </div>
                                 <div class="col-12 col-sm-3">
-                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="street" style="height: 55px;" name="">
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="Country" style="height: 55px;" name="country">
                                 </div>
-                                <div class="col-12 col-sm-3">
-                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="city" style="height: 55px;" name="">
+
+                                <div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Gender: </label>
                                 </div>
-                                <div class="col-12 col-sm-6" id="gender">
+                                <div class="col-8 col-sm-4" id="gender">
                                     <label class="form-control bg-light border-0 col-6" id="gender2" >
-                                       Gender: <input class="form-check-input"  type="radio" name="" ><label id="male" >Male</label> 
-                                                <input class="form-check-input" type="radio" name=""  ><label>Female </label>
+                                        <input class="form-check-input" id="males" type="radio" name="gender" value="M" ><label for="males" id="male">Male</label> 
+                                        <input class="form-check-input" id="females" type="radio" name="gender"  value="F"><label for="females"> Female </label>
                                       </label>
-  </div>
-<div></div>
+                               </div>
+                            <div></div>
                                 <div class="col-6">
                                      <a class="btn btn-primary w-100 py-3" href="appointment_form.html" type="submit"> SignUp </a>
                                 </div>

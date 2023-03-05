@@ -13,30 +13,29 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="Doctor.css">
-    <link rel="stylesheet" href="../Patient/patient_form_style.css">
+    <!-- <link rel="stylesheet" href="../Patient/patient_form_style.css"> -->
   <link rel="stylesheet" href="../generalView.css">
 
 </head>
 
 <body>
-
     <!-- navbar -->
     <div class="container-fluid sticky-top bg-white shadow-sm">
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
                 <a href="index.html" class="navbar-brand">
-                    <img src="logo.png" alt="">              </a>
+                    <img src="logo.png" alt="">            
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="patient.html" class="nav-item nav-link">Patient</a>
-                        <a href="appointmentform.html" class="nav-item nav-link">Appoinment</a>
-                        <a href="prsecription.html" class="nav-item nav-link">Presciption</a>
-                        <a href="Doctor.html" class="nav-item nav-link active">Doctor</a>
+                        <a href="../home/index.html" class="nav-item nav-link">Home</a>
+                        <a href="../Patient/patient.html" class="nav-item nav-link">Patient</a>
+                        <a href="../appointment/appointmentList.html" class="nav-item nav-link">Appoinment</a>
+                        <a href="../prsecription/prescriptionList.html" class="nav-item nav-link">Prescription</a>
+                        <a href="../Doctor/Doctor.html" class="nav-item nav-link active">Doctor</a>
                     </div>
                 </div>
             </nav>
@@ -51,98 +50,106 @@
             <form action="" method="post">
               <div class="row g-3">
                 <div class="col-12 col-sm-6">
-
-                  <input type="text" id="doctorname" name="doctorName" class="form-control bg-white border-0" placeholder="Doctor's Name" style="height: 55px;">
+                  <span class="labelInput">
+                  <label for="doctorname">Doctor Name</label>
+                  <input type="text" id="doctorname" name="doctorName" class="form-control bg-white border-0" placeholder="eg.Ahmed" style="height: 55px;">
+                </span>
                 </div>
                 <div class="col-12 col-sm-6">
+                  <span class="labelInput">
+                  <label for="Mobile">Phone Number</label>
                   <input type="text" id="Mobile" name="mobile" class="form-control bg-white border-0"
-                    placeholder="Phone Number" style="height: 55px;">
+                    placeholder="01xxx" style="height: 55px;">
+                  </span>
+                  <br>
                 </div>
                 <div class="col-12 col-sm-6">
-                  <input type="text" id="NationalId" name="nationalId" class="form-control bg-white border-0" placeholder="National Id"
+                  <span class="labelInput">
+                  <label for="NationalId">National Id</label>
+                  <input type="text" id="NationalId" name="nationalId" class="form-control bg-white border-0" placeholder="1234.."
                     style="height: 55px;">
-                  
+                  </span>
                 </div>
                 
                 <div class="col-12 col-sm-6">
+                  <span class="labelInput">
+                  <label for="date">Date</label>
                   <input type="date" id="Birthdate" name="Birthdate" class="form-control bg-white border-0"
                   placeholder="Birthdate" style="height: 55px;">
+                  </span>
+                  <br>
                 </div>
-                <div class="form-check col-12 col-sm-6 d-flex justify-content-center">
-                  <input class="form-check-input" type="radio" value="F" name="gender" id="flexRadioDefault1">
-                  <label class="form-check-label" for="flexRadioDefault1">
-                    &nbsp;&nbsp;&nbsp;Female
-                  </label>
-                </div>
+
+                <div class="col-12 col-sm- d-flex justify-content-center">
+                  <span>
+                <input class="form-check-input"type="radio" name="gender" id="flexRadioDefault2" value="M"> <label for="male" id="male">&nbsp;Male</label> 
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" value="F"><label for="female">&nbsp;&nbsp;Female </label>
+
+              </span>
+              </div>
               
-                <div class="form-check col-12 col-sm-6 d-flex justify-content-center ">
-                  <input class="form-check-input" type="radio" value="M" name="gender" id="flexRadioDefault2" checked>
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    &nbsp;&nbsp;&nbsp;Male
-                  </label>
+                <div class="col-12 col-sm-6">
+                  <span>
+                  <label for="Department">Department</label>
+                  <select  class="form-control bg-white border-0" name="department" style="height: 55px;">                
+                    <?php include_once("../dbConnection.php");
+                    $readSql = "SELECT * FROM department"; 
+                    $readResult1 = mysqli_query($connection, $readSql);
+                    while($data = mysqli_fetch_array($readResult1)) {
+                        echo "<option value='$data[id]'>".$data["name"]."</option>";}
+                      ?>
+                </select>
+                  </span>
                 </div>
-                <div class="col-12 col-sm-6">
-                <select  class="form-control bg-white border-0" name="department" style="height: 55px;">                
-                  <?php include_once("../dbConnection.php");
-                  $readSql = "SELECT * FROM department"; 
-                  $readResult1 = mysqli_query($connection, $readSql);
-                  while($data = mysqli_fetch_array($readResult1)) {
-                      echo "<option value='$data[id]'>".$data["name"]."</option>";}
-                    ?>
-              </select>
-            </div>
-                <div class="col-12 col-sm-6">
-                  <input type="email" id="Email" name="email" class="form-control bg-white border-0"
-                    placeholder="Email" style="height: 55px;">
-                </div>
-                <div class="col-12 col-sm-6">
-                    <input type="password" id="Password" name="password" class="form-control bg-white border-0"
-                      placeholder="Password" style="height: 55px;">
-                  </div>
-                  <div class="col-12 col-sm-6">
-                    <input type="password" id="RepeatPassword" name="repeatpassword" class="form-control bg-white border-0"
-                      placeholder="Repeat Password" style="height: 55px;">
-                  </div>
-                  <div class="col-12 col-sm-6">
-                    <input type="text" id="Apartment" name="apartment" class="form-control bg-white border-0"
-                      placeholder="Apartment" style="height: 55px;">
-                  </div>
-                <div class="col-12 col-sm-6">
+                <div class="col-12 col-sm-3">
+                  <label for="Department">Address</label>
                   <input type="text" id="Street" name="street" class="form-control bg-white border-0"
                     placeholder="1234 Main St" style="height: 55px;">
                 </div>
-                <div class="col-12 col-sm-6">
+                <div class="col-12 col-sm-3">
+                  <label for="Apartment">Apartment</label>
+                  <input type="text" id="Apartment" name="apartment" class="form-control bg-white border-0"
+                      placeholder="eg.A1" style="height: 55px;">
+                  
+                  </div>
+                
+                <div class="col-12 col-sm-6 ">                
+                  <label for="Email">Email:</label>
+                  <input type="email" id="Email" name="email" class="form-control bg-white border-0"
+                    placeholder="name@examble.com" style="height: 55px;">
+                  </span>
+                  </div>
+                <div class="col-12 col-sm-3">
+                  <label for="Country">Country</label>
                   <input type="text" id="Country" name="country" class="form-control bg-white border-0"
-                    placeholder="Country" style="height: 55px;">
+                    placeholder="Egypt" style="height: 55px;">
                 </div>
-                <div class="col-12 col-sm-6">
-                    <!-- <select id="City" name="city" class="form-control bg-white border-0" placeholder="city" style="height: 55px;">
-                        <option selected>City</option>
-                        <option>Cairo</option>
-                        <option>Alexandria</option>
-                        <option>Gizeh</option>
-                        <option>Suez</option>
-                        <option>Asyut</option>
-                        <option>Fayyum</option>
-                        <option>al-Minya</option>
-                        <option>Beni Suef</option>
-                        <option>Qena</option>
-                        <option>Sohag</option>
-                        <option>Banha</option>
-                        <option>Ismailia</option>
-                        <option>Aswan</option>
-                        <option>Damietta</option>
-                      </select> -->
+                <div class="col-12 col-sm-3">
+                  <label for="City">City:</label>
                     <input type="text" id="City" name="city" class="form-control bg-white border-0"
-                      placeholder="city" style="height: 55px;">
+                      placeholder="Cairo" style="height: 55px;">
+                  </div>
+                
+                <div class="col-12 col-sm-6">
+                  <label for="Password">Password</label>
+                    <input type="password" id="Password" name="password" class="form-control bg-white border-0"
+                      placeholder="Ab123@/*" style="height: 55px;">
+                  </div>
+                 
+                  <div class="col-12 col-sm-6">
+                  <label for="RepeatPassword">Repeat Password</label>
+                    <input type="password"id="RepeatPassword" name="repeatpassword" class="form-control bg-white border-0"
+                      placeholder="Enter the same password" style="height: 55px;">
                   </div>
                 <br><br>
                 <div class="col-12 col-sm-6 text-center">
                     <br>
                   <button class="discard btn-light border-1 border border-secondary btn w-50 py-3">
-                    <a href="Doctor.html" class="text-decoration-none" style="color: #6c757d;">Discard</a>
+                    <a href="../Doctor/Doctor.html" class="text-decoration-none" style="color: #6c757d;">Discard</a>
                   </button>
                 </div>
+    
                 <div class="col-12 col-sm-6 text-center">
                     <br>
                   <input type="submit" class="btn w-50 py-3" name="savebtn" id="savebtn" value="Save" style="background-color: #42b3e5; color: white;">
