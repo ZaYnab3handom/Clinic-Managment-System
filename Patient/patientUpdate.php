@@ -69,12 +69,12 @@ if(isset($_POST["savebtn"])){
     if ($Password==$RepeatPassword){
         //update  Prescription 
         $updateUsersSql = "update users set name='$patientName', mobile='$mobile', 
-        national_id='$nationalId',birthDate='$BirthDate', Email='$Email',gender='$gender'where national_id =$patientId";
+        national_id='$nationalId',birthDate='$BirthDate', Email='$Email', gender='$gender' where national_id =$patientId";
         $usersResult = mysqli_query($connection, $updateUsersSql);
     
-        $updateAdressSql= "update adress set user_id='$nationalId' ,apartment='$apartment', city='$city', country='$country', street='$street' where user_id=$patientId";
+        $updateAdressSql= "update adress set user_id='$nationalId', apartment='$apartment', city='$city', country='$country', street='$street' where user_id='$patientId'";
         $adressResult = mysqli_query($connection, $updateAdressSql);
-       
+
         $updatePatientSql= "update patient set  chronic_disease='$ChronicDisease',past_surgery='$PastSurger',user_id='$nationalId', 
         employee_id='$employeeId', blood_type='$Blood', company='$company' where user_id=$patientId";
         $adressResult = mysqli_query($connection, $updatePatientSql);
