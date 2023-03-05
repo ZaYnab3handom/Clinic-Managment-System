@@ -95,7 +95,7 @@ include("../home/php/PatientWrite.php");
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Repeat Password: </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="RepeatPassword">
+                                    <input type="password" class="form-control bg-light border-0"  style="height: 55px;" name="RepeatPassword">
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Birthdate: </label>
@@ -127,6 +127,17 @@ include("../home/php/PatientWrite.php");
                                         <option value="c">Department3</option>
                                       </select>
                                 </div>
+                                <div div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Blood Type: </label>
+                                </div>
+                                <div class="col-12 col-sm-9">
+                                  <select name="Blood" class="form-control form-select bg-light border-0" style="height: 55px;" aria-label="Default select example">                
+                                    <option value="A">A</option>
+                                    <option value="B">B</option>
+                                    <option value="AB">AB</option>
+                                    <option value="O">O</option>
+                                </select>
+                              </div>
 
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Chronic Disease: </label>
@@ -170,7 +181,7 @@ include("../home/php/PatientWrite.php");
                                </div>
                             <div></div>
                                 <div class="col-6">
-                                     <a class="btn btn-primary w-100 py-3" href="appointment_form.html" type="submit"> SignUp </a>
+                                     <a class="btn btn-primary w-100 py-3" href="appointment_form.html" name="savebtn" type="submit"> SignUp </a>
                                 </div>
                                 <div class="col-6">
                                     <a class="btn btn-primary w-100 py-3" href="login.html" type="submit"> Are you already patient? </a>
