@@ -40,14 +40,14 @@ if(isset($_POST["savebtn"])){
 
     if ($Password==$RepeatPassword){
         //update  user 
-        $updateUsersSql = "update users set name='$$patientName', mobile='$mobile', 
+        $updateUsersSql = "update users set name='$patientName', mobile='$mobile', 
         national_id='$nationalId',birthDate='$Birthdate', Email='$Email',gender='$gender'ً WHERE national_id =$doctortId";
         $usersResult = mysqli_query($connection, $updateUsersSql);
     
-        $updateAdressSql= "update adress set user_id='$nationalId' apartment='$apartment', city='$city', country='$country', street='$street' WHERE users_id=$doctortId";
+        $updateAdressSql= "update adress set user_id='$nationalId', apartment='$apartment', city='$city', country='$country', street='$street' WHERE users_id=$doctortId";
         $adressResult = mysqli_query($connection, $updateAdressSql);
 
-        $updatePatientSql= "update doctor set  user_id='$nationalId',department_id='$$department' WHERE user_id=$doctortId";
+        $updatePatientSql= "update doctor set  user_id='$nationalId',department_id='$department' WHERE user_id=$doctortId";
         $adressResult = mysqli_query($connection, $updatePatientSql);
         
     }
