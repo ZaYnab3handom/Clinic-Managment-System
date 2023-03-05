@@ -24,11 +24,7 @@
        <!-- Libraries Stylesheet -->
        <link rel="stylesheet" href="../css/bootstrap.min.css">
        <link rel="stylesheet" href="../css/style.css">
-<<<<<<< HEAD
     <title>Update Doctor</title>
-=======
-    <title>Document</title>
->>>>>>> origin/main
 </head>
 <body>
     <!--Navbar start-->
@@ -68,7 +64,6 @@
                     <h1 class="mb-4">Update Doctor</h1>
                     <form method="">
                         <div class="row g-3">
-<<<<<<< HEAD
                             <div class="col-12 col-sm-3" id="label">
                                 <label  class="col-sm-6 col-form-label" for="doctorname" style="text-align: left; height: 55px; padding-top: 14px;" >Doctor Name: </label>
                             </div>
@@ -77,19 +72,6 @@
                             </div>
                             <div class="col-12 col-sm-3" id="label">
                                 <label  class="col-sm-6 col-form-label" for="mobile" style="text-align: left; height: 55px; padding-top: 14px;" >Mobile: </label>
-=======
-                            <div class="col-12 col-sm-6">
-                                
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['name'] ?>" style="height: 55px;" name="DoctorName">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                               
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['mobile'] ?>" style="height: 55px;" name="mobile">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                               
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['national_id'] ?>" style="height: 55px;" name="nationalId">
->>>>>>> origin/main
                             </div>
                             <div class="col-12 col-sm-9">
                                  <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['mobile'] ?>" style="height: 55px;" name="mobile">
@@ -110,7 +92,6 @@
                                         placeholder="Birthdate" style="height: 55px;" value="<?php echo $Udata['birthDate']?>" name="BirthDate">
                                 
                             </div>
-<<<<<<< HEAD
                             
 
                             <div class="col-12 col-sm-3" id="label">
@@ -129,35 +110,13 @@
                             </div>
                             <div class="col-12 col-sm-3" id="label">
                                 <label  class="col-sm-6 col-form-label" for="confirm password" style="text-align: left; height: 55px; padding-top: 14px;" > Confirm Password: </label>
-=======
-                           
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['street'] ?>" style="height: 55px;" name="street">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['apartment'] ?>" style="height: 55px;"  name="apartment">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['city'] ?>" style="height: 55px;"  name="city">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['country'] ?>" style="height: 55px;"  name="country">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="email" class="form-control bg-light border-0" value="<?php echo $Udata['email'] ?>" style="height: 55px;"  name="Email">
->>>>>>> origin/main
                             </div>
                             <div class="col-12 col-sm-9">
                                 <input type="password" class="form-control bg-light border-0" placeholder="confirm password" style="height: 55px;" name="RepeatPassword">
                             </div>
-<<<<<<< HEAD
 
                             <div class="col-12 col-sm-3" id="label">
                                 <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" > Type: </label>
-=======
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['type'] ?>" style="height: 55px;" name="type">
->>>>>>> origin/main
                             </div>
 
                             <div class="col-12 col-sm-9">
@@ -202,24 +161,9 @@
                                     <input class="form-check-input" id="males" type="radio" name="gender" value="" ><label for="males" id="male">Male</label> 
                                     <input class="form-check-input" id="females" type="radio" name="gender"  value=""><label for="females"> Female </label>
                                   </label>
-<<<<<<< HEAD
                            </div>
                            <div class="col-12 col-sm-12"></div>
                            
-=======
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <select class="form-select bg-light border-0" style="height: 55px;" name="department">
-                                    <option selected><?php  echo $Ddata['name'] ?></option>
-                                    <?php include_once("../dbConnection.php");
-                  $readSql = "SELECT * FROM department"; 
-                  $readResult1 = mysqli_query($connection, $readSql);
-                  while($data = mysqli_fetch_array($readResult1)) {
-                      echo "<option value='$data[id]'>".$data["name"]."</option>";}
-                    ?>
-                                </select>
-                            </div>
->>>>>>> origin/main
                            
                             
                          
