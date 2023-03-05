@@ -1,3 +1,6 @@
+<?php
+    include("DoctorUpdate.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,9 +22,9 @@
        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" />
 
        <!-- Libraries Stylesheet -->
-       <link rel="stylesheet" href="./css/bootstrap.min.css">
-       <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
+       <link rel="stylesheet" href="../css/bootstrap.min.css">
+       <link rel="stylesheet" href="../css/style.css">
+    <title>Update Doctor</title>
 </head>
 <body>
     <!--Navbar start-->
@@ -29,18 +32,18 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
                 <a href="index.html" class="navbar-brand">
-                    <h1 class="m-0 text-uppercase text-primary"><i class="fa-solid fa-stethoscope"></i>YouHeal</h1>
+                    <h1 class="m-0 text-uppercase text-primary"><i class="fa-solid fa-stethoscope"></i>HMS</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                       <!-- <a href="signUp.html" class="nav-item nav-link">SignUp</a>-->
-                        <a href="appointment.html" class="nav-item nav-link">Appointment</a>    
-                        <!--<a href="#footer" class="nav-item nav-link">Contact</a>-->
+                        <a href="../home/index.html" class="nav-item nav-link">Home</a>
+                        <a href="patient.html" class="nav-item nav-link ">Patient</a>
+                        <a href="../appointment/appointmentForm.html" class="nav-item nav-link">Appoinment</a>
+                        <a href="../prsecription/prescriptionForm.html" class="nav-item nav-link">Presciption</a>
+                        <a href="../Doctor/Doctor.html" class="nav-item nav-link active ">Doctor</a>
                     </div>
                 </div>
             </nav>
@@ -58,75 +61,117 @@
               
                 <div class="bg-white text-center rounded p-5">
                     
-                    <h1 class="mb-4">Update_Info_Doctor</h1>
+                    <h1 class="mb-4">Update Doctor</h1>
                     <form method="">
                         <div class="row g-3">
-                            <div class="col-12 col-sm-6">
-                                
-                                <input type="text" class="form-control bg-light border-0" placeholder="Name" style="height: 55px;" name="patientName">
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="doctorname" style="text-align: left; height: 55px; padding-top: 14px;" >Doctor Name: </label>
                             </div>
-                            <div class="col-12 col-sm-6">
-                               
-                                <input type="number" class="form-control bg-light border-0" placeholder="Phone" style="height: 55px;" name="mobile">
+                            <div class="col-12 col-sm-9">   
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['name'] ?>" style="height: 55px;" name="DoctorName">
                             </div>
-                            <div class="col-12 col-sm-6">
-                               
-                                <input type="number" class="form-control bg-light border-0" placeholder="Id" style="height: 55px;" name="nationalId">
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="mobile" style="text-align: left; height: 55px; padding-top: 14px;" >Mobile: </label>
                             </div>
-                            <div class="col-12 col-sm-6">
+                            <div class="col-12 col-sm-9">
+                                 <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['mobile'] ?>" style="height: 55px;" name="mobile">
+                            </div>
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="nationalId" style="text-align: left; height: 55px; padding-top: 14px;" >National Id: </label>
+                            </div>
+                            <div class="col-12 col-sm-9">
+                                 <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['national_id'] ?>" style="height: 55px;" name="nationalId">
+                            </div>
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="birthDate" style="text-align: left; height: 55px; padding-top: 14px;" >Date: </label>
+                            </div>
+                            <div class="col-12 col-sm-9">
                                 
                                     <input type="date"
                                         class="form-control bg-light border-0 datetimepicker-input"
-                                        placeholder="Birthdate" data-target="#date" data-toggle="datetimepicker" style="height: 55px;" name="Birthdate">
+                                        placeholder="Birthdate" style="height: 55px;" value="<?php echo $Udata['birthDate']?>" name="BirthDate">
                                 
                             </div>
-                           
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Street" style="height: 55px;" name="street">
+                            
+
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="email" style="text-align: left; height: 55px; padding-top: 14px;" > Email: </label>
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="number" class="form-control bg-light border-0" placeholder="Apartment" style="height: 55px;"  name="apartment">
+                            <div class="col-12 col-sm-9">
+                                <input type="email" class="form-control bg-light border-0" value="<?php echo $Udata['email'] ?>" style="height: 55px;"  name="Email">
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="City" style="height: 55px;"  name="city">
+
+
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="password" style="text-align: left; height: 55px; padding-top: 14px;" > Password: </label>
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Country" style="height: 55px;"  name="country">
+                            <div class="col-12 col-sm-9">
+                                <input type="password" class="form-control bg-light border-0"  style="height: 55px;" name="Password">
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="email" class="form-control bg-light border-0" placeholder="Email" style="height: 55px;"  name="Email">
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="confirm password" style="text-align: left; height: 55px; padding-top: 14px;" > Confirm Password: </label>
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="password" class="form-control bg-light border-0" placeholder="password" style="height: 55px;" name="Password">
-                            </div>
-                            <div class="col-12 col-sm-6">
+                            <div class="col-12 col-sm-9">
                                 <input type="password" class="form-control bg-light border-0" placeholder="confirm password" style="height: 55px;" name="RepeatPassword">
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="type" style="height: 55px;" name="patient">
+
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" > Type: </label>
                             </div>
-                            <div class="col-12 col-sm-6" id="gender">
-                                <label class="form-control bg-light border-0 col-6" id="gender2">
-                                   Gender: <input class="form-check-input" type="radio" name="gender"><label id="male">Male</label> 
-                                            <input class="form-check-input" type="radio" name="gender"><label>Female </label>
+
+                            <div class="col-12 col-sm-9">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['type'] ?>" style="height: 55px;" name="type">
+                            </div>
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="department" style="text-align: left; height: 55px; padding-top: 14px;" >Department: </label>
+                             </div>
+                                <div class="col-12 col-sm-9">
+                                    <select class="form-select bg-light border-0" style="height: 55px;" name="department">
+                                        <option selected><?php  echo $Ddata['name'] ?></option>
+                                        <?php include_once("../dbConnection.php");
+                      $readSql = "SELECT * FROM department"; 
+                      $readResult1 = mysqli_query($connection, $readSql);
+                      while($data = mysqli_fetch_array($readResult1)) {
+                          echo "<option value='$data[id]'>".$data["name"]."</option>";}
+                        ?>
+                                    </select>
+                                </div>
+
+                                <div class="col-12 col-sm-3" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="addres" style="text-align: left; height: 55px; padding-top: 14px;" >Address: </label>
+                                </div>
+    
+                                <div class="col-12 col-sm-2">
+                                    <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['street'] ?>" style="height: 55px;" name="street">
+                                </div>
+                                <div class="col-12 col-sm-2">
+                                    <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['apartment'] ?>" style="height: 55px;"  name="apartment">
+                                </div>
+                                <div class="col-12 col-sm-2">
+                                    <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['city'] ?>" style="height: 55px;"  name="city">
+                                </div>
+                                <div class="col-12 col-sm-3">
+                                    <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['country'] ?>" style="height: 55px;"  name="country">
+                                </div>
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="gender" style="text-align: left; height: 55px; padding-top: 14px;" >Gender: </label>
+                            </div>
+                            <div class="col-8 col-sm-9" id="gender">
+                                <label class="form-control bg-light border-0 col-6" id="gender2" >
+                                    <input class="form-check-input" id="males" type="radio" name="gender" value="" ><label for="males" id="male">Male</label> 
+                                    <input class="form-check-input" id="females" type="radio" name="gender"  value=""><label for="females"> Female </label>
                                   </label>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <select class="form-select bg-light border-0" style="height: 55px;" name="department">
-                                    <option selected>Choose Department</option>
-                                    <option value="1">Department 1</option>
-                                    <option value="2">Department 2</option>
-                                    <option value="3">Department 3</option>
-                                </select>
-                            </div>
+                           </div>
+                           <div class="col-12 col-sm-12"></div>
+                           
                            
                             
                          
-                            <div class="col-6 col-sm-6">
-                                <input class="btn btn-primary w-100 py-3" type="submit" name="savebtn" id="savebtn" value="Save">
+                            <div class="col-12 col-sm-4 justify-content-center" >
+                                <input class="btn btn-primary w-100 py-3" type="submit" name="savebtn" id="savebtn" value="Update">
                            </div>
-                           <div class="col-12 col-sm-6">
-                            <a class="btn btn-primary w-100 py-3" href="#">Discard</a>
+                           <div class="col-12 col-sm-4 justify-content-center" >
+                            <a class="btn btn-primary w-100 py-3" href="#" style="color: black; background-color: white;  border-color: #c8cdd2;">Discard</a>
                            </div>
                         </div>
                     </form>
@@ -136,49 +181,6 @@
     </div>
 </div> 
 
-  <!-- Footer Start -->
-  <div class="container-fluid bg-dark text-light mt-5 " id="footer">
-    <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-lg-3 col-md-6">
-                <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">To Contact</h4>
-                <p class="mb-4"><i class="fa fa-map-marker-alt text-primary me-3"></i>Taha Hussein Street, Alminya, Egypt</p>
-                <p class="mb-4"><i class="fa fa-envelope text-primary me-3"></i>HMS@outlook.com</p>
-                <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>01234567890</p>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Quick Links</h4>
-                <div class="d-flex flex-column justify-content-start">
-                    <a class="text-light mb-4" href="#home"><i class="fa fa-angle-right me-2"></i>Home</a>
-                    <a class="text-light mb-4" href="#about"><i class="fa fa-angle-right me-2"></i>About</a>
-                    <a class="text-light mb-4" href="appointment.html"><i class="fa fa-angle-right me-2"></i>Appointment</a>
-                    </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Popular Links</h4>
-                <div class="d-flex flex-column justify-content-start">
-                    <a class="text-light mb-4" href="#home"><i class="fa fa-angle-right me-2"></i>Home</a>
-                    <a class="text-light mb-4" href="#about"><i class="fa fa-angle-right me-2"></i>About</a>
-                    <a class="text-light mb-4" href="appointment.html"><i class="fa fa-angle-right me-2"></i>Appointment</a>
-                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Our Social Networks</h4>
-                    <div class="input-group">
-                       <p class="text-light mb-4">If you wanted to follow us you can look at the following links  </p>
-                    </div>
-                <h6 class="text-primary text-uppercase mt-4 mb-3">Follow Us</h6>
-                <div class="d-flex">
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Footer End -->
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -188,6 +190,6 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>

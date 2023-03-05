@@ -19,9 +19,9 @@
        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" />
 
        <!-- Libraries Stylesheet -->
-       <link rel="stylesheet" href="./css/bootstrap.min.css">
-       <link rel="stylesheet" href="./css/style.css">
-    <title>Document</title>
+       <link rel="stylesheet" href="../css/bootstrap.min.css">
+       <link rel="stylesheet" href="../css/style.css">
+    <title>Update Patient</title>
 </head>
 <body>
     <!--Navbar start-->
@@ -36,11 +36,11 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                       <!-- <a href="signUp.html" class="nav-item nav-link">SignUp</a>-->
-                        <a href="appointment.html" class="nav-item nav-link">Appointment</a>    
-                        <!--<a href="#footer" class="nav-item nav-link">Contact</a>-->
+                        <a href="#" class="nav-item nav-link">Home</a>
+                        <a href="#" class="nav-item nav-link active">Patient</a>
+                        <a href="#" class="nav-item nav-link ">Appoinment</a>
+                        <a href="#" class="nav-item nav-link">Presciption</a>
+                        <a href="#" class="nav-item nav-link ">Doctor</a>
                     </div>
                 </div>
             </nav>
@@ -57,114 +57,133 @@
               
                 <div class="bg-white text-center rounded p-5">
                     
-                    <h1 class="mb-4">Update_Info_Patient</h1>
+                    <h1 class="mb-4">Update Patient</h1>
                     <form method="">
                         <div class="row g-3">
                             
-                            <div class="col-12 col-sm-6">
-                                
-                                <input type="text" class="form-control bg-light border-0" placeholder="Name" style="height: 55px;" name="patientName">
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Patient Name: </label>
                             </div>
-                            <div class="col-12 col-sm-6">
-                               
-                                <input type="number" class="form-control bg-light border-0" placeholder="Phone" style="height: 55px;" name="mobile">
+                            <div class="col-12 col-sm-9">
+                                 <input type="text" class="form-control bg-light border-0" style="height: 55px;" name="patientName">
                             </div>
-                            <div class="col-12 col-sm-6">
-                               
-                                <input type="number" class="form-control bg-light border-0" placeholder="Id" style="height: 55px;" name="nationalId">
+
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="mobile" style="text-align: left; height: 55px; padding-top: 14px;" >Mobile: </label>
                             </div>
-                            <div class="col-12 col-sm-6">
-                                
-                                    <input type="date"
+                            <div class="col-12 col-sm-9">
+                                <input type="number" class="form-control bg-light border-0"  style="height: 55px;" name="mobile">
+                            </div>
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="nationalId" style="text-align: left; height: 55px; padding-top: 14px;" >National Id: </label>
+                            </div>
+                            <div class="col-12 col-sm-9">
+                                  <input type="number" class="form-control bg-light border-0"  style="height: 55px;" name="nationalId">
+                            </div>
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Date: </label>
+                            </div>
+                            <div class="col-12 col-sm-9">
+                                 <input type="date"
                                         class="form-control bg-light border-0 datetimepicker-input"
                                         placeholder="Birthdate" data-target="#date" data-toggle="datetimepicker" style="height: 55px;" name="BirthDate">
-                                
+                              </div>
+
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Employee Id: </label>
                             </div>
-                            <div class="col-12 col-sm-6">
-                               
-                                <input type="number" class="form-control bg-light border-0" placeholder="Employee Id" style="height: 55px;" name="employeeId">
+                            <div class="col-12 col-sm-9">
+                                <input type="number" class="form-control bg-light border-0"  style="height: 55px;" name="employeeId">
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="ChronicDisease"style="height: 55px;" name="ChronicDisease" >
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Chronic Disease: </label>
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="PastSurger" style="height: 55px;" id="Doctor" name="PastSurger">
+                            <div class="col-12 col-sm-9">
+                                <input type="text" class="form-control bg-light border-0" style="height: 55px;" name="ChronicDisease" >
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Street" style="height: 55px;" name="street">
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Past Surger: </label>
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="number" class="form-control bg-light border-0" placeholder="Apartment" style="height: 55px;"  name="apartment">
+                            <div class="col-12 col-sm-9">
+                                <input type="text" class="form-control bg-light border-0"  style="height: 55px;" id="Doctor" name="PastSurger">
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="City" style="height: 55px;"  name="city">
+                          
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="password" style="text-align: left; height: 55px; padding-top: 14px;" > Password: </label>
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Country" style="height: 55px;"  name="country">
+                            <div class="col-12 col-sm-9">
+                                <input type="password" class="form-control bg-light border-0" style="height: 55px;" name="Password">
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="email" class="form-control bg-light border-0" placeholder="Email" style="height: 55px;"  name="Email">
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="confirm password" style="text-align: left; height: 55px; padding-top: 14px;" >Confirm  Password: </label>
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="password" class="form-control bg-light border-0" placeholder="password" style="height: 55px;" name="Password">
+                            <div class="col-12 col-sm-9">
+                                <input type="password" class="form-control bg-light border-0" style="height: 55px;" name="RepeatPassword">
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="password" class="form-control bg-light border-0" placeholder="confirm password" style="height: 55px;" name="RepeatPassword">
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" > Type: </label>
                             </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="type" style="height: 55px;" name="patient">
+                            <div class="col-12 col-sm-9">
+                                <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="patient">
                             </div>
-                            <div class="col-12 col-sm-6" id="gender">
-                                <label class="form-control bg-light border-0 col-6" id="gender2">
-                                   Gender: <input class="form-check-input" type="radio" name="gender"><label id="male">Male</label> 
-                                            <input class="form-check-input" type="radio" name="gender"><label>Female </label>
-                                  </label>
+                             <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Address: </label>
                             </div>
-                            <!--<div class="col-12 col-sm-6">
-                                <input class="form-control bg-light border-0" style="height: 55px;" type=""  name="" placeholder="Blood Type">
-                            </div>-->
+                            <div class="col12- col-sm-3">
+                                <input type="number" class="form-control bg-light border-0 col-6" placeholder="Apartment" style="height: 55px;" name="apartment">
+                            </div>
+                            <div class="col-12 col-sm-3">
+                                <input type="text" class="form-control bg-light border-0 col-6" placeholder="Street" style="height: 55px;" name="street">
+                            </div>
                             
-                                 <div class="col-12 col-sm-6">
-                                <select class="form-select bg-light border-0" style="height: 55px;" name="Blood">
-                                    <option selected>A</option>
+                            <div class="col-12 col-sm-3">
+                                <input type="text" class="form-control bg-light border-0 col-6" placeholder="City" style="height: 55px;" name="city">
+                            </div>
+                            <div class="col-12 col-sm-3">
+                                <input type="text" class="form-control bg-light border-0 col-6" placeholder="Country" style="height: 55px;" name="country">
+                            </div>
+                           
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Blood Type: </label>
+                             </div>
+    
+                                <div class="col-8 col-sm-4">
+                                    <select class="form-select bg-light border-0" style="height: 55px;" name="department">
+                                        <option selected>A</option>
                                     <option value="1">AB</option>
                                     <option value="2">B</option>
                                     <option value="3">O</option>
-                                </select>
-                            </div> 
+                                    </select>
+                                </div>
+                                <div class="col-12 col-sm-6"></div>
+
+                            <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Gender: </label>
+                            </div>
+                            <div class="col-8 col-sm-9" id="gender">
+                                <label class="form-control bg-light border-0 col-6" id="gender2" >
+                                    <input class="form-check-input" id="males" type="radio" name="gender" value="" ><label for="males" id="male">Male</label> 
+                                    <input class="form-check-input" id="females" type="radio" name="gender"  value=""><label for="females"> Female </label>
+                                  </label>
+                           </div>
+                           
+                           
+                              
+                            
+
+
                             
         <div>  </div>
                             
-                            <!--<div class="col-12 col-sm-6">
-                                <div class="date" id="date" data-target-input="nearest">
-                                    <input type="text"
-                                        class="form-control bg-light border-0 datetimepicker-input"
-                                        placeholder="Date" data-target="#date" data-toggle="datetimepicker" style="height: 55px;" name="">
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="time" id="time" data-target-input="nearest">
-                                    <input type="text"
-                                        class="form-control bg-light border-0 datetimepicker-input"
-                                        placeholder="Time" data-target="#time" data-toggle="datetimepicker" style="height: 55px;" name="">
-                                </div>
-                            </div>-->
-                            <!--<div class="col-12 col-sm-6" >
-                                <label class="form-check-label form-control" for="flexCheckDefault" style="height: 55px; text-align: justify; color: #707a8b;
-                                 padding-top: 15px; background-color:#ebf3fa; border: 0;">
-                                    <input class="form-check-input" type="checkbox" id="BookedOnline" name="BookedOnline" value="Booked Online"> Booked online
-                                </label> 
-                                                                   
-                            </div>
-                            <div class="col-12 col-sm-6" >
-                                 <input class="form-control bg-light border-0" style="height:55px;" type="text" id="stat" name="status" value="status" placeholder="status">                                    
-                            </div>-->
-                            <div class="col-6 justify-content-center">
-                                <input class="btn btn-primary w-100 py-3" type="submit" name="savebtn" id="savebtn" value="Save">
-                           </div>
-                           <div class="col-12 col-sm-6">
-                            <a class="btn btn-primary w-100 py-3" href="../prsecription/prescriptionList.html">Discard</a>
-                           </div>
+            
+                            
+        <div class="col-12 col-sm-5" style="margin-left: 4rem;" >
+            <input class="btn btn-primary w-100 py-3" type="submit" name="savebtn" id="savebtn" value="Save">
+       </div>
+       
+       <div class="col-12 col-sm-4" >
+            <a class="btn btn-primary w-100 py-3" href="#" style="color: black; background-color: white;  border-color: #c8cdd2;">Discard</a>
+       </div>
                         </div>
                     </form>
                 </div>
@@ -173,49 +192,6 @@
     </div>
 </div> 
 
-  <!-- Footer Start -->
-  <div class="container-fluid bg-dark text-light mt-5 " id="footer">
-    <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-lg-3 col-md-6">
-                <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">To Contact</h4>
-                <p class="mb-4"><i class="fa fa-map-marker-alt text-primary me-3"></i>Taha Hussein Street, Alminya, Egypt</p>
-                <p class="mb-4"><i class="fa fa-envelope text-primary me-3"></i>HMS@outlook.com</p>
-                <p class="mb-2"><i class="fa fa-phone-alt text-primary me-3"></i>01234567890</p>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Quick Links</h4>
-                <div class="d-flex flex-column justify-content-start">
-                    <a class="text-light mb-4" href="#home"><i class="fa fa-angle-right me-2"></i>Home</a>
-                    <a class="text-light mb-4" href="#about"><i class="fa fa-angle-right me-2"></i>About</a>
-                    <a class="text-light mb-4" href="appointment.html"><i class="fa fa-angle-right me-2"></i>Appointment</a>
-                    </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Popular Links</h4>
-                <div class="d-flex flex-column justify-content-start">
-                    <a class="text-light mb-4" href="#home"><i class="fa fa-angle-right me-2"></i>Home</a>
-                    <a class="text-light mb-4" href="#about"><i class="fa fa-angle-right me-2"></i>About</a>
-                    <a class="text-light mb-4" href="appointment.html"><i class="fa fa-angle-right me-2"></i>Appointment</a>
-                 </div>
-            </div>
-            <div class="col-lg-3 col-md-6">
-                <h4 class="d-inline-block text-primary text-uppercase border-bottom border-5 border-secondary mb-4">Our Social Networks</h4>
-                    <div class="input-group">
-                       <p class="text-light mb-4">If you wanted to follow us you can look at the following links  </p>
-                    </div>
-                <h6 class="text-primary text-uppercase mt-4 mb-3">Follow Us</h6>
-                <div class="d-flex">
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle me-2" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-lg btn-primary btn-lg-square rounded-circle" href="#"><i class="fab fa-instagram"></i></a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Footer End -->
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
@@ -225,6 +201,6 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-    <script src="./js/main.js"></script>
+    <script src="../js/main.js"></script>
 </body>
 </html>
