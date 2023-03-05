@@ -1,4 +1,7 @@
+<?php 
+include("authLog/login.php");
 
+?>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -32,7 +35,7 @@
     <div class="container-fluid sticky-top bg-white shadow-sm">
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
-                <a href="index.html" class="navbar-brand">
+                <a href="" class="navbar-brand">
                     <h1 class="m-0 text-uppercase text-primary"><i class="fa-solid fa-stethoscope"></i>MEDSTAR</h1>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -58,8 +61,14 @@
                 <div class="col-lg-8 ">
                     <div class="bg-white text-center rounded p-5">
                         <h1 class="mb-4">Login</h1>
+                       
                         <form method="post">
                             <div class="row g-3">
+                                <?php if (isset($_GET['error'])) { ?>
+                                    <div class="alert alert-danger" role="alert">
+                                      <?=$_GET['error']?>
+                                  </div>
+                                  <?php } ?>
                               <div class="col-12 ">
                                     <input type="text" class="form-control bg-light border-0" placeholder="National ID" style="height: 55px;" name="national_id">
                                 </div>
@@ -75,6 +84,10 @@
 
 
                                     <!-- <a class="btn btn-primary w-100 py-3" href="appointment_form.html" type="submit"> Submit </a> -->
+                               </div>
+                               <div id = "logerror"class="col-12">
+                             
+                                       
                                </div>
                             </div>
                         </form>
