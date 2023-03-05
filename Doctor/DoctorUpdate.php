@@ -44,7 +44,7 @@ if(isset($_POST["savebtn"])){
         national_id='$nationalId',birthDate='$Birthdate', Email='$Email',gender='$gender'ً WHERE national_id =$doctortId";
         $usersResult = mysqli_query($connection, $updateUsersSql);
     
-        $updateAdressSql= "update adress set user_id='$nationalId' apartment='$apartment', city='$city', country='$country', street='$street' WHERE users_id=$doctortId";
+        $updateAdressSql= "update adress set user_id='$nationalId', apartment='$apartment', city='$city', country='$country', street='$street' WHERE users_id=$doctortId";
         $adressResult = mysqli_query($connection, $updateAdressSql);
 
         $updatePatientSql= "update doctor set  user_id='$nationalId',department_id='$department' WHERE user_id=$doctortId";
