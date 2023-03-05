@@ -1,28 +1,30 @@
 <?php
-include_once("../dbConnection.php");
-//read prescription form data
-$Patientid = $_GET["user"];
-$Patientsql = "SELECT * FROM users JOIN patient WHERE users.national_id=patient.user_id=user, users.adress_id=adress.id";
-$Patientresult = mysqli_query($connection, $Patientsql);
-$data = mysqli_fetch_array($Patientresult);
+include("../dbConnection.php");
+//read Doctor data
+$doctortId = $_GET["national_id"];
+echo $doctortId;
+$usersql = "SELECT * FROM users INNER JOIN adress ON users.national_id=adress.user_id WHERE national_id = $doctortId";
+$userresult = mysqli_query($connection, $usersql);
+$Udata = mysqli_fetch_array($userresult);
+$Doctorsql="SELECT * FROM doctor INNER JOIN department ON doctor.department_id=department.id WHERE user_id = $doctortId";
+$Doctorresult = mysqli_query($connection, $Doctorsql);
+$Ddata = mysqli_fetch_array($Doctorresult);
 
-//read related prescription line
-/*$prescLineresult = mysqli_query($connection, $prescLinesql);
-function drawPatientTable(){
-    if( $GLOBALS['prescLineresult']) {
-        while($row =  mysqli_fetch_assoc($GLOBALS['prescLineresult'])){
-            echo "<tr>";    
-            echo "<td> <input type='text' name='medicineName[]' value='$row[medicine_name]'> </td>";
-            echo "<td ><input type='text' name='dosage[]' value=$row[dosage_detail]></td>";
-            echo"<td ><input type='checkbox' name ='allowSubsistuation[]'value='1' ></td>";
-            echo"<td><input type='text' name ='comment[]' value=$row[comment]></td>";
-            echo "<tr>";    
-                 }}
-}*/
 
-    if(isset($_POST["savebtn"])){
+if(isset($_POST["savebtn"])){
 
-        $patientName = $_POST["patientName"];
+    //check if the Doctor is male or female
+    if ( isset($_POST['gender']) ){
+        $gender = $_POST['gender'];
+        if ( $gender == 'M' ){
+            $gender="M";
+        }else if ( $gender == 'F' ){
+            $gender="F";
+            }
+
+        }
+
+        $doctorName = $_POST["DoctorName"];
         $mobile = $_POST["mobile"];
         $nationalId = $_POST["nationalId"];
         $Birthdate = $_POST["Birthdate"];
@@ -33,28 +35,22 @@ function drawPatientTable(){
         $Email=$_POST["Email"];
         $Password=$_POST["Password"];
         $RepeatPassword=$_POST["RepeatPassword"];
-        $type="patient";
-        $gender=$_POST["gender"];
         $department=$_POST["department"];
+        $type="Doctor";
 
-
-
-       //update  Prescription 
-       $updateUsersSql = "update users set name='$$patientName', mobile='$mobile', 
-       nationalId='$nationalId',birthDate='$Birthdate', Email='$Email',gender='$gender'  where nationalId=$nationalId";
+    if ($Password==$RepeatPassword){
+        //update  user 
+        $updateUsersSql = "update users set name='$doctorName', mobile='$mobile', 
+        national_id='$nationalId',birthDate='$Birthdate', Email='$Email',gender='$gender'ً WHERE national_id =$doctortId";
         $usersResult = mysqli_query($connection, $updateUsersSql);
     
-        $updateAdressSql= "update adress set apartment='$apartment', city='$city', country='$country', street='$street' where id=$nationalId";
+        $updateAdressSql= "update adress set user_id='$nationalId', apartment='$apartment', city='$city', country='$country', street='$street' WHERE user_id=$doctortId";
         $adressResult = mysqli_query($connection, $updateAdressSql);
 
-        $updatePatientSql= "update department set name='$department' where id=$nationalId";
-        $adressResult = mysqli_query($connection, $updateAdressSql);
+        $updatePatientSql= "update doctor set  user_id='$nationalId',department_id='$department' WHERE user_id=$doctortId";
+        $adressResult = mysqli_query($connection, $updatePatientSql);
         
     }
-
-
-
-
-
+}
 ?>
 

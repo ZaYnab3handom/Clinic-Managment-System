@@ -22,11 +22,13 @@ $prescLineresult = mysqli_query($connection, $prescLinesql);
 function drawPrescriptionLine(){
     if( $GLOBALS['prescLineresult']) {
         while($row =  mysqli_fetch_assoc($GLOBALS['prescLineresult'])){
-            echo "<tr>";    
+        
+            echo "<tr class='case'>"; 
+            // echo "<td><span id='snum'>".$row['id']."</span></td>" ;  
             echo "<td> <input type='text' name='medicineName[]' value='$row[medicine_name]'> </td>";
             echo "<td ><input type='text' name='dosage[]' value=$row[dosage_detail]></td>";
-            echo"<td ><input type='checkbox' name ='allowSubsistuation[]'value='1' ></td>";
             echo"<td><input type='text' name ='comment[]' value=$row[comment]></td>";
+            echo"<td ><input type='checkbox' name ='allowSubsistuation[]'value='1' ></td>";
             echo "<tr>";    
                  }}
 }
@@ -39,9 +41,8 @@ function drawPrescriptionLine(){
         // $appoitmentId = 1;
 
         //get current time 
-        date_default_timezone_set('Africa/Cairo');
-        $t=time();
-        $prescription_time=date("h:i:s",$t);
+       
+        $prescription_time=$_POST["PrescriptionDate"];
 
         $disease = $_POST["disease"];
         $medicalTest = $_POST["medicalTest"];
@@ -68,8 +69,11 @@ function drawPrescriptionLine(){
         for($i=0;$i<count($medicineName);$i++){
          
             if($medicineName[$i]){
+                if (!isset($_POST["allowSubsistuation"][$i])){
+                    $allowSubsistuation[$i] = 0; }
+                else{$allowSubsistuation[$i] = $_POST["allowSubsistuation"][$i];} 
             $updatePrescLinesql = "update prescription_line set medicine_name='$medicineName[$i]'
-            ,dosage_detail='$dosage[$i]', comment='$comment[$i]' where prescription_id=$prescid";
+            ,dosage_detail='$dosage[$i]',allow_subsistuation=$allowSubsistuation[$i], comment='$comment[$i]' where prescription_id=$prescid";
              $updatePrescLineResult = mysqli_query($connection, $updatePrescLinesql);}
              header("Location:prescriptionList.html");
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 02, 2023 at 12:04 PM
+-- Generation Time: Mar 05, 2023 at 03:09 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -35,6 +35,17 @@ CREATE TABLE `adress` (
   `country` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `adress`
+--
+
+INSERT INTO `adress` (`user_id`, `apartment`, `street`, `city`, `country`) VALUES
+(699, 0, 'egypt', 'suez', 'Egypt'),
+(222222222222, 0, 'egypt', 'suez', 'Egypt'),
+(255555555558, 5, 'egypt', 'suez', 'Egypt'),
+(2888888888888, 0, 'egypt', 'suez', 'Egypt'),
+(29608034444444, 0, 'hg', 'suez', 'Egypt');
+
 -- --------------------------------------------------------
 
 --
@@ -43,11 +54,10 @@ CREATE TABLE `adress` (
 
 CREATE TABLE `appointment` (
   `id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
+  `datetime` datetime NOT NULL,
   `patient_Id` bigint(14) NOT NULL,
   `doctor_id` bigint(14) NOT NULL,
-  `consultation_type` varchar(10) NOT NULL,
+  `consultation_type` varchar(15) NOT NULL,
   `booked_online` tinyint(1) NOT NULL,
   `state` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -56,32 +66,39 @@ CREATE TABLE `appointment` (
 -- Dumping data for table `appointment`
 --
 
-INSERT INTO `appointment` (`id`, `date`, `time`, `patient_Id`, `doctor_id`, `consultation_type`, `booked_online`, `state`) VALUES
-(2, '2023-02-27', '15:24:37', 2664, 2664, 'bv', 1, 'hjgh'),
-(5, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'sevice', 0, 'done'),
-(7, '2023-03-01', '07:56:27', 29608030400141, 29608030400141, 'reapp', 0, 'done'),
-(8, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(9, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(10, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(11, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(14, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(15, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(16, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(17, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(18, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(19, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(20, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(21, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(22, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(23, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(24, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(25, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(26, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(27, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(29, '2023-02-28', '00:00:00', 29608030400141, 29608030400141, 'cons', 0, 'fd'),
-(31, '2023-03-01', '09:32:26', 29608030400141, 29608030400141, 'reapp2', 0, 'confirm'),
-(32, '2023-03-01', '11:19:55', 29608030400141, 29608030400141, 'sevice', 0, 'status'),
-(33, '2023-03-01', '11:20:19', 29608030400141, 29608030400141, '', 0, 'status');
+INSERT INTO `appointment` (`id`, `datetime`, `patient_Id`, `doctor_id`, `consultation_type`, `booked_online`, `state`) VALUES
+(2, '2023-02-27 00:00:00', 2664, 29608030400141, 'bv', 1, 'hjgh '),
+(7, '2023-03-01 00:00:00', 29608030400141, 29608030400141, 'reapp', 0, 'done'),
+(31, '2023-03-01 00:00:00', 29608030400141, 29608030400141, 'reapp2', 0, 'confirm'),
+(47, '2023-03-02 00:00:00', 29608034444444, 29608030400141, 'gggggggggg', 0, 'status'),
+(51, '2023-03-02 00:00:00', 29608034444444, 29608030400141, 'sondoooooo', 1, 'status'),
+(52, '0000-00-00 00:00:00', 29608034444444, 29608030400141, 'sondoooooo', 1, 'status'),
+(54, '0000-00-00 00:00:00', 29608034444444, 29608030400141, 'test ccccc', 0, 'status'),
+(55, '0000-00-00 00:00:00', 29608034444444, 29608030400141, 'test ccccc', 0, 'status'),
+(56, '0000-00-00 00:00:00', 29608034444444, 29608030400141, 'test ccccc', 0, 'status'),
+(69, '2023-03-02 07:27:37', 29608034444444, 29608030400141, 'teeeeeeeee', 0, 'status'),
+(70, '2023-03-02 20:30:17', 29608034444444, 29608030400141, 'hhhhhhhhhh', 0, 'status'),
+(71, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
+(72, '2023-03-03 22:41:25', 29608034444444, 29608030400141, 're-examination', 0, 'front test'),
+(73, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
+(74, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
+(75, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
+(76, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
+(77, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
+(78, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
+(79, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
+(80, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
+(81, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
+(82, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
+(83, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
+(85, '2023-03-03 06:10:03', 29608034444444, 29608030400141, 'reapp', 0, 'status'),
+(86, '2023-03-03 20:39:00', 29608030400141, 29608030400141, 'examinatio', 1, 'draft'),
+(87, '0000-00-00 00:00:00', 29608030400141, 29608030400141, 'examination', 1, 'draft'),
+(88, '0000-00-00 00:00:00', 29608030400141, 29608030400141, 'examination', 1, 'draft'),
+(89, '0000-00-00 00:00:00', 29608030400141, 29608030400141, 'examination', 1, 'draft'),
+(97, '2023-03-04 10:15:44', 2888888888888, 29608030400141, 'examination', 0, ''),
+(98, '2023-03-04 10:25:49', 2888888888888, 255555555558, 'examination', 0, 'cpnfirn'),
+(99, '2023-03-11 12:54:00', 29608030400141, 255555555558, 're-examination', 1, 'draft');
 
 -- --------------------------------------------------------
 
@@ -91,13 +108,14 @@ INSERT INTO `appointment` (`id`, `date`, `time`, `patient_Id`, `doctor_id`, `con
 --
 CREATE TABLE `appointmentusers` (
 `id` int(11)
+,`patientId` bigint(14)
 ,`patienName` varchar(40)
 ,`birthDate` date
+,`docId` bigint(14)
 ,`doctorName` varchar(40)
 ,`departmentName` varchar(20)
-,`date` date
-,`time` time
-,`consultation_type` varchar(10)
+,`datetime` datetime
+,`consultation_type` varchar(15)
 ,`booked_online` tinyint(1)
 ,`state` varchar(10)
 );
@@ -118,7 +136,10 @@ CREATE TABLE `department` (
 --
 
 INSERT INTO `department` (`id`, `name`) VALUES
-(1, 'surger');
+(1, 'surgery'),
+(2, 'paediatrics'),
+(3, 'dental'),
+(4, 'Gastroenterologists');
 
 -- --------------------------------------------------------
 
@@ -137,7 +158,8 @@ CREATE TABLE `doctor` (
 
 INSERT INTO `doctor` (`user_id`, `department_id`) VALUES
 (2664, 1),
-(29608030400141, 1);
+(29608030400141, 1),
+(255555555558, 3);
 
 -- --------------------------------------------------------
 
@@ -160,7 +182,10 @@ CREATE TABLE `patient` (
 
 INSERT INTO `patient` (`user_id`, `company`, `employee_id`, `blood_type`, `chronic_disease`, `past_surgery`) VALUES
 (2664, 'fd', 2, 'o', 'nlk', 'jbh'),
-(29608030400141, 'suez canal', 2, 'o', 'no', 'no');
+(222222222222, 'Department', 123, 'B', 'no', 'egypt'),
+(2888888888888, 'Department', 123, 'B', 'no', 'no'),
+(29608030400141, 'suez canal', 2, 'o', 'no', 'no'),
+(29608034444444, 'sugarCanel', 1, 'A', 'no', 'no');
 
 -- --------------------------------------------------------
 
@@ -170,11 +195,11 @@ INSERT INTO `patient` (`user_id`, `company`, `employee_id`, `blood_type`, `chron
 
 CREATE TABLE `prescription` (
   `appointment_id` int(11) NOT NULL,
-  `prescription_time` time NOT NULL,
+  `prescription_time` datetime NOT NULL,
   `disease` text NOT NULL,
   `medical_test` text NOT NULL,
   `x_rays` text NOT NULL,
-  `followup_date` date NOT NULL,
+  `followup_date` datetime NOT NULL,
   `notes` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -183,11 +208,15 @@ CREATE TABLE `prescription` (
 --
 
 INSERT INTO `prescription` (`appointment_id`, `prescription_time`, `disease`, `medical_test`, `x_rays`, `followup_date`, `notes`) VALUES
-(7, '09:59:23', 'sd', 'q', 'q', '0000-00-00', ''),
-(14, '10:26:25', 'n', 'n', 'n', '2023-03-08', 'nn'),
-(23, '09:55:07', 'a', 'a', 'a', '0000-00-00', ''),
-(27, '09:53:01', 'r2', 'r2', 'x2', '0000-00-00', ''),
-(31, '09:49:36', 'realone', 'real one', 'real one', '2023-03-17', 'real note');
+(2, '2023-03-03 09:12:50', 'js test', '', '', '2023-03-03 09:12:50', ''),
+(7, '2023-03-03 09:05:21', 'fffffffffffffffffffffffffffffff', 'ffffffff', 'fffffffffff', '2023-03-03 09:05:21', ''),
+(31, '2023-03-03 09:49:36', 'realoneffffffffffffffffffffffffffffffffff', 'real one', 'real one', '2023-03-17 00:00:00', 'real note2222222222222222'),
+(47, '2023-03-03 04:43:33', 'mmmmmmmmmmmmmmmmmmmmm', '', '', '2023-03-03 04:43:33', ''),
+(51, '2023-02-25 04:40:15', 'wooooooooooooooooooooooooooooooooooooo', '', '', '2023-03-03 04:40:15', ''),
+(54, '2023-03-03 04:53:18', '', '', '', '2023-03-03 04:53:18', ''),
+(55, '2023-03-03 04:50:04', 'ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', '', '', '2023-03-03 04:50:04', ''),
+(72, '2023-03-04 11:50:56', '', '', '', '2023-03-04 11:50:56', ''),
+(98, '2023-03-04 10:41:50', 'cccccccccc', 'ccccccccccccccccc', 'cccccccccccccccc', '2023-03-11 10:41:50', 'ggggggggggggggggg');
 
 -- --------------------------------------------------------
 
@@ -209,13 +238,45 @@ CREATE TABLE `prescription_line` (
 --
 
 INSERT INTO `prescription_line` (`id`, `prescription_id`, `medicine_name`, `dosage_detail`, `allow_subsistuation`, `comment`) VALUES
-(65, 31, 'm1', 'd1', 0, 'c1'),
-(66, 31, 'm2', 'd2', 0, 'c2'),
-(67, 27, 'm1', '', 0, ''),
-(68, 23, 'a', 'aa', 0, 'aa'),
-(69, 23, 'a', '', 0, ''),
-(70, 7, 'q', 'qq', 0, ''),
-(71, 14, 'n', 'n', 0, 'n');
+(65, 31, 'm2', 'd22222222222222222222', 1, 'c2'),
+(66, 31, 'm2', 'd22222222222222222222', 1, 'c2'),
+(73, 51, 'a', 'a', 1, 'a'),
+(74, 51, 'a', 'a', 1, 'a'),
+(75, 51, 'a', 'a', 0, 'a'),
+(77, 47, 'a1', 'a1', 1, 'a1'),
+(78, 47, 'a2', 'a2', 1, 'a2'),
+(79, 47, 'a3', 'a3', 0, 'a3'),
+(80, 55, 'm1', '', 1, ''),
+(81, 55, 'm2', '', 1, ''),
+(86, 54, 'a', '', 1, ''),
+(87, 54, 'a1', '', 0, ''),
+(88, 54, 'a2', '', 0, ''),
+(92, 7, 'f1', 'f1', 1, 'f1'),
+(93, 7, 'f2', 'f2', 1, 'f2'),
+(94, 7, 'f3', 'f3', 0, 'f3'),
+(96, 2, 'm1', '', 0, ''),
+(97, 2, 'm2', '', 0, ''),
+(98, 2, 'm3', '', 0, ''),
+(99, 2, 'm4', '', 0, ''),
+(103, 98, 'a5', 'a5', 0, 'a5'),
+(104, 98, 'a5', 'a5', 0, 'a5'),
+(105, 98, 'a5', 'a5', 0, 'a5'),
+(106, 98, 'a5', 'a5', 0, 'a5');
+
+-- --------------------------------------------------------
+
+--
+-- Stand-in structure for view `presusers`
+-- (See below for the actual view)
+--
+CREATE TABLE `presusers` (
+`appointment_id` int(11)
+,`prescription_time` datetime
+,`followup_date` datetime
+,`patienName` varchar(40)
+,`doctorName` varchar(40)
+,`departmentName` varchar(20)
+);
 
 -- --------------------------------------------------------
 
@@ -246,7 +307,7 @@ CREATE TABLE `users` (
   `type` varchar(10) NOT NULL,
   `birthDate` date NOT NULL,
   `gender` char(1) NOT NULL,
-  `mobile` int(11) NOT NULL
+  `mobile` varchar(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -254,8 +315,14 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`national_id`, `name`, `email`, `password`, `type`, `birthDate`, `gender`, `mobile`) VALUES
-(2664, 'ali', ',mnkjl', ',mnkjl', 'k', '2023-02-16', 'f', 142),
-(29608030400141, 'zaynab ibrahim', 'zaynab3handoum@gmail.com', '123', 'doctor', '1996-08-03', 'F', 1020797704);
+(0, 'sad', 'zeinab3handoum@gmail.com', '123', 'Doctor', '2023-03-02', 'M', '01000'),
+(699, 'zoza', 'adminnnnnn@adn', '123', 'Patient', '0000-00-00', '', '699'),
+(2664, 'ali', ',mnkjl', ',mnkjl', 'k', '2023-02-16', 'f', '142'),
+(222222222222, 'zaynab handounm', 'admin@ad', 'admin', 'Patient', '0000-00-00', '', '1020797755'),
+(255555555558, 'hoda', 'zeinab3handoum@gmail.com', '123', 'Doctor', '2005-02-02', 'M', '1020797704'),
+(2888888888888, 'ahmed', 'admin@gh', 'admin', 'Patient', '2009-02-02', '', '+20122222222'),
+(29608030400141, 'zaynab ibrahim', 'zaynab3handoum@gmail.com', '123', 'admin', '1996-08-03', 'F', '1020797704'),
+(29608034444444, 'zaynab ibrahim', 'admin@gh', 'admin', 'patient', '0000-00-00', '', '1020797755');
 
 -- --------------------------------------------------------
 
@@ -264,7 +331,16 @@ INSERT INTO `users` (`national_id`, `name`, `email`, `password`, `type`, `birthD
 --
 DROP TABLE IF EXISTS `appointmentusers`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `appointmentusers`  AS SELECT `a`.`id` AS `id`, `p`.`name` AS `patienName`, `p`.`birthDate` AS `birthDate`, `d`.`name` AS `doctorName`, `dep`.`name` AS `departmentName`, `a`.`date` AS `date`, `a`.`time` AS `time`, `a`.`consultation_type` AS `consultation_type`, `a`.`booked_online` AS `booked_online`, `a`.`state` AS `state` FROM ((((`appointment` `a` join `users` `p` on(`a`.`patient_Id` = `p`.`national_id`)) join `users` `d` on(`a`.`doctor_id` = `d`.`national_id`)) join `doctor` `doc` on(`doc`.`user_id` = `d`.`national_id`)) join `department` `dep` on(`dep`.`id` = `doc`.`department_id`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `appointmentusers`  AS SELECT `a`.`id` AS `id`, `p`.`national_id` AS `patientId`, `p`.`name` AS `patienName`, `p`.`birthDate` AS `birthDate`, `d`.`national_id` AS `docId`, `d`.`name` AS `doctorName`, `dep`.`name` AS `departmentName`, `a`.`datetime` AS `datetime`, `a`.`consultation_type` AS `consultation_type`, `a`.`booked_online` AS `booked_online`, `a`.`state` AS `state` FROM ((((`appointment` `a` join `users` `p` on(`a`.`patient_Id` = `p`.`national_id`)) join `users` `d` on(`a`.`doctor_id` = `d`.`national_id`)) join `doctor` `doc` on(`doc`.`user_id` = `d`.`national_id`)) join `department` `dep` on(`dep`.`id` = `doc`.`department_id`))  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `presusers`
+--
+DROP TABLE IF EXISTS `presusers`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `presusers`  AS SELECT `pre`.`appointment_id` AS `appointment_id`, `pre`.`prescription_time` AS `prescription_time`, `pre`.`followup_date` AS `followup_date`, `a`.`patienName` AS `patienName`, `a`.`doctorName` AS `doctorName`, `a`.`departmentName` AS `departmentName` FROM (`prescription` `pre` left join `appointmentusers` `a` on(`a`.`id` = `pre`.`appointment_id`))  ;
 
 --
 -- Indexes for dumped tables
@@ -337,19 +413,19 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
 
 --
 -- AUTO_INCREMENT for table `department`
 --
 ALTER TABLE `department`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `prescription_line`
 --
 ALTER TABLE `prescription_line`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
 
 --
 -- Constraints for dumped tables

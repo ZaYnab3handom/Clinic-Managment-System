@@ -69,22 +69,28 @@
                   placeholder="Birthdate" style="height: 55px;">
                 </div>
                 <div class="form-check col-12 col-sm-6 d-flex justify-content-center">
-                  <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1">
-                  <label class="form-check-label" value="F" for="flexRadioDefault1">
+                  <input class="form-check-input" type="radio" value="F" name="gender" id="flexRadioDefault1">
+                  <label class="form-check-label" for="flexRadioDefault1">
                     &nbsp;&nbsp;&nbsp;Female
                   </label>
                 </div>
               
                 <div class="form-check col-12 col-sm-6 d-flex justify-content-center ">
-                  <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2" checked>
-                  <label class="form-check-label" value="M" for="flexRadioDefault2">
+                  <input class="form-check-input" type="radio" value="M" name="gender" id="flexRadioDefault2" checked>
+                  <label class="form-check-label" for="flexRadioDefault2">
                     &nbsp;&nbsp;&nbsp;Male
                   </label>
                 </div>
                 <div class="col-12 col-sm-6">
-                  <input type="text" id="Department" name="department" class="form-control bg-white border-0"
-                    placeholder="Department" style="height: 55px;">
-                </div>
+                <select  class="form-control bg-white border-0" name="department" style="height: 55px;">                
+                  <?php include_once("../dbConnection.php");
+                  $readSql = "SELECT * FROM department"; 
+                  $readResult1 = mysqli_query($connection, $readSql);
+                  while($data = mysqli_fetch_array($readResult1)) {
+                      echo "<option value='$data[id]'>".$data["name"]."</option>";}
+                    ?>
+              </select>
+            </div>
                 <div class="col-12 col-sm-6">
                   <input type="email" id="Email" name="email" class="form-control bg-white border-0"
                     placeholder="Email" style="height: 55px;">
@@ -134,7 +140,7 @@
                 <div class="col-12 col-sm-6 text-center">
                     <br>
                   <button class="discard btn-light border-1 border border-secondary btn w-50 py-3">
-                    <a href="../prsecription/prescriptionList.html" class="text-decoration-none" style="color: #6c757d;">Discard</a>
+                    <a href="Doctor.html" class="text-decoration-none" style="color: #6c757d;">Discard</a>
                   </button>
                 </div>
                 <div class="col-12 col-sm-6 text-center">
@@ -151,5 +157,6 @@
 
 </html>
 <?php
+
   include("DoctorWrite.php");
 ?>

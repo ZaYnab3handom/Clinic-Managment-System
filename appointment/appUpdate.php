@@ -8,25 +8,34 @@ $data = mysqli_fetch_array($appresult);
 $currentDate = date("d-m-Y");
 $getage = date_diff(date_create($data["birthDate"]), date_create($currentDate));
 $age=$getage->format("%y");
+$doctorName = $data["doctorName"];
+$doctorData="select national_id,name from users WHERE type ='doctor'";
+$docresult=mysqli_query($connection, $doctorData);
 if(isset($_POST["savebtn"])){
     //get appFormData
-    $doctorId = 29608030400141;
+    $doctorId = $_POST["doctorName"];
 
     //get current time 
     date_default_timezone_set('Africa/Cairo');
     $t=time();
-    $appdate=date("Y-m-d",$t);
-    $apptime=date("h:i:s",$t);
-
-   
+    $appdate=$_POST["date"];
     $consType = $_POST["consultationt"];
-    $BookedOnline = $_POST["BookedOnline"];
+    
+    if(!isset($_POST["BookedOnline"])){
+        $BookedOnline=0;
+    }
+    else{
+        $BookedOnline=$_POST["BookedOnline"];
+    }
+
     $status=$_POST["status"];
+    
+   
 
 
    //udate  appointment 
    $updateAppsql = "update appointment set doctor_id='$doctorId',
-   date='$appdate', time='$apptime',consultation_type='$consType', booked_online='$BookedOnline',
+   datetime='$appdate', consultation_type='$consType', booked_online='$BookedOnline',
    state='$status' where id=$appId";
    $updateResult = mysqli_query($connection, $updateAppsql);
   
