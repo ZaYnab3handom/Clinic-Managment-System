@@ -24,11 +24,7 @@
        <!-- Libraries Stylesheet -->
        <link rel="stylesheet" href="../css/bootstrap.min.css">
        <link rel="stylesheet" href="../css/style.css">
-<<<<<<< HEAD
     <title>Update Patient</title>
-=======
-    <title>Document</title>
->>>>>>> origin/main
 </head>
 <body>
     <!--Navbar start-->
@@ -64,46 +60,28 @@
               
                 <div class="bg-white text-center rounded p-5">
                     
-<<<<<<< HEAD
                     <h1 class="mb-4">Update Patient</h1>
-                    <form method="">
+                    <form method="post">
                         <div class="row g-3">
                             
                             <div class="col-12 col-sm-3" id="label">
                                 <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Patient Name: </label>
                             </div>
                             <div class="col-12 col-sm-9">
-                                 <input type="text" class="form-control bg-light border-0" style="height: 55px;" name="patientName">
+                                 <input type="text" class="form-control bg-light border-0" style="height: 55px;" value="<?php echo $Udata['name'] ?>" name="patientName">
                             </div>
 
                             <div class="col-12 col-sm-3" id="label">
                                 <label  class="col-sm-6 col-form-label" for="mobile" style="text-align: left; height: 55px; padding-top: 14px;" >Mobile: </label>
-=======
-                    <h1 class="mb-4">Update_Info_Patient</h1>
-                    <form method="post">
-                        <div class="row g-3">
-                            
-                            <div class="col-12 col-sm-6">
-                                
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['name'] ?>" style="height: 55px;" name="patientName">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                               
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['mobile'] ?>" style="height: 55px;" name="mobile">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                               
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['national_id'] ?>" style="height: 55px;" name="nationalId">
->>>>>>> origin/main
                             </div>
                             <div class="col-12 col-sm-9">
-                                <input type="number" class="form-control bg-light border-0"  style="height: 55px;" name="mobile">
+                                <input type="text" class="form-control bg-light border-0"  style="height: 55px;" value="<?php echo $Udata['mobile'] ?>" name="mobile">
                             </div>
                             <div class="col-12 col-sm-3" id="label">
                                 <label  class="col-sm-6 col-form-label" for="nationalId" style="text-align: left; height: 55px; padding-top: 14px;" >National Id: </label>
                             </div>
                             <div class="col-12 col-sm-9">
-                                  <input type="number" class="form-control bg-light border-0"  style="height: 55px;" name="nationalId">
+                                  <input type="text" class="form-control bg-light border-0"  style="height: 55px;" value="<?php echo $Udata['national_id'] ?>" name="nationalId">
                             </div>
                             <div class="col-12 col-sm-3" id="label">
                                 <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Date: </label>
@@ -111,29 +89,45 @@
                             <div class="col-12 col-sm-9">
                                  <input type="date"
                                         class="form-control bg-light border-0 datetimepicker-input"
-<<<<<<< HEAD
-                                        placeholder="Birthdate" data-target="#date" data-toggle="datetimepicker" style="height: 55px;" name="BirthDate">
+                                         data-target="#date" data-toggle="datetimepicker" style="height: 55px;" value="<?php echo $Udata['birthDate']?>" name="BirthDate">
                               </div>
-
+                              <div class="col-12 col-sm-3" id="label">
+                                <label class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >company: </label>
+                            </div>
+                            <div class="col-8 col-sm-4">
+                                <select class="form-select bg-light border-0" style="height: 55px;" name="company">        
+                                    <option><?php echo $Pdata['company']?></option>           
+                                    <option value="a">Sugar Canel</option>
+                                    <option value="b">Department2</option>
+                                    <option value="c">Department3</option>
+                              </select>
+                            </div>
+                            <div class="col-12 col-sm-6"></div>
                             <div class="col-12 col-sm-3" id="label">
                                 <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Employee Id: </label>
                             </div>
                             <div class="col-12 col-sm-9">
-                                <input type="number" class="form-control bg-light border-0"  style="height: 55px;" name="employeeId">
+                                <input type="text" class="form-control bg-light border-0"  style="height: 55px;" value="<?php echo $Pdata['employee_id'] ?>" name="employeeId">
                             </div>
                             <div class="col-12 col-sm-3" id="label">
                                 <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Chronic Disease: </label>
                             </div>
                             <div class="col-12 col-sm-9">
-                                <input type="text" class="form-control bg-light border-0" style="height: 55px;" name="ChronicDisease" >
+                                <input type="text" class="form-control bg-light border-0" style="height: 55px;" value="<?php echo $Pdata['chronic_disease'] ?>" name="ChronicDisease" >
                             </div>
                             <div class="col-12 col-sm-3" id="label">
                                 <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Past Surger: </label>
                             </div>
                             <div class="col-12 col-sm-9">
-                                <input type="text" class="form-control bg-light border-0"  style="height: 55px;" id="Doctor" name="PastSurger">
+                                <input type="text" class="form-control bg-light border-0"  style="height: 55px;" id="Doctor" value="<?php echo $Pdata['past_surgery'] ?>" name="PastSurger">
                             </div>
-                          
+
+                          <div class="col-12 col-sm-3" id="label">
+                                <label  class="col-sm-6 col-form-label" for="email" style="text-align: left; height: 55px; padding-top: 14px;" > Email: </label>
+                            </div>
+                            <div class="col-12 col-sm-9">
+                                <input type="email" class="form-control bg-light border-0" value="<?php echo $Udata['email']?>" style="height: 55px;" name="Email">
+                            </div>
                             <div class="col-12 col-sm-3" id="label">
                                 <label  class="col-sm-6 col-form-label" for="password" style="text-align: left; height: 55px; padding-top: 14px;" > Password: </label>
                             </div>
@@ -146,76 +140,21 @@
                             <div class="col-12 col-sm-9">
                                 <input type="password" class="form-control bg-light border-0" style="height: 55px;" name="RepeatPassword">
                             </div>
-                            <div class="col-12 col-sm-3" id="label">
-                                <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" > Type: </label>
-                            </div>
-                            <div class="col-12 col-sm-9">
-                                <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="patient">
-                            </div>
                              <div class="col-12 col-sm-3" id="label">
                                 <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Address: </label>
                             </div>
                             <div class="col12- col-sm-3">
-                                <input type="number" class="form-control bg-light border-0 col-6" placeholder="Apartment" style="height: 55px;" name="apartment">
+                                <input type="text" class="form-control bg-light border-0 col-6" value="<?php echo $Adata['apartment'] ?>" style="height: 55px;" name="apartment">
                             </div>
                             <div class="col-12 col-sm-3">
-                                <input type="text" class="form-control bg-light border-0 col-6" placeholder="Street" style="height: 55px;" name="street">
-=======
-                                        placeholder="Birthdate" style="height: 55px;" value="<?php echo $Udata['birthDate']?>" name="BirthDate">
-                                
-                            </div>
-                            <div class="col-12 col-sm-6">
-                               
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Pdata['employee_id'] ?>" style="height: 55px;" name="employeeId">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Pdata['chronic_disease'] ?>" style="height: 55px;" name="ChronicDisease" >
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Pdata['past_surgery'] ?>" style="height: 55px;" id="Doctor" name="PastSurger">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Adata['street'] ?>" style="height: 55px;" name="street">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Adata['apartment'] ?>" style="height: 55px;"  name="apartment">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Adata['city'] ?>" style="height: 55px;"  name="city">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Adata['country'] ?>" style="height: 55px;"  name="country">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="email" class="form-control bg-light border-0" value="<?php echo $Udata['email'] ?>" style="height: 55px;"  name="Email">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="password" class="form-control bg-light border-0" placeholder="Password" style="height: 55px;" name="Password">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <input type="password" class="form-control bg-light border-0" placeholder="Repeat Password" style="height: 55px;" name="RepeatPassword">
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <select name="company" class="form-control bg-light border-0" style="height: 55px;"value="<?php echo $Udata['Company'] ?>">                
-                                  <option value="a">Sugar Canel</option>
-                                  <option value="b">Department2</option>
-                                  <option value="c">Department3</option>
-                                </select>
-                                </div>                          
-                            <div class="col-12 col-sm-6" id="gender">
-                                <label class="form-control bg-light border-0 col-6" id="gender2">
-                                   Gender: <input class="form-check-input" type="radio" value="M" name="gender"><label id="male">Male</label> 
-                                            <input class="form-check-input" type="radio" value="F" name="gender"><label>Female </label>
-                                  </label>
->>>>>>> origin/main
+                                <input type="text" class="form-control bg-light border-0 col-6" value="<?php echo $Adata['street'] ?>" style="height: 55px;" name="street">
                             </div>
                             
-<<<<<<< HEAD
                             <div class="col-12 col-sm-3">
-                                <input type="text" class="form-control bg-light border-0 col-6" placeholder="City" style="height: 55px;" name="city">
+                                <input type="text" class="form-control bg-light border-0 col-6" value="<?php echo $Adata['city'] ?>"  style="height: 55px;" name="city">
                             </div>
                             <div class="col-12 col-sm-3">
-                                <input type="text" class="form-control bg-light border-0 col-6" placeholder="Country" style="height: 55px;" name="country">
+                                <input type="text" class="form-control bg-light border-0 col-6" value="<?php echo $Adata['country'] ?>" style="height: 55px;" name="country">
                             </div>
                            
                             <div class="col-12 col-sm-3" id="label">
@@ -223,11 +162,12 @@
                              </div>
     
                                 <div class="col-8 col-sm-4">
-                                    <select class="form-select bg-light border-0" style="height: 55px;" name="department">
-                                        <option selected>A</option>
-                                    <option value="1">AB</option>
-                                    <option value="2">B</option>
-                                    <option value="3">O</option>
+                                    <select class="form-select bg-light border-0" style="height: 55px;" name="Blood">
+                                    <option selected><?php echo $Pdata['blood_type']?></option>
+                                    <option value="A">A</option>   
+                                    <option value="AB">AB</option>
+                                    <option value="B">B</option>
+                                    <option value="O">O</option>
                                     </select>
                                 </div>
                                 <div class="col-12 col-sm-6"></div>
@@ -237,8 +177,8 @@
                             </div>
                             <div class="col-8 col-sm-9" id="gender">
                                 <label class="form-control bg-light border-0 col-6" id="gender2" >
-                                    <input class="form-check-input" id="males" type="radio" name="gender" value="" ><label for="males" id="male">Male</label> 
-                                    <input class="form-check-input" id="females" type="radio" name="gender"  value=""><label for="females"> Female </label>
+                                    <input class="form-check-input" id="males" type="radio" name="gender" value="M" ><label for="males" id="male">Male</label> 
+                                    <input class="form-check-input" id="females" type="radio" name="gender"  value="F"><label for="females"> Female </label>
                                   </label>
                            </div>
                            
@@ -257,52 +197,8 @@
        </div>
        
        <div class="col-12 col-sm-4" >
-            <a class="btn btn-primary w-100 py-3" href="#" style="color: black; background-color: white;  border-color: #c8cdd2;">Discard</a>
+            <a class="btn btn-primary w-100 py-3" href="Patient.html" style="color: black; background-color: white;  border-color: #c8cdd2;">Discard</a>
        </div>
-=======
-                                 <div class="col-12 col-sm-6">
-                                    <select name="Blood" class="form-control bg-light border-0" style="height: 55px;"> 
-                                        <option selected><?php  echo $Pdata['blood_type'] ?></option>               
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="AB">AB</option>
-                                        <option value="O">O</option>
-                                    </select>
-                            </div> 
-                            
-        <div>  </div>
-                            
-                            <!--<div class="col-12 col-sm-6">
-                                <div class="date" id="date" data-target-input="nearest">
-                                    <input type="text"
-                                        class="form-control bg-light border-0 datetimepicker-input"
-                                        placeholder="Date" data-target="#date" data-toggle="datetimepicker" style="height: 55px;" name="">
-                                </div>
-                            </div>
-                            <div class="col-12 col-sm-6">
-                                <div class="time" id="time" data-target-input="nearest">
-                                    <input type="text"
-                                        class="form-control bg-light border-0 datetimepicker-input"
-                                        placeholder="Time" data-target="#time" data-toggle="datetimepicker" style="height: 55px;" name="">
-                                </div>
-                            </div>-->
-                            <!--<div class="col-12 col-sm-6" >
-                                <label class="form-check-label form-control" for="flexCheckDefault" style="height: 55px; text-align: justify; color: #707a8b;
-                                 padding-top: 15px; background-color:#ebf3fa; border: 0;">
-                                    <input class="form-check-input" type="checkbox" id="BookedOnline" name="BookedOnline" value="Booked Online"> Booked online
-                                </label> 
-                                                                   
-                            </div>
-                            <div class="col-12 col-sm-6" >
-                                 <input class="form-control bg-light border-0" style="height:55px;" type="text" id="stat" name="status" value="status" placeholder="status">                                    
-                            </div>-->
-                            <div class="col-6 justify-content-center">
-                                <input class="btn btn-primary w-100 py-3" type="submit" name="savebtn" id="savebtn" value="Save">
-                           </div>
-                           <div class="col-12 col-sm-6">
-                            <a class="btn btn-primary w-100 py-3" href="Patient.html">Discard</a>
-                           </div>
->>>>>>> origin/main
                         </div>
                     </form>
                 </div>
