@@ -15,13 +15,13 @@
                 echo "<td>".$data["consultation_type"]."</td>";
                 echo "<td>".$data["booked_online"]."</td>";
                 echo "<td>".$data["state"]."</td>";
-                echo "<td> <a href='../prsecription/prescriptionForm.html?appId=$data[id]'> Create Prescription </a> </td>";
-                echo "<td> <a href='appDelete.php?user=$data[id]'> Delete </a> </td>";
-                echo "<td> <a href='appUpdateForm.html?user=$data[id]'> Edit </a> </td>";
-                echo "<td> <a href='appUpdateForm.html?user=$data[id]'> view </a> </td>";
+                echo "<td> <a href='../prsecription/prescriptionForm.html?appId=$data[id]'> <i class='bi bi-file-earmark-medical-fill'></i> </a> </td>";
+                echo "<td> <a href='appDelete.php?user=$data[id]'>  <i class='bi bi-trash-fill'></i>  </a> </td>";
+                echo "<td> <a href='appUpdateForm.html?user=$data[id]'> <i class='bi bi-pencil-square'></i>  </a> </td>";
+                echo "<td> <a href='appUpdateForm.html?user=$data[id]'> <i class='bi bi-box-arrow-up-right'></i>  </a> </td>";
 
             echo "</tr>";  
             // print_r($data);
          }
-      
+        
   ?>
