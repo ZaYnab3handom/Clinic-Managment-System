@@ -27,7 +27,7 @@ if(isset($_POST["savebtn"])){
         $doctorName = $_POST["DoctorName"];
         $mobile = $_POST["mobile"];
         $nationalId = $_POST["nationalId"];
-        $Birthdate = $_POST["Birthdate"];
+        $Birthdate = $_POST["BirthDate"];
         $street=$_POST["street"];
         $apartment=$_POST["apartment"];
         $city=$_POST["city"];
@@ -41,14 +41,14 @@ if(isset($_POST["savebtn"])){
     if ($Password==$RepeatPassword){
         //update  user 
         $updateUsersSql = "update users set name='$doctorName', mobile='$mobile', 
-        national_id='$nationalId',birthDate='$Birthdate', Email='$Email',gender='$gender'ً WHERE national_id =$doctortId";
+        national_id='$nationalId',birthDate='$Birthdate', Email='$Email', gender='$gender' where national_id =$doctortId";
         $usersResult = mysqli_query($connection, $updateUsersSql);
     
         $updateAdressSql= "update adress set user_id='$nationalId', apartment='$apartment', city='$city', country='$country', street='$street' WHERE user_id=$doctortId";
         $adressResult = mysqli_query($connection, $updateAdressSql);
 
-        $updatePatientSql= "update doctor set  user_id='$nationalId',department_id='$department' WHERE user_id=$doctortId";
-        $adressResult = mysqli_query($connection, $updatePatientSql);
+        $updateDoctorSql= "update doctor set  user_id='$nationalId',department_id='$department' WHERE user_id=$doctortId";
+        $doctorResult = mysqli_query($connection, $updateDoctorSql);
         
     }
 }
