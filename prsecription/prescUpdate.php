@@ -27,8 +27,8 @@ function drawPrescriptionLine(){
             // echo "<td><span id='snum'>".$row['id']."</span></td>" ;  
             echo "<td> <input type='text' name='medicineName[]' value='$row[medicine_name]'> </td>";
             echo "<td ><input type='text' name='dosage[]' value=$row[dosage_detail]></td>";
-            echo"<td ><input type='checkbox' name ='allowSubsistuation[]'value='1' ></td>";
             echo"<td><input type='text' name ='comment[]' value=$row[comment]></td>";
+            echo"<td ><input type='checkbox' name ='allowSubsistuation[]'value='1' ></td>";
             echo "<tr>";    
                  }}
 }
