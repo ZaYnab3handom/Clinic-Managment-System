@@ -54,10 +54,15 @@ include("authLog/login.php");
         </div>
     </div>
     <!--Navbar End-->
+    <?php if (isset($_GET['acesserror'])) { ?>
+        <div class="alert alert-danger" role="alert" style="text-align: center;">
+          <?=$_GET['acesserror']?>
+      </div>
+      <?php } ?>
     <div class="container bg-primary my-5 py-5" id="appointment">
         <div class="container py-5">
             <div class="row gx-5 justify-content-center">
-
+                
                 <div class="col-lg-8 ">
                     <div class="bg-white text-center rounded p-5">
                         <h1 class="mb-4">Login</h1>

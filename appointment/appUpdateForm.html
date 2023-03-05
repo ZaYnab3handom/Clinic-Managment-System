@@ -36,7 +36,7 @@
             <a href="../home/index.html" class="nav-item nav-link">Home</a>
             <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>
             <a href="../appointment/appointmentList.html" class="nav-item nav-link active">Appoinment</a>
-            <a href="../prsecription/prescriptionList.html" class="nav-item nav-link ">Presciption</a>
+            <a href="../prsecription/prescriptionList.html" class="nav-item nav-link ">Prescription</a>
             <a href="../Doctor/Doctor.html" class="nav-item nav-link">Doctor</a>
           </div>
         </div>
@@ -48,23 +48,31 @@
   <div class="container mt-5">
     <div class="row form bg-light  rounded p-5">
       <h1 class="mb-4 text-center">Appointment</h1>
-
+    
       <div class="row g-3">
         <form action="" method="post">
+          <div class=" d-flex justify-content-end">
+            <span class="">
+            <input onclick="change()" type="text" value="Confirm" id="myButton1" class="btn" style="color: white; background-color: #42b3e5;"></input>
+            <input type="text" value="Draft" id="status" name="status" class="border-0 bg-light">
+            </span>
+          </div>
+
           <div class="row g-3">
-            
+           
             <div class="col-12 col-sm-6">
               <span class="labelInput"> 
                 <label for="patientname">Patient Name</label>
-                <input type="text" readonly id="patientname" name="patientname" class="form-control bg-light border-0"
+                <input type="text" readonly id="patientname" name="patientname" class="form-control bg-grey border-0"
                   value="<?php echo $data['patienName'] ?>"  style="height:55px;">
               </span>
+              <br>
             </div>
 
             <div class="col-12 col-sm-6">
               <span class="labelInput"> 
                 <label for="patientage">Patient Age</label>
-                <input type="text" id="patientage" name="patientage" class="form-control bg-light border-0"
+                <input type="text" id="patientage" name="patientage" class="form-control bg-grey border-0"
                   value="<?php echo $age ?>"  style="height: 55px;" readonly>
               </span>
             </div>
@@ -72,8 +80,8 @@
             <div class="col-12 col-sm-6">
               <span class="labelInput"> 
               <label for="doctorName">Doctor Name</label>
-                <select name="doctorName" class="form-control bg-light border-0"  style="height: 55px;" placeholder="Doctor"
-                  style="height: 55px;">
+                
+              <select name="doctorName" class="form-control bg- border-0"  style="height: 55px; width:75%; background-color: #e9ecef;" placeholder="Doctor" style="height: 55px;">
                   <option value=<?php echo $data['docId'] ;?>>
                     <?php echo $data["doctorName"]; ?>
                   </option>;
@@ -87,20 +95,21 @@
                 } ?>
                 </select>
               </span>
+              <br>
             </div>
 
 
             <div class="col-12 col-sm-6">
               <span class="labelInput"> 
               <label for="Date">Date & Time</label>
-                <input type="datetime-local" id="Date" name="date" class="form-control bg-white border-0"  style="height: 55px;" value="<?php echo $data['datetime'] ?>">
+                <input type="datetime-local" id="Date" name="date" class="form-control bg- border-0"  style="height: 55px; background-color: #e9ecef;" value="<?php echo $data['datetime'] ?>">
               </span>
               </div>
 
             <div class="col-12 col-sm-6">
               <span class="labelInput"> 
                 <label for="ConsultationT">Consultation Type</label>
-               <select name="consultationt" class="form-select bg-white border-0"  style="height: 55px;" id="ConsultationT">
+               <select name="consultationt" class="form-select border-0"  style="height: 55px; width: 75%; background-color: #e9ecef;" id="ConsultationT">
                 <option value=<?php echo $data['consultation_type'] ;?>>
                   <?php echo $data["consultation_type"]; ?>
                 </option>; 
@@ -108,11 +117,11 @@
                 <option value="re-examination">Re-examination</option>                                               
                </select> 
                </span>
+               <br>
             </div>
 
             <div class="col-12 col-sm-6">
-              <label for="stat">Status</label>
-                <input type="text" id="stat" name="status" class="form-control bg-white border-0" style="height: 55px;" value="<?php echo $data['state'] ?> ">
+              
             </div>
 
             <div class="col-12 col-sm-6">
@@ -151,6 +160,7 @@
   </div>
   </div>
   <script src="../Doctor/bootstrap.bundle.min.js"></script>
+  <script src="../JS.js"></script>
 </body>
 
 </html>

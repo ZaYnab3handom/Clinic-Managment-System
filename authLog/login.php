@@ -23,14 +23,17 @@ if (isset($_POST['national_id']) && isset($_POST['pass'])) {
     $query    = "SELECT * FROM `users` WHERE national_id='$NId'
                  AND password='$pass'";
     $users = mysqli_query($connection, $query) or die(mysql_error());
-    $user = mysqli_num_rows($users);
     
-    if ($user === 1) {
-        $_SESSION['NId'] = $user['nationl_id'];
+    if (mysqli_num_rows($users) === 1) {
+         $user = mysqli_fetch_assoc($users);
+        //  print_r ($user);
+
+        $_SESSION['NId'] = $user['national_id'];
         $_SESSION['userName'] = $user['name'];
         $_SESSION['userType']=$user['type'];
+        // echo  $_SESSION['NId'];
         // Redirect to user dashboard page
-        header("Location: appointment/appointmentList.html");
+        header("Location: dashbord/index.html");
     } else {
         header("Location: login.html?error=Incorrect National Id Or Password");
     }
