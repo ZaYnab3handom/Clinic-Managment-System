@@ -1,3 +1,6 @@
+<?php
+    include("DoctorUpdate.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -63,38 +66,38 @@
                         <div class="row g-3">
                             <div class="col-12 col-sm-6">
                                 
-                                <input type="text" class="form-control bg-light border-0" placeholder="Name" style="height: 55px;" name="patientName">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['name'] ?>" style="height: 55px;" name="patientName">
                             </div>
                             <div class="col-12 col-sm-6">
                                
-                                <input type="number" class="form-control bg-light border-0" placeholder="Phone" style="height: 55px;" name="mobile">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['mobile'] ?>" style="height: 55px;" name="mobile">
                             </div>
                             <div class="col-12 col-sm-6">
                                
-                                <input type="number" class="form-control bg-light border-0" placeholder="Id" style="height: 55px;" name="nationalId">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['national_id'] ?>" style="height: 55px;" name="nationalId">
                             </div>
                             <div class="col-12 col-sm-6">
                                 
                                     <input type="date"
                                         class="form-control bg-light border-0 datetimepicker-input"
-                                        placeholder="Birthdate" data-target="#date" data-toggle="datetimepicker" style="height: 55px;" name="Birthdate">
+                                        placeholder="Birthdate" style="height: 55px;" value="<?php echo $Udata['birthDate']?>" name="BirthDate">
                                 
                             </div>
                            
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Street" style="height: 55px;" name="street">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['street'] ?>" style="height: 55px;" name="street">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="number" class="form-control bg-light border-0" placeholder="Apartment" style="height: 55px;"  name="apartment">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['apartment'] ?>" style="height: 55px;"  name="apartment">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="City" style="height: 55px;"  name="city">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['city'] ?>" style="height: 55px;"  name="city">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="Country" style="height: 55px;"  name="country">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['country'] ?>" style="height: 55px;"  name="country">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="email" class="form-control bg-light border-0" placeholder="Email" style="height: 55px;"  name="Email">
+                                <input type="email" class="form-control bg-light border-0" value="<?php echo $Udata['email'] ?>" style="height: 55px;"  name="Email">
                             </div>
                             <div class="col-12 col-sm-6">
                                 <input type="password" class="form-control bg-light border-0" placeholder="password" style="height: 55px;" name="Password">
@@ -103,7 +106,7 @@
                                 <input type="password" class="form-control bg-light border-0" placeholder="confirm password" style="height: 55px;" name="RepeatPassword">
                             </div>
                             <div class="col-12 col-sm-6">
-                                <input type="text" class="form-control bg-light border-0" placeholder="type" style="height: 55px;" name="patient">
+                                <input type="text" class="form-control bg-light border-0" value="<?php echo $Udata['type'] ?>" style="height: 55px;" name="type">
                             </div>
                             <div class="col-12 col-sm-6" id="gender">
                                 <label class="form-control bg-light border-0 col-6" id="gender2">
@@ -113,10 +116,13 @@
                             </div>
                             <div class="col-12 col-sm-6">
                                 <select class="form-select bg-light border-0" style="height: 55px;" name="department">
-                                    <option selected>Choose Department</option>
-                                    <option value="1">Department 1</option>
-                                    <option value="2">Department 2</option>
-                                    <option value="3">Department 3</option>
+                                    <option selected><?php  echo $Ddata['name'] ?></option>
+                                    <?php include_once("../dbConnection.php");
+                  $readSql = "SELECT * FROM department"; 
+                  $readResult1 = mysqli_query($connection, $readSql);
+                  while($data = mysqli_fetch_array($readResult1)) {
+                      echo "<option value='$data[id]'>".$data["name"]."</option>";}
+                    ?>
                                 </select>
                             </div>
                            
