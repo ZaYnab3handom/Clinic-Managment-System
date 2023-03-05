@@ -33,7 +33,7 @@
    $docresult=mysqli_query($connection, $doctorData);
    $depData="select * from department ";
    $depresult=mysqli_query($connection, $depData);
-
+   
 //    $docdata = mysqli_fetch_array($docresult);
    
 //     if (mysqli_num_rows($docresult) > 0) {
