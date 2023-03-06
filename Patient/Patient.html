@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +52,8 @@
             <a href="../prsecription/prescriptionList.html" class="nav-item nav-link">Prescription</a>
             <a href="../Doctor/Doctor.html" class="nav-item nav-link ">Doctor</a>
             <div>
-              <label for="user" class="nav-item nav-link" style="color:#6c757d">username</label>
+              <!-- <label for="user" class="nav-item nav-link" style="color:#6c757d">username</label> -->
+              <div  class="nav-link" style="font-size: 15px;width: fit-content;font-weight: 500; color:#6c757d"><?php echo $_SESSION['userName'].' '.'('.$_SESSION['userType'].')'; ?></div>
             </div>
             <a href="../authLog/logout.php" class="nav-item nav-link"><i class="bi bi-box-arrow-right"></i></a>
           </div>
@@ -59,7 +64,7 @@
 
   <!-- search input -->
   <div class="container">
-    <div class="row form bg-light  rounded" style="width: 134%;margin-left: -17%;">
+    <div class="row form bg-light  rounded" style="width: 123.5%;margin-left: -12.5%;">
       <div class="row bg-light" style="position: fixed; width:97.5% ; left: 2%;">
 
         <h1 class="mb-4 text-center"><br>Patient List</h1>
@@ -100,7 +105,7 @@
         <br><br>
         <div class="table-responsive d-flex justify-content-center">
           <br>
-          <table class="table table-bordered " style="width: 93%;">
+          <table class="table table-bordered " style="width: 100%;">
             <tr style="background-color: #42b3e5;">
               <th>National ID</th>
               <th>Name</th>
