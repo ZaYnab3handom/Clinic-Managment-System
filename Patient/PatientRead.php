@@ -1,4 +1,5 @@
-<?php 
+<?php  
+if(isset( $_SESSION['NId'])  ){   
   
        include_once("../dbConnection.php");
         //Read From Patient
@@ -21,5 +22,8 @@
             echo "</tr>";
         
         }
-
+    }
+    else{
+        header("Location: ../login.html?acesserror=Access Denied Please Log In");
+      }
 ?>

@@ -34,7 +34,8 @@ if (isset($_POST['national_id']) && isset($_POST['pass'])) {
         // echo  $_SESSION['NId'];
         // Redirect to user dashboard page
         if ($user['type']=='admin'){header("Location: dashbord/index.html");}
-        else{header("Location: Patient/Patient.html");}
+        else if($user['type']=='doctor') {header("Location: dashbord/docDashbord.html");}
+        else{header("Location: dashbord/recepDashbord.html");}
         
     } else {
         header("Location: login.html?error=Incorrect National Id Or Password");

@@ -1,4 +1,5 @@
 <?php
+if(isset( $_SESSION['NId'])   ){  
 include("../dbConnection.php");
 //read patient data
 $patientId = $_GET["national_id"];
@@ -81,5 +82,9 @@ if(isset($_POST["savebtn"])){
         
     }
 }
+}
+else{
+    header("Location: ../login.html?acesserror=Access Denied Please Log In");
+  }
 ?>
 

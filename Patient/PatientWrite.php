@@ -1,4 +1,5 @@
 <?php 
+if(isset( $_SESSION['NId'])  ){
     if(isset($_POST["savebtn"])){
         //check if the patient is male or female
         if ( isset($_POST['gender']) ){
@@ -66,4 +67,8 @@
             $result = mysqli_query($connection, $sql2);
     } 
     }
+}
+else{
+    header("Location: ../login.html?acesserror=Access Denied Please Log In");
+  }
 ?>
