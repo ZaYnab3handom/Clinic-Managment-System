@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+       <!-- Favicon -->
+       <link href="img/favicon.ico" rel="icon">
+
+       <!-- Google Web Fonts -->
+       <link rel="preconnect" href="https://fonts.gstatic.com">
+       <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">  
+   
+       <!-- Icon Font Stylesheet -->
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+       <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+       <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" />
+
+       <!-- Libraries Stylesheet -->
+       <link rel="stylesheet" href="../css/bootstrap.min.css">
+       <link rel="stylesheet" href="../css/style.css">
+    <title>Schedule</title>
+</head>
+<body>
+    <!--Navbar start-->
+    <div class="container-fluid sticky-top bg-white shadow-sm">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
+              <a href="schdule.html" class="navbar-brand">
+                <img src="../Doctor/logo.png" alt=""> </a>
+            </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="../dashbord/index.html" class="nav-item nav-link ">Home</a>
+                        <a href="../Doctor/Doctor.html" class="nav-item nav-link">Doctor</a>                        
+                        <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>
+                        <a href="../prsecription/prescriptionList.html" class="nav-item nav-link">Presciption</a>
+                        <a href="../appointment/appointmentList.html" class="nav-item nav-link">Appoinment</a>
+                        <a href="../schdule/schdule.html" class="nav-item nav-link active">Schedule</a>    
+                       
+                    </div>
+                </div>
+            </nav>
+            
+        </div>
+    </div>
+<!--Navbar End-->
+
+
+<div class="container bg-primary my-5 py-5" id="appointment">
+    <div class="container py-5">
+        <div class="row gx-5 justify-content-center">
+           
+            <div class="col-lg-8 ">
+              
+                <div class="bg-white text-center rounded p-5">
+                    
+                    <h1 class="mb-4">Scheduling appointments</h1>
+                    <form method="">
+                        <div class="row g-3"   style="justify-content: center;">
+                            <div class="mb-3 row" id="row">
+                                <div class="col-12 col-sm-2" style="text-align: left; width: auto;" >
+                                    <label  id="day" class="col-sm-6 col-form-label" for="patientname" style="text-align: left;"  >DocName. </label>
+                                </div>
+                                <div class="col-12 col-sm-10"style="width: 73%;">
+                                    <select name="doctorName" class="form-select bg-light border-0" style="height: 55px;" placeholder="Doctor">
+                                    <option>Select Doctor</option>
+                                    <option>Select Doctor</option>
+                                    <option>Select Doctor</option>
+                                    </select>
+                                </div>
+                         </div>
+      
+                              <div class="mb-3 row" id="row">
+                                <label  id="day" class="col-sm-3 col-form-label" >Sat.</label>
+                                <div class="col-sm-3 schdule">
+                                    <label for="">Date</label>
+                                  <input type="date" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                </div>
+                                <div class="col-sm-4 schdule">
+                                    <label for="">Start Time</label>
+                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  </div>
+                                  <div class="col-sm-4 schdule">
+                                    <label for="date">End Time</label>
+                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  </div>
+                              </div>
+                              <div class="mb-3 row" id="row">
+                                <label id="day" class="col-sm-3 col-form-label" >Sun.</label>
+                                <div class="col-sm-3 schdule">
+                                    <label for="">Date</label>
+                                  <input type="date" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                </div>
+                                <div class="col-sm-4 schdule">
+                                    <label for="">Start Time</label>
+                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  </div>
+                                  <div class="col-sm-4 schdule">
+                                    <label for="date">End Time</label>
+                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  </div>
+                              </div>
+                       
+                              <div class="mb-3 row" id="row"id="row">
+                                <label id="day" class="col-sm-3 col-form-label" >Mon.</label>
+                                <div class="col-sm-3 schdule">
+                                    <label for="">Date</label>
+                                  <input type="date" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                </div>
+                                <div class="col-sm-4 schdule">
+                                    <label for="">Start Time</label>
+                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  </div>
+                                  <div class="col-sm-4 schdule">
+                                    <label for="date">End Time</label>
+                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  </div>
+                              </div>
+
+                              <div class="mb-3 row"id="row">
+                                <label id="day" class="col-sm-3 col-form-label" >Tues.</label>
+                                <div class="col-sm-3 schdule">
+                                    <label for="">Date</label>
+                                  <input type="date" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                </div>
+                                <div class="col-sm-4 schdule">
+                                    <label for="">Start Time</label>
+                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  </div>
+                                  <div class="col-sm-4 schdule">
+                                    <label for="date">End Time</label>
+                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  </div>
+                              </div>
+
+                              <div class="mb-3 row" id="row">
+                                <label id="day" class="col-sm-3 col-form-label" >Wed.</label>
+                                <div class="col-sm-3 schdule">
+                                    <label for="">Date</label>
+                                  <input type="date" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                </div>
+                                <div class="col-sm-4 schdule">
+                                    <label for="">Start Time</label>
+                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  </div>
+                                  <div class="col-sm-4 schdule">
+                                    <label for="date">End Time</label>
+                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  </div>
+                              </div>
+                           
+                              <div class="mb-3 row" id="row">
+                                <label id="day" class="col-sm-3 col-form-label" >Thurs.</label>
+                                <div class="col-sm-3 schdule">
+                                    <label for="">Date</label>
+                                  <input type="date" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                </div>
+                                <div class="col-sm-4 schdule">
+                                    <label for="">Start Time</label>
+                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  </div>
+                                  <div class="col-sm-4 schdule">
+                                    <label for="date">End Time</label>
+                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  </div>
+                              </div>
+                             
+                              <div class="mb-3 row" id="row">
+                                <label id="day"class="col-sm-3 col-form-label" >Fri.</label>
+                                 <div class="col-sm-3 schdule">
+                                    <label for="">Date</label>
+                                  <input type="date" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                </div>
+                                <div class="col-sm-4 schdule">
+                                    <label for="">Start Time</label>
+                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  </div>
+                                  <div class="col-sm-4 schdule">
+                                    <label for="date">End Time</label>
+                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  </div>
+                              </div>
+                              
+                                <div class="col-12 col-sm-5" style="margin-left: 4rem;" >
+                                     <input class="btn btn-primary w-100 py-3" type="submit" name="savebtn" id="savebtn" value="Save">
+                                </div>
+                                
+                                <div class="col-12 col-sm-4" >
+                                     <a class="btn btn-primary w-100 py-3" href="#" style="color: black; background-color: white;  border-color: #c8cdd2;">Discard</a>
+                                </div>
+                             
+                         </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<!--JavaScript-->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
