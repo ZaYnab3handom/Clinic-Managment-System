@@ -26,7 +26,7 @@
     <div class="container-fluid sticky-top bg-white shadow-sm">
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
-                <a href="index.html" class="navbar-brand">
+                <a href="patient_form.html" class="navbar-brand">
                   <img src="logo.png" alt="">
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -34,11 +34,15 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="../home/index.html" class="nav-item nav-link">Home</a>
+                        <a href="../dashbord/index.html" class="nav-item nav-link">Home</a>
                         <a href="../Patient/Patient.html" class="nav-item nav-link active">Patient</a>
                         <a href="../appointment/appointmentList.html" class="nav-item nav-link">Appoinment</a>
                         <a href="../prsecription/prescriptionList.html" class="nav-item nav-link">Presciption</a>
                         <a href="../Doctor/Doctor.html" class="nav-item nav-link ">Doctor</a>
+                        <div>
+                          <label for="user" class="nav-item nav-link" style="color:#6c757d">username</label>
+                        </div>
+                        <a href="../authLog/logout.php" class="nav-item nav-link"><i class="bi bi-box-arrow-right"></i></a>
                     </div>
                 </div>
             </nav>
@@ -52,76 +56,98 @@
           <form action="" method="post">
             <div class="row g-3">
               <div class="col-12 col-sm-6">
-                <label for="patientname">Patient Name:</label>
-                <input type="text" id="patientname" name="patientname" class="form-control bg-white border-0" placeholder="First Last" style="height: 55px;">
+                <span class="labelInput">
+                <label for="patientname">Patient Name</label>
+                <input type="text" id="patientname" name="patientname" class="form-control bg-white border-0" placeholder="First & Last" style="height: 55px;">
+              </span>
+              <br>
               </div>
               <div class="col-12 col-sm-6">
-                <label for="nationalId">National Id:</label>
+                <span class="labelInput">
+                <label for="nationalId">National Id</label>
                  <input type="text" id="nationalId" name="nationalId" class="form-control bg-white border-0"
-                  placeholder="1234..." style="height: 55px;"> 
+                  placeholder="1234..." style="height: 55px;">
+                </span> 
               </div>
               <div class="col-12 col-sm-6">
-                <label for="birthDate">BirthDate:</label>
+                <span class="labelInput">
+                <label for="birthDate">BirthDate</label>
                 <input type="date" id="birthDate" name="birthDate" class="form-control bg-white border-0" placeholder="Birthdate"
                   style="height: 55px;">
+                </span>
+<br>
               </div>
               
               <div class="col-12 col-sm-6">
-                <label for="Blood">Blood Type:</label>
-              <select name="Blood" class="form-control bg-white border-0" style="height: 55px;">                
+                <span class="labelInput">
+                <label for="Blood">Blood Type</label>
+              <select name="Blood" class="form-control bg-white border-0" style="height: 55px; width: 75%;">                
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="AB">AB</option>
                 <option value="O">O</option>
             </select>
+                </span>
+                <br>
           </div>
 
               <div class="col-12 col-sm-6">
-                <label for="mobile">Phone Number:</label>
+                <span class="labelInput">
+                <label for="mobile">Phone Number</label>
                 <input type="text" id="mobile" name="mobile" class="form-control bg-white border-0"
-                  placeholder="012/015/010/011" style="height: 55px;">
+                  placeholder="01xxx" style="height: 55px;">
+                </span>
               </div>
               <div class="col-12 col-sm-6">
-                <label for="company">Company:</label>
-                <select name="company" class="form-control bg-white border-0" style="height: 55px;">                
+                <span class="labelInput">
+                <label for="company">Company</label>
+                <select name="company" class="form-control bg-white border-0" style="height: 55px; width: 75%;">                
                   <option value="a">Sugar Canel</option>
                 <option value="b">Department2</option>
                 <option value="c">Department3</option>
               </select>
+                </span>
+                <br>
             </div>
-              <div class="form-check col-12 col-sm-6 d-flex justify-content-center">
-                <input class="form-check-input" type="radio" value="F" name="gender" id="flexRadioDefault1">
-                <label class="form-check-label" for="flexRadioDefault1">
-                  &nbsp;&nbsp;&nbsp;Female
-                </label>
-                </div>
-              
-                <div class="form-check col-12 col-sm-6 d-flex justify-content-center ">
-                  <input class="form-check-input" type="radio" value="M" name="gender" id="flexRadioDefault2" checked>
-                  <label class="form-check-label" for="flexRadioDefault2">
-                    &nbsp;&nbsp;&nbsp;Male
-                  </label>
+            <div class="col-12 col-sm- d-flex justify-content-center">
+              <span>
+            <input class="form-check-input"type="radio" name="gender" id="flexRadioDefault2" value="M"> <label for="male" id="male">&nbsp;Male</label> 
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" value="F"><label for="female">&nbsp;&nbsp;Female </label>
+
+          </span>
+          <br>
+          </div>
+              <div class="col-12 col-sm-6">
+                <span class="labelInput">
+                <label for="employeeId">Employee Id</label>
+                <input type="text" id="employeeId" name="employeeId" class="form-control bg-white border-0"
+                  placeholder="eg.A1" style="height: 55px;">
+                </span>
+                <br>
               </div>
               <div class="col-12 col-sm-6">
-                <label for="employeeId">Employee Id:</label>
-                <input type="text" id="employeeId" name="employeeId" class="form-control bg-white border-0"
-                  placeholder="A123" style="height: 55px;">
+                
               </div>
-              
             
             <div class="col-12 col-sm-6">
-              <label for="ChronicDisease">Chronic Disease:</label>
+              <span class="labelInput">
+              <label for="ChronicDisease">Chronic Disease</label>
                 <input type="text" id="ChronicDisease" name="ChronicDisease" class="form-control bg-white border-0"
                   placeholder="Diabetes" style="height: 55px;">
+              </span>
               </div>
 
               <div class="col-12 col-sm-6">
-                <label for="PastSurger">Past Surger:</label>
+                <span class="labelInput">
+                <label for="PastSurger">Past Surger</label>
                 <input type="text" id="PastSurger" name="PastSurger" class="form-control bg-white border-0"
                   placeholder="Appendix surgery" style="height: 55px;"><br>
+                </span>
+                <br>
               </div>
               <hr>
-              <label for="PastSurger" class="text-center">Address:</label>
+              <label for="PastSurger" class="text-center">Address</label>
               <div class="col-12 col-sm-6">
                 <input type="text" id="Address" name="apartment" class="form-control bg-white border-0"
                   placeholder="Apartment" style="height: 55px;">
@@ -140,22 +166,30 @@
               </div>
               <hr>
               <div class="col-12 col-sm-6">
-              <label for="Email" class="text-center">Email:</label>
+                <span class="labelInput">
+              <label for="Email" class="text-center">Email</label>
                 <input type="Email" id="Email" name="Email" class="form-control bg-white border-0 d-flex justify-content-end"
                   placeholder="name@gmail.com" style="height: 55px;">
+                </span>
               </div>
               <div class="col-12 col-sm-6">
-              <label for="Password" class="text-center">Password:</label>
+                <span class="labelInput">
+              <label for="Password" class="text-center">Password</label>
                 <input type="Password" id="Password" name="Password" class="form-control bg-white border-0"
                   placeholder="Ab123@/*" style="height: 55px;">
+                </span>
+                <br>
               </div>
               <div class="col-12 col-sm-6">
                 
               </div>
               <div class="col-12 col-sm-6">
-              <label for="RepeatPassword" class="text-center">Repeat Password:</label>
+                <span class="labelInput">
+              <label for="RepeatPassword" class="text-center">Repeat Password</label>
                 <input type="Password" id="RepeatPassword" name="RepeatPassword" class="form-control bg-white border-0"
                   placeholder="Enter the same password" style="height: 55px;">
+                </span>
+                <br>
               </div>
               
               <div class="col-12 col-sm-6 text-center">
