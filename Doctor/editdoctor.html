@@ -67,7 +67,7 @@ session_start();
                         <div class="col-12 col-sm-6">
                             <span class="labelInput">
                                 <label for="doctorname">Doctor Name</label>
-                                <input type="text" id="doctorname" name="doctorName"
+                                <input type="text" id="doctorname" name="DoctorName"
                                     value="<?php echo $Udata['name'] ?>" class="form-control border-0"
                                     placeholder="eg.Ahmed" style="height: 55px; background-color: #e9ecef;">
                             </span>
@@ -114,7 +114,7 @@ session_start();
                             <span>
                                 <label for="Department">Department</label>
                                 <select class="form-control  border-0" name="department" style="height: 55px;background-color: #e9ecef;">
-                                    <option selected>
+                                    <option value=<?php echo $Ddata['id'];?> selected>
                                         <?php  echo $Ddata['name'] ?>
                                     </option>
                                     <?php include_once("../dbConnection.php");
@@ -138,15 +138,12 @@ session_start();
 
                         </div>
                         <div class="col-12 col-sm-" id="label">
-                            <label class="col-sm-6 col-form-label" for="patientname"
-                                style="text-align: left; height: 55px; padding-top: 14px;"> Type: </label>
-                            <input type="text" class="form-control  border-0"
-                                value="<?php echo $Udata['type'] ?>" style="height: 55px;background-color: #e9ecef;" name="type">
+
                         </div>
 
                         <div class="col-12 col-sm-6 ">
                             <label for="Email">Email:</label>
-                            <input type="email" id="Email" name="email" value="<?php echo $Udata['email'] ?>" class="form-control  border-0"
+                            <input type="email" id="Email" name="Email" value="<?php echo $Udata['email'] ?>" class="form-control  border-0"
                                 placeholder="name@examble.com" style="height: 55px;background-color: #e9ecef;">
                             </span>
                         </div>
@@ -163,13 +160,13 @@ session_start();
 
                         <div class="col-12 col-sm-6">
                             <label for="Password">Password</label>
-                            <input type="password" id="Password" name="password" class="form-control bg-white border-0"
+                            <input type="password" id="Password" name="Password" class="form-control bg-white border-0"
                                 placeholder="Ab123@/*" style="height: 55px;background-color: #e9ecef;">
                         </div>
 
                         <div class="col-12 col-sm-6">
                             <label for="RepeatPassword">Repeat Password</label>
-                            <input type="password" id="RepeatPassword" name="repeatpassword"
+                            <input type="password" id="RepeatPassword" name="RepeatPassword"
                                 class="form-control bg-white border-0" placeholder="Enter the same password"
                                 style="height: 55px;background-color: #e9ecef;">
                         </div>
