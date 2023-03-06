@@ -1,6 +1,10 @@
 <?php 
    include("appWrite.php");
 ?>
+<?php 
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,18 +29,25 @@
   <div class="container-fluid sticky-top bg-white shadow-sm">
     <div class="container">
       <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
-        <a href="index.html" class="navbar-brand">
+        <a href="appointmentForm.html" class="navbar-brand">
           <img src="logo.png" alt=""> </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav ms-auto py-0">
-            <a href="../home/index.html" class="nav-item nav-link">Home</a>
+            <a href="../dashbord/index.html" class="nav-item nav-link">Home</a>
             <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>
             <a href="../appointment/appointmentList.html" class="nav-item nav-link active">Appoinment</a>
             <a href="../prsecription/prescriptionList.html" class="nav-item nav-link ">Prescription</a>
             <a href="../Doctor/Doctor.html" class="nav-item nav-link">Doctor</a>
+            <div>
+              <!-- <label for="user" class="nav-item nav-link" style="color:#6c757d">username</label> -->
+              <div  class="nav-link" style="font-size: 15px;width: fit-content;font-weight: 500; color:#6c757d"><?php echo $_SESSION['userName'].' '.'('.$_SESSION['userType'].')'; ?></div>
+
+            </div>
+            <a href="../authLog/logout.php" class="nav-item nav-link"><i class="bi bi-box-arrow-right"></i></a>
+
           </div>
         </div>
       </nav>
@@ -47,25 +58,28 @@
     <div class="row form bg-light  rounded p-5">
       <h1 class="mb-4 text-center">Appointment</h1>
 
-      
+
       <div class="row g-3">
         <form action="" method="post">
-          
-      <div class=" d-flex justify-content-end">
-        <span class="">
-        <input onclick="change()" type="text" value="Confirm" id="myButton1" class="btn" style="color: white; background-color: #42b3e5;"></input>
-        <input type="text" value="Draft" id="status" name="status" class="border-0 bg-light">
-        </span>
-      </div>
+
+          <div class=" d-flex justify-content-end">
+            <span class="">
+              <input onclick="change()" type="text" value="Confirm" id="myButton1" class="btn"
+                style="color: white; background-color: #42b3e5;"></input>
+              <input type="text" value="Draft" id="status" name="status" class="border-0 bg-light">
+            </span>
+
+          </div>
           <div class="row g-3">
             <div class="col-12 col-sm-6">
+
               <span class="labelInput">
                 <label for="patientName">Patient Name</label>
                 <?php getPatientName(); ?>
                 <!-- <input type="text" id="patientname" name="patientname" class="form-control bg-white border-0" placeholder="Patient's Name" style="height: 55px;"> -->
               </span>
               <br>
-              </div>
+            </div>
 
             <div class="col-12 col-sm-6">
               <span class="labelInput">
@@ -78,7 +92,7 @@
 
             <div class="col-12 col-sm-6">
               <span class="labelInput">
-              <label for="doctorName">Doctor Name</label>
+                <label for="doctorName">Doctor Name</label>
                 <select name="doctorName" class="form-control bg-white border-0" placeholder="Doctor"
                   style="height: 55px; width: 75%;">
                   <option>Select Doctor</option>
@@ -97,13 +111,13 @@
 
             <div class="col-12 col-sm-6">
               <span class="labelInput">
-              <label for="datetime">Date & Time</label>
+                <label for="datetime">Date & Time</label>
                 <input type="datetime-local" id="Date" name="datetime" value="<?php
                 date_default_timezone_set('Africa/Cairo');
-                echo date('Y-m-d h:i:s', time()); ?>"
-                  class="form-control bg-white border-0" placeholder="Date & Time" style="height: 55px;">
-                </span>
-                </div>
+                echo date('Y-m-d h:i:s', time()); ?>" class="form-control bg-white border-0" placeholder="Date & Time"
+                  style="height: 55px;">
+              </span>
+            </div>
 
             <!-- <div class="col-12 col-sm-6">
               <span class="labelInput"> 
@@ -113,35 +127,34 @@
                   </span>
             </div> -->
             <div class="col-12 col-sm-6">
-              <span class="labelInput"> 
-               <label for="ConsultationT">Consultation Type</label>
-               
-              <select name="consultationt" class="form-select bg-white border-0"  style="height: 55px; width: 75%;" id="ConsultationT">
-               <option value="examination">Examination</option>
-               <option value="re-examination">Re-examination</option>                                               
-              </select> 
+              <span class="labelInput">
+                <label for="ConsultationT">Consultation Type</label>
+
+                <select name="consultationt" class="form-select bg-white border-0" style="height: 55px; width: 75%;"
+                  id="ConsultationT">
+                  <option value="examination">Examination</option>
+                  <option value="re-examination">Re-examination</option>
+                </select>
               </span>
-       </div>
+            </div>
             <div class="col-12 col-sm-6">
-              
+
             </div>
 
             <div class="col-12 col-sm-6">
               <br>
-              <input class="form-check-input" type="checkbox" id="BookedOnline" name="BookedOnline"
-              value="1">
+              <input class="form-check-input" type="checkbox" id="BookedOnline" name="BookedOnline" value="1">
               <label for="flexCheckDefault" class="form-check-label">
                 Booked Online
               </label>
             </div>
             <div class="col-12 col-sm-6">
-                
+
             </div>
 
             <div class="col-12 col-sm-6 text-center">
               <button class="discard btn-light border-1 border border-secondary btn w-50 py-3">
-                <a href="appointmentList.html" class="text-decoration-none"
-                  style="color: #6c757d;">Discard</a>
+                <a href="appointmentList.html" class="text-decoration-none" style="color: #6c757d;">Discard</a>
               </button>
             </div>
 

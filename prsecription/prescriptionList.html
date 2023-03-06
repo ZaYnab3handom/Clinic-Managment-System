@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,11 +45,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav ms-auto py-0">
-            <a href="../home/index.html" class="nav-item nav-link">Home</a>
+            <a href="../dashbord/index.html" class="nav-item nav-link">Home</a>
             <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>
             <a href="../appointment/appointmentList.html" class="nav-item nav-link">Appoinment</a>
             <a href="../prsecription/prescriptionList.html" class="nav-item nav-link active">Prescription</a>
             <a href="../Doctor/Doctor.html" class="nav-item nav-link ">Doctor</a>
+            <div>
+              <!-- <label for="user" class="nav-item nav-link" style="color:#6c757d">username</label> -->
+              <div  class="nav-link" style="font-size: 15px;width: fit-content;font-weight: 500; color:#6c757d"><?php echo $_SESSION['userName'].' '.'('.$_SESSION['userType'].')'; ?></div>
+            </div>
+            <a href="../authLog/logout.php" class="nav-item nav-link"><i class="bi bi-box-arrow-right"></i></a>
           </div>
         </div>
       </nav>

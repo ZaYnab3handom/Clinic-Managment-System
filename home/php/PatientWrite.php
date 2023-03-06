@@ -64,6 +64,9 @@
             $sql2 ="insert into adress (user_id, apartment, street, city, country)
             values('$nationalId', '$apartment' ,'$street', '$city', '$country')";
             $result = mysqli_query($connection, $sql2);
+            header("Location: appointment_form.html?user=$nationalId");
+
+            // href="login.html" 
     } 
     }
 ?>

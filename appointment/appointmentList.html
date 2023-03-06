@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -29,18 +33,24 @@
   <div class="container-fluid sticky-top bg-white shadow-sm">
     <div class="container">
       <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
-        <a href="index.html" class="navbar-brand">
+        <a href="appointmentList.html" class="navbar-brand">
           <img src="logo.png" alt=""> </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav ms-auto py-0">
-            <a href="../home/index.html" class="nav-item nav-link">Home</a>
+            <a href="../dashbord/index.html" class="nav-item nav-link">Home</a>
             <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>
             <a href="../appointment/appointmentList.html" class="nav-item nav-link active">Appoinment</a>
             <a href="../prsecription/prescriptionList.html" class="nav-item nav-link ">Prescription</a>
             <a href="../Doctor/Doctor.html" class="nav-item nav-link">Doctor</a>
+            <div>
+              <!-- <label for="user" class="nav-item nav-link" style="color:#6c757d">username</label> -->
+              <div  class="nav-link" style="font-size: 15px;width: fit-content;font-weight: 500; color:#6c757d"><?php echo $_SESSION['userName'].' '.'('.$_SESSION['userType'].')'; ?></div>
+
+            </div>
+            <a href="../authLog/logout.php" class="nav-item nav-link"><i class="bi bi-box-arrow-right"></i></a>
           </div>
         </div>
       </nav>
@@ -50,7 +60,7 @@
   <!-- Appointment List -->
   <div class="container">
     <div class="row form bg-light  rounded" style="width: 120%;margin-left: -10%;">
-      <div class="row bg-light" style="position: fixed; width:87.5% ; left: 7%;">
+      <div class="row bg-light" style="position: fixed; width:97.5% ; left: 2%;">
 
         <h1 class="mb-4 text-center"><br>Appointment List</h1>
         <br>
@@ -107,6 +117,7 @@
               <th> View</th>
 
             </tr>
+            
           </thead>
           <?php 
         include("appRead.php");
