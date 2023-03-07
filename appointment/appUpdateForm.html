@@ -56,6 +56,11 @@ session_start();
 
   <div class="container mt-5">
     <div class="row form bg-light  rounded p-5">
+      <?php if (isset($_GET['done'])) { ?>
+        <span class="alert alert-success" role="alert" style="text-align: center;display:inline" >
+          <?=$_GET['done']?>
+        </span>
+      <?php } ?>
       <h1 class="mb-4 text-center">Appointment</h1>
     
       <div class="row g-3">
@@ -134,7 +139,7 @@ session_start();
             </div>
 
             <div class="col-12 col-sm-6">
-              <input type="checkbox" id="BookedOnline" name="BookedOnline" class="form-check-input"  value="1">
+              <input type="checkbox" id="BookedOnline" name="BookedOnline" class="form-check-input"  value='1' <?php if($data['booked_online']==1){ ?>  checked="checked" <?php }?>  >
               <label for="BookedOnline" class="form-check-label">
                 Booked Online
               </label>
@@ -145,7 +150,7 @@ session_start();
 
             <div class="col-12 col-sm-6 text-center">
               <button class="discard btn-light border-1 border border-secondary btn w-50 py-3">
-                <a href="../prsecription/prescriptionList.html" class="text-decoration-none"
+                <a href="appointmentList.html" class="text-decoration-none"
                   style="color: #6c757d;">Discard</a>
               </button>
             </div>
@@ -158,7 +163,7 @@ session_start();
 
             <div class="d-flex justify-content-end">
               <p class="p-create mb-0">
-                <a class="coloredbtncreate p-create" href="../prsecription/prescriptionForm.html">Create
+                <a class="coloredbtncreate p-create" href="../prsecription/prescriptionForm.html?appId=<?php echo $data['id'] ; ?>">Create
                   Prescription</a>
               </p>
             </div>

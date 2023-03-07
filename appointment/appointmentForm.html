@@ -75,7 +75,21 @@ session_start();
 
               <span class="labelInput">
                 <label for="patientName">Patient Name</label>
-                <?php getPatientName(); ?>
+                <?php if(isset($_GET["user"])){ getPatientName();}else{ ?>
+                  <select name="patientId" class="form-control bg-white border-0"
+                  style="height: 55px; width: 75%;">
+                  <!-- <option>Select Doctor</option> -->
+                  <?php  if (mysqli_num_rows($patientresult) > 0) {
+                    // output data of each row
+                    while($row = mysqli_fetch_assoc($patientresult)) {?>
+                  <option value=<?php echo $row['national_id'] ;?>>
+                    <?php echo $row["name"] ;?>
+                  </option>;
+                  <?php }
+                  } ?>
+                  <?php } ?>
+                </select>
+
                 <!-- <input type="text" id="patientname" name="patientname" class="form-control bg-white border-0" placeholder="Patient's Name" style="height: 55px;"> -->
               </span>
               <br>
@@ -84,7 +98,8 @@ session_start();
             <div class="col-12 col-sm-6">
               <span class="labelInput">
                 <label for="patientAge">Patient Age</label>
-                <?php getPatientAge(); ?>
+                <?php if(isset($_GET["user"])){ getPatientAge();} ?>
+               
                 <!-- <input type="text" id="patientage" name="patientage" class="form-control bg-white border-0"
                 placeholder="Patient's Age" style="height: 55px;"> -->
               </span>
@@ -95,7 +110,7 @@ session_start();
                 <label for="doctorName">Doctor Name</label>
                 <select name="doctorName" class="form-control bg-white border-0" placeholder="Doctor"
                   style="height: 55px; width: 75%;">
-                  <option>Select Doctor</option>
+                  <!-- <option>Select Doctor</option> -->
                   <?php  if (mysqli_num_rows($docresult) > 0) {
                     // output data of each row
                     while($row = mysqli_fetch_assoc($docresult)) {?>
@@ -105,10 +120,16 @@ session_start();
                   <?php }
                   } ?>
                 </select>
+                <?php if (isset($_GET['docerror'])) { ?>
+                  <span class=""  style="color: red;">
+                    <?=$_GET['docerror']?>
+                  </span>
+                <?php } ?>
+  
               </span>
               <br>
             </div>
-
+              
             <div class="col-12 col-sm-6">
               <span class="labelInput">
                 <label for="datetime">Date & Time</label>
@@ -117,6 +138,7 @@ session_start();
                 echo date('Y-m-d h:i:s', time()); ?>" class="form-control bg-white border-0" placeholder="Date & Time"
                   style="height: 55px;">
               </span>
+           
             </div>
 
             <!-- <div class="col-12 col-sm-6">
@@ -164,12 +186,12 @@ session_start();
 
             </div>
 
-            <div class="d-flex justify-content-end">
+            <!-- <div class="d-flex justify-content-end">
               <p class="p-create mb-0">
                 <a class="coloredbtncreate p-create" href="../prsecription/prescriptionForm.html">Create
                   Prescription</a>
               </p>
-            </div>
+            </div> -->
           </div>
         </form>
       </div>

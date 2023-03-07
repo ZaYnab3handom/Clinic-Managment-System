@@ -61,6 +61,11 @@ session_start();
   <div class="container">
     <div class="row form bg-light  rounded" style="width: 120%;margin-left: -10%;">
       <div class="row bg-light" style="position: fixed; width:97.5% ; left: 2%;">
+        <?php if (isset($_GET['done'])) { ?>
+          <span class="alert alert-success" role="alert" style="text-align: center;display:inline" >
+            <?=$_GET['done']?>
+          </span>
+        <?php } ?>
 
         <h1 class="mb-4 text-center"><br>Appointment List</h1>
         <br>
@@ -95,9 +100,9 @@ session_start();
         </div>
       </div>
       <div>
-        <br><br><br><br><br>
+        <br><br><br><br>
       <br><br><br><br>
-      <br><br>
+      <br><br><br><br><br>
       <div class="table-responsive d-flex justify-content-center">
         <br>
         <table class="table table-bordered " style="width: 100%;">

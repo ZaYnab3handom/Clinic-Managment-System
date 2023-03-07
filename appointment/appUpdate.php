@@ -22,6 +22,7 @@ function btnVal(){
     else{echo "Done";}
 
 }
+
 if(isset($_POST["savebtn"])){
     //get appFormData
     $doctorId = $_POST["doctorName"];
