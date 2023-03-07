@@ -66,6 +66,17 @@ session_start();
     <div class="row form bg-light fixed rounded" style="width: 120%;margin-left: -10%;">
       
       <div class="row bg-light" style="position: fixed; width:87.5% ; left: 7%;">
+        <?php if (isset($_GET['done'])) { ?>
+          <span class="alert alert-success" role="alert" style="text-align: center;display:inline" >
+            <?=$_GET['done']?>
+          </span>
+        <?php } ?>
+
+        <?php if (isset($_GET['delete'])) { ?>
+          <span class="alert alert-danger" role="alert" style="text-align: center;display:inline" >
+            <?=$_GET['delete']?>
+          </span>
+        <?php } ?>
         <h1 class="mb-4 text-center"><br>Prescription List</h1>
         <br>
         <div class="col-8 col-sm-2">
@@ -93,20 +104,19 @@ session_start();
           </div>
         </div>
 
-        <div class="col-12 col-sm- d-flex justify-content-end">
+        <!-- <div class="col-12 col-sm- d-flex justify-content-end">
           <button type="submit" class="border-1 border border-secondary btn py-2">
             <a href="../prsecription/prescriptionForm.html" class="text-decoration-none"
               style="color: #6c757d;">Create</a>
           </button>
-          
-        </div>
+        </div> -->
         
       </div>
       
       <div>
       <br><br><br><br><br>
       <br><br><br><br>
-      <br><br>
+      <br><br><br>
       <div class="table-responsive d-flex justify-content-center">
         <table class="table table-bordered " style="width: 100%;">
           <thead style="background-color: #42b3e5;">
@@ -116,8 +126,10 @@ session_start();
               <th>Department</th>
               <th>Doctor</th>
               <th>Prescription Date</th>
-              <th>followup Date</th>
-              <th colspan="3">Actions</th>
+              <th>Followup Date</th>
+              <th>Delete</th>
+              <th>Edit</th>
+              <th>Edit</th>
             </tr>
           </thead>
           <tbody>

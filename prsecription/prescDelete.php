@@ -7,7 +7,7 @@
 
      //delete the related prescription line
      //done By cascading Delete
-     header("Location:prescriptionList.html");
+     header("Location:prescriptionList.html?delete=Prescription Deleted!");
 
 
     ?>

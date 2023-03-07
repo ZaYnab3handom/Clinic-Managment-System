@@ -2,6 +2,13 @@
      include_once("../dbConnection.php");
      //get app id which created  this presc
      $appoitmentId = $_GET["appId"];
+     //check unique prescriptions id 
+     $query= "SELECT * FROM `prescription` WHERE appointment_id='$appoitmentId'";
+    $presc = mysqli_query($connection, $query) or die(mysql_error());
+    if (mysqli_num_rows($presc) === 1) { 
+        header("Location:prescUpdateForm.html?user=$appoitmentId&done=Already Related Prescription is Founded");}
+
+     else{
      //read related appointment data to set in prescription
      $relatedAppsql = "select * from appointmentusers where id = $appoitmentId";
      $RAresult = mysqli_query($connection, $relatedAppsql);
@@ -57,8 +64,9 @@
 
 
         }
-        header("Location:prescriptionList.html");
+        header("Location:prescriptionList.html?done=Prescription Added Successfully");
 
     }
+}
 
 ?>

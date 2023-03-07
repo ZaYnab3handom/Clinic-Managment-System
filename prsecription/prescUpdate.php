@@ -75,7 +75,7 @@ function drawPrescriptionLine(){
             $updatePrescLinesql = "update prescription_line set medicine_name='$medicineName[$i]'
             ,dosage_detail='$dosage[$i]',allow_subsistuation=$allowSubsistuation[$i], comment='$comment[$i]' where prescription_id=$prescid";
              $updatePrescLineResult = mysqli_query($connection, $updatePrescLinesql);}
-             header("Location:prescriptionList.html");
+             header("Location:prescUpdateForm.html?user=$prescid&done=Prescription Updated Successfully");
 
 
 

@@ -3,7 +3,7 @@
 //Read From Prescription Table
         include_once("../dbConnection.php");
 
-        $readSql = "select * from presusers order by prescription_time desc "; 
+        $readSql = "select * from presusers order by appointment_id desc "; 
         $readResult = mysqli_query($connection, $readSql);
         
         while($data = mysqli_fetch_array($readResult)) {
