@@ -63,13 +63,13 @@ if(isset($_POST["savebtn"])){
     $city=$_POST["city"];
     $country=$_POST["country"];
     $Email=$_POST["Email"];
-    $Password=$_POST["Password"];
-    $RepeatPassword=$_POST["RepeatPassword"];
+    $Password=sha1($_POST["Password"]);
+    $RepeatPassword=sha1($_POST["RepeatPassword"]);
     $type="patient";
 
     if ($Password==$RepeatPassword){
         //update  Prescription 
-        $updateUsersSql = "update users set name='$patientName', mobile='$mobile', 
+        $updateUsersSql = "update users set name='$patientName', mobile='$mobile', password='$password' ,
         national_id='$nationalId',birthDate='$BirthDate', Email='$Email', gender='$gender' where national_id =$patientId";
         $usersResult = mysqli_query($connection, $updateUsersSql);
     
@@ -79,7 +79,13 @@ if(isset($_POST["savebtn"])){
         $updatePatientSql= "update patient set  chronic_disease='$ChronicDisease',past_surgery='$PastSurger',user_id='$nationalId', 
         employee_id='$employeeId', blood_type='$Blood', company='$company' where user_id=$patientId";
         $adressResult = mysqli_query($connection, $updatePatientSql);
+        header("Location: Patient.html");
+
+    }
+    else{
+        header("Location: editpatient.html?national_id=$patientId&&?acesserror=Password must be matched");
         
+
     }
 }
 }

@@ -47,8 +47,8 @@ if(isset( $_SESSION['NId'])  ){
         $city=$_POST["city"];
         $country=$_POST["country"];
         $Email=$_POST["Email"];
-        $Password=$_POST["Password"];
-        $RepeatPassword=$_POST["RepeatPassword"];
+        $Password=sha1($_POST["Password"]);
+        $RepeatPassword=sha1($_POST["RepeatPassword"]);
         $type="Patient";
         if ($Password==$RepeatPassword){
             //Open database
@@ -65,7 +65,13 @@ if(isset( $_SESSION['NId'])  ){
             $sql2 ="insert into adress (user_id, apartment, street, city, country)
             values('$nationalId', '$apartment' ,'$street', '$city', '$country')";
             $result = mysqli_query($connection, $sql2);
-    } 
+            header("Location: Patient.html");
+
+    } else{
+        header("Location: patient_form.html?acesserror=Wrong data entered");
+
+    }
+
     }
 }
 else{

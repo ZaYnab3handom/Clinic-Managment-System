@@ -75,7 +75,11 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){   ?>
       </nav>
     </div>
   </div>
-
+  <?php if (isset($_GET['acesserror'])) { ?>
+    <div class="alert alert-danger" role="alert" style="text-align: center;">
+      <?=$_GET['acesserror']?>
+  </div>
+  <?php } ?>
   <!-- search input -->
   <div class="container">
     <div class="row form bg-light  rounded" style="width: 123.5%;margin-left: -12.5%;">

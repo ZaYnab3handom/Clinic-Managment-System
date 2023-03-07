@@ -33,14 +33,14 @@ if(isset($_POST["savebtn"])){
         $city=$_POST["city"];
         $country=$_POST["country"];
         $Email=$_POST["Email"];
-        $Password=$_POST["Password"];
-        $RepeatPassword=$_POST["RepeatPassword"];
+        $Password=sha1($_POST["Password"]);
+        $RepeatPassword=sha1($_POST["RepeatPassword"]);
         $department=$_POST["department"];
         $type="Doctor";
 
     if ($Password==$RepeatPassword){
         //update  user 
-        $updateUsersSql = "update users set name='$doctorName', mobile='$mobile', 
+        $updateUsersSql = "update users set name='$doctorName', mobile='$mobile', password='$Password', 
         national_id='$nationalId',birthDate='$Birthdate', Email='$Email', gender='$gender' where national_id =$doctortId";
         $usersResult = mysqli_query($connection, $updateUsersSql);
     
