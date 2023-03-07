@@ -62,8 +62,8 @@ session_start();
         <form action="" method="post">
           <div class=" d-flex justify-content-end">
             <span class="">
-            <input onclick="change()" type="text" value="Confirm" id="myButton1" class="btn" style="color: white; background-color: #42b3e5;"></input>
-            <input type="text" value="Draft" id="status" name="status" class="border-0 bg-light">
+            <input onclick="change()" type="text"  id="myButton1" class="btn" style="color: white; background-color: #42b3e5;" readonly style="outline: none;" value=<?php  btnVal();?>>
+            <input type="text"  id="status" name="status" class="border-0 bg-light" readonly style="outline: none;" value=<?php echo $data['state'] ;?> >
             </span>
           </div>
 

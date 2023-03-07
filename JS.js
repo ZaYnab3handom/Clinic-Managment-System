@@ -87,8 +87,8 @@ function change() // no ';' here
     var elembtn = document.getElementById("myButton1");
     var elemtxt = document.getElementById("status");
     if (elembtn.value=="Confirm") elembtn.value = "Waiting";
-    else if(elembtn.value=="Waiting") elembtn.value = "In-consulatation";
-    else if(elembtn.value=="In-consulatation") elembtn.value = "Done";
+    else if(elembtn.value=="Waiting") elembtn.value = "In-consultation";
+    else if(elembtn.value=="In-consultation") elembtn.value = "Done";
     else elembtn.value = "Done";
 
     if (elemtxt.value=="Draft"){
@@ -98,7 +98,7 @@ function change() // no ';' here
       document.getElementById('status').value="Waiting";
       
     }else if (elemtxt.value=="Waiting"){
-      document.getElementById('status').value="In-consulatation";
+      document.getElementById('status').value="In-consultation";
 
    }else {document.getElementById('status').value="Done";
    }

@@ -11,6 +11,17 @@ $age=$getage->format("%y");
 $doctorName = $data["doctorName"];
 $doctorData="select national_id,name from users WHERE type ='doctor'";
 $docresult=mysqli_query($connection, $doctorData);
+
+//get cuurent state 
+$sta =$data['state'];
+function btnVal(){
+    if ($GLOBALS['sta']=='Draft'){echo "Confirm";}
+    else if($GLOBALS['sta']=='Confirm'){echo "Waiting";} 
+    else if($GLOBALS['sta']=='Waiting'){echo "In-consultation";} 
+    else if($GLOBALS['sta']=='In-consultation'){echo "Done";} 
+    else{echo "Done";}
+
+}
 if(isset($_POST["savebtn"])){
     //get appFormData
     $doctorId = $_POST["doctorName"];

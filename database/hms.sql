@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2023 at 03:09 PM
+-- Generation Time: Mar 07, 2023 at 01:14 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -40,7 +40,10 @@ CREATE TABLE `adress` (
 --
 
 INSERT INTO `adress` (`user_id`, `apartment`, `street`, `city`, `country`) VALUES
+(33, 0, 'egypt', 'suez', 'Egypt'),
 (699, 0, 'egypt', 'suez', 'Egypt'),
+(6666, 0, 'egypt', 'suez', 'Egypt'),
+(9999999, 5, 'egypt', 'suez', 'Egypt'),
 (222222222222, 0, 'egypt', 'suez', 'Egypt'),
 (255555555558, 5, 'egypt', 'suez', 'Egypt'),
 (2888888888888, 0, 'egypt', 'suez', 'Egypt'),
@@ -59,7 +62,7 @@ CREATE TABLE `appointment` (
   `doctor_id` bigint(14) NOT NULL,
   `consultation_type` varchar(15) NOT NULL,
   `booked_online` tinyint(1) NOT NULL,
-  `state` varchar(10) NOT NULL
+  `state` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -79,7 +82,6 @@ INSERT INTO `appointment` (`id`, `datetime`, `patient_Id`, `doctor_id`, `consult
 (69, '2023-03-02 07:27:37', 29608034444444, 29608030400141, 'teeeeeeeee', 0, 'status'),
 (70, '2023-03-02 20:30:17', 29608034444444, 29608030400141, 'hhhhhhhhhh', 0, 'status'),
 (71, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
-(72, '2023-03-03 22:41:25', 29608034444444, 29608030400141, 're-examination', 0, 'front test'),
 (73, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
 (74, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
 (75, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
@@ -91,14 +93,20 @@ INSERT INTO `appointment` (`id`, `datetime`, `patient_Id`, `doctor_id`, `consult
 (81, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
 (82, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
 (83, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
-(85, '2023-03-03 06:10:03', 29608034444444, 29608030400141, 'reapp', 0, 'status'),
-(86, '2023-03-03 20:39:00', 29608030400141, 29608030400141, 'examinatio', 1, 'draft'),
+(85, '2023-03-03 06:10:03', 29608034444444, 29608030400141, 're-examination', 0, ''),
+(86, '2023-03-03 20:39:00', 29608030400141, 29608030400141, 're-examination', 0, ''),
 (87, '0000-00-00 00:00:00', 29608030400141, 29608030400141, 'examination', 1, 'draft'),
 (88, '0000-00-00 00:00:00', 29608030400141, 29608030400141, 'examination', 1, 'draft'),
 (89, '0000-00-00 00:00:00', 29608030400141, 29608030400141, 'examination', 1, 'draft'),
 (97, '2023-03-04 10:15:44', 2888888888888, 29608030400141, 'examination', 0, ''),
-(98, '2023-03-04 10:25:49', 2888888888888, 255555555558, 'examination', 0, 'cpnfirn'),
-(99, '2023-03-11 12:54:00', 29608030400141, 255555555558, 're-examination', 1, 'draft');
+(99, '2023-03-11 12:54:00', 29608030400141, 255555555558, 're-examination', 0, 'Done'),
+(102, '2023-03-05 10:12:42', 222222222222, 255555555558, 'examination', 0, 'Draft'),
+(103, '2023-03-05 10:19:10', 222222222222, 255555555558, 're-examination', 0, 'Done'),
+(104, '2023-03-07 09:33:00', 29608030400141, 255555555558, 're-examination', 1, 'draft'),
+(106, '2023-03-06 09:45:36', 2888888888888, 255555555558, 'examination', 0, 'Confirm'),
+(107, '2023-03-06 01:38:07', 2888888888888, 255555555558, 're-examination', 0, 'Draft'),
+(108, '2023-03-10 13:43:00', 33, 255555555558, 're-examination', 1, 'draft'),
+(110, '2023-03-01 14:12:00', 29608030400141, 255555555558, 're-examination', 1, 'draft');
 
 -- --------------------------------------------------------
 
@@ -117,7 +125,7 @@ CREATE TABLE `appointmentusers` (
 ,`datetime` datetime
 ,`consultation_type` varchar(15)
 ,`booked_online` tinyint(1)
-,`state` varchar(10)
+,`state` varchar(20)
 );
 
 -- --------------------------------------------------------
@@ -159,7 +167,8 @@ CREATE TABLE `doctor` (
 INSERT INTO `doctor` (`user_id`, `department_id`) VALUES
 (2664, 1),
 (29608030400141, 1),
-(255555555558, 3);
+(255555555558, 3),
+(6666, 1);
 
 -- --------------------------------------------------------
 
@@ -181,8 +190,10 @@ CREATE TABLE `patient` (
 --
 
 INSERT INTO `patient` (`user_id`, `company`, `employee_id`, `blood_type`, `chronic_disease`, `past_surgery`) VALUES
+(33, 'sugarCanel', 1, 'A', 'no', 'no'),
 (2664, 'fd', 2, 'o', 'nlk', 'jbh'),
-(222222222222, 'Department', 123, 'B', 'no', 'egypt'),
+(9999999, 'sugarCanel', 1, 'A', 'no', 'no'),
+(222222222222, 'sugarCanel', 0, 'A', 'no', 'egypt'),
 (2888888888888, 'Department', 123, 'B', 'no', 'no'),
 (29608030400141, 'suez canal', 2, 'o', 'no', 'no'),
 (29608034444444, 'sugarCanel', 1, 'A', 'no', 'no');
@@ -215,8 +226,10 @@ INSERT INTO `prescription` (`appointment_id`, `prescription_time`, `disease`, `m
 (51, '2023-02-25 04:40:15', 'wooooooooooooooooooooooooooooooooooooo', '', '', '2023-03-03 04:40:15', ''),
 (54, '2023-03-03 04:53:18', '', '', '', '2023-03-03 04:53:18', ''),
 (55, '2023-03-03 04:50:04', 'ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd', '', '', '2023-03-03 04:50:04', ''),
-(72, '2023-03-04 11:50:56', '', '', '', '2023-03-04 11:50:56', ''),
-(98, '2023-03-04 10:41:50', 'cccccccccc', 'ccccccccccccccccc', 'cccccccccccccccc', '2023-03-11 10:41:50', 'ggggggggggggggggg');
+(78, '2023-03-07 01:22:53', '', '', '', '2023-03-07 01:22:53', ''),
+(99, '0000-00-00 00:00:00', 'diseasemnjh', 'real onemj,k', 'x1,x2,x3m,', '2023-03-05 10:22:07', 'nnnnnnnnnnnnnnnnn'),
+(103, '2023-03-05 11:32:43', 'disease', 'MedicalTest', 'x1,x2,x3', '2023-03-05 11:32:43', 'nnnnnnnnnnnnnnnnn'),
+(107, '2023-03-06 01:39:47', 'disease', 'MedicalTest', 'x1,x2,x3', '2023-03-06 01:39:47', 'gggggggggggg');
 
 -- --------------------------------------------------------
 
@@ -258,10 +271,18 @@ INSERT INTO `prescription_line` (`id`, `prescription_id`, `medicine_name`, `dosa
 (97, 2, 'm2', '', 0, ''),
 (98, 2, 'm3', '', 0, ''),
 (99, 2, 'm4', '', 0, ''),
-(103, 98, 'a5', 'a5', 0, 'a5'),
-(104, 98, 'a5', 'a5', 0, 'a5'),
-(105, 98, 'a5', 'a5', 0, 'a5'),
-(106, 98, 'a5', 'a5', 0, 'a5');
+(107, 99, 'm4', '', 0, ''),
+(108, 99, 'm4', '', 0, ''),
+(109, 99, 'm4', '', 0, ''),
+(110, 99, 'm4', '', 0, ''),
+(111, 103, 'm4', 'd4', 0, 'c4'),
+(112, 103, 'm4', 'd4', 0, 'c4'),
+(113, 103, 'm4', 'd4', 0, 'c4'),
+(114, 103, 'm4', 'd4', 0, 'c4'),
+(115, 107, 'm1', 'd1', 0, 'c1'),
+(116, 107, 'm1', 'd1', 0, 'c1'),
+(117, 107, 'm1', 'd1', 0, 'c1'),
+(118, 107, 'm1', 'd1', 0, 'c1');
 
 -- --------------------------------------------------------
 
@@ -304,7 +325,7 @@ CREATE TABLE `users` (
   `name` varchar(40) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` char(40) NOT NULL,
-  `type` varchar(10) NOT NULL,
+  `type` varchar(15) NOT NULL,
   `birthDate` date NOT NULL,
   `gender` char(1) NOT NULL,
   `mobile` varchar(13) NOT NULL
@@ -316,9 +337,14 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`national_id`, `name`, `email`, `password`, `type`, `birthDate`, `gender`, `mobile`) VALUES
 (0, 'sad', 'zeinab3handoum@gmail.com', '123', 'Doctor', '2023-03-02', 'M', '01000'),
+(33, 'external', 'zeinab3handoum@gmail.com', '123', 'Patient', '2023-03-01', 'F', '1020797704'),
 (699, 'zoza', 'adminnnnnn@adn', '123', 'Patient', '0000-00-00', '', '699'),
+(1111, 'zaynabDoctor', 'zay', '123', 'doctor', '1996-08-03', 'F', '01020797704'),
+(2222, 'zaynabReciptionast', 'zayn', '123', 'receptionist', '1996-08-03', 'F', '01020797704'),
 (2664, 'ali', ',mnkjl', ',mnkjl', 'k', '2023-02-16', 'f', '142'),
-(222222222222, 'zaynab handounm', 'admin@ad', 'admin', 'Patient', '0000-00-00', '', '1020797755'),
+(6666, 'sad', 'zeinab3handoum@gmail.com', '123', 'Doctor', '2003-02-27', 'F', '00000000'),
+(9999999, 'ahmed', 'admin@ad', '123', 'Patient', '2023-03-01', 'F', '55555555'),
+(222222222222, 'zaynab handounm', 'admin@ad', 'admin', 'Patient', '2023-03-01', 'F', '5555'),
 (255555555558, 'hoda', 'zeinab3handoum@gmail.com', '123', 'Doctor', '2005-02-02', 'M', '1020797704'),
 (2888888888888, 'ahmed', 'admin@gh', 'admin', 'Patient', '2009-02-02', '', '+20122222222'),
 (29608030400141, 'zaynab ibrahim', 'zaynab3handoum@gmail.com', '123', 'admin', '1996-08-03', 'F', '1020797704'),
@@ -370,8 +396,8 @@ ALTER TABLE `department`
 -- Indexes for table `doctor`
 --
 ALTER TABLE `doctor`
-  ADD KEY `FKdoctorUser` (`user_id`),
-  ADD KEY `FKdoctorDepartment` (`department_id`);
+  ADD KEY `FKdoctorDepartment` (`department_id`),
+  ADD KEY `FKdoctorUser` (`user_id`);
 
 --
 -- Indexes for table `patient`
@@ -413,7 +439,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=100;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT for table `department`
@@ -425,7 +451,13 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `prescription_line`
 --
 ALTER TABLE `prescription_line`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=107;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=119;
+
+--
+-- AUTO_INCREMENT for table `schedule`
+--
+ALTER TABLE `schedule`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables
@@ -441,21 +473,21 @@ ALTER TABLE `adress`
 -- Constraints for table `appointment`
 --
 ALTER TABLE `appointment`
-  ADD CONSTRAINT `FKappointmenDoctor` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`user_id`),
-  ADD CONSTRAINT `FKappointmenPatient` FOREIGN KEY (`patient_Id`) REFERENCES `patient` (`user_id`);
+  ADD CONSTRAINT `FKappointmenDoctor` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `FKappointmenPatient` FOREIGN KEY (`patient_Id`) REFERENCES `patient` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `doctor`
 --
 ALTER TABLE `doctor`
   ADD CONSTRAINT `FKdoctorDepartment` FOREIGN KEY (`department_id`) REFERENCES `department` (`id`),
-  ADD CONSTRAINT `FKdoctorUser` FOREIGN KEY (`user_id`) REFERENCES `users` (`national_id`);
+  ADD CONSTRAINT `FKdoctorUser` FOREIGN KEY (`user_id`) REFERENCES `users` (`national_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `patient`
 --
 ALTER TABLE `patient`
-  ADD CONSTRAINT `FKpatientUser` FOREIGN KEY (`user_id`) REFERENCES `users` (`national_id`);
+  ADD CONSTRAINT `FKpatientUser` FOREIGN KEY (`user_id`) REFERENCES `users` (`national_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `prescription`
@@ -473,7 +505,7 @@ ALTER TABLE `prescription_line`
 -- Constraints for table `schedule`
 --
 ALTER TABLE `schedule`
-  ADD CONSTRAINT `FKScheduleDoctor` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`user_id`);
+  ADD CONSTRAINT `FKScheduleDoctor` FOREIGN KEY (`doctor_id`) REFERENCES `doctor` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
