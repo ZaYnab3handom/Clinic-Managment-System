@@ -28,6 +28,10 @@ include_once("../dbConnection.php");
         $RepeatPassword=sha1($_POST["repeatpassword"]);
         $department=$_POST["department"];
         $type="Doctor";
+        if(preg_match('/^[0-9]{14}/', $nationalId)){
+        if (preg_match('/^[a-zA-A]+$/', $doctorName)){
+            $pattern = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]{5}+\.[a-zA-Z0-9-.]{3}+$/";
+            if(preg_match($pattern,$email)){
         if ($Password==$RepeatPassword){
             
             //insert new user as a Doctor
@@ -46,9 +50,20 @@ include_once("../dbConnection.php");
             $sql3 ="insert into adress (user_id, apartment, street, city, country)
             values('$nationalId', '$apartment' ,'$street', '$city', '$country')";
             $result = mysqli_query($connection, $sql3);
+            header("Location: Doctor.html");
+        }else{
+            header("Location: doctor_form.html?acesserror=Wrong data entered");
+
         }
-
-        
-    } 
-
+    }else{
+        header("Location: doctor_form.html?acesserror=Please Enter Valid Email");
+    
+    }
+}else{
+    header("Location: doctor_form.html?acesserror=Please Enter Valid Name");
+}
+}else{
+    header("Location: doctor_form.html?acesserror=Please Enter Valid ID");
+}
+}
 ?>

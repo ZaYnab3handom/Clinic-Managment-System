@@ -37,7 +37,9 @@ if(isset($_POST["savebtn"])){
         $RepeatPassword=sha1($_POST["RepeatPassword"]);
         $department=$_POST["department"];
         $type="Doctor";
-
+        if (preg_match('/^[a-zA-A]+$/', $doctorName)){
+            $pattern = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]{5}+\.[a-zA-Z0-9-.]{3}+$/";
+            if(preg_match($pattern,$Email)){
     if ($Password==$RepeatPassword){
         //update  user 
         $updateUsersSql = "update users set name='$doctorName', mobile='$mobile', password='$Password', 
@@ -49,8 +51,19 @@ if(isset($_POST["savebtn"])){
 
         $updatePatientSql= "update doctor set  user_id='$nationalId',department_id='$department' where user_id=$doctortId";
         $adressResult = mysqli_query($connection, $updatePatientSql);
-        
+        header("Location: Doctor.html");
+    }else{
+        header("Location: editdoctor.html?national_id=$doctortId&acesserror=Password Must Be Matched");
+
     }
+}else{
+    header("Location: editdoctor.html?national_id=$doctortId&acesserror=Please Enter Valid Email");
+
+}
+}else{
+header("Location: editdoctor.html?national_id=$doctortId&acesserror=Please Enter Valid Name");
+
+}
 }
 ?>
 
