@@ -30,6 +30,28 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+    $('#department').on('change', function(){
+        var depID = $(this).val();
+        if(depID){
+            $.ajax({
+                type:'GET',
+                url:'getDepDoctors.php',
+                data:'depId='+depID,
+                success:function(html){
+                    $('#doctorName').html(html);
+                    // $('#city').html('<option value="">Select state first</option>'); 
+                }
+            }); 
+        }else{
+            $('#doctorName').html('<option value="">Select Department first</option>');
+            // $('#city').html('<option value="">Select state first</option>'); 
+        }
+    });})
+    </script>
+    
 </head>
 
 <body>
@@ -59,7 +81,6 @@
     </div>
 
 
-    <!-- sign up -->
    
     <div class="container bg-primary my-5 py-5" id="appointment">
         <div class="container py-5">
@@ -93,7 +114,7 @@
                                      </div>
 
                                 <div class="col-12 col-sm-9">
-                                    <select name="department" class="form-select bg-light border-0"  style="height: 55px;" id="">
+                                    <select name="department" class="form-select bg-light border-0"  style="height: 55px;" id="department" >
                                      <option>Select Department</option>
                                      <?php  if (mysqli_num_rows($depresult) > 0) {
                                         // output data of each row
@@ -110,8 +131,8 @@
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Doctor Name: </label>
                                      </div>
                                 <div class="col-12 col-sm-9">
-                                    <select name="doctorName" class="form-select bg-light border-0" style="height: 55px;" placeholder="Doctor">
-                                    <option>Select Doctor</option>
+                                    <select name="doctorName" id="doctorName" class="form-select bg-light border-0" style="height: 55px;" placeholder="Doctor">
+                                    <!-- <option>Select Doctor</option>
                                     <?php  if (mysqli_num_rows($docresult) > 0) {
                                       // output data of each row
                                       while($row = mysqli_fetch_assoc($docresult)) {?>
@@ -119,7 +140,7 @@
                                       <?php echo $row["name"] ;?>
                                     </option>;
                                     <?php }
-                                    } ?>
+                                    } ?> -->
                                 </select>
                                 </div>
          
@@ -155,8 +176,9 @@
                 </div>
             </div>
         </div>
-    </div>                             
- <!-- Footer Start -->
+    </div>    
+
+ 
  <div class="container-fluid bg-dark text-light mt-5 " id="footer">
     <div class="container py-5">
         <div class="row g-5">
@@ -198,9 +220,25 @@
         </div>
     </div>
 </div>
-<!-- Footer End -->
+// <!-- Footer End -->
             
     <script src="js/main.js"></script>
+    //  <script>
+    //      var dep = document.getElementById('department').value;
+    //      var select = document.getElementById("doctorName") 
+    //     function dependentDoctorOnDepartment(){
+    //         fetch('getDepDcotors.php?depId='+dep)
+    //             .then((response) => response.json())
+    //             .then((data) => { 
+    //                 console.log(data);
+    //                 // for (var i=0; i<data.length; i++) { 
+    //                 //     newOption = document.createElement("option"); 
+    //                 //     newOption.value = data[i];  // assumes option string and value are the same 
+    //                 //     newOption.text=data[i]; 
+    //                 //     select.add(newOption);}
+    //              });
+    //     }
+    // </script> 
 </body>
 
 </html>
