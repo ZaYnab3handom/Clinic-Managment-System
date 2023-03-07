@@ -19,6 +19,8 @@ if(isset( $_SESSION['NId'])  ){
             echo "<td>".$data["blood_type"]."</td>";
             echo "<td> <a href='editpatient.html?national_id=$data[national_id]'>edit</a></td>";
             echo "<td> <a href='../appointment/appointmentForm.html?user=$data[user_id]'> Create Appointment</a></td>";
+            echo "<td> <a href='PatientDelete.php?national_id=$data[national_id]'>delete</a></td>";
+
             echo "</tr>";
         
         }

@@ -1,3 +1,6 @@
+<?php
+  include("scheduleWrite.php")
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -65,13 +68,12 @@
                         <div class="row g-3"   style="justify-content: center;">
                             <div class="mb-3 row" id="row">
                                 <div class="col-12 col-sm-2" style="text-align: left; width: auto;" >
-                                    <label  id="day" class="col-sm-6 col-form-label" for="patientname" style="text-align: left;"  >DocName. </label>
+                                    <label  id="day" class="col-sm-6 col-form-label" for="patientname" style="text-align: left;"  >Doctor Name </label>
                                 </div>
                                 <div class="col-12 col-sm-10"style="width: 73%;">
                                     <select name="doctorName" class="form-select bg-light border-0" style="height: 55px;" placeholder="Doctor">
-                                    <option>Select Doctor</option>
-                                    <option>Select Doctor</option>
-                                    <option>Select Doctor</option>
+                                    <option><?php  echo $Udata['name'] ?></option>
+
                                     </select>
                                 </div>
                          </div>
@@ -80,15 +82,15 @@
                                 <label  id="day" class="col-sm-3 col-form-label" >Sat.</label>
                                 <div class="col-sm-3 schdule">
                                     <label for="">Date</label>
-                                  <input type="date" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                  <input type="date" class="form-control bg-light border-0" name="dayDate" style="height: 55px;  margin: 5px;">
                                 </div>
                                 <div class="col-sm-4 schdule">
                                     <label for="">Start Time</label>
-                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                    <input type="time" class="form-control bg-light border-0" name="start" style="height: 55px;  margin: 5px;">
                                   </div>
                                   <div class="col-sm-4 schdule">
                                     <label for="date">End Time</label>
-                                    <input type="time" class="form-control bg-light border-0" style="height: 55px;  margin: 5px;">
+                                    <input type="time" class="form-control bg-light border-0" name="end" style="height: 55px;  margin: 5px;">
                                   </div>
                               </div>
                               <div class="mb-3 row" id="row">
