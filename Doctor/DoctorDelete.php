@@ -2,8 +2,10 @@
      include_once("../dbConnection.php");
     $id = $_GET["national_id"];
     //delet the prescription
-     $sql = "delete from doc where user_id = $id"; 
-     $result = mysqli_query($connection, $sql);
+    $sql = "delete from schedule where doctor_id = $id"; 
+    $result = mysqli_query($connection, $sql);
+     $sql1 = "delete from doctor where user_id = $id"; 
+     $result = mysqli_query($connection, $sql1);
      $sql2 = "delete from users where national_id = $id"; 
      $result2 = mysqli_query($connection, $sql2);
 
