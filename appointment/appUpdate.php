@@ -50,6 +50,8 @@ if(isset($_POST["savebtn"])){
    datetime='$appdate', consultation_type='$consType', booked_online='$BookedOnline',
    state='$status' where id=$appId";
    $updateResult = mysqli_query($connection, $updateAppsql);
+   header("Location:appUpdateForm.html?user=$appId&done=Appointmetn Updated Sucssessfuly ");
+
   
 
 
