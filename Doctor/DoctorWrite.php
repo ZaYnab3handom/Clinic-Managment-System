@@ -24,8 +24,8 @@ include_once("../dbConnection.php");
         $city=$_POST["city"];
         $country=$_POST["country"];
         $email=$_POST["email"];
-        $Password=$_POST["password"];
-        $RepeatPassword=$_POST["repeatpassword"];
+        $Password=sha1($_POST["password"]);
+        $RepeatPassword=sha1($_POST["repeatpassword"]);
         $department=$_POST["department"];
         $type="Doctor";
         if ($Password==$RepeatPassword){
@@ -48,17 +48,7 @@ include_once("../dbConnection.php");
             $result = mysqli_query($connection, $sql3);
         }
 
-        /*function addSchedule(){
-            $dayDate=$_POST["dayDate"];
-            $start=$_POST["start"];
-            $end=$_POST["end"];
-            $room_no=$_POST["room_no"];
-            $doctor_id=$_GET["user"];
-            
-            $sql4 = "insert into schedule (dayDate, start, end, room_no, doctor_id)
-            values ('$dayDate','$start','$end','$room_no','$doctor_id')";
-            $result = mysqli_query($connection, $sql4);
-        }*/
+        
     } 
 
 ?>
