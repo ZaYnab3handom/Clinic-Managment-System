@@ -11,15 +11,10 @@
 }
 
 table.scrolldown {
-    width: 100%;
+    width: 45%;
     border-spacing: 0;
-    border: 2px solid black;
-}
-
-table.scrolldown {
-    width: 60%;
-    border-spacing: 0;
-    border: 1px solid black;
+    border-bottom: .5px solid black;
+    font-size: 18px;
 }
 
 table.scrolldown tbody,
@@ -28,27 +23,25 @@ table.scrolldown thead {
 }
 
 thead tr th {
-    height: 40px;
-    line-height: 60px;
+    height: 10px;
+    line-height: 20px;
     color: white;
 }
 
-table.scrolldown tbody {
+table tbody {
     height: 200px;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
-tbody {
-    border-top: 2px solid black;
-}
-
 tbody td,
 thead th {
     width: 200px;
-    border-right: 1px solid black;
+    border-right: 1px solid white;
 }
 
-td , tr{
+td,
+tr {
     text-align: center;
 }
+
