@@ -53,12 +53,12 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
               
               <?php 
               if(  $_SESSION['userType']!=='doctor'  ){   ?>
-                <a href="../schedule/schedule.html" class="nav-item nav-link">Schedule</a>
+                <a href="../schedule/schedule.html" class="nav-item nav-link active">Schedule</a>
                 <?php } ?>
 
 
             <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>
-            <a href="../appointment/appointmentList.html" class="nav-item nav-link active">Appoinment</a>
+            <a href="../appointment/appointmentList.html" class="nav-item nav-link ">Appoinment</a>
             <a href="../prsecription/prescriptionList.html" class="nav-item nav-link ">Prescription</a>
             <div>
               <!-- <label for="user" class="nav-item nav-link" style="color:#6c757d">username</label> -->
@@ -81,13 +81,14 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
             <?=$_GET['done']?>
           </span>
         <?php } ?>
+        
         <?php if (isset($_GET['delete'])) { ?>
           <span class="alert alert-danger" role="alert" style="text-align: center;display:inline" >
             <?=$_GET['delete']?>
           </span>
         <?php } ?>
 
-        <h1 class="mb-4 text-center"><br>Appointment List</h1>
+        <h1 class="mb-4 text-center"><br>Schedule</h1>
         <br>
 
         <div class="col-8 col-sm-2">
@@ -114,7 +115,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
         </div>
         <div class="col-12 col-sm- d-flex justify-content-end">
           <button class="border-1 border border-secondary btn py-2">
-            <a href="../appointment/appointmentForm.html" class="text-decoration-none"
+            <a href="schedule.html" class="text-decoration-none"
               style="color: #6c757d;">Create</a>
           </button>
         </div>
@@ -129,17 +130,11 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
           <thead style="background-color: #42b3e5;">
             <tr>
               <th>ID</th>
-              <th>Name</th>
               <th>Doctor</th>
               <th>Department</th>
               <th>Date</th>
-              <th>Consultation Type</th>
-              <th>Booked Online</th>
-              <th>Status</th>
-              <?php 
-              if(  $_SESSION['userType']!='receptionist' ){   ?>
-              <th>Create Prescription</th>
-              <?php } ?>
+              <th>Start Hour</th>
+              <th> End Hour</th>
               <th> Delete</th>
               <th> Edit</th>
               <!-- <th> View</th> -->
@@ -148,7 +143,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
             
           </thead>
           <?php 
-        include("appRead.php");
+        include("scheduleRead.php");
        ?>
           <tbody>
           </tbody>

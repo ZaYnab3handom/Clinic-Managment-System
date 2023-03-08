@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
 if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
 
      include_once("../dbConnection.php");
@@ -9,7 +11,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
 
      //delete the related prescription line
      //done By cascading Delete
-     header("Location:appointmentList.html");
+     header("Location:appointmentList.html?delete=Appointment Deleted!");
 } else{
      header("Location: ../login.html?acesserror=Access Denied Please Log In");
    } 
