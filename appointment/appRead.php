@@ -1,6 +1,7 @@
 
 <?php
 //Read From appointmet Table
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
         include_once("../dbConnection.php");
 
         $readSql = "select * from appointmentusers order by id desc"; 
@@ -23,5 +24,7 @@
             echo "</tr>";  
             // print_r($data);
          }
-        
+         } else{
+            header("Location: ../login.html?acesserror=Access Denied Please Log In");
+          } 
   ?>

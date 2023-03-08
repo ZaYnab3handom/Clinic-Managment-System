@@ -1,4 +1,6 @@
 <?php
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
+
 include_once("../dbConnection.php");
 //read appointment data form database
 $appId = $_GET["user"];
@@ -52,10 +54,13 @@ if(isset($_POST["savebtn"])){
    $updateResult = mysqli_query($connection, $updateAppsql);
    header("Location:appUpdateForm.html?user=$appId&done=Appointmetn Updated Sucssessfuly ");
 
-  
-
-
 }
+
+      
+} else{
+    header("Location: ../login.html?acesserror=Access Denied Please Log In");
+  } 
+    
 
 
 ?>

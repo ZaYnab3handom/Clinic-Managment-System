@@ -1,14 +1,12 @@
 <?php
-
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
 // id date	time patient_Id	doctor_id consultation_type	booked_online state	
 //date time consultationt BookedOnline status patientname doctorName
 $currentDate = date("d-m-Y");
 $patientName;
-
-
-    $con =include_once("../dbConnection.php");
-    $patientId;
-    $age;
+$con =include_once("../dbConnection.php");
+$patientId;
+$age;
     if (isset($_GET["user"])){
         $GLOBALS['patientId'] =$_GET["user"];
      
@@ -78,7 +76,9 @@ $patientName;
     }
    
       
-
+} else{
+    header("Location: ../login.html?acesserror=Access Denied Please Log In");
+  } 
     
     
 

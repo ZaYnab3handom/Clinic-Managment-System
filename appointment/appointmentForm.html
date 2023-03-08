@@ -1,9 +1,9 @@
 <?php 
-   include("appWrite.php");
+session_start();
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
 ?>
 <?php 
-session_start();
-
+   include("appWrite.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,11 +36,25 @@ session_start();
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav ms-auto py-0">
+            <?php 
+            if(  $_SESSION['userType']=='admin'  ){   ?>
             <a href="../dashbord/index.html" class="nav-item nav-link">Home</a>
+            <a href="../Doctor/Doctor.html" class="nav-item nav-link">Doctor</a>
+            <?php }else if ($_SESSION['userType']==='doctor'){?>
+              <a href="../dashbord/docDashbord.html" class="nav-item nav-link">Home</a>
+              <?php }else{  ?>
+                <a href="../dashbord/recepDashbord.html" class="nav-item nav-link">Home</a>
+              <?php } ?>
+
+              <?php 
+              if(  $_SESSION['userType']!=='doctor'  ){   ?>
+                <a href="../schedule/schedule.html" class="nav-item nav-link">Schedule</a>
+                <?php } ?>
+
+
             <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>
             <a href="../appointment/appointmentList.html" class="nav-item nav-link active">Appoinment</a>
             <a href="../prsecription/prescriptionList.html" class="nav-item nav-link ">Prescription</a>
-            <a href="../Doctor/Doctor.html" class="nav-item nav-link">Doctor</a>
             <div>
               <!-- <label for="user" class="nav-item nav-link" style="color:#6c757d">username</label> -->
               <div  class="nav-link" style="font-size: 15px;width: fit-content;font-weight: 500; color:#6c757d"><?php echo $_SESSION['userName'].' '.'('.$_SESSION['userType'].')'; ?></div>
@@ -202,3 +216,6 @@ session_start();
 </body>
 
 </html>
+<?php } else{
+  header("Location: ../login.html?acesserror=Access Denied Please Log In");
+} ?>
