@@ -16,9 +16,10 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
                 echo" <td>".$data['doctorName']."</td>";
                 echo "<td>".$data["prescription_time"]."</td>";
                 echo "<td>".$data["followup_date"]."</td>";
+                if(  $_SESSION['userType']!='receptionist' ){
                 echo "<td> <a href='prescDelete.php?user=$data[appointment_id]'> <i class='bi bi-trash-fill'></i> </a> </td>";
-                echo "<td> <a href='prescUpdateForm.html?user=$data[appointment_id]'> <i class='bi bi-pencil-square'></i>  </a> </td>";
-                echo "<td> <a href='prescUpdateForm.html?user=$data[appointment_id]'> <i class='bi bi-box-arrow-up-right'></i> </a> </td>";
+                echo "<td> <a href='prescUpdateForm.html?user=$data[appointment_id]'> <i class='bi bi-pencil-square'></i>  </a> </td>";}
+                echo "<td> <a href='prescUpdateForm.html?user=$data[appointment_id]&state=read'> <i class='bi bi-box-arrow-up-right'></i> </a> </td>";
             echo "</tr>";   }
     } else{
             header("Location: ../login.html?acesserror=Access Denied Please Log In");
