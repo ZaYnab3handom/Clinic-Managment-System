@@ -35,7 +35,8 @@ if (isset($_POST['national_id']) && isset($_POST['pass'])) {
         // Redirect to user dashboard page
         if ($user['type']=='admin'){header("Location: dashbord/index.html");}
         else if($user['type']=='doctor') {header("Location: dashbord/docDashbord.html");}
-        else{header("Location: dashbord/recepDashbord.html");}
+        else if($user['type']=='receptionist') {header("Location: dashbord/recepDashbord.html");}
+        else {header("Location:login.html?acesserror=Access Denied Not Allowed User");}
         
     } else {
         header("Location: login.html?error=Incorrect National Id Or Password");

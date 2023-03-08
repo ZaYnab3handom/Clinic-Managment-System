@@ -1,6 +1,8 @@
 
 <?php
 //Read From Prescription Table
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
+
         include_once("../dbConnection.php");
 
         $readSql = "select * from presusers order by appointment_id desc "; 
@@ -18,5 +20,8 @@
                 echo "<td> <a href='prescUpdateForm.html?user=$data[appointment_id]'> <i class='bi bi-pencil-square'></i>  </a> </td>";
                 echo "<td> <a href='prescUpdateForm.html?user=$data[appointment_id]'> <i class='bi bi-box-arrow-up-right'></i> </a> </td>";
             echo "</tr>";   }
+    } else{
+            header("Location: ../login.html?acesserror=Access Denied Please Log In");
+          } 
       
   ?>

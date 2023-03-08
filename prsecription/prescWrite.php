@@ -1,4 +1,6 @@
 <?php 
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
+
      include_once("../dbConnection.php");
      //get app id which created  this presc
      $appoitmentId = $_GET["appId"];
@@ -68,5 +70,10 @@
 
     }
 }
+      
+} else{
+    header("Location: ../login.html?acesserror=Access Denied Please Log In");
+  } 
+    
 
 ?>
