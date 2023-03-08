@@ -179,8 +179,11 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
 
             <div class="d-flex justify-content-end">
               <p class="p-create mb-0">
+                <?php 
+                if(  $_SESSION['userType']!='receptionist' ){   ?>
                 <a class="coloredbtncreate p-create" href="../prsecription/prescriptionForm.html?appId=<?php echo $data['id'] ; ?>">Create
                   Prescription</a>
+                  <?php }?>
               </p>
             </div>
           </div>
