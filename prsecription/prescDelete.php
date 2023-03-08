@@ -1,4 +1,6 @@
 <?php 
+session_start();
+
 if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
 
      include_once("../dbConnection.php");
