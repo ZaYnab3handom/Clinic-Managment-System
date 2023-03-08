@@ -1,6 +1,8 @@
 <?php
     include_once("../dbConnection.php");
-
+    
+    /* home dashbord */
+    
     $q="select COUNT(user_id) from `patient`";
     $readResult = mysqli_query($connection, $q);
     $data = mysqli_fetch_row($readResult);
@@ -10,6 +12,7 @@
         global $patient;
         echo $patient;
     }
+    
     $q="select COUNT(user_id) from `doctor`";
     $readResult = mysqli_query($connection, $q);
     $data = mysqli_fetch_row($readResult);
@@ -30,9 +33,21 @@
         echo $appointm;   
     }
     
+    /* reseptionist dashbord */
+    
+    $q="select COUNT(patientId) from appointmentusers WHERE booked_online=1;";
+    $readResult = mysqli_query($connection, $q);
+    $data = mysqli_fetch_row($readResult);
+    $reseptionist=$data[0];
+    function online_resp()
+    {
+        global $reseptionist;
+        echo $reseptionist;
+    }
+    
     /* table */
 
-    $q="select * from appointmentusers order by datetime DESC";
+    $q="select doctorName,patienName,id,departmentName,DATE(datetime) from appointmentusers order by DATE(datetime);";
     $result = mysqli_query($connection, $q);
     function tabledisplay()
     {
@@ -44,10 +59,26 @@
             echo" <td>".$data['patienName']."</td>";
             echo "<td>".$data['doctorName']."</td>";
             echo "<td>".$data["departmentName"]."</td>";
-            echo "<td>".$data["datetime"]."</td>";
+            echo "<td>".$data["DATE(datetime)"]."</td>";
             echo"</tr>";
         }
     }
     
-   
+    $q="sELECT patienName,doctorName,DATE(datetime),id FROM `appointmentusers` WHERE booked_online=1";
+    $readResaptionist= mysqli_query($connection, $q);
+    function respdashbord()
+    {
+        global $readResaptionist;
+        while($data = mysqli_fetch_array($readResaptionist)) 
+        {
+            echo"<tr>";
+            echo" <td>".$data['patienName']."</td>";
+            echo "<td>".$data['doctorName']."</td>";
+            echo "<td>".$data["DATE(datetime)"]."</td>";
+            echo "<td> <a href='appDelete.php?user=$data[id]'>  <i class='bi bi-trash-fill'></i>  </a> </td>";
+                echo "<td> <a href='appUpdateForm.html?user=$data[id]'> <i class='bi bi-pencil-square'></i>  </a> </td>";
+            echo"</tr>";
+        }
+    }
+
 ?>
