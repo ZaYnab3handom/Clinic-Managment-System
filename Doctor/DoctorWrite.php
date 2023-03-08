@@ -29,7 +29,7 @@ include_once("../dbConnection.php");
         $department=$_POST["department"];
         $type="Doctor";
         if(preg_match('/^[0-9]{14}/', $nationalId)){
-        if (preg_match('/^[a-zA-A]+$/', $doctorName)){
+        if (preg_match('/^[a-zA-Z ]+$/', $doctorName)){
             $pattern = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]{5}+\.[a-zA-Z0-9-.]{3}+$/";
             if(preg_match($pattern,$email)){
         if ($Password==$RepeatPassword){

@@ -66,7 +66,7 @@ if(isset($_POST["savebtn"])){
     $Password=sha1($_POST["Password"]);
     $RepeatPassword=sha1($_POST["RepeatPassword"]);
     $type="patient";
-    if (preg_match('/^[a-zA-A]+$/', $patientName)){
+    if (preg_match('/^[a-zA-Z ]+$/', $patientName)){
         $pattern = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]{5}+\.[a-zA-Z0-9-.]{3}+$/";
         if(preg_match($pattern,$Email)){
         if ($Password==$RepeatPassword){

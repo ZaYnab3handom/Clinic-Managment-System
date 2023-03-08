@@ -105,11 +105,16 @@ session_start();
 
                         <div class="col-12 col-sm- d-flex justify-content-center">
                             <span>
-                                <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault2"
-                                    value="M"> <label for="male" id="male">&nbsp;Male</label>
-                                &nbsp;&nbsp;&nbsp;&nbsp;
-                                <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1"
-                                    value="F"><label for="female">&nbsp;&nbsp;Female </label>
+                                <input class="form-check-input"type="radio" name="gender" id="flexRadioDefault2" <?php echo 'value="$Udata[gender]"';?> checked><label>&nbsp;
+                                    <?php if($Udata['gender']=="M"){
+                                    echo"Male";
+                                    }
+                                    else {echo"Female";}?>
+                                  </label> 
+                                  &nbsp;&nbsp;&nbsp;&nbsp;
+                                  <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" 
+                                  <?php if($Udata['gender']=="M"){echo 'value="F"';}else{echo 'value="M"';}?>
+                                  <label for="female">&nbsp;&nbsp;<?php if($Udata['gender']!="M"){echo"Male";}else {echo"Female";}?> </label>
 
                             </span>
                         </div>
