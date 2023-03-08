@@ -131,10 +131,13 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
               <th>Consultation Type</th>
               <th>Booked Online</th>
               <th>Status</th>
+              <?php 
+              if(  $_SESSION['userType']!='receptionist' ){   ?>
               <th>Create Prescription</th>
+              <?php } ?>
               <th> Delete</th>
               <th> Edit</th>
-              <th> View</th>
+              <!-- <th> View</th> -->
 
             </tr>
             

@@ -141,9 +141,12 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
               <th>Doctor</th>
               <th>Prescription Date</th>
               <th>Followup Date</th>
-              <th>Delete</th>
+              <?php 
+              if(  $_SESSION['userType']!='receptionist' ){   ?>
+                 <th>Delete</th>
               <th>Edit</th>
-              <th>Edit</th>
+              <?php } ?>
+              <th>View</th>
             </tr>
           </thead>
           <tbody>

@@ -74,7 +74,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
               <?php } ?>
             <h1 class="mb-4 text-center">Prescription</h3>
                 <div class="row g-3">
-                    <form action="" method="post">
+                    <form action="" method="post" name="presc">
                         <div class="row g-3">
 
                             <div class=" d-flex justify-content-end">
@@ -208,7 +208,9 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
                                 </button>
                             </div>
                             <div class="col-12 col-sm-6 text-center">
+                               <?php if(  $_SESSION['userType']!='receptionist' ){ ?>
                                 <input type="submit" value="Update" name="savebtn" class="btn w-50 py-3"  style="background-color: #42b3e5; color: white;"/>
+                               <?php } ?>
                             </div>
                         </div>
                     </form>
@@ -217,6 +219,13 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
     </div>
     <script src="../Doctor/bootstrap.bundle.min.js"></script>
         <script src="JS.js"></script>
+        <?php if (isset($_GET['state'])) { ?>
+        <script>
+         var f = document.forms['presc'];
+            for(var i=0,fLen=f.length;i<fLen;i++){
+                f.elements[i].readOnly = true;  }
+            </script>
+            <?php } ?>
 </body>
 
 </html>
