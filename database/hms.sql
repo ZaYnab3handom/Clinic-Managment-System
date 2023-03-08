@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 07, 2023 at 01:14 PM
+-- Generation Time: Mar 08, 2023 at 05:53 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -106,7 +106,34 @@ INSERT INTO `appointment` (`id`, `datetime`, `patient_Id`, `doctor_id`, `consult
 (106, '2023-03-06 09:45:36', 2888888888888, 255555555558, 'examination', 0, 'Confirm'),
 (107, '2023-03-06 01:38:07', 2888888888888, 255555555558, 're-examination', 0, 'Draft'),
 (108, '2023-03-10 13:43:00', 33, 255555555558, 're-examination', 1, 'draft'),
-(110, '2023-03-01 14:12:00', 29608030400141, 255555555558, 're-examination', 1, 'draft');
+(110, '2023-03-01 14:12:00', 29608030400141, 255555555558, 're-examination', 1, 'draft'),
+(112, '2023-03-07 03:28:55', 33, 255555555558, 're-examination', 0, 'Draft'),
+(122, '2023-03-07 03:58:35', 33, 255555555558, 'examination', 0, 'Draft'),
+(123, '2023-03-07 03:58:35', 33, 255555555558, 'examination', 0, 'Draft'),
+(124, '2023-03-07 03:58:35', 33, 255555555558, 'examination', 0, 'Draft'),
+(125, '2023-03-07 04:05:29', 33, 255555555558, 'examination', 1, 'Draft'),
+(126, '2023-03-07 04:08:11', 33, 255555555558, 'examination', 0, 'Draft'),
+(127, '2023-03-07 04:09:22', 33, 255555555558, 'examination', 0, 'Draft'),
+(128, '2023-03-07 04:09:58', 33, 255555555558, 'examination', 0, 'Draft'),
+(129, '2023-03-07 04:14:03', 33, 255555555558, 'examination', 0, 'Draft'),
+(130, '2023-03-07 04:15:09', 33, 255555555558, 'examination', 0, 'Draft'),
+(131, '2023-03-07 04:23:28', 33, 255555555558, 'examination', 0, 'Draft'),
+(132, '2023-03-07 04:23:51', 33, 255555555558, 'examination', 0, 'Draft'),
+(133, '2023-03-07 04:28:36', 33, 255555555558, 'examination', 0, 'Draft'),
+(134, '2023-03-07 04:30:15', 33, 255555555558, 'examination', 0, 'Draft'),
+(135, '2023-03-07 04:30:00', 33, 255555555558, 'examination', 0, 'Draft'),
+(136, '2023-03-07 04:30:07', 33, 255555555558, 'examination', 0, 'Draft'),
+(137, '2023-03-07 04:35:09', 33, 255555555558, 'examination', 0, 'Draft'),
+(138, '2023-03-07 04:35:09', 33, 255555555558, 'examination', 0, 'Draft'),
+(139, '2023-03-07 04:36:01', 33, 255555555558, 'examination', 0, 'Draft'),
+(140, '2023-03-07 04:36:01', 33, 255555555558, 'examination', 0, 'Draft'),
+(141, '2023-03-07 04:36:27', 33, 255555555558, 'examination', 0, 'Draft'),
+(142, '2023-03-07 04:37:11', 33, 255555555558, 'examination', 0, 'Draft'),
+(143, '2023-03-07 04:37:30', 33, 255555555558, 'examination', 0, 'Draft'),
+(144, '2023-03-07 04:38:08', 33, 255555555558, 'examination', 0, 'Draft'),
+(145, '2023-03-07 04:58:30', 33, 6666, 'examination', 0, 'Draft'),
+(146, '2023-03-07 05:02:49', 222222222222, 255555555558, 'examination', 1, 'Waiting'),
+(147, '2023-03-08 23:39:00', 29608030400141, 255555555558, 'examination', 1, 'draft');
 
 -- --------------------------------------------------------
 
@@ -121,6 +148,7 @@ CREATE TABLE `appointmentusers` (
 ,`birthDate` date
 ,`docId` bigint(14)
 ,`doctorName` varchar(40)
+,`depId` int(11)
 ,`departmentName` varchar(20)
 ,`datetime` datetime
 ,`consultation_type` varchar(15)
@@ -173,6 +201,22 @@ INSERT INTO `doctor` (`user_id`, `department_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Stand-in structure for view `doctorschedule`
+-- (See below for the actual view)
+--
+CREATE TABLE `doctorschedule` (
+`docId` bigint(14)
+,`docName` varchar(40)
+,`depName` varchar(20)
+,`sId` int(11)
+,`sDate` date
+,`startHour` time
+,`endHour` time
+);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `patient`
 --
 
@@ -221,7 +265,6 @@ CREATE TABLE `prescription` (
 INSERT INTO `prescription` (`appointment_id`, `prescription_time`, `disease`, `medical_test`, `x_rays`, `followup_date`, `notes`) VALUES
 (2, '2023-03-03 09:12:50', 'js test', '', '', '2023-03-03 09:12:50', ''),
 (7, '2023-03-03 09:05:21', 'fffffffffffffffffffffffffffffff', 'ffffffff', 'fffffffffff', '2023-03-03 09:05:21', ''),
-(31, '2023-03-03 09:49:36', 'realoneffffffffffffffffffffffffffffffffff', 'real one', 'real one', '2023-03-17 00:00:00', 'real note2222222222222222'),
 (47, '2023-03-03 04:43:33', 'mmmmmmmmmmmmmmmmmmmmm', '', '', '2023-03-03 04:43:33', ''),
 (51, '2023-02-25 04:40:15', 'wooooooooooooooooooooooooooooooooooooo', '', '', '2023-03-03 04:40:15', ''),
 (54, '2023-03-03 04:53:18', '', '', '', '2023-03-03 04:53:18', ''),
@@ -229,7 +272,7 @@ INSERT INTO `prescription` (`appointment_id`, `prescription_time`, `disease`, `m
 (78, '2023-03-07 01:22:53', '', '', '', '2023-03-07 01:22:53', ''),
 (99, '0000-00-00 00:00:00', 'diseasemnjh', 'real onemj,k', 'x1,x2,x3m,', '2023-03-05 10:22:07', 'nnnnnnnnnnnnnnnnn'),
 (103, '2023-03-05 11:32:43', 'disease', 'MedicalTest', 'x1,x2,x3', '2023-03-05 11:32:43', 'nnnnnnnnnnnnnnnnn'),
-(107, '2023-03-06 01:39:47', 'disease', 'MedicalTest', 'x1,x2,x3', '2023-03-06 01:39:47', 'gggggggggggg');
+(107, '2023-03-06 01:39:47', 'disease', 'dddddddddddddddd', 'x1,x2,x3m,', '2023-03-06 01:39:47', 'gggggggggggg');
 
 -- --------------------------------------------------------
 
@@ -251,8 +294,6 @@ CREATE TABLE `prescription_line` (
 --
 
 INSERT INTO `prescription_line` (`id`, `prescription_id`, `medicine_name`, `dosage_detail`, `allow_subsistuation`, `comment`) VALUES
-(65, 31, 'm2', 'd22222222222222222222', 1, 'c2'),
-(66, 31, 'm2', 'd22222222222222222222', 1, 'c2'),
 (73, 51, 'a', 'a', 1, 'a'),
 (74, 51, 'a', 'a', 1, 'a'),
 (75, 51, 'a', 'a', 0, 'a'),
@@ -267,9 +308,9 @@ INSERT INTO `prescription_line` (`id`, `prescription_id`, `medicine_name`, `dosa
 (92, 7, 'f1', 'f1', 1, 'f1'),
 (93, 7, 'f2', 'f2', 1, 'f2'),
 (94, 7, 'f3', 'f3', 0, 'f3'),
-(96, 2, 'm1', '', 0, ''),
-(97, 2, 'm2', '', 0, ''),
-(98, 2, 'm3', '', 0, ''),
+(96, 2, 'm4', '', 0, ''),
+(97, 2, 'm4', '', 0, ''),
+(98, 2, 'm4', '', 0, ''),
 (99, 2, 'm4', '', 0, ''),
 (107, 99, 'm4', '', 0, ''),
 (108, 99, 'm4', '', 0, ''),
@@ -310,8 +351,7 @@ CREATE TABLE `schedule` (
   `dayDate` date NOT NULL,
   `start` time NOT NULL,
   `end` time NOT NULL,
-  `doctor_id` bigint(14) NOT NULL,
-  `room_no` int(11) NOT NULL
+  `doctor_id` bigint(14) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -357,7 +397,16 @@ INSERT INTO `users` (`national_id`, `name`, `email`, `password`, `type`, `birthD
 --
 DROP TABLE IF EXISTS `appointmentusers`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `appointmentusers`  AS SELECT `a`.`id` AS `id`, `p`.`national_id` AS `patientId`, `p`.`name` AS `patienName`, `p`.`birthDate` AS `birthDate`, `d`.`national_id` AS `docId`, `d`.`name` AS `doctorName`, `dep`.`name` AS `departmentName`, `a`.`datetime` AS `datetime`, `a`.`consultation_type` AS `consultation_type`, `a`.`booked_online` AS `booked_online`, `a`.`state` AS `state` FROM ((((`appointment` `a` join `users` `p` on(`a`.`patient_Id` = `p`.`national_id`)) join `users` `d` on(`a`.`doctor_id` = `d`.`national_id`)) join `doctor` `doc` on(`doc`.`user_id` = `d`.`national_id`)) join `department` `dep` on(`dep`.`id` = `doc`.`department_id`))  ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `appointmentusers`  AS SELECT `a`.`id` AS `id`, `p`.`national_id` AS `patientId`, `p`.`name` AS `patienName`, `p`.`birthDate` AS `birthDate`, `d`.`national_id` AS `docId`, `d`.`name` AS `doctorName`, `dep`.`id` AS `depId`, `dep`.`name` AS `departmentName`, `a`.`datetime` AS `datetime`, `a`.`consultation_type` AS `consultation_type`, `a`.`booked_online` AS `booked_online`, `a`.`state` AS `state` FROM ((((`appointment` `a` join `users` `p` on(`a`.`patient_Id` = `p`.`national_id`)) join `users` `d` on(`a`.`doctor_id` = `d`.`national_id`)) join `doctor` `doc` on(`doc`.`user_id` = `d`.`national_id`)) join `department` `dep` on(`dep`.`id` = `doc`.`department_id`))  ;
+
+-- --------------------------------------------------------
+
+--
+-- Structure for view `doctorschedule`
+--
+DROP TABLE IF EXISTS `doctorschedule`;
+
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `doctorschedule`  AS SELECT `u`.`national_id` AS `docId`, `u`.`name` AS `docName`, `dep`.`name` AS `depName`, `s`.`id` AS `sId`, `s`.`dayDate` AS `sDate`, `s`.`start` AS `startHour`, `s`.`end` AS `endHour` FROM (((`users` `u` join `doctor` `d` on(`d`.`user_id` = `u`.`national_id`)) join `department` `dep` on(`d`.`department_id` = `dep`.`id`)) join `schedule` `s` on(`s`.`doctor_id` = `d`.`user_id`)) ORDER BY `s`.`dayDate` DESC, `u`.`name` ASC  ;
 
 -- --------------------------------------------------------
 
@@ -439,7 +488,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=149;
 
 --
 -- AUTO_INCREMENT for table `department`
@@ -457,7 +506,7 @@ ALTER TABLE `prescription_line`
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Constraints for dumped tables
