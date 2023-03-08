@@ -66,30 +66,34 @@ if(isset($_POST["savebtn"])){
     $Password=sha1($_POST["Password"]);
     $RepeatPassword=sha1($_POST["RepeatPassword"]);
     $type="patient";
-
-    if ($Password==$RepeatPassword){
-        //update  Prescription 
-        $updateUsersSql = "update users set name='$patientName', mobile='$mobile', password='$password' ,
-        national_id='$nationalId',birthDate='$BirthDate', Email='$Email', gender='$gender' where national_id =$patientId";
-        $usersResult = mysqli_query($connection, $updateUsersSql);
+    if (preg_match('/^[a-zA-A]+$/', $patientName)){
+        $pattern = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]{5}+\.[a-zA-Z0-9-.]{3}+$/";
+        if(preg_match($pattern,$Email)){
+        if ($Password==$RepeatPassword){
+            //update  user 
+            $updateUsersSql = "update users set name='$patientName', mobile='$mobile', password='$password' ,
+            national_id='$nationalId',birthDate='$BirthDate', Email='$Email', gender='$gender' where national_id =$patientId";
+            $usersResult = mysqli_query($connection, $updateUsersSql);
     
-        $updateAdressSql= "update adress set user_id='$nationalId', apartment='$apartment', city='$city', country='$country', street='$street' where user_id='$patientId'";
-        $adressResult = mysqli_query($connection, $updateAdressSql);
+            $updateAdressSql= "update adress set user_id='$nationalId', apartment='$apartment', city='$city', country='$country', street='$street' where user_id='$patientId'";
+            $adressResult = mysqli_query($connection, $updateAdressSql);
 
-        $updatePatientSql= "update patient set  chronic_disease='$ChronicDisease',past_surgery='$PastSurger',user_id='$nationalId', 
-        employee_id='$employeeId', blood_type='$Blood', company='$company' where user_id=$patientId";
-        $adressResult = mysqli_query($connection, $updatePatientSql);
-        header("Location: Patient.html");
+            $updatePatientSql= "update patient set  chronic_disease='$ChronicDisease',past_surgery='$PastSurger',user_id='$nationalId', 
+            employee_id='$employeeId', blood_type='$Blood', company='$company' where user_id=$patientId";
+            $adressResult = mysqli_query($connection, $updatePatientSql);
+            header("Location: Patient.html");
 
+        }
+        else{
+            header("Location: editpatient.html?national_id=$patientId&acesserror=Password must be matched");
+        }
+    }else{header("Location: editpatient.html?national_id=$patientId&acesserror=Pleaes Enter Valid Email");
     }
-    else{
-        header("Location: editpatient.html?national_id=$patientId&&?acesserror=Password must be matched");
-        
-
-    }
+}else{header("Location: editpatient.html?national_id=$patientId&acesserror=Pleaes Enter Valid Name");
 }
 }
-else{
+
+}else{
     header("Location: ../login.html?acesserror=Access Denied Please Log In");
   }
 ?>

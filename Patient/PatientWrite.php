@@ -50,6 +50,10 @@ if(isset( $_SESSION['NId'])  ){
         $Password=sha1($_POST["Password"]);
         $RepeatPassword=sha1($_POST["RepeatPassword"]);
         $type="Patient";
+        if(preg_match('/^[0-9]{14}/', $nationalId)){
+        if (!preg_match('/^[a-zA-A]+$/', $patientname)){
+            $pattern = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]{5}+\.[a-zA-Z0-9-.]{3}+$/";
+            if(preg_match($pattern,$Email)){
         if ($Password==$RepeatPassword){
             //Open database
             include_once("../dbConnection.php");
@@ -71,10 +75,20 @@ if(isset( $_SESSION['NId'])  ){
         header("Location: patient_form.html?acesserror=Wrong data entered");
 
     }
+}else{
+    header("Location: patient_form.html?acesserror=Please Enter Valid Email");
 
+}
+}else{
+    header("Location: patient_form.html?acesserror=Please Enter Valid Name");
+}
+}else{
+    header("Location: patient_form.html?acesserror=Please Enter Valid ID");
+}
     }
 }
 else{
     header("Location: ../login.html?acesserror=Access Denied Please Log In");
   }
+
 ?>
