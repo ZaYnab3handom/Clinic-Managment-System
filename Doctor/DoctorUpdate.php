@@ -37,7 +37,7 @@ if(isset($_POST["savebtn"])){
         $RepeatPassword=sha1($_POST["RepeatPassword"]);
         $department=$_POST["department"];
         $type="Doctor";
-        if (preg_match('/^[a-zA-A]+$/', $doctorName)){
+        if (preg_match('/^[a-zA-z ]+$/', $doctorName)){
             $pattern = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]{5}+\.[a-zA-Z0-9-.]{3}+$/";
             if(preg_match($pattern,$Email)){
     if ($Password==$RepeatPassword){

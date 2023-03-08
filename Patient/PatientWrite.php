@@ -51,7 +51,7 @@ if(isset( $_SESSION['NId'])  ){
         $RepeatPassword=sha1($_POST["RepeatPassword"]);
         $type="Patient";
         if(preg_match('/^[0-9]{14}/', $nationalId)){
-        if (!preg_match('/^[a-zA-A]+$/', $patientname)){
+        if (!preg_match('/^[a-zA-Z ]+$/', $patientname)){
             $pattern = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]{5}+\.[a-zA-Z0-9-.]{3}+$/";
             if(preg_match($pattern,$Email)){
         if ($Password==$RepeatPassword){
