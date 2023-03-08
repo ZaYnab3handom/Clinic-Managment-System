@@ -4,8 +4,10 @@
 if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
 
         include_once("../dbConnection.php");
-
-        $readSql = "select * from presusers order by appointment_id desc "; 
+        if( $_SESSION['userType']=='doctor' ){
+         $readSql = "select * from presusers where docId=$_SESSION[NId] order by appointment_id desc "; 
+        }else{
+        $readSql = "select * from presusers order by appointment_id desc "; }
         $readResult = mysqli_query($connection, $readSql);
         
         while($data = mysqli_fetch_array($readResult)) {

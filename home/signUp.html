@@ -40,8 +40,7 @@ include("../home/php/PatientWrite.php");
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
                 <a href="index.html" class="navbar-brand">
-                    <h1 class="m-0 text-uppercase text-primary"><i class="fa-solid fa-stethoscope"></i>HMS</h1>
-                </a>
+                    <img src="./img/logo.png" alt=""> </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -49,7 +48,9 @@ include("../home/php/PatientWrite.php");
                     <div class="navbar-nav ms-auto py-0">
                         <a href="index.html" class="nav-item nav-link ">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
+                       <!-- <a href="signUp.html" class="nav-item nav-link">SignUp</a>-->
                         <a href="appointment.html" class="nav-item nav-link active">Appointment</a>    
+                        <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
             </nav>
@@ -66,61 +67,63 @@ include("../home/php/PatientWrite.php");
                     <div class="bg-white text-center rounded p-5">
                         <h1 class="mb-4">SignUp</h1>
                         <form method="post">
-                            <div class="row g-3">
+                            <div class="row g-3" >
                                 <div class="col-12 col-sm-2" id="label">
-                                    <label  class="col-sm-6 col-form-label" for="patientid" style="text-align: left; height: 55px; padding-top: 14px;" >Patient Id: </label>
-                                </div>
+                                    <label  class="col-sm-6 col-form-label" for="patientid" style="text-align: left; height: 55px; padding-top: 14px;" >National Id </label>
+
+                             </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0" id="patientid" style="height: 55px;" name="nationalId"  >
-                                </div>
-                                <div class="col-12 col-sm-2" id="label">
-                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Patient Name: </label>
-                                </div>
-                                <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="patientname">
+                                  
+                                    <input type="text" class="form-control bg-light border-0" id="patientid" style="height: 55px;" name="nationalId" min="0" max="14" maxlength="14" required >
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
-                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Email: </label>
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" > Name</label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="email" class="form-control bg-light border-0"  style="height: 55px;" name="Email">
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="patientname" min="3" maxlength="10" required>
+                                </div>
+                                <div class="col-12 col-sm-2" id="label">
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Email </label>
+                                </div>
+                                <div class="col-12 col-sm-9">
+                                    <input type="email" class="form-control bg-light border-0"  style="height: 55px;" name="Email" maxlength="40" required>
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" > Password </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="password" class="form-control bg-light border-0" style="height: 55px;" name="Password">
+                                    <input type="password" class="form-control bg-light border-0" style="height: 55px;" name="Password" maxlength="40" required>
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
-                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Repeat Password: </label>
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Repeat Password </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="password" class="form-control bg-light border-0"  style="height: 55px;" name="RepeatPassword">
+                                    <input type="password" class="form-control bg-light border-0"  style="height: 55px;" name="RepeatPassword" maxlength="40" required>
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
-                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Birthdate: </label>
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Birthdate </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="date" class="form-control bg-light border-0"  style="height: 55px;" name="birthDate">
+                                    <input type="date" class="form-control bg-light border-0"  style="height: 55px;" name="birthDate" required>
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
-                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Mobile: </label>
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Mobile </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="mobile">
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="mobile" min="0" max="14" maxlength="14" required>
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
-                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Employee Code: </label>
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Employee Code</label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="employeeId">
+                                    <input type="number" class="form-control bg-light border-0"  style="height: 55px;" name="employeeId" min="0" max="16" maxlength="16"  required>
                                 </div>
 
                                 <div class="col-12 col-sm-2" id="label">
-                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Company: </label>
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Company </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <select class="form-control form-select bg-light border-0" style="height: 55px;" name="company" aria-label="Default select example">
+                                    <select class="form-control form-select bg-light border-0" style="height: 55px;" name="company" aria-label="Default select example" required>
                                         
                                         <option value="a">Sugar Canel</option>
                                         <option value="b">Department2</option>
@@ -128,10 +131,10 @@ include("../home/php/PatientWrite.php");
                                       </select>
                                 </div>
                                 <div div class="col-12 col-sm-2" id="label">
-                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Blood Type: </label>
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Blood Type</label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                  <select name="Blood" class="form-control form-select bg-light border-0" style="height: 55px;" aria-label="Default select example">                
+                                  <select name="Blood" class="form-control form-select bg-light border-0" style="height: 55px;" aria-label="Default select example" required>                
                                     <option value="A">A</option>
                                     <option value="B">B</option>
                                     <option value="AB">AB</option>
@@ -140,51 +143,51 @@ include("../home/php/PatientWrite.php");
                               </div>
 
                                 <div class="col-12 col-sm-2" id="label">
-                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Chronic Disease: </label>
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Chronic Disease </label>
                                 </div>
 
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="ChronicDisease">
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="ChronicDisease" required>
                                 </div>
 
                                 <div class="col-12 col-sm-2" id="label">
-                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Past Surgery: </label>
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Past Surgery </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="PastSurger">
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="PastSurger" required>
                                 </div>
 
                                 <div class="col-12 col-sm-2" id="label">
-                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Address: </label>
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Address </label>
                                 </div>
                                 <div class="col-12 col-sm-2">
-                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="apartment" style="height: 55px;" name="apartment">
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="apartment" style="height: 55px;" name="apartment" required>
                                 </div>
                                 <div class="col-12 col-sm-2">
-                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="Street" style="height: 55px;" name="street">
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="Street" style="height: 55px;" name="street" required>
                                 </div>
                                 <div class="col-12 col-sm-2">
-                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="City" style="height: 55px;" name="city">
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="City" style="height: 55px;" name="city"required>
                                 </div>
                                 <div class="col-12 col-sm-3">
-                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="Country" style="height: 55px;" name="country">
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="Country" style="height: 55px;" name="country"required>
                                 </div>
 
                                 <div class="col-12 col-sm-2" id="label">
-                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Gender: </label>
+                                    <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Gender </label>
                                 </div>
                                 <div class="col-8 col-sm-4" id="gender">
                                     <label class="form-control bg-light border-0 col-6" id="gender2" >
-                                        <input class="form-check-input" id="males" type="radio" name="gender" value="M" ><label for="males" id="male">Male</label> 
-                                        <input class="form-check-input" id="females" type="radio" name="gender"  value="F"><label for="females"> Female </label>
+                                        <input class="form-check-input" id="males" type="radio" name="gender" value="M" required><label for="males" id="male" >Male</label> 
+                                        <input class="form-check-input" id="females" type="radio" name="gender"  value="F" ><label for="females"> Female </label>
                                       </label>
                                </div>
                             <div></div>
                                 <div class="col-6">
-                                     <input class="btn btn-primary w-100 py-3" name="savebtn"  value="submit" type="submit">
+                                     <input class="btn btn-primary w-100 py-3" name="savebtn"  value="SignUp" type="submit">
                                 </div>
                                 <div class="col-6">
-                                    <a class="btn btn-primary w-100 py-3" href="login.html" type="submit"> Are you already patient? </a>
+                                    <a class="btn btn-primary w-100 py-3" href="login.html" type="submit"> Login </a>
                                </div>
                             </div>
                         </form>
@@ -194,8 +197,9 @@ include("../home/php/PatientWrite.php");
         </div>
     </div>                             
 
-            
+    <script src="js/vaild.js"></script>  
     <script src="js/main.js"></script>
+
 </body>
 
 </html>

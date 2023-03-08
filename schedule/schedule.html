@@ -1,4 +1,5 @@
 <?php
+session_start();
   include("scheduleWrite.php")
 ?>
 <!DOCTYPE html>
@@ -33,15 +34,16 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav ms-auto py-0">
             <a href="../dashbord/index.html" class="nav-item nav-link">Home</a>
+            <a href="../Doctor/Doctor.html" class="nav-item nav-link">Doctor</a>
+            <a href="../schdule/schdule.html" class="nav-item nav-link active">Schedule</a>
             <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>
             <a href="../appointment/appointmentList.html" class="nav-item nav-link ">Appoinment</a>
             <a href="../prsecription/prescriptionList.html" class="nav-item nav-link ">Prescription</a>
-            <a href="../Doctor/Doctor.html" class="nav-item nav-link">Doctor</a>
-            <a href="../schdule/schdule.html" class="nav-item nav-link active">Schedule</a>
+
             <div>
               <!-- <label for="user" class="nav-item nav-link" style="color:#6c757d">username</label> -->
               <div class="nav-link" style="font-size: 15px;width: fit-content;font-weight: 500; color:#6c757d">
-                <!-- <?php echo $_SESSION['userName'].' '.'('.$_SESSION['userType'].')'; ?> -->
+                <?php echo $_SESSION['userName'].' '.'('.$_SESSION['userType'].')'; ?>
               </div>
 
             </div>
@@ -80,27 +82,14 @@
             </div>
             <!-- sat -->
             <div class="mb-3 row" id="add_to_me">
-              <span class="labelInput">
-                <label id="day">Day</label>
-                <select class="form-control form-select bg-white border-0"
-                  style="height: 55px;  margin: 10px; margin-left: 40px;" name="company"
-                  aria-label="Default select example">
-                  <option value="sat">Saturday</option>
-                  <option value="sun">Sunday</option>
-                  <option value="mon">Monday</option>
-                  <option value="tues">Tuesday</option>
-                  <option value="wed">Wednsday</option>
-                  <option value="thurs">Thursday</option>
-                  <option value="fri">Friday</option>
-                </select>
                 <div class="col-sm-3 schdule">
                   <span class="labelInput">
                     <label for="">Date</label>
                     <input type="date" class="form-control bg-white border-0" name="dayDate[]"
                       style="height: 55px;  margin: 5px;">
                   </span>
-              </span>
             </div>
+
             <div class="col-sm-3 schdule">
               <span class="labelInput">
                 <label for="">Start</label>
@@ -108,6 +97,7 @@
                   style="height: 55px;  margin: 5px;">
               </span>
             </div>
+
             <div class="col-sm-3 schdule">
               <span class="labelInput">
                 <label for="date">End</label>
@@ -118,16 +108,17 @@
           </div>
 
           <div class="col-12 col-sm-6">
-            <button onclick="addCode()" type="button" class='btn btn-success addmore border-0' style="background-color: #42b3e5;">add new
+            <button onclick="addCode()" type="button" class='btn btn-success addmore border-0'
+              style="background-color: #42b3e5;">add new
             </button>
           </div>
           <div class="col-12 col-sm-6">
 
           </div>
-        
+
           <div class="col-12 col-sm-6 text-center">
             <button class="discard btn-light border-1 border border-secondary btn w-50 py-3">
-              <a href="appointmentList.html" class="text-decoration-none" style="color: #6c757d;">Discard</a>
+              <a href="schedule.html" class="text-decoration-none" style="color: #6c757d;">Discard</a>
             </button>
           </div>
 

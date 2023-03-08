@@ -1,10 +1,13 @@
 
 <?php
 //Read From appointmet Table
-if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
         include_once("../dbConnection.php");
-
-        $readSql = "select * from appointmentusers order by id desc"; 
+if( $_SESSION['userType']=='doctor' ){
+    $readSql = "select * from appointmentusers where docId=$_SESSION[NId] order by id desc"; 
+}else{      
+     $readSql = "select * from appointmentusers order by id desc"; 
+}
         $readResult = mysqli_query($connection, $readSql);
         while($data = mysqli_fetch_array($readResult)) {
             echo "<tr>";    

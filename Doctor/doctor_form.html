@@ -62,19 +62,19 @@ session_start();
         <div class="row form bg-light  rounded p-5">
           <h1 class="mb-4 text-center">Doctor</h1>
           <div class="row g-3">
-            <form action="" method="post">
+            <form action=""onsubmit ="return verifyPassword()" method="post">
               <div class="row g-3">
                 <div class="col-12 col-sm-6">
                   <span class="labelInput">
                   <label for="doctorname">Doctor Name</label>
-                  <input type="text" id="doctorname" name="doctorName" class="form-control bg-white border-0" placeholder="eg.Ahmed" style="height: 55px;">
+                  <input type="text" id="doctorname" name="doctorName" class="form-control bg-white border-0" placeholder="eg.Ahmed" style="height: 55px;"required>
                 </span>
                 </div>
                 <div class="col-12 col-sm-6">
                   <span class="labelInput">
                   <label for="Mobile">Phone Number</label>
                   <input type="text" id="Mobile" name="mobile" class="form-control bg-white border-0"
-                    placeholder="01xxx" style="height: 55px;">
+                    placeholder="01xxx" style="height: 55px;" onchange="CheckNum()" required>
                   </span>
                   <br>
                 </div>
@@ -82,7 +82,7 @@ session_start();
                   <span class="labelInput">
                   <label for="NationalId">National Id</label>
                   <input type="text" id="NationalId" name="nationalId" class="form-control bg-white border-0" placeholder="1234.."
-                    style="height: 55px;">
+                    style="height: 55px;" onchange="CheckID()" required>
                   </span>
                 </div>
                 
@@ -90,16 +90,16 @@ session_start();
                   <span class="labelInput">
                   <label for="date">Date</label>
                   <input type="date" id="Birthdate" name="Birthdate" class="form-control bg-white border-0"
-                  placeholder="Birthdate" style="height: 55px;">
+                  placeholder="Birthdate" style="height: 55px;" required>
                   </span>
                   <br>
                 </div>
 
                 <div class="col-12 col-sm- d-flex justify-content-center">
                   <span>
-                <input class="form-check-input"type="radio" name="gender" id="flexRadioDefault2" value="M"> <label for="male" id="male">&nbsp;Male</label> 
+                <input class="form-check-input"type="radio" name="gender" id="flexRadioDefault2" value="M" required> <label for="male" id="male">&nbsp;Male</label> 
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" value="F"><label for="female">&nbsp;&nbsp;Female </label>
+                <input class="form-check-input" type="radio" name="gender" id="flexRadioDefault1" value="F" required><label for="female">&nbsp;&nbsp;Female </label>
 
               </span>
               </div>
@@ -107,7 +107,7 @@ session_start();
                 <div class="col-12 col-sm-6">
                   <span>
                   <label for="Department">Department</label>
-                  <select  class="form-control bg-white border-0" name="department" style="height: 55px;">                
+                  <select  class="form-control bg-white border-0" name="department" style="height: 55px;" >                
                     <?php include_once("../dbConnection.php");
                     $readSql = "SELECT * FROM department"; 
                     $readResult1 = mysqli_query($connection, $readSql);
@@ -120,7 +120,7 @@ session_start();
                 <div class="col-12 col-sm-3">
                   <label for="Department">Address</label>
                   <input type="text" id="Street" name="street" class="form-control bg-white border-0"
-                    placeholder="1234 Main St" style="height: 55px;">
+                    placeholder="1234 Main St" style="height: 55px;" >
                 </div>
                 <div class="col-12 col-sm-3">
                   <label for="Apartment">Apartment</label>
@@ -132,18 +132,18 @@ session_start();
                 <div class="col-12 col-sm-6 ">                
                   <label for="Email">Email:</label>
                   <input type="email" id="Email" name="email" class="form-control bg-white border-0"
-                    placeholder="name@examble.com" style="height: 55px;">
+                    placeholder="name@examble.com" style="height: 55px;" onchange="CheckEmail()" required>
                   </span>
                   </div>
                 <div class="col-12 col-sm-3">
                   <label for="Country">Country</label>
                   <input type="text" id="Country" name="country" class="form-control bg-white border-0"
-                    placeholder="Egypt" style="height: 55px;">
+                    placeholder="Egypt" style="height: 55px;"required>
                 </div>
                 <div class="col-12 col-sm-3">
                   <label for="City">City:</label>
                     <input type="text" id="City" name="city" class="form-control bg-white border-0"
-                      placeholder="Cairo" style="height: 55px;">
+                      placeholder="Cairo" style="height: 55px;"required>
                   </div>
                 
                 <div class="col-12 col-sm-6">
@@ -175,6 +175,7 @@ session_start();
         </div>
       </div>
       <script src="../Doctor/bootstrap.bundle.min.js"></script>
+      <script src="../JS.js"></script>
 </body>
 
 </html>
