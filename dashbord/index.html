@@ -31,7 +31,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']=='admin'  ){   ?>
           <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
             <a href="index.html" class="navbar-brand">
                 
-              <img src="logo.png" alt=""></a>
+              <img src="logo.png" alt="" ></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -39,7 +39,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']=='admin'  ){   ?>
               <div class="navbar-nav ms-auto py-0">
                 <a href="../New folder (2)/index.html" class="nav-item nav-link active">Home</a>
                 <a href="../Doctor/Doctor.html" class="nav-item nav-link">Doctor</a>
-                <a href="../schedule/schedule.html" class="nav-item nav-link">Schedule</a>
+                <a href="../schedule/scheduleList.html" class="nav-item nav-link">Schedule</a>
                 <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>
                 <a href="../appointment/appointmentList.html" class="nav-item nav-link">Appoinment</a>
                 <a href="../prsecription/prescriptionList.html" class="nav-item nav-link ">Presciption</a>
@@ -139,11 +139,11 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']=='admin'  ){   ?>
     <table  class="table  table-striped table-borderless table-hover scrolldown ms-auto me-auto mt-5 w-75  home-dash " >
         <thead style="background-color: #42b3e5;">
             <tr>
-                <th>ID</th>
-                <th>patient name</th>
-                <th>Doctor name</th>
-                <th>Department</th>
-                <th colspan="2">Date</th>
+                <th  style="border: none;">ID</th>
+                <th style="border: none;">patient name</th>
+                <th style="border: none;">Doctor name</th>
+                <th style="border: none;">Department</th>
+                <th style="border: none;"colspan="2">Date</th>
             </tr>
         </thead>
         <tbody style="margin-top: 10px;">

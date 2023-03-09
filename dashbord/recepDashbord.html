@@ -28,7 +28,7 @@ session_start();?>
   <div class="container-fluid sticky-top bg-white shadow-sm">
     <div class="container">
       <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
-        <a href="index.html" class="navbar-brand">
+        <a href="" class="navbar-brand">
 
           <img src="logo.png" alt=""></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -36,11 +36,11 @@ session_start();?>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav ms-auto py-0">
-            <a href="../New folder (2)/index.html" class="nav-item nav-link active">Home</a>
+            <a href="" class="nav-item nav-link active">Home</a>
+            <a href="../schedule/scheduleList.html" class="nav-item nav-link">Schedule</a>
             <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>
             <a href="../appointment/appointmentList.html" class="nav-item nav-link">Appoinment</a>
             <a href="../prsecription/prescriptionList.html" class="nav-item nav-link ">Presciption</a>
-            <a href="../Doctor/Doctor.html" class="nav-item nav-link">Doctor</a>
             <div class="">
               <div class="nav-link" style="font-size: 15px;width:fit-content;font-weight: 500; color:#6c757d">
                 <?php echo $_SESSION['userName'].' '.'('.$_SESSION['userType'].')'; ?>
@@ -110,18 +110,18 @@ session_start();?>
 
   <div class="d-flex justify-content-around mb-5">
 
-    <table class="table table-bordered scrolldown ">
+    <table class="table table-striped table-borderless table-hover scrolldown ">
 
       <thead style="background-color: #42b3e5;">
         <tr>
-          <th>ID</th>
-          <th>patient name</th>
-          <th>Doctor name</th>
-          <th>Department</th>
-          <th>Date</th>
+          <th style='border: none;'>ID</th>
+          <th style='border: none;'>patient name</th>
+          <th style='border: none;'>Doctor name</th>
+          <th style='border: none;'>Department</th>
+          <th style='border: none;'>Date</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody style="margin-top: 10px;">
         <?php
       tabledisplay();
       ?>
@@ -129,17 +129,17 @@ session_start();?>
     </table>
     <a href="../appointment/appDelete.php"></a>
 
-    <table class="table table-bordered scrolldown  ms-3">
+    <table class="table table-striped table-borderless table-hover scrolldown  ms-3">
       <thead style="background-color: #42b3e5;">
         <tr>
-          <th>patient name</th>
-          <th>Doctor name</th>
-          <th>Date</th>
-          <th> Delete</th>
-          <th> Edit</th>
+          <th style='border: none;'>patient name</th>
+          <th style='border: none;'>Doctor name</th>
+          <th style='border: none;'>Date</th>
+          <th style='border: none;'> Delete</th>
+          <th style='border: none;'> Edit</th>
         </tr>
       </thead>
-      <tbody>
+      <tbody style="margin-top: 10px;">
         <?php
     respdashbord();
     ?>

@@ -1,13 +1,13 @@
 <?php
 
-if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  )
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  )
 {
-    $user=$_SESSION['userName'];
+    $user=$_SESSION['NId'];
     global $user;
-}
+
 
     include_once("../dbConnection.php");
-    $q="select patienName ,consultation_type,id FROM `appointmentusers`WHERE doctorName='$user'";
+    $q="select patienName ,consultation_type,id FROM `appointmentusers` WHERE state='In-consultation' and doctorName='$user'";
     $Result = mysqli_query($connection, $q);
     function display()
     {
@@ -15,9 +15,9 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  )
         while($data = mysqli_fetch_array($Result)) 
         {
             echo"<tr>";
-            echo" <td>".$data['patienName']."</td>";
-            echo "<td>".$data['consultation_type']."</td>";
-            echo "<td> <a href='../prsecription/prescriptionForm.html?appId=$data[id]'> <i class='bi bi-file-earmark-medical-fill'></i> </a> </td>";
+            echo" <td style='border: none;'>".$data['patienName']."</td>";
+            echo "<td style='border: none;'>".$data['consultation_type']."</td>";
+            echo "<td style='border: none;' > <a href='../prsecription/prescriptionForm.html?appId=$data[id]'> <i class='bi bi-file-earmark-medical-fill'></i> </a> </td>";
             echo"</tr>";
         }
     }
@@ -41,5 +41,8 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  )
         global $draft;
         echo $draft;   
     }
+}else{
+        header("Location: ../login.html?acesserror=Access Denied Please Log In");
+      }
 
 ?>

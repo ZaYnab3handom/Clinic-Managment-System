@@ -12,7 +12,8 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
      //delete the related prescription line
      //done By cascading Delete
      header("Location:recepDashbord.html?delete=Appointment Deleted!");
-} else{
+} 
+else{
      header("Location: ../login.html?acesserror=Access Denied Please Log In");
    } 
      
