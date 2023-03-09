@@ -59,12 +59,12 @@
                         <form method="post">
                             <div class="row g-3">
                               <div class="col-12 ">
-                                    <input type="text" class="form-control bg-light border-0" placeholder="Please Enter Your National ID" style="height: 55px;" name="national_id">
+                                    <input type="text" class="form-control bg-light border-0" placeholder="Please Enter Your National ID" style="height: 55px;" name="national_id" id="NationalId" onchange="CheckID()">
                                 </div>
-                                <!-- <div class="col-12 ">
+                                <!--<div class="col-12 ">
                                     <input type="email" class="form-control bg-light border-0" placeholder="Your Email" style="height: 55px;" name="">
-                                </div> -->
-                            <div class="col-12">
+                                </div> 
+                            <div class="col-12">-->
                                 <input type="submit" class="btn btn-primary w-100 py-3" name="savebtn" value="Book" required>   
                                            <br>
                                         <?php 
@@ -82,5 +82,6 @@
         </div>
     </div> 
    <script src="js/main.js"></script>
+   <script src="js/vaild.js"></script>
 </body>
 </html>
