@@ -81,7 +81,7 @@ if(isset($_POST["savebtn"])){
             $updatePatientSql= "update patient set  chronic_disease='$ChronicDisease',past_surgery='$PastSurger',user_id='$nationalId', 
             employee_id='$employeeId', blood_type='$Blood', company='$company' where user_id=$patientId";
             $adressResult = mysqli_query($connection, $updatePatientSql);
-            header("Location: Patient.html");
+            header("Location: Patient.html?done=Patient Edit Sucssessfuly ");
 
         }
         else{
@@ -92,7 +92,6 @@ if(isset($_POST["savebtn"])){
 }else{header("Location: editpatient.html?national_id=$patientId&acesserror=Pleaes Enter Valid Name");
 }
 }
-
 }else{
     header("Location: ../login.html?acesserror=Access Denied Please Log In");
   }

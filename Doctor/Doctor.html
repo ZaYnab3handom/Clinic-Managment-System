@@ -65,7 +65,21 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
       </nav>
     </div>
   </div>
-
+  <?php if (isset($_GET['done'])) { ?>
+    <span class="alert alert-success" role="alert" style="text-align: center;display:inline" >
+      <?=$_GET['done']?>
+    </span>
+  <?php } ?>
+  <?php if (isset($_GET['delete'])) { ?>
+    <span class="alert alert-danger" role="alert" style="text-align: center;display:inline" >
+      <?=$_GET['delete']?>
+    </span>
+  <?php } ?>
+  <?php if (isset($_GET['acesserror'])) { ?>
+    <div class="alert alert-danger" role="alert" style="text-align: center;">
+      <?=$_GET['acesserror']?>
+  </div>
+  <?php } ?>
 
   <!-- search input -->
   <div class="container">
