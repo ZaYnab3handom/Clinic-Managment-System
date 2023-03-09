@@ -1,5 +1,7 @@
 <?php 
-session_start();     
+session_start(); 
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
+
 
 ?>
 <!DOCTYPE html>
@@ -162,3 +164,6 @@ session_start();
 </body>
 
 </html>
+<?php } else{
+  header("Location: ../login.html?acesserror=Access Denied Please Log In");
+} ?>
