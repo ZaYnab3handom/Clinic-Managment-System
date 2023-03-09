@@ -1,4 +1,6 @@
 <?php 
+
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
        include_once("../dbConnection.php");
         //Read From Doctor
         $readSql = "SELECT *, users.name AS doc_name FROM users 
@@ -23,5 +25,8 @@
             echo "</tr>";
         
         }
+    }else{
+        header("Location: ../login.html?acesserror=Access Denied Please Log In");
+      } 
 
 ?>

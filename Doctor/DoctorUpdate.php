@@ -1,4 +1,6 @@
 <?php
+
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
 include("../dbConnection.php");
 //read Doctor data
 $doctortId = $_GET["national_id"];
@@ -65,5 +67,8 @@ header("Location: editdoctor.html?national_id=$doctortId&acesserror=Please Enter
 
 }
 }
+}else{
+    header("Location: ../login.html?acesserror=Access Denied Please Log In");
+  } 
 ?>
 

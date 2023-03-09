@@ -1,5 +1,6 @@
 <?php 
 session_start();
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
 
 ?>
 <!DOCTYPE html>
@@ -36,10 +37,12 @@ session_start();
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="../dashbord/index.html" class="nav-item nav-link">Home</a>
+                        <a href="../Doctor/Doctor.html" class="nav-item nav-link active">Doctor</a>
+                        <a href="../schedule/scheduleList.html" class="nav-item nav-link">Schedule</a>
+
                         <a href="../Patient/patient.html" class="nav-item nav-link">Patient</a>
                         <a href="../appointment/appointmentList.html" class="nav-item nav-link">Appoinment</a>
                         <a href="../prsecription/prescriptionList.html" class="nav-item nav-link">Prescription</a>
-                        <a href="../Doctor/Doctor.html" class="nav-item nav-link active">Doctor</a>
                         <div>
                           <!-- <label for="user" class="nav-item nav-link" style="color:#6c757d">username</label> -->
                           <div  class="nav-link" style="font-size: 15px;width: fit-content;font-weight: 500; color:#6c757d"><?php echo $_SESSION['userName'].' '.'('.$_SESSION['userType'].')'; ?></div>
@@ -183,3 +186,6 @@ session_start();
 
   include("DoctorWrite.php");
 ?>
+<?php } else{
+  header("Location: ../login.html?acesserror=Access Denied Please Log In");
+} ?>

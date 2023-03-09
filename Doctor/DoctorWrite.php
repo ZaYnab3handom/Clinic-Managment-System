@@ -1,4 +1,6 @@
 <?php 
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
+
 include_once("../dbConnection.php");
     if(isset($_POST["savebtn"])){
         //check if the Doctoris  male or female
@@ -66,4 +68,7 @@ include_once("../dbConnection.php");
     header("Location: doctor_form.html?acesserror=Please Enter Valid ID");
 }
 }
+}else{
+    header("Location: ../login.html?acesserror=Access Denied Please Log In");
+  } 
 ?>
