@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
 
      include_once("../dbConnection.php");
     $id = $_GET["user"];

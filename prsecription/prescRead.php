@@ -1,7 +1,7 @@
 
 <?php
 //Read From Prescription Table
-if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
 
         include_once("../dbConnection.php");
         if( $_SESSION['userType']=='doctor' ){
