@@ -38,12 +38,14 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']=='admin'  ){   ?>
             <div class="collapse navbar-collapse" id="navbarCollapse">
               <div class="navbar-nav ms-auto py-0">
                 <a href="../New folder (2)/index.html" class="nav-item nav-link active">Home</a>
+                <a href="../Doctor/Doctor.html" class="nav-item nav-link">Doctor</a>
+                <a href="../schedule/schedule.html" class="nav-item nav-link">Schedule</a>
                 <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>
                 <a href="../appointment/appointmentList.html" class="nav-item nav-link">Appoinment</a>
                 <a href="../prsecription/prescriptionList.html" class="nav-item nav-link ">Presciption</a>
-                <a href="../Doctor/Doctor.html" class="nav-item nav-link">Doctor</a>
                 <div class="">
-                    <div class="nav-link" style="font-size: 15px;width:fit-content;font-weight: 500; color:#6c757d"><?php echo $_SESSION['userName'].' '.'('.$_SESSION['userType'].')'; ?></div>
+                    
+                    <div class="nav-link " style="font-size: 15px;width:fit-content;font-weight: 500; color:#6c757d"><?php echo $_SESSION['userName'].' '.'('.$_SESSION['userType'].')'; ?></div>
                 </div>
                 <a href="../authLog/logout.php" class="nav-item nav-link"><i class="bi bi-box-arrow-right"></i></a>
                 <!-- <a href="../home/index.html" class="nav-item nav-link">Log Out</a> -->
