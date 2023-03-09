@@ -1,4 +1,6 @@
 <?php
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
+
     include_once("../dbConnection.php");
     
     /* home dashbord */
@@ -47,7 +49,7 @@
     
     /* table */
 
-    $q="select doctorName,patienName,id,departmentName,DATE(datetime) from appointmentusers order by DATE(datetime);";
+    $q="select doctorName,patienName,id,departmentName,DATE(datetime) from appointmentusers order by id desc;";
     $result = mysqli_query($connection, $q);
     function tabledisplay()
     {
@@ -80,5 +82,8 @@
             echo"</tr>";
         }
     }
+}else{
+        header("Location: ../login.html?acesserror=Access Denied Please Log In");
+      } 
 
 ?>

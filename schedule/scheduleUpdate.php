@@ -1,5 +1,7 @@
 
 <?php
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
+
 $SID = $_GET["sId"];
 
         include_once("../dbConnection.php");
@@ -15,5 +17,7 @@ $SID = $_GET["sId"];
         $sql = "update schedule set dayDate='$dayDate', start='$start' , end='$end' WHERE id=$SID";
         $result = mysqli_query($connection, $sql);
         }
-         
+      }else{
+            header("Location: ../login.html?acesserror=Access Denied Please Log In");
+          }  
   ?>

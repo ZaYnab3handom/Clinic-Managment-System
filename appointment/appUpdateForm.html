@@ -1,7 +1,7 @@
 
 <?php 
 session_start();
-if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
 
 ?>
 <?php 
@@ -49,10 +49,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){
                 <a href="../dashbord/recepDashbord.html" class="nav-item nav-link">Home</a>
               <?php } ?>
               
-              <?php 
-              if(  $_SESSION['userType']!=='doctor'  ){   ?>
                 <a href="../schedule/schedule.html" class="nav-item nav-link">Schedule</a>
-                <?php } ?>
 
 
             <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>

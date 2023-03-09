@@ -1,5 +1,5 @@
 <?php
-if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  ){ 
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
 // id date	time patient_Id	doctor_id consultation_type	booked_online state	
 //date time consultationt BookedOnline status patientname doctorName
 $currentDate = date("d-m-Y");

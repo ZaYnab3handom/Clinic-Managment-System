@@ -1,4 +1,7 @@
 <?php 
+session_start();
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
+
      include_once("../dbConnection.php");
     $id = $_GET["national_id"];
     //delet the prescription
@@ -11,6 +14,8 @@
      //delete the related prescription line
      //done By cascading Delete
      header("Location:Patient.html");
-
+}else{
+     header("Location: ../login.html?acesserror=Access Denied Please Log In");
+   }
 
     ?>

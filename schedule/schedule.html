@@ -1,5 +1,10 @@
-<?php
+
+<?php 
 session_start();
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
+
+?>
+  <?php 
   include("scheduleWrite.php")
 ?>
 <!DOCTYPE html>
@@ -33,12 +38,20 @@ session_start();
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
           <div class="navbar-nav ms-auto py-0">
+            <?php 
+            if(  $_SESSION['userType']=='admin'  ){   ?>
             <a href="../dashbord/index.html" class="nav-item nav-link">Home</a>
             <a href="../Doctor/Doctor.html" class="nav-item nav-link">Doctor</a>
-            <a href="scheduleList.html" class="nav-item nav-link active">Schedule</a>
+            <?php }else if ($_SESSION['userType']==='doctor'){?>
+              <a href="../dashbord/docDashbord.html" class="nav-item nav-link">Home</a>
+              <?php }else{  ?>
+                <a href="../dashbord/recepDashbord.html" class="nav-item nav-link">Home</a>
+              <?php } ?>
+              <a href="../schedule/scheduleList.html" class="nav-item nav-link active">Schedule</a>
             <a href="../Patient/Patient.html" class="nav-item nav-link">Patient</a>
             <a href="../appointment/appointmentList.html" class="nav-item nav-link ">Appoinment</a>
             <a href="../prsecription/prescriptionList.html" class="nav-item nav-link ">Prescription</a>
+          
 
             <div>
               <!-- <label for="user" class="nav-item nav-link" style="color:#6c757d">username</label> -->
@@ -72,17 +85,17 @@ session_start();
                 <select name="doctorID" class="form-control bg-white border-0" style="height: 55px; width: 75%;">
                   <?php include_once("../dbConnection.php");
                   if(!isset($_GET["user"])){
-  $readSql = "SELECT * FROM users where type='Doctor'"; 
-  $readResult1 = mysqli_query($connection, $readSql);
-  while($data = mysqli_fetch_array($readResult1)) {
-      echo "<option value='$data[national_id]'>".$data["name"]."</option>";}
-  }
-  else {$patientId =$_GET["user"];
-  $readSql = "SELECT * FROM users where national_id=$patientId"; 
-  $readResult1 = mysqli_query($connection, $readSql);
-  while($data = mysqli_fetch_array($readResult1)) {
-      echo "<option value='$data[national_id]'>".$data["name"]."</option>";}
-  }?>
+                      $readSql = "SELECT * FROM users where type='Doctor'"; 
+                      $readResult1 = mysqli_query($connection, $readSql);
+                      while($data = mysqli_fetch_array($readResult1)) {
+                          echo "<option value='$data[national_id]'>".$data["name"]."</option>";}
+                      }
+                      else {$patientId =$_GET["user"];
+                      $readSql = "SELECT * FROM users where national_id=$patientId"; 
+                      $readResult1 = mysqli_query($connection, $readSql);
+                      while($data = mysqli_fetch_array($readResult1)) {
+                          echo "<option value='$data[national_id]'>".$data["name"]."</option>";}
+                      }?>
                 </select>
               </span>
               <br>
@@ -157,3 +170,6 @@ session_start();
 </body>
 
 </html>
+<?php } else{
+  header("Location: ../login.html?acesserror=Access Denied Please Log In");
+} ?>

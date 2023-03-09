@@ -1,9 +1,10 @@
-<?php
-    include ("dashboardRead.php");
-?>
+
 <?php 
 session_start();
 if(isset( $_SESSION['NId']) && $_SESSION['userType']=='admin'  ){   ?>
+ <?php
+    include ("dashboardRead.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,7 +23,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']=='admin'  ){   ?>
     <title>Dashbord</title>
 </head>
 
-<body>
+<body class="bg-light">
 
     <!-- navbar -->
 
@@ -57,7 +58,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']=='admin'  ){   ?>
     
     <!-- divs -->
 
-    <div class="container mt-5 div-mother">
+    <div class="container mt-5 div-mother ">
         <div class="row h-100">
 
             <div class="col h-50 d-flex justify-content-around border border-2 rounded-3 me-3 pb-3">

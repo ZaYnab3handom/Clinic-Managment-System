@@ -1,6 +1,8 @@
 <?php 
 //Open database
 // id	dayDate	start	end	doctor_id
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
+
 include_once("../dbConnection.php");
 $doctorData="select national_id,name from users WHERE type ='doctor'";
 $docresult=mysqli_query($connection, $doctorData);
@@ -24,4 +26,7 @@ $docresult=mysqli_query($connection, $doctorData);
             }
         }
     }
+}else{
+    header("Location: ../login.html?acesserror=Access Denied Please Log In");
+  }  
 ?>

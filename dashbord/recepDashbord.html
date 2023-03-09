@@ -1,8 +1,11 @@
+
+<?php 
+session_start();
+if(isset( $_SESSION['NId']) && $_SESSION['userType']=='receptionist'   ){  
+  ?>
 <?php
     include ("dashboardRead.php");
 ?>
-<?php 
-session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +24,7 @@ session_start();?>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
+<body class="bg-light">
 
   <!-- navbar -->
 
@@ -150,3 +153,7 @@ session_start();?>
 </body>
 
 </html>
+
+<?php } else{
+  header("Location: ../login.html?acesserror=Access Denied Please Log In");
+} ?>
