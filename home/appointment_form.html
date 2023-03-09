@@ -157,11 +157,19 @@
                             <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Date </label>
                              </div>
                                 <div class="col-12 col-sm-9">
-                                    <div class="date" id="date" data-target-input="nearest">
+                                    <!--<div class="date" id="date" data-target-input="nearest">
                                         <input type="datetime-local"
                                             class="form-control bg-light border-0 datetimepicker-input"
                                              data-target="#date" data-toggle="datetimepicker" style="height: 55px;" name="datetime" id="inputdate">
-                                    </div>
+                                    </div>-->
+
+                                    <input type="datetime-local" id="myDatetimeLocal" style="height: 55px;" class="form-control bg-light border-0 datetimepicker-input" >
+
+                                    <script>
+                                      const inputField = document.getElementById("myDatetimeLocal");
+                                    
+                                      inputField.min = new Date().toISOString().slice(0, 16);
+                                    </script>
                                 </div>
                        
                                 
