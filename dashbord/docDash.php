@@ -7,7 +7,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  )
 }
 
     include_once("../dbConnection.php");
-    $q="select patienName,state FROM `appointmentusers`WHERE doctorName='$user'";
+    $q="select patienName ,consultation_type,id FROM `appointmentusers`WHERE doctorName='$user'";
     $Result = mysqli_query($connection, $q);
     function display()
     {
@@ -16,7 +16,8 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  )
         {
             echo"<tr>";
             echo" <td>".$data['patienName']."</td>";
-            echo "<td>".$data['state']."</td>";
+            echo "<td>".$data['consultation_type']."</td>";
+            echo "<td> <a href='../prsecription/prescriptionForm.html?appId=$data[id]'> <i class='bi bi-file-earmark-medical-fill'></i> </a> </td>";
             echo"</tr>";
         }
     }
@@ -31,7 +32,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='Patient'  )
         echo $confirm;   
     }
 
-    $q="sELECT COUNT(id) FROM `appointmentusers` WHERE state='Draft' AND doctorName='$user'";
+    $q="sELECT COUNT(id) FROM `appointmentusers` WHERE state='Waiting' AND doctorName='$user'";
     $readResult = mysqli_query($connection, $q);
     $data = mysqli_fetch_row($readResult);
     $draft=$data[0];

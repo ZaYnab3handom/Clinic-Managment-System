@@ -75,8 +75,8 @@
             echo" <td>".$data['patienName']."</td>";
             echo "<td>".$data['doctorName']."</td>";
             echo "<td>".$data["DATE(datetime)"]."</td>";
-            echo "<td> <a href='appDelete.php?user=$data[id]'>  <i class='bi bi-trash-fill'></i>  </a> </td>";
-                echo "<td> <a href='appUpdateForm.html?user=$data[id]'> <i class='bi bi-pencil-square'></i>  </a> </td>";
+            echo "<td> <a href='deleteapp.php?user=$data[id]'>  <i class='bi bi-trash-fill'></i>  </a> </td>";
+            echo "<td> <a href='../appointment/appUpdateForm.html?user=$data[id]'> <i class='bi bi-pencil-square'></i>  </a> </td>";
             echo"</tr>";
         }
     }
