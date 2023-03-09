@@ -1,5 +1,7 @@
 <?php 
 if(isset( $_SESSION['NId'])  ){
+    include_once("../dbConnection.php");
+
     if(isset($_POST["savebtn"])){
         //check if the patient is male or female
         if ( isset($_POST['gender']) ){
@@ -50,13 +52,16 @@ if(isset( $_SESSION['NId'])  ){
         $Password=sha1($_POST["Password"]);
         $RepeatPassword=sha1($_POST["RepeatPassword"]);
         $type="patient";
+        $readSql = "SELECT national_id FROM users where national_id=$nationalId;"; 
+        $readResult1 = mysqli_query($connection, $readSql)or die(mysql_error());
+        if (mysqli_num_rows($readResult1) === 1)  {header("Location: patient_form.html?acesserror=This ID Is Already Signed");}
+        else{
         if(preg_match('/^[0-9]{14}/', $nationalId)){
         if (preg_match('/^[a-zA-Z ]+$/', $patientname)){
             $pattern = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]{5}+\.[a-zA-Z0-9-.]{3}+$/";
             if(preg_match($pattern,$Email)){
         if ($Password==$RepeatPassword){
             //Open database
-            include_once("../dbConnection.php");
             //insert new user as a patient
             $sql = "insert into users (national_id, name, birthDate, gender, type, mobile, email, password)
             values ('$nationalId','$patientname','$birthDate','$gender','$type','$mobile','$Email','$Password')";
@@ -69,7 +74,7 @@ if(isset( $_SESSION['NId'])  ){
             $sql2 ="insert into adress (user_id, apartment, street, city, country)
             values('$nationalId', '$apartment' ,'$street', '$city', '$country')";
             $result = mysqli_query($connection, $sql2);
-            header("Location: Patient.html");
+            header("Location: Patient.html?done=Patient Added Sucssessfuly ");
 
     } else{
         header("Location: patient_form.html?acesserror=Wrong data entered");
@@ -85,10 +90,11 @@ if(isset( $_SESSION['NId'])  ){
 }else{
     header("Location: patient_form.html?acesserror=Please Enter Valid ID");
 }
-    }
+
 }
-else{
+    }
+}else{
     header("Location: ../login.html?acesserror=Access Denied Please Log In");
   }
-
+  
 ?>

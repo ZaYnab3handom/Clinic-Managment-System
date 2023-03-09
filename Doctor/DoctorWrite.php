@@ -14,7 +14,6 @@ include_once("../dbConnection.php");
         }
         if ( isset($_POST['department']) )
             $department = $_POST['department'];
-            else echo "error";
         
         //save data added from the Doctor
         $doctorName = $_POST["doctorName"];
@@ -30,9 +29,13 @@ include_once("../dbConnection.php");
         $RepeatPassword=sha1($_POST["repeatpassword"]);
         $department=$_POST["department"];
         $type="doctor";
+        $readSql = "SELECT national_id FROM users where national_id=$nationalId;"; 
+        $readResult1 = mysqli_query($connection, $readSql)or die(mysql_error());
+        if (mysqli_num_rows($readResult1) === 1)  {header("Location: doctor_form.html?acesserror=This ID Is Already Signed");}
+        else{
         if(preg_match('/^[0-9]{14}/', $nationalId)){
         if (preg_match('/^[a-zA-Z ]+$/', $doctorName)){
-            $pattern = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]{5}+\.[a-zA-Z0-9-.]{3}+$/";
+            $pattern = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/";
             if(preg_match($pattern,$email)){
         if ($Password==$RepeatPassword){
             
@@ -52,7 +55,7 @@ include_once("../dbConnection.php");
             $sql3 ="insert into adress (user_id, apartment, street, city, country)
             values('$nationalId', '$apartment' ,'$street', '$city', '$country')";
             $result = mysqli_query($connection, $sql3);
-            header("Location: Doctor.html");
+            header("Location: Doctor.html?done=Doctor Added Sucssessfuly ");
         }else{
             header("Location: doctor_form.html?acesserror=Wrong data entered");
 
@@ -67,6 +70,8 @@ include_once("../dbConnection.php");
 }else{
     header("Location: doctor_form.html?acesserror=Please Enter Valid ID");
 }
+}
+
 }
 }else{
     header("Location: ../login.html?acesserror=Access Denied Please Log In");

@@ -1,5 +1,7 @@
 <?php 
     if(isset($_POST["savebtn"])){
+        include_once("../dbConnection.php");
+
         //check if the patient is male or female
         if ( isset($_POST['gender']) ){
             $gender = $_POST['gender'];
@@ -49,6 +51,14 @@
         $Password=$_POST["Password"];
         $RepeatPassword=$_POST["RepeatPassword"];
         $type="patient";
+        $readSql = "SELECT national_id FROM users where national_id=$nationalId;"; 
+        $readResult1 = mysqli_query($connection, $readSql)or die(mysql_error());
+        if (mysqli_num_rows($readResult1) === 1)  {header("Location: signUp.html?acesserror=This ID Is Already Signed");}
+        else{
+        if(preg_match('/^[0-9]{14}/', $nationalId)){
+        if (preg_match('/^[a-zA-Z ]+$/', $patientname)){
+            $pattern = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]{5}+\.[a-zA-Z0-9-.]{3}+$/";
+            if(preg_match($pattern,$Email)){
         if ($Password==$RepeatPassword){
             //Open database
             include_once("../dbConnection.php");
@@ -67,6 +77,21 @@
             header("Location: appointment_form.html?user=$nationalId");
 
             // href="login.html" 
-    } 
+     } else{
+        header("Location: signUp.html?acesserror=Wrong data entered");
+
+    }
+}else{
+    header("Location: signUp.html?acesserror=Please Enter Valid Email");
+
+}
+}else{
+    header("Location: signUp.html?acesserror=Please Enter Valid Name");
+}
+}else{
+    header("Location: signUp.html?acesserror=Please Enter Valid ID");
+}
+
+    }
     }
 ?>

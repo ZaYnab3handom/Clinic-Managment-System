@@ -1,7 +1,9 @@
 <?php 
 session_start();
 if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
-
+?>
+<?php
+  include("DoctorWrite.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,12 +56,11 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
                 </div>
             </nav>
         </div>
-    </div>
-    <?php if (isset($_GET['acesserror'])) { ?>
-      <div class="alert alert-danger" role="alert" style="text-align: center;">
-        <?=$_GET['acesserror']?>
-    </div>
-    <?php } ?>
+        <?php if (isset($_GET['acesserror'])) { ?>
+          <div class="alert alert-danger" role="alert" style="text-align: center;">
+            <?=$_GET['acesserror']?>
+        </div>
+        <?php } ?>
     <!-- doctor form -->
     <div class="container mt-5">
         <div class="row form bg-light  rounded p-5">
@@ -182,10 +183,6 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
 </body>
 
 </html>
-<?php
-
-  include("DoctorWrite.php");
-?>
 <?php } else{
   header("Location: ../login.html?acesserror=Access Denied Please Log In");
 } ?>

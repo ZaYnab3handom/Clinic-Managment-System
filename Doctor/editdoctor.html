@@ -92,7 +92,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
                         <div class="col-12 col-sm-6">
                             <span class="labelInput">
                                 <label for="NationalId">National Id</label>
-                                <input type="text" id="NationalId" name="nationalId"
+                                <input type="text" id="NationalId" name="nationalId" readonly
                                     value="<?php echo $Udata['national_id'] ?>" class="form-control border-0"
                                     placeholder="1234.." style="height: 55px;background-color: #e9ecef;">
                             </span>
