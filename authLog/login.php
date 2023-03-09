@@ -21,7 +21,7 @@ if (isset($_POST['national_id']) && isset($_POST['pass'])) {
     }else{
     // Check user is exist in the database
     $query    = "SELECT * FROM `users` WHERE national_id='$NId'
-                 AND password='$pass'";
+                 AND password=sha1($pass)";
     $users = mysqli_query($connection, $query) or die(mysql_error());
     
     if (mysqli_num_rows($users) === 1) {
