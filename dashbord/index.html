@@ -134,17 +134,17 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']=='admin'  ){   ?>
 
     <!-- tables -->
 
-    <table class="table table-bordered  scrolldown ms-auto me-auto mt-5 w-75 home-dash" >
+    <table  class="table  table-striped table-borderless table-hover scrolldown ms-auto me-auto mt-5 w-75  home-dash " >
         <thead style="background-color: #42b3e5;">
             <tr>
                 <th>ID</th>
                 <th>patient name</th>
                 <th>Doctor name</th>
                 <th>Department</th>
-                <th>Date</th>
+                <th colspan="2">Date</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody style="margin-top: 10px;">
             <?php
             tabledisplay();
             ?>
