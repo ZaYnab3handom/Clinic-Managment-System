@@ -2,6 +2,8 @@
 //Open database
 // id	dayDate	start	end	doctor_id
 include_once("../dbConnection.php");
+$doctorData="select national_id,name from users WHERE type ='doctor'";
+$docresult=mysqli_query($connection, $doctorData);
 
     if(isset($_POST["savebtn"])){
         $dayDate = $_POST["dayDate"];

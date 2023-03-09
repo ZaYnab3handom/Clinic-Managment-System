@@ -78,9 +78,11 @@ session_start();
       echo "<option value='$data[national_id]'>".$data["name"]."</option>";}
   }
   else {$patientId =$_GET["user"];
-  $getPatienData = "select * from users where national_id = $patientId";
-  $getresult = mysqli_query($connection, $getPatienData);
-   echo "<option value='$getresult[national_id]'>".$getresult["name"]."</option>";}?>
+  $readSql = "SELECT * FROM users where national_id=$patientId"; 
+  $readResult1 = mysqli_query($connection, $readSql);
+  while($data = mysqli_fetch_array($readResult1)) {
+      echo "<option value='$data[national_id]'>".$data["name"]."</option>";}
+  }?>
                 </select>
               </span>
               <br>
