@@ -17,9 +17,9 @@ if(isset( $_SESSION['NId'])  ){
             $age = date_diff(date_create($data["birthDate"]), date_create($currentDate));
             echo "<td>".$age->format("%y")."</td>";
             echo "<td>".$data["blood_type"]."</td>";
-            echo "<td> <a href='editpatient.html?national_id=$data[national_id]'>edit</a></td>";
-            echo "<td> <a href='../appointment/appointmentForm.html?user=$data[user_id]'> Create Appointment</a></td>";
-            echo "<td> <a href='PatientDelete.php?national_id=$data[national_id]'>delete</a></td>";
+            echo "<td> <a href='editpatient.html?national_id=$data[national_id]'><i class='bi bi-pencil-square'></i></a></td>";
+            echo "<td> <a href='../appointment/appointmentForm.html?user=$data[user_id]'><i class='bi bi-calendar'></i></a></td>";
+            echo "<td> <a href='PatientDelete.php?national_id=$data[national_id]'><i class='bi bi-trash-fill '></i></a></td>";
 
             echo "</tr>";
         
