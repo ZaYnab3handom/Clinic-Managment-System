@@ -1,3 +1,4 @@
+
 <?php 
 session_start();
 if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
@@ -90,64 +91,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
         <?php } ?>
         <h1 class="mb-4 text-center"><br>Prescription</h1>
         <br>
-        <!-- <div class="col-8 col-sm-2">
-          <button class="searchbtn btn btn-outline-info py-3" style=" width:80%;">Filters</button>
-        </div>
-        <div class="col-8 col-sm-2">
-          <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">GroupBy</button>
-        </div>
-        <div class="col-6 col-sm-2">
-          <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">favourites</button>
-        </div>
-
-        <div class="col-12 col-sm-6">
-          <div id="custom-search-input">
-            <div class="input-group col-md-12">
-              <input type="search" class="form-control input-lg" placeholder="Search" data-target="#date"
-                data-toggle="datetimepicker" name="searchbar" id="searchbar" />
-              <span class="input-group-btn">
-                <button class="btn btn-info btn-lg" type="button" style="color: white;">
-                  <i class="bi bi-search"></i>
-                </button>
-              </span>
-            </div>
-            <br>
-          </div>
-        </div> -->
-        <form action="prescSearch.php" method="GET">
-        
-          <div class="col-8 col-sm-2">
-            <button class="searchbtn btn btn-outline-info py-3" style=" width:80%;">Filters</button>
-          </div>
-          <!-- <div class="col-8 col-sm-2">
-            <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">GroupBy</button>
-          </div> -->
-          <!-- <div class="col-6 col-sm-2">
-            <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">favourites</button>
-          </div> -->
-          <div class="col-12 col-sm-6">
-            <div id="custom-search-input">
-              <div class="input-group col-md-12">
-                <input type="text" class="form-control input-lg" name='searchNid'placeholder="Enter National Id" />
-                <span class="input-group-btn">
-                  <input class="btn btn-info btn-lg" type="submit" value="Search" name="search" style="color: white;">
-                    
-                  </button>
-                </span>
-              </div>
-              <br>
-            </div>
-          </div>
-        </form>
-        
      
-
-        <!-- <div class="col-12 col-sm- d-flex justify-content-end">
-          <button type="submit" class="border-1 border border-secondary btn py-2">
-            <a href="../prsecription/prescriptionForm.html" class="text-decoration-none"
-              style="color: #6c757d;">Create</a>
-          </button>
-        </div> -->
         
       </div>
       
@@ -173,10 +117,35 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
               <th>View</th>
             </tr>
           </thead>
+          <?php
+//Read From Prescription Table
+
+        include_once("../dbConnection.php");
+        if( $_SESSION['userType']=='doctor' ){
+         $readSql = "select * from presusers where docId=$_SESSION[NId] and pID =$_GET[searchNid] order by appointment_id desc "; 
+        }else{
+        $readSql = "select * from presusers  where pID =$_GET[searchNid] order by appointment_id desc "; }
+        $readResult = mysqli_query($connection, $readSql);
+        
+        while($data = mysqli_fetch_array($readResult)) {
+            echo "<tr>";    
+                echo "<td>".$data['appointment_id']."</td>";
+                echo"<td>".$data['patienName']."</td>";
+                echo" <td>".$data['departmentName']."</td>";
+                echo" <td>".$data['doctorName']."</td>";
+                echo "<td>".$data["prescription_time"]."</td>";
+                echo "<td>".$data["followup_date"]."</td>";
+                if(  $_SESSION['userType']!='receptionist' ){
+                echo "<td> <a href='prescDelete.php?user=$data[appointment_id]'> <i class='bi bi-trash-fill'></i> </a> </td>";
+                echo "<td> <a href='prescUpdateForm.html?user=$data[appointment_id]'> <i class='bi bi-pencil-square'></i>  </a> </td>";}
+                echo "<td> <a href='prescUpdateForm.html?user=$data[appointment_id]&state=read'> <i class='bi bi-box-arrow-up-right'></i> </a> </td>";
+            echo "</tr>";   }
+    
+      
+  ?>
+
           <tbody>
-            <?php 
-            include("prescRead.php");
-           ?>
+           
           </tbody>
         </table>
 

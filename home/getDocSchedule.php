@@ -1,7 +1,7 @@
 <?php
 include_once("../dbConnection.php");
 $depId = intval($_GET['depId']);
-$query    = "SELECT DISTINCT * FROM `doctorschedule` WHERE depId='$depId' and sDate>=CURDATE()";
+$query    = "SELECT DISTINCT * FROM `doctorschedule` WHERE depId='$depId' and sDate>=CURDATE() order by sDate  ";
 $shedule = mysqli_query($connection, $query) or die(mysql_error());
 
 if (mysqli_num_rows($shedule) > 0) {
