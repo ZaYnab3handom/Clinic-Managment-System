@@ -1,3 +1,9 @@
+<?php 
+$con =include_once("../dbConnection.php");
+$depData="select * from department ";
+$depresult=mysqli_query($connection, $depData);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,6 +33,28 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+    $('#department').on('change', function(){
+        var depID = $(this).val();
+        if(depID){
+            $.ajax({
+                type:'GET',
+                url:'getDocSchedule.php',
+                data:'depId='+depID,
+                success:function(html){
+                    $('#table').html(html);
+                    // $('#city').html('<option value="">Select state first</option>'); 
+                }
+            }); 
+        }else{
+            $('#table').html('<option value="">Select Department first</option>');
+            // $('#city').html('<option value="">Select state first</option>'); 
+        }
+    });})
+  </script>
 </head>
 
 <body>
@@ -64,11 +92,25 @@
                 <div class="col-lg-6 mb-5 mb-lg-0">
                     <div class="mb-4">
                         <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Appointment</h5>
-                        <h1 class="display-4">Our Doctors Appointments</h1>
+                        <h1 class="display-4"> Doctors Schedule</h1>
                     </div>
+                    <div class="col-lg-12 col-sm-9">
+                        <p><h5 style="text-align: center;">Please Select Department</h5></p>
+                        <select name="department" class="form-select bg-light border-0"  style="height: 55px;" id="department" >
+                         <option style="text-align: center;">Select Department</option>
+                         <?php  if (mysqli_num_rows($depresult) > 0) {
+                            // output data of each row
+                            while($row = mysqli_fetch_assoc($depresult)) {?>
+                          <option style="text-align: center;" value=<?php echo $row['id'] ;?>>
+                            <?php echo $row["name"] ;?>
+                          </option>;
+                          <?php }
+                          } ?>
+                        </select> 
+                 </div>
                     <!-- table -->
-                    <table class="table">
-                        <thead>
+                    <table class="table" name="table" id="table" style="text-align: center;">
+                        <!-- <thead>
                           <tr style="color:rgba(0, 183, 255, 0.692); font-size: 18px;">
                             <th scope="col">Dr.Name</th>
                             <th scope="col">Specialization</th>
@@ -89,7 +131,7 @@
                             <td>sun,wes</td>
                             <td>5PM:8PM</td>
                           </tr>
-                        </tbody>
+                        </tbody> -->
                       </table>
                 </div>
                 <div class="col-lg-6">
