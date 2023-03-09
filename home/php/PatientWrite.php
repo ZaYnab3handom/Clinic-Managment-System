@@ -53,7 +53,7 @@
         $type="patient";
         $readSql = "SELECT national_id FROM users where national_id=$nationalId;"; 
         $readResult1 = mysqli_query($connection, $readSql)or die(mysql_error());
-        if (mysqli_num_rows($readResult1) === 1)  {header("Location: patient_form.html?acesserror=This ID Is Already Signed");}
+        if (mysqli_num_rows($readResult1) === 1)  {header("Location: signUp.html?acesserror=This ID Is Already Signed");}
         else{
         if(preg_match('/^[0-9]{14}/', $nationalId)){
         if (preg_match('/^[a-zA-Z ]+$/', $patientname)){
