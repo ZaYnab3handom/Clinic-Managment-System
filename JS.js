@@ -67,10 +67,11 @@ function change() // no ';' here
 function CheckNum() {
   var num = document.getElementById("Mobile").value;
   var pattern = /(^[\+]?[\d]{11}$)/;
+  
   if (num.search(pattern) == -1)
-    alert("Invalid number");
+  document.getElementById('phone_error').classList.remove('hidden');
   else
-    true;
+  document.getElementById('phone_error').classList.add('hidden');
 }
 
 // ID validation
@@ -78,9 +79,9 @@ function CheckID() {
   var num = document.getElementById("NationalId").value;
   var pattern = /(^[\+]?[\d]{14}$)/;
   if (num.search(pattern) == -1)
-    alert("Invalid national ID");
+  document.getElementById('id_error').classList.remove('hidden');
   else
-    true;
+  document.getElementById('id_error').classList.add('hidden');
 }
 
 // Email validation
@@ -88,29 +89,33 @@ function CheckEmail() {
   var num = document.getElementById("Email").value;
   var pattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   if (num.search(pattern) == -1)
-    alert("Invalid Email");
+  document.getElementById('email_error').classList.remove('hidden');
   else
-    true;
+  document.getElementById('email_error').classList.add('hidden');
 }
 
 // password repeat
 function verifyPassword() {
-  var pw = document.getElementById("Password").value;
-  var repw = document.getElementById("RepeatPassword").value;
-
-  //check empty password field  
-  if (pw == "") {
-    alert("Please enter password");
-    return false;
-  }
-  //minimum password length validation  
+  var pw = document.getElementById("Password").value;  
+  //minimum password length validation 
+  
   if (pw.length < 8 || pw.length > 15) {
-    alert("Invalid password");
+    document.getElementById('password_error').classList.remove('hidden');
     return false;
-  }
-  if (pw != repw) {
-    alert("Passwords are not matched!");
-    return false;
-  }
+    }
+    else{
+  document.getElementById('password_error').classList.add('hidden');
+    }
   return true;
 }  
+
+function repatedPasword(){
+  if (document.getElementById("Password").value !== document.getElementById("RepeatPassword").value) {
+    document.getElementById("reppassword_error").style.visibility = "visible"
+    return false;
+  }
+  else {
+    document.getElementById("reppassword_error").style.visibility = "hidden"
+  }
+return true;
+}
