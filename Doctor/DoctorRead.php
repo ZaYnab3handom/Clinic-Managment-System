@@ -17,7 +17,7 @@
             echo "<td>".$data["email"]."</td>";
 
             echo "<td> <a href='editdoctor.html?national_id=$data[national_id]'> <i class='bi bi-pencil-square'></i></a> </td>";
-            echo "<td> <a href='../schedule/schedule.html?user=$data[national_id]'><i class='bi bi-calendar'></i>            </a></td>";
+            echo "<td> <a href='../schedule/schedule.html?user=$data[national_id]'><i class='bi bi-calendar'></i></a></td>";
             echo "<td> <a href='DoctorDelete.php?national_id=$data[national_id]'><i class='bi bi-trash-fill'></i></a> </td>";
 
             echo "</tr>";

@@ -48,7 +48,7 @@
         $Email=$_POST["Email"];
         $Password=$_POST["Password"];
         $RepeatPassword=$_POST["RepeatPassword"];
-        $type="Patient";
+        $type="patient";
         if ($Password==$RepeatPassword){
             //Open database
             include_once("../dbConnection.php");

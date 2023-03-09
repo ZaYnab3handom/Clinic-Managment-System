@@ -2,6 +2,7 @@
 //Open database
 // id	dayDate	start	end	doctor_id
 include_once("../dbConnection.php");
+
     if(isset($_POST["savebtn"])){
         $dayDate = $_POST["dayDate"];
         $start = $_POST["start"];

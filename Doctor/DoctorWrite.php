@@ -27,7 +27,7 @@ include_once("../dbConnection.php");
         $Password=sha1($_POST["password"]);
         $RepeatPassword=sha1($_POST["repeatpassword"]);
         $department=$_POST["department"];
-        $type="Doctor";
+        $type="doctor";
         if(preg_match('/^[0-9]{14}/', $nationalId)){
         if (preg_match('/^[a-zA-Z ]+$/', $doctorName)){
             $pattern = "/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]{5}+\.[a-zA-Z0-9-.]{3}+$/";
