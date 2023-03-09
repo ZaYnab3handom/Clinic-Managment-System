@@ -29,6 +29,7 @@ include("../home/php/PatientWrite.php");
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -66,7 +67,7 @@ include("../home/php/PatientWrite.php");
                <div class="col-lg-8 ">
                     <div class="bg-white text-center rounded p-5">
                         <h1 class="mb-4">SignUp</h1>
-                        <form method="post">
+                        <form method="post" onsubmit ="return matchpass()" name="validform">
                             <div class="row g-3" >
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientid" style="text-align: left; height: 55px; padding-top: 14px;" >National Id </label>
@@ -74,67 +75,67 @@ include("../home/php/PatientWrite.php");
                              </div>
                                 <div class="col-12 col-sm-9">
                                   
-                                    <input type="text" class="form-control bg-light border-0" id="patientid" style="height: 55px;" name="nationalId" min="0" max="14" maxlength="14" required >
+                                    <input type="text" class="form-control bg-light border-0" id="NationalId" style="height: 55px;" name="nationalId" onchange="CheckID()"required >
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" > Name</label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="patientname" min="3" maxlength="10" required>
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="patientname" min="3" maxlength="10" id="nameInput" onchange="CheckName()" required >
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Email </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="email" class="form-control bg-light border-0"  style="height: 55px;" name="Email" maxlength="40" required>
+                                    <input type="email" class="form-control bg-light border-0"  style="height: 55px;" name="Email" maxlength="40"  id="Email" onchange="CheckEmail()" required>
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" > Password </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="password" class="form-control bg-light border-0" style="height: 55px;" name="Password" maxlength="40" required>
+                                    <input type="password" class="form-control bg-light border-0" style="height: 55px;" name="Password" maxlength="40"  id="Password">
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Repeat Password </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="password" class="form-control bg-light border-0"  style="height: 55px;" name="RepeatPassword" maxlength="40" required>
+                                    <input type="password" class="form-control bg-light border-0"  style="height: 55px;" name="RepeatPassword" maxlength="40" id="RepeatPassword" >
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Birthdate </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="date" class="form-control bg-light border-0"  style="height: 55px;" name="birthDate" required>
+                                    <input type="date" class=" form-control bg-light border-0"  style="height: 55px;" name="birthDate" id="last_dental_visit" >
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Mobile </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="mobile" min="0" max="14" maxlength="14" required>
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="mobile" id="Mobile"onchange="CheckNum()" required>
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Employee Code</label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="number" class="form-control bg-light border-0"  style="height: 55px;" name="employeeId" min="0" max="16" maxlength="16"  required>
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="employeeId"  id="employeeId" onchange="CheckEmployeeCode()" required>
                                 </div>
 
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Company </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <select class="form-control form-select bg-light border-0" style="height: 55px;" name="company" aria-label="Default select example" required>
+                                    <select class="form-control form-select bg-light border-0" style="height: 55px;" name="company" aria-label="Default select example" >
                                         
                                         <option value="a">Sugar Canel</option>
-                                        <option value="b">Department2</option>
-                                        <option value="c">Department3</option>
+                                        <option value="b">Vodafone</option>
+                                        <option value="c">WE</option>
                                       </select>
                                 </div>
                                 <div div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Blood Type</label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                  <select name="Blood" class="form-control form-select bg-light border-0" style="height: 55px;" aria-label="Default select example" required>                
+                                  <select name="Blood" class="form-control form-select bg-light border-0" style="height: 55px;" aria-label="Default select example" >                
                                     <option value="A">A</option>
                                     <option value="B">B</option>
                                     <option value="AB">AB</option>
@@ -154,23 +155,23 @@ include("../home/php/PatientWrite.php");
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Past Surgery </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="PastSurger" required>
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="PastSurger" >
                                 </div>
 
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Address </label>
                                 </div>
                                 <div class="col-12 col-sm-2">
-                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="apartment" style="height: 55px;" name="apartment" required>
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="apartment" style="height: 55px;" name="apartment" >
                                 </div>
                                 <div class="col-12 col-sm-2">
-                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="Street" style="height: 55px;" name="street" required>
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="Street" style="height: 55px;" name="street" >
                                 </div>
                                 <div class="col-12 col-sm-2">
-                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="City" style="height: 55px;" name="city"required>
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="City" style="height: 55px;" name="city">
                                 </div>
                                 <div class="col-12 col-sm-3">
-                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="Country" style="height: 55px;" name="country"required>
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="Country" style="height: 55px;" name="country">
                                 </div>
 
                                 <div class="col-12 col-sm-2" id="label">
@@ -184,10 +185,10 @@ include("../home/php/PatientWrite.php");
                                </div>
                             <div></div>
                                 <div class="col-6">
-                                     <input class="btn btn-primary w-100 py-3" name="savebtn"  value="SignUp" type="submit">
+                                     <input type="submit" class="btn  btn-primary w-100 py-3" name="savebtn" id="savebtn" value="SignUp">
                                 </div>
                                 <div class="col-6">
-                                    <a class="btn btn-primary w-100 py-3" href="login.html" type="submit"> Login </a>
+                                    <a class="btn btn-light w-100 py-3" href="login.html" type="submit"> Login </a>
                                </div>
                             </div>
                         </form>
@@ -195,10 +196,12 @@ include("../home/php/PatientWrite.php");
                 </div>
             </div>
         </div>
-    </div>                             
-
-    <script src="js/vaild.js"></script>  
+    </div>                     
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>  
     <script src="js/main.js"></script>
+    <script src="js/jquery.js"></script>
+    <script src="js/vaild.js"></script>  
+
 
 </body>
 

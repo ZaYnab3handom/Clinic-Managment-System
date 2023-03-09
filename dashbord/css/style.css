@@ -11,7 +11,6 @@
 }
 
 table.scrolldown {
-    width: 45%;
     border-spacing: 0;
     border-bottom: .5px solid black;
     font-size: 18px;
@@ -45,3 +44,7 @@ tr {
     text-align: center;
 }
 
+.doctor
+{
+    width: 35%;
+}
