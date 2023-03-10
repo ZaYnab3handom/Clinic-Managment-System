@@ -88,6 +88,12 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
             <?=$_GET['delete']?>
           </span>
         <?php } ?>
+        
+        <?php if (isset($_GET['searcherror'])) { ?>
+          <span class="alert alert-danger" role="alert" style="text-align: center;display:inline" >
+            <?=$_GET['searcherror']?>
+          </span>
+        <?php } ?>
         <h1 class="mb-4 text-center"><br>Prescription</h1>
         <br>
         <!-- <div class="col-8 col-sm-2">

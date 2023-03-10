@@ -2,6 +2,7 @@
 <?php 
 session_start();
 if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
+  if (is_numeric($_GET['searchNid'])){
 
 ?>
 <!DOCTYPE html>
@@ -159,6 +160,11 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
 </body>
 
 </html>
-<?php } else{
+<?php 
+}else{
+  header("Location:prescriptionList.html?searcherror=Invalid Search Input");
+
+}
+} else{
   header("Location: ../login.html?acesserror=Access Denied Please Log In");
 } ?>
