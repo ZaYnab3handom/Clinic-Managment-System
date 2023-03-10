@@ -112,7 +112,7 @@
                                      </div>
 
                                 <div class="col-12 col-sm-9">
-                                    <select name="department" class="form-select bg-light border-0"  style="height: 55px;" id="department" >
+                                    <select name="department" class="form-select bg-light border-0"  style="height: 55px;" id="department" required>
                                      <option>Select Department</option>
                                      <?php  if (mysqli_num_rows($depresult) > 0) {
                                         // output data of each row
@@ -129,7 +129,7 @@
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Doctor Name </label>
                                      </div>
                                 <div class="col-12 col-sm-9">
-                                    <select name="doctorName" id="doctorName" class="form-select bg-light border-0" style="height: 55px;" placeholder="Doctor">
+                                    <select name="doctorName" id="doctorName" class="form-select bg-light border-0" style="height: 55px;" placeholder="Doctor" required>
                                     <!-- <option>Select Doctor</option>
                                     <?php  if (mysqli_num_rows($docresult) > 0) {
                                       // output data of each row
@@ -163,7 +163,7 @@
                                              data-target="#date" data-toggle="datetimepicker" style="height: 55px;" name="datetime" id="inputdate">
                                     </div>-->
 
-                                    <input type="datetime-local" id="myDatetimeLocal" style="height: 55px;" class="form-control bg-light border-0 datetimepicker-input" >
+                                    <input type="datetime-local" id="myDatetimeLocal" style="height: 55px;" class="form-control bg-light border-0 datetimepicker-input" required>
 
                                     <script>
                                       const inputField = document.getElementById("myDatetimeLocal");

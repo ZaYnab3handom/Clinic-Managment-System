@@ -30,14 +30,45 @@ include("../home/php/PatientWrite.php");
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <style>
-        .error-message {
-        display: none;
+           
+        .error
+    {
+      color: red;
+      size: 80%;
+      /*position: relative;*/
+      left: 37%;
+    }
+    /*.name_error{
         color: red;
-        }
+      size: 80%;
+      position: relative;
+      left: 37%;
+    }   */
+     .erroremail{
+      color: red;
+      size: 80%;
+      /* position: relative;
+      left: 37%; */
+    }
+    .errorpass{
+      color: red;
+      size: 80%;
+      /*position: relative;*/
+      left: 37%;
+    }
+    .hidden
+    {
+      display:none;
+    }
 
-        input:invalid + .error-message {
-        display: block;
-        }
+    .error-message {
+    display: none;
+    color: red;
+    }
+
+    input:invalid + .error-message {
+    display: block;
+    }
     </style>
 </head>
 
@@ -80,44 +111,49 @@ include("../home/php/PatientWrite.php");
                <div class="col-lg-8 ">
                     <div class="bg-white text-center rounded p-5">
                         <h1 class="mb-4">SignUp</h1>
-                        <form method="post"   >
+                        <form action="" onsubmit ="return repatedPasword()" method="post">
                             <div class="row g-3" >
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientid" style="text-align: left; height: 55px; padding-top: 14px;" >National Id </label>
 
                              </div>
                                 <div class="col-12 col-sm-9">
-                                 <input type="text" class="form-control bg-light border-0" id="NationalId" style="height: 55px;" name="nationalId"  id="NationalId" required >
-                                 <span id="national-id-error" class="error" style="color: red;"></span>
+                                 <input type="text" class="form-control bg-light border-0" id="NationalId" style="height: 55px;" name="nationalId"  id="NationalId" onchange="CheckID()"required >
                                 </div>
+                                <div id="id_error" class="error hidden" style="text-align: center;">Please enter a valid National ID</div>
+
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" > Name</label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="patientname" min="3" maxlength="30" id="nameInput"  required >
-                                    <span id="name-error" class="error" style="color: red;"></span>
-
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="patientname" min="3" maxlength="30" id="nameInput" onchange="CheckName()" required >
                                 </div>
+                                <div id="name_error" class="error hidden" style="text-align: center;">Please enter a valid Name </div>
+
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Email </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="email" class="form-control bg-light border-0"  style="height: 55px;" name="Email" maxlength="40"  id="Email"  required>
-                                    <span id="email-error" style="color: red;"></span>
+                                    <input type="email" class="form-control bg-light border-0"  style="height: 55px;" name="Email" maxlength="40"  id="Email" onchange="CheckEmail()" required>
                                 </div>
+                                <div id="email_error" class="error hidden" style="text-align: center;">Please enter a valid email </div>
+
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" > Password </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="password" class="form-control bg-light border-0" style="height: 55px;" name="Password" maxlength="40"  id="Password">
+                                    <input type="password" class="form-control bg-light border-0" style="height: 55px;" name="Password" maxlength="40"  id="Password" onchange="verifyPassword()" required>
                                 </div>
+                                <div id="password_error" class="error hidden" style="text-align: center;">Please enter a valid password </div>
+
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Repeat Password </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="password" class="form-control bg-light border-0"  style="height: 55px;" name="RepeatPassword" maxlength="40" id="RepeatPassword" >
-                                    <span id="error-message" style="color:red;"></span>
+                                    <input type="password" class="form-control bg-light border-0"  style="height: 55px;" name="RepeatPassword" maxlength="40" id="RepeatPassword" onchange="repatedPasword()"required >
                                 </div>
+                                <div id="reppassword_error" class="error hidden" style="text-align: center;" >Passwords are not matched</div>
+
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Birthdate </label>
                                 </div>
@@ -128,18 +164,16 @@ include("../home/php/PatientWrite.php");
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Mobile </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="mobile" id="Mobile" required>
-                                    <span id="mobile-message" style="color:red;"></span>
-                                </div>
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="mobile" id="Mobile" onchange="CheckMobile()"required>
+                                   </div>
+                                   <div id="mobile_error" class="error hidden" style="text-align: center;" >Please enter a valid mobile</div>
+
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Employee Code</label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="employeeId"  id="employeeId"  required>
-                                    <span id="errorMessage" style="color:red;"></span>
-
-                                    
-                                </div>
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="employeeId"  id="employeeId"  >
+                                  </div>
 
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Company </label>
@@ -156,7 +190,7 @@ include("../home/php/PatientWrite.php");
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Blood Type</label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                  <select name="Blood" class="form-control form-select bg-light border-0" style="height: 55px;" aria-label="Default select example" >                
+                                  <select name="Blood" class="form-control form-select bg-light border-0" style="height: 55px;" aria-label="Default select example" required>                
                                     <option value="A">A</option>
                                     <option value="B">B</option>
                                     <option value="AB">AB</option>
@@ -169,7 +203,7 @@ include("../home/php/PatientWrite.php");
                                 </div>
 
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="ChronicDisease" required>
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="ChronicDisease" >
                                 </div>
 
                                 <div class="col-12 col-sm-2" id="label">
@@ -195,7 +229,6 @@ include("../home/php/PatientWrite.php");
                                     <input type="text" class="form-control bg-light border-0 col-6" placeholder="Country" style="height: 55px;" name="country" id="country">
                                   
                                 </div>
-                                <span id="address-message" style="color:red;"></span>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Gender </label>
                                 </div>
@@ -206,11 +239,11 @@ include("../home/php/PatientWrite.php");
                                       </label>
                                </div>
                             <div></div>
-                                <div class="col-6">
-                                     <input type="submit" class="btn  btn-primary w-100 py-3" name="savebtn" id="savebtn" value="SignUp">
+                                <div class="col-12 text-center">
+                                     <input type="submit" class="btn  btn-primary w-50 py-3" name="savebtn" id="savebtn" value="SignUp">
                                 </div>
-                                <div class="col-6">
-                                    <a class="btn btn-primary w-100 py-3" href="login.html" type="submit"> Login </a>
+                                <div class="col-12 text-center">
+                                    <a class="link w-50 py-3" href="login.html" type="submit" style="text-decoration: revert;"> Are you have account? </a>
                                </div>
                             </div>
                         </form>
@@ -222,7 +255,7 @@ include("../home/php/PatientWrite.php");
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>  
     <script src="js/main.js"></script>
     <script src="js/jquery.js"></script>
-   <!-- // <script src="js/vaild.js"></script>   -->
+    <script src="js/vaild.js"></script>  
 
 
 </body>
