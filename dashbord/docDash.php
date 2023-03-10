@@ -7,7 +7,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  )
 
 
     include_once("../dbConnection.php");
-    $q="select patienName ,consultation_type,id FROM `appointmentusers` WHERE state='In-consultation' and doctorName='$user'";
+    $q="select patienName ,consultation_type,id FROM `appointmentusers` WHERE state='In-consultation' and docId='$user'";
     $Result = mysqli_query($connection, $q);
     function display()
     {
