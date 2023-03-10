@@ -23,6 +23,8 @@ $docresult=mysqli_query($connection, $doctorData);
                 $sql = "insert into schedule (doctor_id, dayDate, start, end)
                 values ('$doctorID','$dayDate[$i]','$start[$i]','$end[$i]')";
                 $result = mysqli_query($connection, $sql);
+                header("Location: scheduleList.html?acesserror=Schedule Added");
+
             }
         }
     }

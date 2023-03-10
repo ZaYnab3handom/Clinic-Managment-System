@@ -16,6 +16,8 @@ $SID = $_GET["sId"];
 
         $sql = "update schedule set dayDate='$dayDate', start='$start' , end='$end' WHERE id=$SID";
         $result = mysqli_query($connection, $sql);
+        header("Location: scheduleList.html?acesserror=Schedule Updated");
+
         }
       }else{
             header("Location: ../login.html?acesserror=Access Denied Please Log In");
