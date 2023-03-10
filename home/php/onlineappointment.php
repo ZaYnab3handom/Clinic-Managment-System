@@ -54,7 +54,7 @@
         $appdatetime = $_POST["datetime"];
         $consType = $_POST["consultationt"];
         $BookedOnline = 1;
-        $status="draft";
+        $status="Draft";
 
 
        //insert new appontment to app table
@@ -62,7 +62,7 @@
         (patient_Id	, doctor_id, datetime, consultation_type, booked_online, state)
         values ('$patientId','$doctorId','$appdatetime','$consType','$BookedOnline','$status' )";
         $result = mysqli_query($connection, $sql);
-        header("Location:registedAppointment.html");
+        header("Location:registedAppointment.html?national_id=$patientId");
 
 
     

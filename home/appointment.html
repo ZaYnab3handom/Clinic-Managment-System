@@ -95,7 +95,7 @@ $depresult=mysqli_query($connection, $depData);
                         <h1 class="display-4"> Doctors Schedule</h1>
                     </div>
                     <div class="col-lg-12 col-sm-9">
-                        <p><h5 style="text-align: center;">Please Select Department</h5></p>
+                        <p><h5 style="text-align: center;">Please Select Department To See Doctors Schedule</h5></p>
                         <select name="department" class="form-select bg-light border-0"  style="height: 55px;" id="department" >
                          <option style="text-align: center;">Select Department</option>
                          <?php  if (mysqli_num_rows($depresult) > 0) {
@@ -139,14 +139,17 @@ $depresult=mysqli_query($connection, $depData);
                         <h5 class="d-inline-block text-primary text-uppercase border-bottom border-5">Appointment</h5>
                         <h1 class="display-6">Book Appointment</h1>
                         <p>
-                            If this is not the first time, and you have registered before, please click Login or if it is the first time, please click ٍsingup                        </p>
+                            If it 's your first time in our hospital,
+                            <br> Please rgister to be able to book an appointment,
+                            <br> Else if your already registed book along.
+                            <!-- If this is not the first time, and you have registered before, please click Login or if it is the first time, please click ٍsingup                        </p> -->
                         <form>
                             <div class="row g-3">
                                  <div class="col-6">  
-                                    <a class="btn btn-primary w-100 py-3" href="login.html" type="submit"> Login </a>
+                                    <a class="btn btn-primary w-100 py-3" href="login.html" type="submit"> Book </a>
                                     </div>
                                 <div class="col-6">  
-                                    <a class="btn btn-primary w-100 py-3" href="signUp.html" type="submit"> SignUp </a>
+                                    <a class="btn btn-primary w-100 py-3" href="signUp.html" type="submit"> Register </a>
                                 </div>
                                
                          </div>
