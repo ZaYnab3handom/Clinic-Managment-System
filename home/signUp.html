@@ -29,7 +29,16 @@ include("../home/php/PatientWrite.php");
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        .error-message {
+        display: none;
+        color: red;
+        }
 
+        input:invalid + .error-message {
+        display: block;
+        }
+    </style>
 </head>
 
 <body>
@@ -71,27 +80,30 @@ include("../home/php/PatientWrite.php");
                <div class="col-lg-8 ">
                     <div class="bg-white text-center rounded p-5">
                         <h1 class="mb-4">SignUp</h1>
-                        <form method="post" onsubmit ="return matchpass()" name="validform">
+                        <form method="post"  name="validform" onsubmit="return validateName()">
                             <div class="row g-3" >
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientid" style="text-align: left; height: 55px; padding-top: 14px;" >National Id </label>
 
                              </div>
                                 <div class="col-12 col-sm-9">
-                                  
-                                    <input type="text" class="form-control bg-light border-0" id="NationalId" style="height: 55px;" name="nationalId" onchange="CheckID()"required >
+                                 <input type="text" class="form-control bg-light border-0" id="NationalId" style="height: 55px;" name="nationalId"  id="NationalId" required >
+                                 <span id="national-id-error" class="error" style="color: red;"></span>
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" > Name</label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="patientname" min="3" maxlength="10" id="nameInput" onchange="CheckName()" required >
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="patientname" min="3" maxlength="30" id="nameInput"  required >
+                                    <span id="name-error" class="error" style="color: red;"></span>
+
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Email </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="email" class="form-control bg-light border-0"  style="height: 55px;" name="Email" maxlength="40"  id="Email" onchange="CheckEmail()" required>
+                                    <input type="email" class="form-control bg-light border-0"  style="height: 55px;" name="Email" maxlength="40"  id="Email"  required>
+                                    <span id="email-error" style="color: red;"></span>
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" > Password </label>
@@ -104,6 +116,7 @@ include("../home/php/PatientWrite.php");
                                 </div>
                                 <div class="col-12 col-sm-9">
                                     <input type="password" class="form-control bg-light border-0"  style="height: 55px;" name="RepeatPassword" maxlength="40" id="RepeatPassword" >
+                                    <span id="error-message" style="color:red;"></span>
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Birthdate </label>
@@ -115,13 +128,17 @@ include("../home/php/PatientWrite.php");
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Mobile </label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="mobile" id="Mobile"onchange="CheckNum()" required>
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="mobile" id="Mobile" required>
+                                    <span id="mobile-message" style="color:red;"></span>
                                 </div>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Employee Code</label>
                                 </div>
                                 <div class="col-12 col-sm-9">
-                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="employeeId"  id="employeeId" onchange="CheckEmployeeCode()" required>
+                                    <input type="text" class="form-control bg-light border-0"  style="height: 55px;" name="employeeId"  id="employeeId"  required>
+                                    <span id="errorMessage" style="color:red;"></span>
+
+                                    
                                 </div>
 
                                 <div class="col-12 col-sm-2" id="label">
@@ -166,18 +183,19 @@ include("../home/php/PatientWrite.php");
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Address </label>
                                 </div>
                                 <div class="col-12 col-sm-2">
-                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="apartment" style="height: 55px;" name="apartment" >
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="apartment" style="height: 55px;" name="apartment" id="apartment" >
                                 </div>
                                 <div class="col-12 col-sm-2">
-                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="Street" style="height: 55px;" name="street" >
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="Street" style="height: 55px;" name="street" id="street" >
                                 </div>
                                 <div class="col-12 col-sm-2">
-                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="City" style="height: 55px;" name="city">
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="City" style="height: 55px;" name="city" id="city">
                                 </div>
                                 <div class="col-12 col-sm-3">
-                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="Country" style="height: 55px;" name="country">
+                                    <input type="text" class="form-control bg-light border-0 col-6" placeholder="Country" style="height: 55px;" name="country" id="country">
+                                  
                                 </div>
-
+                                <span id="address-message" style="color:red;"></span>
                                 <div class="col-12 col-sm-2" id="label">
                                     <label  class="col-sm-6 col-form-label" for="patientname" style="text-align: left; height: 55px; padding-top: 14px;" >Gender </label>
                                 </div>
@@ -192,7 +210,7 @@ include("../home/php/PatientWrite.php");
                                      <input type="submit" class="btn  btn-primary w-100 py-3" name="savebtn" id="savebtn" value="SignUp">
                                 </div>
                                 <div class="col-6">
-                                    <a class="btn btn-light w-100 py-3" href="login.html" type="submit"> Login </a>
+                                    <a class="btn btn-primary w-100 py-3" href="login.html" type="submit"> Login </a>
                                </div>
                             </div>
                         </form>
