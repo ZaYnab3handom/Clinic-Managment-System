@@ -4,7 +4,8 @@ if(isset( $_SESSION['NId'])  ){
        include_once("../dbConnection.php");
         //Read From Patient
         $readSql = "SELECT * FROM users INNER JOIN patient ON users.national_id=patient.user_id 
-        INNER JOIN adress ON users.national_id=adress.user_id WHERE users.type='patient';"; 
+        INNER JOIN adress ON users.national_id=adress.user_id WHERE users.type='patient' 
+        ORDER BY users.createDate"; 
         $readResult1 = mysqli_query($connection, $readSql);
         $currentDate = date("d-m-Y");
 
