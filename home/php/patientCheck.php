@@ -22,7 +22,7 @@ include_once("../dbConnection.php");
         header("Location:appointment_form.html?user=$patientId");}
         else{ echo "<p style='color: red;'> No Matching National Id ,<br>Please Check your Enterd Nationa_id </p>  
             <span style='margin-top: -10px'>or</span>  
-             <a  class='link w-50 py-3' style='margin-left: 220px;margin-top: -10px;text-decoration: revert;' href='signUp.html'> Register As a patient </a> ";}
+             <a  class='link w-50 py-3' style='margin-left: 250px;margin-top: -10px;text-decoration: revert;' href='signUp.html'> Register As a patient </a> ";}
       
 
 
