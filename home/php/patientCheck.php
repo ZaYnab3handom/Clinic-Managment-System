@@ -20,9 +20,9 @@ include_once("../dbConnection.php");
     $Patient = mysqli_query($connection, $sql);
     if (mysqli_num_rows($Patient) == 1) {
         header("Location:appointment_form.html?user=$patientId");}
-        else{ echo "<p style='color: red;'> No Matching National Id ,Please Check your Enterd Nationa_id </p>  
-            <P>or</p>  
-             <a  style='margin-left: 220px;' class='btn btn-primary w-50 py-3' href='signUp.html'> Register As a patient </a> ";}
+        else{ echo "<p style='color: red;'> No Matching National Id ,<br>Please Check your Enterd Nationa_id </p>  
+            <span style='margin-top: -10px'>or</span>  
+             <a  class='link w-50 py-3' style='margin-left: 220px;margin-top: -10px;text-decoration: revert;' href='signUp.html'> Register As a patient </a> ";}
       
 
 

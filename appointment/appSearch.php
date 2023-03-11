@@ -2,7 +2,7 @@
 session_start(); 
 if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
 
-if (is_numeric($_GET['searchNid'])){
+// if (is_numeric($_GET['searchNid'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -92,19 +92,45 @@ if (is_numeric($_GET['searchNid'])){
         <br>
       
       
-      
-   
-
-        <!-- <div class="col-12 col-sm- d-flex justify-content-end">
+        <div style="display: flex; justify-content: space-around">
+        <div class="col-6 col-sm-2">
           <button class="border-1 border border-secondary btn py-2">
             <a href="../appointment/appointmentForm.html" class="text-decoration-none"
-              style="color: #6c757d;">Create</a>
+              style="color: #6c757d; display: inline;">Create</a>
           </button>
         </div>
-      </div>
-      <div> -->
+         <form action="appSearch.php" method="GET" style="width: 80%" >
+    
+        <!-- <div class="col-8 col-sm-2">
+          <button class="searchbtn btn btn-outline-info py-3" style=" width:80%;">Filters</button>
+        </div> -->
+        <!-- <div class="col-8 col-sm-2">
+          <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">GroupBy</button>
+        </div> -->
+        <!-- <div class="col-6 col-sm-2">
+          <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">favourites</button>
+        </div> -->
+        
+        <div class="col-12 col-sm-6" >
+          <div id="custom-search-input">
+            <div class="input-group col-md-12" >
+              <input type="text" class="form-control input-lg"  name='searchNid'placeholder="Enter National Id" />
+              <span class="input-group-btn">
+                <input class="btn btn-info btn-lg" type="submit" value="Search" name="search" style="color: white;">
+                  
+                </button>
+              </span>
+            </div>
+            <br>
+          </div>
+        </div>
+      </form>
+    </div>
+   
+
+       
         <br><br><br><br>
-      <br><br><br><br>
+      <br>
       <br>
       <div class="table-responsive d-flex justify-content-center">
         <br>
@@ -133,8 +159,18 @@ if (is_numeric($_GET['searchNid'])){
       
           <?php 
    include_once("../dbConnection.php");
-
-        $readSql = "select * from appointmentusers where patientId=$_GET[searchNid] order by id desc"; 
+   if( $_SESSION['userType']=='doctor' ){
+    $readSql = "select * from appointmentusers where docId=$_SESSION[NId] and 
+    ( doctorName like '%$_GET[searchNid]' or patientId like '%$_GET[searchNid]'
+    or patienName like '%$_GET[searchNid]' or departmentName like '%$_GET[searchNid]'
+    or consultation_type like '%$_GET[searchNid]' or state like '%$_GET[searchNid]' )
+  order by id desc"; 
+   }else{
+        $readSql = "select * from appointmentusers where 
+         doctorName like '%$_GET[searchNid]' or patientId like '%$_GET[searchNid]'
+          or patienName like '%$_GET[searchNid]' or departmentName like '%$_GET[searchNid]'
+          or consultation_type like '%$_GET[searchNid]' or state like '%$_GET[searchNid]' 
+        order by id desc"; }
         $readResult = mysqli_query($connection, $readSql);
         while($data = mysqli_fetch_array($readResult)) {
             echo "<tr>";    
@@ -167,10 +203,10 @@ if (is_numeric($_GET['searchNid'])){
 
 </html>
 <?php 
-}else{
-  header("Location:appointmentList.html?searcherror=Invalid Search Input");
+// }else{
+//   header("Location:appointmentList.html?searcherror=Invalid Search Input");
 
-}
+// }
 } else{
   header("Location: ../login.html?acesserror=Access Denied Please Log In");
 } ?>

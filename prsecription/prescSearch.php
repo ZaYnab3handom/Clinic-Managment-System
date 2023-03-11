@@ -2,7 +2,7 @@
 <?php 
 session_start();
 if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
-  if (is_numeric($_GET['searchNid'])){
+  // if (is_numeric($_GET['searchNid'])){
 
 ?>
 <!DOCTYPE html>
@@ -95,6 +95,22 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
         <h1 class="mb-4 text-center"><br>Prescription</h1>
         <br>
      
+        <form action="prescSearch.php" method="GET">
+
+          <div class="col-12 col-sm-6">
+            <div id="custom-search-input">
+              <div class="input-group col-md-12">
+                <input type="text" class="form-control input-lg" name='searchNid'placeholder="Enter National Id" />
+                <span class="input-group-btn">
+                  <input class="btn btn-info btn-lg" type="submit" value="Search" name="search" style="color: white;">
+                    
+                  </button>
+                </span>
+              </div>
+              <br>
+            </div>
+          </div>
+        </form>
         
       </div>
       
@@ -107,6 +123,8 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
           <thead style="background-color: #42b3e5;">
             <tr>
               <th>Prescription ID</th>
+              <th>Patient NID</th>
+
               <th>Patient</th>
               <th>Department</th>
               <th>Doctor</th>
@@ -125,14 +143,21 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
 
         include_once("../dbConnection.php");
         if( $_SESSION['userType']=='doctor' ){
-         $readSql = "select * from presusers where docId=$_SESSION[NId] and pID =$_GET[searchNid] order by appointment_id desc "; 
+         $readSql = "select * from presusers where docId=$_SESSION[NId] and 
+         (pID like '%$_GET[searchNid]' or patienName like '%$_GET[searchNid]'
+          or departmentName like '%$_GET[searchNid]' or doctorName like '%$_GET[searchNid]')
+         order by appointment_id desc "; 
         }else{
-        $readSql = "select * from presusers  where pID =$_GET[searchNid] order by appointment_id desc "; }
+        $readSql = "select * from presusers  where
+        pID like '%$_GET[searchNid]' or patienName like '%$_GET[searchNid]'
+        or departmentName like '%$_GET[searchNid]' or doctorName like '%$_GET[searchNid]'
+         order by appointment_id desc "; }
         $readResult = mysqli_query($connection, $readSql);
         
         while($data = mysqli_fetch_array($readResult)) {
             echo "<tr>";    
                 echo "<td>".$data['appointment_id']."</td>";
+                echo"<td>".$data['pID']."</td>";
                 echo"<td>".$data['patienName']."</td>";
                 echo" <td>".$data['departmentName']."</td>";
                 echo" <td>".$data['doctorName']."</td>";
@@ -163,10 +188,10 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
 
 </html>
 <?php 
-}else{
-  header("Location:prescriptionList.html?searcherror=Invalid Search Input");
+// }else{
+//   header("Location:prescriptionList.html?searcherror=Invalid Search Input");
 
-}
+// }
 } else{
   header("Location: ../login.html?acesserror=Access Denied Please Log In");
 } ?>
