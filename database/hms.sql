@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 09, 2023 at 11:31 PM
+-- Generation Time: Mar 11, 2023 at 04:38 PM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -45,8 +45,10 @@ INSERT INTO `adress` (`user_id`, `apartment`, `street`, `city`, `country`) VALUE
 (255555555558, 5, 'egypt', 'suez', 'Egypt'),
 (2888888888888, 0, 'egypt', 'suez', 'Egypt'),
 (11111111111111, 0, 'egypt', 'suez', 'Egypt'),
+(11223344556677, 5, 'egypt', 'suez', 'Egypt'),
 (29608030400144, 5, 'egypt', 'suez', 'Egypt'),
-(29608034444444, 0, 'hg', 'suez', 'Egypt'),
+(29608030400148, 5, 'egypt', 'suez', 'Egypt'),
+(29608030405141, 5, 'egypt', 'suez', 'Egypt'),
 (88888888888888, 5, 'egypt', 'suez', 'Egypt');
 
 -- --------------------------------------------------------
@@ -73,27 +75,6 @@ INSERT INTO `appointment` (`id`, `datetime`, `patient_Id`, `doctor_id`, `consult
 (2, '2023-02-27 00:00:00', 2664, 29608030400141, 'bv', 1, 'hjgh '),
 (7, '2023-03-01 00:00:00', 29608030400141, 29608030400141, 'reapp', 0, 'done'),
 (31, '2023-03-01 00:00:00', 29608030400141, 29608030400141, 'reapp2', 0, 'confirm'),
-(47, '2023-03-02 00:00:00', 29608034444444, 29608030400141, 'gggggggggg', 0, 'status'),
-(51, '2023-03-02 00:00:00', 29608034444444, 29608030400141, 'sondoooooo', 1, 'status'),
-(52, '0000-00-00 00:00:00', 29608034444444, 29608030400141, 'sondoooooo', 1, 'status'),
-(54, '0000-00-00 00:00:00', 29608034444444, 29608030400141, 'test ccccc', 0, 'status'),
-(55, '0000-00-00 00:00:00', 29608034444444, 29608030400141, 'test ccccc', 0, 'status'),
-(56, '0000-00-00 00:00:00', 29608034444444, 29608030400141, 'test ccccc', 0, 'status'),
-(69, '2023-03-02 07:27:37', 29608034444444, 29608030400141, 'teeeeeeeee', 0, 'status'),
-(70, '2023-03-02 20:30:17', 29608034444444, 29608030400141, 'hhhhhhhhhh', 0, 'status'),
-(71, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
-(73, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
-(74, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
-(75, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
-(76, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
-(77, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
-(78, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
-(79, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
-(80, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
-(81, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
-(82, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
-(83, '2023-03-03 09:41:25', 29608034444444, 29608030400141, 'front test', 1, 'front test'),
-(85, '2023-03-03 06:10:03', 29608034444444, 29608030400141, 're-examination', 0, ''),
 (86, '2023-03-03 20:39:00', 29608030400141, 29608030400141, 're-examination', 0, ''),
 (87, '0000-00-00 00:00:00', 29608030400141, 29608030400141, 'examination', 1, 'draft'),
 (88, '0000-00-00 00:00:00', 29608030400141, 29608030400141, 'examination', 1, 'draft'),
@@ -120,19 +101,23 @@ INSERT INTO `appointment` (`id`, `datetime`, `patient_Id`, `doctor_id`, `consult
 (133, '2023-03-07 04:28:36', 33, 255555555558, 'examination', 0, 'Draft'),
 (134, '2023-03-07 04:30:15', 33, 255555555558, 'examination', 0, 'Draft'),
 (135, '2023-03-07 04:30:00', 33, 255555555558, 'examination', 0, 'Draft'),
-(136, '2023-03-07 04:30:07', 33, 255555555558, 'examination', 0, 'Draft'),
 (137, '2023-03-07 04:35:09', 33, 255555555558, 'examination', 0, 'Draft'),
-(138, '2023-03-07 04:35:09', 33, 255555555558, 'examination', 0, 'Draft'),
 (139, '2023-03-07 04:36:01', 33, 255555555558, 'examination', 0, 'Draft'),
 (140, '2023-03-07 04:36:01', 33, 255555555558, 'examination', 0, 'Draft'),
 (142, '2023-03-07 04:37:11', 33, 255555555558, 'examination', 0, 'Draft'),
 (143, '2023-03-07 04:37:30', 33, 255555555558, 'examination', 0, 'Draft'),
-(144, '2023-03-07 04:38:08', 33, 255555555558, 'examination', 0, 'Draft'),
 (147, '2023-03-08 23:39:00', 29608030400141, 255555555558, 'examination', 1, 'draft'),
-(149, '2023-03-08 09:27:00', 29608030400144, 255555555558, 'examination', 0, 'Confirm'),
-(150, '2023-03-08 09:27:46', 29608030400144, 255555555558, 're-examination', 0, 'Confirm'),
-(151, '2023-03-08 09:36:48', 33, 255555555558, 'examination', 0, 'Confirm'),
-(154, '0000-00-00 00:00:00', 29608030400141, 29608030400141, 're-examination', 1, 'draft');
+(150, '2023-03-08 09:27:46', 29608030400144, 255555555558, 're-examination', 0, 'In-consultation'),
+(151, '2023-03-08 09:36:48', 33, 255555555558, 'examination', 0, 'In-consultation'),
+(154, '0000-00-00 00:00:00', 29608030400141, 29608030400141, 're-examination', 1, 'draft'),
+(155, '0000-00-00 00:00:00', 29608030400141, 29608030400141, 'examination', 1, 'draft'),
+(156, '0000-00-00 00:00:00', 29608030400141, 29608030400141, 'examination', 1, 'draft'),
+(157, '0000-00-00 00:00:00', 29608030400141, 255555555558, 'examination', 1, 'draft'),
+(158, '0000-00-00 00:00:00', 29608030400141, 29608030400141, 'examination', 1, 'draft'),
+(159, '2023-03-10 21:40:00', 29608030400141, 29608030400141, 'examination', 1, 'draft'),
+(160, '2023-03-10 22:41:00', 29608030400141, 255555555558, 'examination', 1, 'draft'),
+(161, '2023-03-12 12:09:00', 29608030400141, 29608030400148, 'examination', 1, 'draft'),
+(162, '2023-03-11 22:46:00', 29608030400141, 29608030400148, 'examination', 1, 'Draft');
 
 -- --------------------------------------------------------
 
@@ -197,7 +182,9 @@ INSERT INTO `doctor` (`user_id`, `department_id`) VALUES
 (255555555558, 3),
 (88888888888888, 1),
 (11111111111111, 2),
-(1111, 3);
+(1111, 3),
+(29608030400148, 3),
+(11223344556677, 3);
 
 -- --------------------------------------------------------
 
@@ -241,7 +228,7 @@ INSERT INTO `patient` (`user_id`, `company`, `employee_id`, `blood_type`, `chron
 (2888888888888, 'Department', 123, 'B', 'no', 'no'),
 (29608030400141, 'suez canal', 2, 'o', 'no', 'no'),
 (29608030400144, 'sugarCanel', 2, 'A', 'no', 'egypt'),
-(29608034444444, 'sugarCanel', 1, 'A', 'no', 'no');
+(29608030405141, 'sugarCanel', 1, 'A', 'no', 'no');
 
 -- --------------------------------------------------------
 
@@ -264,12 +251,6 @@ CREATE TABLE `prescription` (
 --
 
 INSERT INTO `prescription` (`appointment_id`, `prescription_time`, `disease`, `medical_test`, `x_rays`, `followup_date`, `notes`) VALUES
-(2, '2023-03-03 09:12:50', 'js test', '', '', '2023-03-03 09:12:50', ''),
-(47, '2023-03-03 04:43:33', 'mmmmmmmmmmmmmmmmmmmmm', '', '', '2023-03-03 04:43:33', ''),
-(51, '2023-02-25 04:40:15', 'wooooooooooooooooooooooooooooooooooooo', '', '', '2023-03-03 04:40:15', ''),
-(54, '2023-03-03 04:53:18', '', '', '', '2023-03-03 04:53:18', ''),
-(78, '2023-03-07 01:22:53', '', '', '', '2023-03-07 01:22:53', ''),
-(107, '2023-03-06 01:39:47', 'disease', 'dddddddddddddddd', 'x1,x2,x3m,', '2023-03-06 01:39:47', 'gggggggggggg'),
 (150, '2023-03-08 09:29:39', 'diseasemnjh', 'MedicalTest', 'X-Rays', '2023-03-08 09:29:39', 'ooooooooooooooo'),
 (151, '2023-03-10 12:22:33', '', '', '', '2023-03-10 12:22:33', '');
 
@@ -293,23 +274,6 @@ CREATE TABLE `prescription_line` (
 --
 
 INSERT INTO `prescription_line` (`id`, `prescription_id`, `medicine_name`, `dosage_detail`, `allow_subsistuation`, `comment`) VALUES
-(73, 51, 'a', 'a', 1, 'a'),
-(74, 51, 'a', 'a', 1, 'a'),
-(75, 51, 'a', 'a', 0, 'a'),
-(77, 47, 'a1', 'a1', 1, 'a1'),
-(78, 47, 'a2', 'a2', 1, 'a2'),
-(79, 47, 'a3', 'a3', 0, 'a3'),
-(86, 54, 'a', '', 1, ''),
-(87, 54, 'a1', '', 0, ''),
-(88, 54, 'a2', '', 0, ''),
-(96, 2, 'm4', '', 0, ''),
-(97, 2, 'm4', '', 0, ''),
-(98, 2, 'm4', '', 0, ''),
-(99, 2, 'm4', '', 0, ''),
-(115, 107, 'm1', 'd1', 0, 'c1'),
-(116, 107, 'm1', 'd1', 0, 'c1'),
-(117, 107, 'm1', 'd1', 0, 'c1'),
-(118, 107, 'm1', 'd1', 0, 'c1'),
 (119, 150, 'd4', '', 0, ''),
 (120, 150, 'd4', '', 0, ''),
 (121, 150, 'd4', '', 0, ''),
@@ -359,7 +323,10 @@ INSERT INTO `schedule` (`id`, `dayDate`, `start`, `end`, `doctor_id`) VALUES
 (12, '2023-03-10', '21:34:00', '22:34:00', 1111),
 (13, '2023-03-13', '23:34:00', '14:34:00', 1111),
 (14, '2023-03-12', '22:34:00', '12:35:00', 1111),
-(16, '2023-03-09', '12:58:00', '12:58:00', 255555555558);
+(16, '2023-03-09', '12:58:00', '12:58:00', 255555555558),
+(17, '2023-03-30', '01:10:00', '01:10:00', 255555555558),
+(18, '2023-04-05', '02:10:00', '07:10:00', 255555555558),
+(19, '2023-03-12', '22:09:00', '12:09:00', 29608030400148);
 
 -- --------------------------------------------------------
 
@@ -375,27 +342,30 @@ CREATE TABLE `users` (
   `type` varchar(15) NOT NULL,
   `birthDate` date NOT NULL,
   `gender` char(1) NOT NULL,
-  `mobile` varchar(13) NOT NULL
+  `mobile` varchar(13) NOT NULL,
+  `createDate` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`national_id`, `name`, `email`, `password`, `type`, `birthDate`, `gender`, `mobile`) VALUES
-(0, 'sad', 'zeinab3handoum@gmail.com', '123', 'Doctor', '2023-03-02', 'M', '01000'),
-(33, 'external', 'zeinab3handoum@gmail.com', '', 'Patient', '2023-03-01', 'F', '1020797704'),
-(699, 'zoza', 'adminnnnnn@adn', '123', 'Patient', '0000-00-00', '', '699'),
-(1111, 'zaynabDoctor', 'zay', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'doctor', '1996-08-03', 'F', '01020797704'),
-(2222, 'zaynabReciptionast', 'zayn', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'receptionist', '1996-08-03', 'F', '01020797704'),
-(2664, 'ali', ',mnkjl', ',mnkjl', 'k', '2023-02-16', 'f', '142'),
-(255555555558, 'hoda', 'zeinab3handoum@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'doctor', '2005-02-02', '$', '1020797704'),
-(2888888888888, 'ahmed', 'admin@gh', 'admin', 'Patient', '2009-02-02', '', '+20122222222'),
-(11111111111111, 'gad', 'zeinab3handoum@gmail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', 'doctor', '2023-03-02', 'M', '01020797755'),
-(29608030400141, 'zaynab', 'zaynab3handoum@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'admin', '1996-08-03', 'F', '1020797704'),
-(29608030400144, 'mohammed ali', 'zeinab3handoum@gmail.com', '', 'Patient', '2000-07-08', 'M', '01020797755'),
-(29608034444444, 'zaynab ibrahim', 'admin@gh', 'admin', 'patient', '0000-00-00', '', '1020797755'),
-(88888888888888, 'soha', 'zeinab3handoum@gmail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', 'doctor', '2023-03-02', 'F', '01020797704');
+INSERT INTO `users` (`national_id`, `name`, `email`, `password`, `type`, `birthDate`, `gender`, `mobile`, `createDate`) VALUES
+(0, 'sad', 'zeinab3handoum@gmail.com', '123', 'Doctor', '2023-03-02', 'M', '01000', '2023-03-11 15:48:20'),
+(33, 'external', 'zeinab3handoum@gmail.com', '', 'Patient', '2023-03-01', 'F', '1020797704', '2023-03-11 15:48:20'),
+(699, 'zoza', 'adminnnnnn@adn', '123', 'Patient', '0000-00-00', '', '699', '2023-03-11 15:48:20'),
+(1111, 'zaynabDoctor', 'zay', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'doctor', '1996-08-03', 'F', '01020797704', '2023-03-11 15:48:20'),
+(2222, 'zaynabReciptionast', 'zayn', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'receptionist', '1996-08-03', 'F', '01020797704', '2023-03-11 15:48:20'),
+(2664, 'ali', ',mnkjl', ',mnkjl', 'k', '2023-02-16', 'f', '142', '2023-03-11 15:48:20'),
+(255555555558, 'hoda', 'zeinab3handoum@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'doctor', '2005-02-02', '$', '1020797704', '2023-03-11 15:48:20'),
+(2888888888888, 'ahmed', 'admin@gh', 'admin', 'Patient', '2009-02-02', '', '+20122222222', '2023-03-11 15:48:20'),
+(11111111111111, 'gad', 'zeinab3handoum@gmail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', 'doctor', '2023-03-02', 'M', '01020797755', '2023-03-11 15:48:20'),
+(11223344556677, 'sondos', 'zeinab3handoum@gmail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', 'doctor', '2023-03-01', 'F', '01020797704', '2023-03-11 15:49:15'),
+(29608030400141, 'zaynab', 'zaynab3handoum@gmail.com', '40bd001563085fc35165329ea1ff5c5ecbdbbeef', 'admin', '1996-08-03', 'F', '1020797704', '2023-03-11 15:48:20'),
+(29608030400144, 'mohammed ali', 'zeinab3handoum@gmail.com', '', 'Patient', '2000-07-08', 'M', '01020797755', '2023-03-11 15:48:20'),
+(29608030400148, 'zaynab ibrahim', 'zeinab3handoum@gmail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', 'doctor', '1996-08-03', 'F', '01020797704', '2023-03-11 15:48:20'),
+(29608030405141, 'zaynab ibrahim', 'zeinab3handoum@gmail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', 'patient', '2008-10-30', 'F', '01020797755', '2023-03-11 17:26:45'),
+(88888888888888, 'soha', 'zeinab3handoum@gmail.com', 'f7c3bc1d808e04732adf679965ccc34ca7ae3441', 'doctor', '2023-03-02', 'F', '01020797704', '2023-03-11 15:48:20');
 
 -- --------------------------------------------------------
 
@@ -495,7 +465,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `appointment`
 --
 ALTER TABLE `appointment`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=155;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
 -- AUTO_INCREMENT for table `department`
@@ -513,7 +483,7 @@ ALTER TABLE `prescription_line`
 -- AUTO_INCREMENT for table `schedule`
 --
 ALTER TABLE `schedule`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- Constraints for dumped tables
