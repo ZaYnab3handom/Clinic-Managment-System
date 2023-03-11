@@ -7,7 +7,8 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
         INNER JOIN adress ON users.national_id=adress.user_id 
         INNER JOIN doctor ON doctor.user_id=users.national_id
         INNER JOIN department on doctor.department_id=department.id WHERE type='Doctor'
-        ORDER BY users.createDate"; 
+        -- ORDER BY users.createDate
+        "; 
         $readResult1 = mysqli_query($connection, $readSql);
 
         while($data = mysqli_fetch_array($readResult1)) {

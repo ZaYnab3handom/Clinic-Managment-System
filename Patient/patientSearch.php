@@ -1,12 +1,14 @@
-
 <?php 
 session_start();
-if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){   ?>
+if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
+  if (isset($_GET['searchNid'])){
+    ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Patient</title>
@@ -73,28 +75,25 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){   ?>
       </nav>
     </div>
   </div>
-  <?php if (isset($_GET['done'])) { ?>
-    <span class="alert alert-success" role="alert" style="text-align: center;display:inline" >
-      <?=$_GET['done']?>
-    </span>
-  <?php } ?>
-  <?php if (isset($_GET['delete'])) { ?>
-    <span class="alert alert-danger" role="alert" style="text-align: center;display:inline" >
-      <?=$_GET['delete']?>
-    </span>
-  <?php } ?>
-  <?php if (isset($_GET['acesserror'])) { ?>
-    <div class="alert alert-danger" role="alert" style="text-align: center;">
-      <?=$_GET['acesserror']?>
-  </div>
-  <?php } ?>
-  <!-- search input -->
+
+  <!-- patient List -->
   <div class="container">
-    <div class="row form bg-light  rounded" style="width: 123.5%;margin-left: -12.5%;">
+    <div class="row form bg-light  rounded" style="width: 120%;margin-left: -10%;">
       <div class="row bg-light" style="position: fixed; width:97.5% ; left: 2%;">
+        <?php if (isset($_GET['done'])) { ?>
+          <span class="alert alert-success" role="alert" style="text-align: center;display:inline" >
+            <?=$_GET['done']?>
+          </span>
+        <?php } ?>
+        <?php if (isset($_GET['delete'])) { ?>
+          <span class="alert alert-danger" role="alert" style="text-align: center;display:inline" >
+            <?=$_GET['delete']?>
+          </span>
+        <?php } ?>
 
         <h1 class="mb-4 text-center"><br>Patient</h1>
         <br>
+        <!-- search input -->
 
         <form action="patientSearch.php" method="GET">
         
@@ -127,17 +126,28 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){   ?>
               style="color: #6c757d;">Create</a>
           </button>
         </div>
+      
+      
+      
+   
+
+        <!-- <div class="col-12 col-sm- d-flex justify-content-end">
+          <button class="border-1 border border-secondary btn py-2">
+            <a href="../appointment/appointmentForm.html" class="text-decoration-none"
+              style="color: #6c757d;">Create</a>
+          </button>
+        </div>
       </div>
-      <div>
-        <br><br><br><br><br>
+      <div> -->
         <br><br><br><br>
-        <br><br>
-        <div class="table-responsive d-flex justify-content-center">
-  
-          <table class="table table-striped table-borderless table-hover " style="width: 98%;">
-            <thead style="background-color: #42b3e5;">
-              <tr>
-              <th>National ID</th>
+      <br><br><br><br>
+      <br>
+      <div class="table-responsive d-flex justify-content-center">
+        <br>
+        <table class="table table-striped table-borderless table-hover " style="width: 100%;">
+          <thead style="background-color: #42b3e5;">
+            <tr>
+            <th>National ID</th>
               <th>Name</th>
               <th>Gender</th>
               <th>Mobile</th>
@@ -146,23 +156,51 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){   ?>
               <th>Edit</th>
               <th>Make appointment</th>
               <th>delete</th>
-            </tr>
-            </thead>
-            <tbody>
-              <?php
-            include("PatientRead.php");
-          ?>
-            </tbody>
-          </table>
+         </tr>
+            
+          </thead>
+      
+          <?php 
+   include_once("../dbConnection.php");
+   //Read From Patient
+   $readSql = "SELECT * FROM users INNER JOIN patient ON users.national_id=patient.user_id 
+   INNER JOIN adress ON users.national_id=adress.user_id WHERE users.type='patient' 
+   and (users.national_id like '%$_GET[searchNid]' or users.name like '%$_GET[searchNid]')
+   -- ORDER BY users.createDate
+   "; 
+   $readResult1 = mysqli_query($connection, $readSql);
+   $currentDate = date("d-m-Y");
 
-        </div>
+   while($data = mysqli_fetch_array($readResult1)) {
+       echo "<tr>";
+       echo "<td>".$data["national_id"]."</td>";
+       echo "<td>".$data["name"]."</td>";
+       echo "<td>".$data["gender"]."</td>";
+       echo "<td>".$data["mobile"]."</td>";
+       $age = date_diff(date_create($data["birthDate"]), date_create($currentDate));
+       echo "<td>".$age->format("%y")."</td>";
+       echo "<td>".$data["blood_type"]."</td>";
+       echo "<td> <a href='editpatient.html?national_id=$data[national_id]'><i class='bi bi-pencil-square'></i></a></td>";
+       echo "<td> <a href='../appointment/appointmentForm.html?user=$data[user_id]'><i class='bi bi-calendar'></i></a></td>";
+       echo "<td> <a href='PatientDelete.php?national_id=$data[national_id]'><i class='bi bi-trash-fill '></i></a></td>";
+
+       echo "</tr>";
+   
+   }
+    
+          ?>
+          <tbody>
+          </tbody>
+        </table>
       </div>
     </div>
-
-    <script src="../Doctor/bootstrap.bundle.min.js"></script>
+  </div>
 </body>
 
 </html>
-<?php } else{
+<?php 
+  }
+}
+else{
   header("Location: ../login.html?acesserror=Access Denied Please Log In");
 } ?>

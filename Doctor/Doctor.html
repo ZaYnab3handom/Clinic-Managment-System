@@ -75,10 +75,10 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
       <?=$_GET['delete']?>
     </span>
   <?php } ?>
-  <?php if (isset($_GET['acesserror'])) { ?>
-    <div class="alert alert-danger" role="alert" style="text-align: center;">
-      <?=$_GET['acesserror']?>
-  </div>
+  <?php if (isset($_GET['searcherror'])) { ?>
+    <span class="alert alert-danger" role="alert" style="text-align: center;display:inline" >
+      <?=$_GET['searcherror']?>
+    </span>
   <?php } ?>
 
   <!-- search input -->
@@ -89,28 +89,31 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
         <h1 class="mb-4 text-center"><br>Doctors</h1>
         <br>
 
-        <div class="col-8 col-sm-2">
-          <button class="searchbtn btn btn-outline-info py-3" style=" width:80%;">Filters</button>
-        </div>
-        <div class="col-8 col-sm-2">
-          <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">GroupBy</button>
-        </div>
-        <div class="col-6 col-sm-2">
-          <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">Favourites</button>
-        </div>
-        <div class="col-12 col-sm-6">
-          <div id="custom-search-input">
-            <div class="input-group col-md-12">
-              <input type="search" name="searchbar" id="searchbar" class="form-control input-lg" placeholder="Search" />
-              <span class="input-group-btn">
-                <button class="btn btn-info btn-lg" type="button" style="color: white;">
-                  <i class="bi bi-search"></i>
-                </button>
-              </span>
-            </div>
-            <br>
+        <form action="doctorSearch.php" method="GET">
+        
+          <div class="col-8 col-sm-2">
+            <button class="searchbtn btn btn-outline-info py-3" style=" width:80%;">Filters</button>
           </div>
-        </div>
+          <!-- <div class="col-8 col-sm-2">
+            <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">GroupBy</button>
+          </div> -->
+          <!-- <div class="col-6 col-sm-2">
+            <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">favourites</button>
+          </div> -->
+          <div class="col-12 col-sm-6">
+            <div id="custom-search-input">
+              <div class="input-group col-md-12">
+                <input type="text" class="form-control input-lg" name='searchNid'placeholder="Enter National Id" />
+                <span class="input-group-btn">
+                  <input class="btn btn-info btn-lg" type="submit" value="Search" name="search" style="color: white;">
+                    
+                  </button>
+                </span>
+              </div>
+              <br>
+            </div>
+          </div>
+        </form>
         <div class="col-12 col-sm- d-flex justify-content-end">
           <button class="border-1 border border-secondary btn py-2">
             <a href="../Doctor/doctor_form.html" class="text-decoration-none"
