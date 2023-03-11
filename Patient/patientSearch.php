@@ -96,10 +96,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
         <!-- search input -->
 
         <form action="patientSearch.php" method="GET">
-        
-          <div class="col-8 col-sm-2">
-            <button class="searchbtn btn btn-outline-info py-3" style=" width:80%;">Filters</button>
-          </div>
+
           <!-- <div class="col-8 col-sm-2">
             <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">GroupBy</button>
           </div> -->
