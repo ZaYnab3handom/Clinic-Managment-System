@@ -94,22 +94,29 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
         <?php } ?>
 
         <h1 class="mb-4 text-center"><br>Appointment</h1>
-        <br>
-        <form action="appSearch.php" method="GET">
-        
-        <div class="col-8 col-sm-2">
-          <button class="searchbtn btn btn-outline-info py-3" style=" width:80%;">Filters</button>
+        <div style="display: flex; justify-content: space-around">
+        <div class="col-6 col-sm-2">
+          <button class="border-1 border border-secondary btn py-2">
+            <a href="../appointment/appointmentForm.html" class="text-decoration-none"
+              style="color: #6c757d; display: inline;">Create</a>
+          </button>
         </div>
+         <form action="appSearch.php" method="GET" style="width: 80%" >
+    
+        <!-- <div class="col-8 col-sm-2">
+          <button class="searchbtn btn btn-outline-info py-3" style=" width:80%;">Filters</button>
+        </div> -->
         <!-- <div class="col-8 col-sm-2">
           <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">GroupBy</button>
         </div> -->
         <!-- <div class="col-6 col-sm-2">
           <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">favourites</button>
         </div> -->
-        <div class="col-12 col-sm-6">
+        
+        <div class="col-12 col-sm-6" >
           <div id="custom-search-input">
-            <div class="input-group col-md-12">
-              <input type="text" class="form-control input-lg" name='searchNid'placeholder="Enter National Id" />
+            <div class="input-group col-md-12" >
+              <input type="text" class="form-control input-lg"  name='searchNid'placeholder="Enter National Id" />
               <span class="input-group-btn">
                 <input class="btn btn-info btn-lg" type="submit" value="Search" name="search" style="color: white;">
                   
@@ -120,15 +127,11 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
           </div>
         </div>
       </form>
+    </div>
       
    
 
-        <div class="col-12 col-sm- d-flex justify-content-end">
-          <button class="border-1 border border-secondary btn py-2">
-            <a href="../appointment/appointmentForm.html" class="text-decoration-none"
-              style="color: #6c757d;">Create</a>
-          </button>
-        </div>
+       
         
       </div>
       <div>
