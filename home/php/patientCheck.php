@@ -13,6 +13,8 @@ include_once("../dbConnection.php");
 // }
 
  if(isset($_POST["savebtn"])){
+    if (is_numeric($_POST["national_id"])){
+
     $patientId = $_POST["national_id"];
     $sql = "select * FROM patient where user_id=$patientId";
     $Patient = mysqli_query($connection, $sql);
@@ -20,7 +22,7 @@ include_once("../dbConnection.php");
         header("Location:appointment_form.html?user=$patientId");}
         else{ echo "<p style='color: red;'> No Matching National Id ,Please Check your Enterd Nationa_id </p>  
             <P>or</p>  
-             <a class='btn btn-primary w-50 py-3' href='signUp.html'> Register As a patient </a> ";}
+             <a  style='margin-left: 220px;' class='btn btn-primary w-50 py-3' href='signUp.html'> Register As a patient </a> ";}
       
 
 
@@ -28,7 +30,11 @@ include_once("../dbConnection.php");
     // }
     
 
-mysqli_close($connection);
+mysqli_close($connection);}
+else {
+    echo "<p style='color: red;'> Invalid Input, Please Enterd Valid National Id  </p> "; 
+            
+}
 
 }
 

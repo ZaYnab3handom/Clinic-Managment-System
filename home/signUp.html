@@ -5,7 +5,7 @@ include("../home/php/PatientWrite.php");
 
 <head>
     <meta charset="utf-8">
-    <title>SignUp</title>
+    <title>Register</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free HTML Templates" name="keywords">
     <meta content="Free HTML Templates" name="description">
@@ -29,6 +29,7 @@ include("../home/php/PatientWrite.php");
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/logo.png">
     <style>
            
         .error
@@ -90,8 +91,10 @@ include("../home/php/PatientWrite.php");
                         <a href="index.html" class="nav-item nav-link ">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
                        <!-- <a href="signUp.html" class="nav-item nav-link">SignUp</a>-->
-                        <a href="appointment.html" class="nav-item nav-link active">Appointment</a>    
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="appointment.html" class="nav-item nav-link active">Appointment</a> 
+                        <a href="registedAppointment.html" class="nav-item nav-link">State Track</a>  
+   
+                        <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
                     </div>
                 </div>
             </nav>
@@ -110,7 +113,7 @@ include("../home/php/PatientWrite.php");
             <div class="row gx-5 justify-content-center">
                <div class="col-lg-8 ">
                     <div class="bg-white text-center rounded p-5">
-                        <h1 class="mb-4">SignUp</h1>
+                        <h1 class="mb-4">Register</h1>
                         <form action="" onsubmit ="return repatedPasword()" method="post">
                             <div class="row g-3" >
                                 <div class="col-12 col-sm-2" id="label">
@@ -240,7 +243,7 @@ include("../home/php/PatientWrite.php");
                                </div>
                             <div></div>
                                 <div class="col-12 text-center">
-                                     <input type="submit" class="btn  btn-primary w-50 py-3" name="savebtn" id="savebtn" value="SignUp">
+                                     <input type="submit" class="btn  btn-primary w-50 py-3" name="savebtn" id="savebtn" value="Register">
                                 </div>
                                 <div class="col-12 text-center">
                                     <a class="link w-50 py-3" href="login.html" type="submit" style="text-decoration: revert;"> Are you have account? </a>

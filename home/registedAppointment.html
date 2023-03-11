@@ -45,30 +45,30 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/logo.png">
+
 </head>
 <body >
-    <!--NavBar start-->
-    <!--<div class="container-fluid sticky-top bg-white shadow-sm">
+    <div class="container-fluid sticky-top bg-white shadow-sm">
         <div class="container">
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-3 py-lg-0">
-                <a href="index.html" class="navbar-brand">
-                    <h1 class="m-0 text-uppercase text-primary"><i class="fa fa-clinic-medical me-2"></i>YouHeal</h1>
-                </a>
+                <a href="index.html" class="navbar-brand"> <img src="./img/logo.png" alt=""> </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="index.html" class="nav-item nav-link ">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a>
-                      <a href="signUp.html" class="nav-item nav-link">SignUp</a>
-                        <a href="appointment.html" class="nav-item nav-link">Appointment</a>    
-                        <a href="#footer" class="nav-item nav-link">Contact</a>
+                        <a href="appointment.html" class="nav-item nav-link  ">Appointment</a> 
+                        <a href="registedAppointment.html" class="nav-item nav-link active">State Track</a>  
+   
+                        <!-- <a href="contact.html" class="nav-item nav-link">Contact</a> -->
                     </div>
                 </div>
             </nav>
         </div>
-    </div>-->
+    </div>
     <!--Navbar End-->
     <div class="container bg-primary my-5 py-5" id="appointment"  style=" margin-top: 5rem !important;
     margin-bottom: 3rem !important;">
@@ -85,6 +85,11 @@
                               <?php 
                               include("php/registedAppointment.php");
                            ?>
+                           <?php if (isset($_GET['inputError'])) { ?>
+                            <div class="alert alert-danger" role="alert" style="text-align: center;">
+                              <?=$_GET['inputError']?>
+                          </div>
+                          <?php } ?>
                            
                               <!-- <h3>You must come at the clinic 15 minutes before your appointment time.</h3> -->
                                 </div>
