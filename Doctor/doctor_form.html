@@ -20,6 +20,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="Doctor.css">
+    <link rel="icon" type="image/png" href="logo.png">
     <!-- <link rel="stylesheet" href="../Patient/patient_form_style.css"> -->
   <link rel="stylesheet" href="../generalView.css">
 
@@ -177,7 +178,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
                 <div class="col-12 col-sm-6">
                   <label for="Password">Password</label>
                     <input type="password" id="Password" name="password" class="form-control bg-white border-0"
-                      placeholder="Ab123@/*" style="height: 55px;" onchange="verifyPassword()">
+                      placeholder="Ab123@/*" style="height: 55px;" onchange="verifyPassword()" required>
                   <div id="password_error" class="erroremail hidden">Please enter a valid Password</div>
 
                   </div>
@@ -185,7 +186,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
                   <div class="col-12 col-sm-6">
                   <label for="RepeatPassword">Repeat Password</label>
                     <input type="password"id="RepeatPassword" name="repeatpassword" class="form-control bg-white border-0"
-                      placeholder="Enter the same password" style="height: 55px;" onchange="repatedPasword()">
+                      placeholder="Enter the same password" style="height: 55px;" onchange="repatedPasword()" required>
                       <div id="reppassword_error" class="erroremail" style="visibility: hidden;" >Passwords are not matched</div>
                   </div>
                 <br><br>
