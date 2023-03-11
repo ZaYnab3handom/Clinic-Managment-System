@@ -119,7 +119,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
       <br><br><br><br>
       <br><br>
       <div class="table-responsive d-flex justify-content-center">
-        <table class="table table-striped table-borderless table-hover " style="width: 100%;">
+        <table class="table table-striped table-borderless table-hover " style="width: 95%;">
           <thead style="background-color: #42b3e5;">
             <tr>
               <th>Prescription ID</th>

@@ -93,54 +93,36 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
           </span>
         <?php } ?>
 
-        <h1 class="mb-4 text-center"><br>Doctor</h1>
+        <h1 class="mb-4 text-center"><br>Doctors</h1>
         <br>
-        <form action="doctorSearch.php" method="GET">
-        
-
-        <!-- <div class="col-8 col-sm-2">
-          <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">GroupBy</button>
-        </div> -->
-        <!-- <div class="col-6 col-sm-2">
-          <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">favourites</button>
-        </div> -->
-        <div class="col-12 col-sm-6" >
-          <div id="custom-search-input">
-            <div class="input-group col-md-12">
-              <input type="text" class="form-control input-lg" name='searchNid'placeholder="Enter National Id" />
-              <span class="input-group-btn">
-                <input class="btn btn-info btn-lg" type="submit" value="Search" name="search" style="color: white;">
-                  
-                </button>
-              </span>
-            </div>
-            <br>
+        <div style="display: flex; justify-content: start">
+          <div class="col-2 col-sm-3">
           </div>
-        </div>
-      </form>
-      <div class="col-12 col-sm- d-flex justify-content-end">
-          <button class="border-1 border border-secondary btn py-2">
-            <a href="../Doctor/doctor_form.html" class="text-decoration-none"
-              style="color: #6c757d;">Create</a>
-          </button>
-        </div>
-      
-   
-
-        <!-- <div class="col-12 col-sm- d-flex justify-content-end">
-          <button class="border-1 border border-secondary btn py-2">
-            <a href="../appointment/appointmentForm.html" class="text-decoration-none"
-              style="color: #6c757d;">Create</a>
-          </button>
+          <div class="col-2 col-sm-3" style="display: inline; ">
+            <button class="border-1 border border-secondary btn py-2">
+              <a href="../Doctor/doctor_form.html" class="text-decoration-none" style="color: #6c757d;">Create</a>
+            </button>
+          </div>
+          <form action="doctorSearch.php" method="GET" class="row" style="width: 100%">
+            <div class="col-2 col-sm-10">
+              <div id="custom-search-input">
+                <div class="input-group col-md-12">
+                  <input type="text" class="form-control input-lg" name='searchNid' placeholder="Search" />
+                  <span class="input-group-btn">
+                    <button class="btn btn-info btn-lg" type="submit" value="Search" name="search" style="color: white;"><i class="bi bi-search"></i></button>
+                  </span>
+                </div>
+                <br>
+              </div>
+            </div>
+          </form>
         </div>
       </div>
-      <div> -->
-        <br><br><br><br>
-      <br><br><br><br>
-      <br>
-      <div class="table-responsive d-flex justify-content-center">
+      <div>
+      <br><br><br><br><br><br><br><br><br><br>
+       <div class="table-responsive d-flex justify-content-center">
         <br>
-        <table class="table table-striped table-borderless table-hover " style="width: 100%;">
+        <table class="table table-striped table-borderless table-hover " style="width: 95%;">
           <thead style="background-color: #42b3e5;">
             <tr>
             <th>National ID</th>
