@@ -95,16 +95,15 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
         <h1 class="mb-4 text-center"><br>Prescription</h1>
         <br>
      
-        <form action="prescSearch.php" method="GET">
-
-          <div class="col-12 col-sm-6">
+        <form action="prescSearch.php" method="GET" class="row" style="width: 100%">
+          <div class="col-2 col-sm-3"></div>
+          <div class="col-2 col-sm-3"></div>
+          <div class="col-2 col-sm-5">
             <div id="custom-search-input">
               <div class="input-group col-md-12">
-                <input type="text" class="form-control input-lg" name='searchNid'placeholder="Enter National Id" />
+                <input type="text" class="form-control input-lg" name='searchNid' placeholder="Search" />
                 <span class="input-group-btn">
-                  <input class="btn btn-info btn-lg" type="submit" value="Search" name="search" style="color: white;">
-                    
-                  </button>
+                  <button class="btn btn-info btn-lg" type="submit" value="Search" name="search" style="color: white;"><i class="bi bi-search"></i></button>
                 </span>
               </div>
               <br>
@@ -117,14 +116,12 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
       <div>
       <br><br><br><br><br>
       <br><br><br><br>
-      <br><br>
+      <br>
       <div class="table-responsive d-flex justify-content-center">
         <table class="table table-striped table-borderless table-hover " style="width: 95%;">
           <thead style="background-color: #42b3e5;">
             <tr>
               <th>Prescription ID</th>
-              <th>Patient NID</th>
-
               <th>Patient</th>
               <th>Department</th>
               <th>Doctor</th>
@@ -157,7 +154,6 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
         while($data = mysqli_fetch_array($readResult)) {
             echo "<tr>";    
                 echo "<td>".$data['appointment_id']."</td>";
-                echo"<td>".$data['pID']."</td>";
                 echo"<td>".$data['patienName']."</td>";
                 echo" <td>".$data['departmentName']."</td>";
                 echo" <td>".$data['doctorName']."</td>";

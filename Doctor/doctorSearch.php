@@ -145,9 +145,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
    INNER JOIN adress ON users.national_id=adress.user_id 
    INNER JOIN doctor ON doctor.user_id=users.national_id
    INNER JOIN department on doctor.department_id=department.id WHERE type='Doctor'
-   and (users.national_id like '%$_GET[searchNid]' or users.name like '%$_GET[searchNid]')
-  --  ORDER BY users.createDate
-   "; 
+   and (users.national_id like '%$_GET[searchNid]' or users.name like '%$_GET[searchNid]') ORDER BY users.createDate desc"; 
    $readResult1 = mysqli_query($connection, $readSql);
 
    while($data = mysqli_fetch_array($readResult1)) {

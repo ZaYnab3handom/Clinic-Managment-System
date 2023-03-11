@@ -75,7 +75,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
 
   <!-- Appointment List -->
   <div class="container">
-    <div class="row form bg-light  rounded" style="width: 120%;margin-left: -10%;">
+    <div class="row form bg-light  rounded" style="width: 120%; margin-left: -10%;">
       <div class="row bg-light" style="position: fixed; width:97.5% ; left: 2%;">
         <?php if (isset($_GET['done'])) { ?>
           <span class="alert alert-success" role="alert" style="text-align: center;display:inline" >
@@ -92,49 +92,37 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
         <br>
       
       
-        <div style="display: flex; justify-content: space-around">
-        <div class="col-6 col-sm-2">
-          <button class="border-1 border border-secondary btn py-2">
-            <a href="../appointment/appointmentForm.html" class="text-decoration-none"
-              style="color: #6c757d; display: inline;">Create</a>
-          </button>
-        </div>
-         <form action="appSearch.php" method="GET" style="width: 80%" >
-    
-        <!-- <div class="col-8 col-sm-2">
-          <button class="searchbtn btn btn-outline-info py-3" style=" width:80%;">Filters</button>
-        </div> -->
-        <!-- <div class="col-8 col-sm-2">
-          <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">GroupBy</button>
-        </div> -->
-        <!-- <div class="col-6 col-sm-2">
-          <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">favourites</button>
-        </div> -->
-        
-        <div class="col-12 col-sm-6" >
-          <div id="custom-search-input">
-            <div class="input-group col-md-12" >
-              <input type="text" class="form-control input-lg"  name='searchNid'placeholder="Enter National Id" />
-              <span class="input-group-btn">
-                <input class="btn btn-info btn-lg" type="submit" value="Search" name="search" style="color: white;">
-                  
-                </button>
-              </span>
-            </div>
-            <br>
+        <div style="display: flex; justify-content: start">
+          <div class="col-2 col-sm-3">
           </div>
+          <div class="col-2 col-sm-3" style="display: inline; ">
+            <button class="border-1 border border-secondary btn py-2">
+              <a href="../appointment/appointmentForm.html" class="text-decoration-none"
+                style="color: #6c757d;">Create</a>
+            </button>
+          </div>
+         <form action="appSearch.php" method="GET" class="row" style="width: 100%">
+          <div class="col-2 col-sm-10">
+            <div id="custom-search-input">
+              <div class="input-group col-md-12">
+                <input type="text" class="form-control input-lg" name='searchNid' placeholder="Search" />
+                <span class="input-group-btn">
+                  <button class="btn btn-info btn-lg" type="submit" value="Search" name="search" style="color: white;"><i class="bi bi-search"></i></button>
+                </span>
+              </div>
+              <br>
+            </div>
+          </div>
+        </form>
         </div>
-      </form>
-    </div>
-   
 
        
-        <br><br><br><br>
+        <br><br><br>
       <br>
       <br>
       <div class="table-responsive d-flex justify-content-center">
         <br>
-        <table class="table table-striped table-borderless table-hover " style="width: 95%;">
+        <table class="table table-striped table-borderless table-hover " style="width: 100%;">
           <thead style="background-color: #42b3e5;">
             <tr>
               <th>ID</th>

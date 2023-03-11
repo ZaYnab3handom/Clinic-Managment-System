@@ -143,9 +143,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
    //Read From Patient
    $readSql = "SELECT * FROM users INNER JOIN patient ON users.national_id=patient.user_id 
    INNER JOIN adress ON users.national_id=adress.user_id WHERE users.type='patient' 
-   and (users.national_id like '%$_GET[searchNid]' or users.name like '%$_GET[searchNid]')
-   -- ORDER BY users.createDate
-   "; 
+   and (users.national_id like '%$_GET[searchNid]' or users.name like '%$_GET[searchNid]') ORDER BY users.createDate desc"; 
    $readResult1 = mysqli_query($connection, $readSql);
    $currentDate = date("d-m-Y");
 
