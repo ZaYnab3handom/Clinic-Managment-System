@@ -88,10 +88,13 @@ function CheckID() {
 function CheckEmail() {
   var num = document.getElementById("Email").value;
   var pattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-  if (num.search(pattern) == -1)
+  if (num.search(pattern) == -1){
   document.getElementById('email_error').classList.remove('hidden');
-  else
-  document.getElementById('email_error').classList.add('hidden');
+  return false;}
+  else{
+  document.getElementById('email_error').classList.add('hidden');}
+
+  return true;
 }
 
 // password repeat
