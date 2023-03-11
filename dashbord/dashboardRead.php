@@ -66,7 +66,7 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
         }
     }
     
-    $q="sELECT patienName,doctorName,DATE(datetime),id FROM `appointmentusers` WHERE booked_online=1";
+    $q="sELECT patienName,doctorName,DATE(datetime),id FROM `appointmentusers` WHERE booked_online=1 order by id desc";
     $readResaptionist= mysqli_query($connection, $q);
     function respdashbord()
     {

@@ -68,20 +68,26 @@ function CheckNum() {
   var num = document.getElementById("Mobile").value;
   var pattern = /(^[\+]?[\d]{11}$)/;
   
-  if (num.search(pattern) == -1)
+  if (num.search(pattern) == -1){
   document.getElementById('phone_error').classList.remove('hidden');
-  else
-  document.getElementById('phone_error').classList.add('hidden');
+  return false;}
+  else{
+  document.getElementById('phone_error').classList.add('hidden');}
+
+  return true;
 }
 
 // ID validation
 function CheckID() {
   var num = document.getElementById("NationalId").value;
   var pattern = /(^[\+]?[\d]{14}$)/;
-  if (num.search(pattern) == -1)
+  if (num.search(pattern) == -1){
   document.getElementById('id_error').classList.remove('hidden');
-  else
-  document.getElementById('id_error').classList.add('hidden');
+  return false;}
+  else{
+  document.getElementById('id_error').classList.add('hidden');}
+
+  return true;
 }
 
 // Email validation
@@ -90,7 +96,8 @@ function CheckEmail() {
   var pattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
   if (num.search(pattern) == -1){
   document.getElementById('email_error').classList.remove('hidden');
-  return false;}
+  return false;
+}
   else{
   document.getElementById('email_error').classList.add('hidden');}
 
