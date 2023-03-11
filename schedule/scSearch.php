@@ -1,8 +1,9 @@
 <?php 
 session_start();
 if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){ 
+  if (isset($_GET['searchNid'])){
+    ?>
 
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,46 +88,55 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
 
         <h1 class="mb-4 text-center"><br>Schedule</h1>
         <br>
-
-         <form action="scSearch.php" method="GET">
+        <form action="scSearch.php" method="GET">
         
-          <!-- <div class="col-8 col-sm-2">
-            <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">GroupBy</button>
-          </div> -->
-          <!-- <div class="col-6 col-sm-2">
-            <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">favourites</button>
-          </div> -->
-          <div class="col-12 col-sm-6">
-            <div id="custom-search-input">
-              <div class="input-group col-md-12">
-                <input type="text" class="form-control input-lg" name='searchNid'placeholder="Enter National Id" />
-                <span class="input-group-btn">
-                  <input class="btn btn-info btn-lg" type="submit" value="Search" name="search" style="color: white;">
-                    
-                  </button>
-                </span>
-              </div>
-              <br>
+
+        <!-- <div class="col-8 col-sm-2">
+          <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">GroupBy</button>
+        </div> -->
+        <!-- <div class="col-6 col-sm-2">
+          <button class="searchbtn btn btn-outline-info py-3" style="width:80%;">favourites</button>
+        </div> -->
+        <div class="col-12 col-sm-6" >
+          <div id="custom-search-input">
+            <div class="input-group col-md-12">
+              <input type="text" class="form-control input-lg" name='searchNid'placeholder="Enter National Id" />
+              <span class="input-group-btn">
+                <input class="btn btn-info btn-lg" type="submit" value="Search" name="search" style="color: white;">
+                  
+                </button>
+              </span>
             </div>
+            <br>
           </div>
-        </form>
-        <div class="col-12 col-sm- d-flex justify-content-end">
+        </div>
+      </form>
+      <div class="col-12 col-sm- d-flex justify-content-end">
           <button class="border-1 border border-secondary btn py-2">
-            <a href="schedule.html" class="text-decoration-none"
+            <a href="../Doctor/schedule.html" class="text-decoration-none"
+              style="color: #6c757d;">Create</a>
+          </button>
+        </div>
+      
+   
+
+        <!-- <div class="col-12 col-sm- d-flex justify-content-end">
+          <button class="border-1 border border-secondary btn py-2">
+            <a href="../appointment/appointmentForm.html" class="text-decoration-none"
               style="color: #6c757d;">Create</a>
           </button>
         </div>
       </div>
-      <div>
+      <div> -->
         <br><br><br><br>
       <br><br><br><br>
-      <br><br><br>
+      <br>
       <div class="table-responsive d-flex justify-content-center">
         <br>
         <table class="table table-striped table-borderless table-hover " style="width: 100%;">
           <thead style="background-color: #42b3e5;">
             <tr>
-              <th>ID</th>
+            <th>ID</th>
               <th>Doctor</th>
               <th>Department</th>
               <th>Date</th>
@@ -139,13 +149,35 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
               <th> Edit</th>
               <?php } ?>
               <!-- <th> View</th> -->
-
-            </tr>
+         </tr>
             
           </thead>
+      
           <?php 
-        include("scheduleRead.php");
-       ?>
+       include_once("../dbConnection.php");
+       if( $_SESSION['userType']=='doctor' ){
+                   $readSql = "select * from doctorschedule where docId=$_SESSION[NId] order by sId desc"; 
+       }else{   $readSql = "select * from doctorschedule where docName like '%$_GET[searchNid]'
+         or depName like '%$_GET[searchNid]'or docId like '%$_GET[searchNid]' order by sId desc
+         " ; }
+               $readResult = mysqli_query($connection, $readSql);
+               while($data = mysqli_fetch_array($readResult)) {
+                   echo "<tr>";    
+                       echo "<td>".$data['sId']."</td>";
+                       echo" <td>".$data['docName']."</td>";
+                       echo "<td>".$data['depName']."</td>";
+                       echo "<td>".$data["sDate"]."</td>";
+                       echo "<td>".$data["startHour"]."</td>";
+                       echo "<td>".$data["endHour"]."</td>";
+                       if(  $_SESSION['userType']!='doctor' ){   
+       
+                       echo "<td> <a href='scheduleDelete.php?sId=$data[sId]'>  <i class='bi bi-trash-fill'></i>  </a> </td>";
+                       echo "<td> <a href='schUpdateForm.html?sId=$data[sId]'> <i class='bi bi-pencil-square'></i>  </a> </td>";}
+                   echo "</tr>";  
+   
+   }
+    
+          ?>
           <tbody>
           </tbody>
         </table>
@@ -155,6 +187,9 @@ if(isset( $_SESSION['NId']) && $_SESSION['userType']!='patient'  ){
 </body>
 
 </html>
-<?php } else{
+<?php 
+  }
+}
+else{
   header("Location: ../login.html?acesserror=Access Denied Please Log In");
 } ?>
